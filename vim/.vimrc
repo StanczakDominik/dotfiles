@@ -1,0 +1,1 @@
+/home/dominik/.config/nvim/.vimrc
