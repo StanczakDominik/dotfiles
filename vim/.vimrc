@@ -177,4 +177,4 @@ endfunction
 nnoremap <leader>v :call TestFunction()<CR>
 set statusline^=%{coc#status()}
 filetype plugin indent on
-colorscheme solarized
+" colorscheme solarized

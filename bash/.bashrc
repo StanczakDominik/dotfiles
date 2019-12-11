@@ -94,3 +94,5 @@ myfunction() {
 
 export PROMPT_COMMAND=myfunction
 export REVIEW_BASE=master
+
+source ~/.bashrc_original
