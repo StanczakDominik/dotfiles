@@ -36,12 +36,6 @@ PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\
 
 EDITOR=nvim
 
-# conda activate
-#. /home/dominik/.miniconda3/etc/profile.d/conda.sh
-#. /mnt/hdd/miniconda3/etc/profile.d/conda.sh
-# . /progs/miniconda3/etc/profile.d/conda.sh
-. /progs/miniconda3/etc/profile.d/conda.sh
-
 source ~/.keysrc
 # export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_CURRENT_DESKTOP="KDE"
@@ -84,15 +78,6 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 set -o vi
 
 export NLTK_DATA="/home/dominik/.nltk_data"
-
-myfunction() {
-  if [ "$PWD" != "$MYOLDPWD" ]; then
-    MYOLDPWD="$PWD";
-    togglproject.py &
-  fi
-}
-
-export PROMPT_COMMAND=myfunction
 export REVIEW_BASE=master
 
 source ~/.bashrc_original
