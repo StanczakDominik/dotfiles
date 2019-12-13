@@ -36,15 +36,6 @@ PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\
 
 EDITOR=nvim
 
-<<<<<<< HEAD
-=======
-# conda activate
-#. /home/dominik/.miniconda3/etc/profile.d/conda.sh
-#. /mnt/hdd/miniconda3/etc/profile.d/conda.sh
-# . /progs/miniconda3/etc/profile.d/conda.sh
-# . /progs/miniconda3/etc/profile.d/conda.sh  # commented out by conda initialize
-
->>>>>>> master
 source ~/.keysrc
 # export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_CURRENT_DESKTOP="KDE"
