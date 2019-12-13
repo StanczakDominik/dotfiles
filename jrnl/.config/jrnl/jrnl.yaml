@@ -1,0 +1,27 @@
+default_hour: 9
+default_minute: 0
+editor: nvim -c ProseMode -c startinsert
+encrypt: true
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    encrypt: true
+    journal: /home/dominik/Sync/journal.txt
+  sc2:
+    encrypt: false
+    journal: /home/dominik/Sync/starcraftjournal.txt
+  work:
+    encrypt: false
+    journal: /home/dominik/Sync/workjournal.txt
+  ifpilm:
+    encrypt: false
+    journal: /home/dominik/Sync/ifpilmjournal.txt
+  procrastination:
+    encrypt: true
+    journal: /home/dominik/Sync/procrastijournal.txt
+linewrap: 79
+tagsymbols: '@'
+template: false
+timeformat: '%Y-%m-%d %H:%M'
+version: 2.1.post2
