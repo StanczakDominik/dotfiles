@@ -1,0 +1,39 @@
+[user]
+	email = stanczakdominik@gmail.com
+	name = Dominik Stańczak
+	signingkey = 9C760E9505AB7902C690AAA68865CBD713B79546
+[alias]
+	slog = log --oneline --topo-order --graph
+	adog = log --all --decorate --oneline --graph
+	dog = log --decorate --oneline --graph
+	majonez = status
+	stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+	files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+	review = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+	reviewone = !vim -p +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+[push]
+	default = simple
+[core]
+	excludesfile = /home/dominik/.gitignore_global
+	editor = vim
+[url "git@github.com:"]                                                         
+    insteadOf = "gh:"                                                           
+[url "git@gitlab.com:"]                                                         
+    insteadOf = "gl:"    
+[merge]
+	conflictstyle = diff3
+        tool = vimdiff
+[rerere]
+	enabled = true
+[mergetool]
+	prompt = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+	prompt = false
+[diff]
+  tool = vimdiff
+[commit]
+	gpgsign = true
+[github]
+	user = StanczakDominik
