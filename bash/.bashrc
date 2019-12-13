@@ -40,7 +40,7 @@ EDITOR=nvim
 #. /home/dominik/.miniconda3/etc/profile.d/conda.sh
 #. /mnt/hdd/miniconda3/etc/profile.d/conda.sh
 # . /progs/miniconda3/etc/profile.d/conda.sh
-. /progs/miniconda3/etc/profile.d/conda.sh
+# . /progs/miniconda3/etc/profile.d/conda.sh  # commented out by conda initialize
 
 source ~/.keysrc
 # export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -94,3 +94,19 @@ myfunction() {
 
 export PROMPT_COMMAND=myfunction
 export REVIEW_BASE=master
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/progs/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/progs/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/progs/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/progs/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

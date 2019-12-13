@@ -25,18 +25,15 @@ alias jupylab-pass="/progs/miniconda3/bin/jupyter notebook list"
 alias sympy="/progs/miniconda3/bin/ipython --profile sympy"
 #alias ipython="/progs/miniconda3/bin/ipython"
 
-alias openbox_dualscreen="xrandr --auto --output HDMI-0 --mode 1920x1080 --right-of eDP-1-1"
-
-alias plasmapy="cd ~/Code/github/PlasmaPy/PlasmaPy; anaconda; conda activate plasmapy"
+# alias openbox_dualscreen="xrandr --auto --output HDMI-0 --mode 1920x1080 --right-of eDP-1-1"
+alias plasmapy="cd ~/Code/github/PlasmaPy/PlasmaPy; conda activate plasmapy"
 alias pythonpic="cd ~/Code/PythonPIC; conda activate pythonpic"
-alias shima="cd ~/Code/Shima; conda activate"
 alias nbody="cd ~/Code/NBody-MD/; conda activate nbody37"
-alias take5='toggl start break && sleep 300 && notify-send "Man, the man is NON STOP!" && paplay /usr/share/sounds/Oxygen-Sys-App-Message.ogg &'
 
 alias checklist='voila /home/dominik/Code/HabitIncrementer/checklist.ipynb'
 alias newsreader='voila /home/dominik/Code/PaperSubscription/newsreader.ipynb --port=8897'
-#alias cadair="echo 'I have a bit of config in my `.git/config` which makes it pull a branch for every open PR so I can just do `git checkout pr/2200` make my changes and then do `git push gh:username/sunpy HEAD:branchname`'
-# alias wttr='curl wttr.in'
+alias wttr='curl wttr.in'
 alias sendmusic='beet mv -d /mnt/hdd/Music_beets/\!CurrentTopMusic'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias jrnl='habit :wrench: Journal/microblog; /home/dominik/.local/bin/jrnl'
+alias prep_dedalus="export LD_LIBRARY_PATH=/progs/miniconda3/envs/dedalus/lib"
