@@ -36,12 +36,6 @@ PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\
 
 EDITOR=nvim
 
-# conda activate
-#. /home/dominik/.miniconda3/etc/profile.d/conda.sh
-#. /mnt/hdd/miniconda3/etc/profile.d/conda.sh
-# . /progs/miniconda3/etc/profile.d/conda.sh
-# . /progs/miniconda3/etc/profile.d/conda.sh  # commented out by conda initialize
-
 source ~/.keysrc
 # export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_CURRENT_DESKTOP="KDE"
@@ -84,29 +78,21 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 set -o vi
 
 export NLTK_DATA="/home/dominik/.nltk_data"
-
-myfunction() {
-  if [ "$PWD" != "$MYOLDPWD" ]; then
-    MYOLDPWD="$PWD";
-    togglproject.py &
-  fi
-}
-
-export PROMPT_COMMAND=myfunction
 export REVIEW_BASE=master
+
+source ~/.bashrc_local
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/progs/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('$MINICONDA_DIR/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/progs/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/progs/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$MINICONDA_DIR/etc/profile.d/conda.sh" ]; then
+        . "$MINICONDA_DIR/etc/profile.d/conda.sh"
     else
-        export PATH="/progs/miniconda3/bin:$PATH"
+        export PATH="$MINICONDA_DIR/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
