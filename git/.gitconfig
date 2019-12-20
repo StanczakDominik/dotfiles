@@ -1,5 +1,5 @@
 [user]
-	email = stanczakdominik@gmail.com
+	email = dominik.stanczak@ifpilm.pl
 	name = Dominik Stańczak
 [alias]
 	slog = log --oneline --topo-order --graph
