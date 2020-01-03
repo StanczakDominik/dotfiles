@@ -79,7 +79,7 @@ print(f"Time today: {td_as_h(time_today_hours)} / {td_as_h(time_required_today)}
 if time_today_hours > time_required_today:
     print("Go home!")
 else:
-    print(f"{td_as_h(-time_today_hours + time_required_today)} h remaining.")
+    print(f"{td_as_h(-time_today_hours + time_required_today)} remaining.")
 print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_month)}")
 
 
