@@ -49,3 +49,5 @@ pip-wheel-metadata
 *.lprof
 .tox
 .togglproject
+
+*.egg-info

@@ -18,6 +18,7 @@ Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'sirver/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'lervag/wiki.vim'
+Plugin 'psf/black'
 
 "Functionality
 Plugin 'junegunn/fzf'      
