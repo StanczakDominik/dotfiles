@@ -27,7 +27,9 @@ current_task_time = (
 
 url = "https://toggl.com/reports/api/v2/summary"
 r = requests.get(url, auth=auth, params=params)
-time_today_hours = (r.json()["total_grand"] / 1000 + current_task_time) / 3600
+time_today_hours = datetime.timedelta(
+    seconds=(r.json()["total_grand"] / 1000 + current_task_time)
+)
 
 date_this_month = datetime.date.today().replace(day=1)
 params = {
@@ -37,9 +39,15 @@ params = {
     "since": date_this_month,
 }
 r2 = requests.get(url, auth=auth, params=params)
-time_this_month = (r2.json()["total_grand"] / 1000 + current_task_time) / 3600
-time_required_today = 4 if datetime.date.today().weekday() == 4 else 8
-time_per_month = {  # accurate as per 2020
+time_this_month = datetime.timedelta(
+    seconds=(r2.json()["total_grand"] / 1000 + current_task_time)
+)
+time_required_today = (
+    datetime.timedelta(hours=4)
+    if datetime.date.today().weekday() == 4
+    else datetime.timedelta(hours=8)
+)
+time_per_month = {  # accurate as of 2020
     1: 168,
     2: 160,
     3: 176,
@@ -53,16 +61,29 @@ time_per_month = {  # accurate as per 2020
     11: 160,
     12: 168,
 }
-time_required_month = time_per_month[datetime.date.today().month] / 2
+time_required_month = datetime.timedelta(
+    hours=time_per_month[datetime.date.today().month] / 2
+)
 
-print(f"Time today: {time_today_hours:.2f} h / {time_required_today:.0f} h")
+
+def td_as_h(td):
+    s = td.total_seconds()
+    hours = s // 3600
+    s = s - (hours * 3600)
+    minutes = s // 60
+    seconds = s - (minutes * 60)
+    return f"{int(hours):02d}:{int(minutes):02d}"
+
+
+print(f"Time today: {td_as_h(time_today_hours)} / {td_as_h(time_required_today)}")
 if time_today_hours > time_required_today:
     print("Go home!")
 else:
-    print(f"{-time_today_hours + time_required_today :.2f} h remaining.")
-print(f"Time this month: {time_this_month:.2f} h / {time_required_month:.0f} h")
+    print(f"{td_as_h(-time_today_hours + time_required_today)} h remaining.")
+print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_month)}")
+
 
 if time_this_month > time_required_month:
     print("Go home for the rest of the month, actually!")
 else:
-    print(f"{-time_this_month + time_required_month :.2f} h remaining this month.")
+    print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month.")
