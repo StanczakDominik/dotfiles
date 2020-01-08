@@ -8,8 +8,7 @@ ln -isb $(pwd)/vim/.config/nvim/init.vim ~/.config/nvim/init.vim
 diff scripts/workhours.py ~/Code/scripts/workhours.py
 ln -isb $(pwd)/scripts/workhours.py ~/Code/scripts/workhours.py
 
-diff git/.gitconig ~/.gitconfig
-ln -isb $(pwd)/git/.gitconig ~/.gitconfig
+echo "Link git/.gitconfig manually!"
 diff git/.gitignore_global ~/.gitignore_global
 ln -isb $(pwd)/git/.gitignore_global ~/.gitignore_global
 
