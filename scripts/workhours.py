@@ -21,14 +21,20 @@ params = {
 current_task = requests.get(
     "https://www.toggl.com/api/v8/time_entries/current", auth=auth
 ).json()["data"]
-current_task_time = (
-    current_task["duration"] + time.time() if "IFPILM" in current_task["tags"] else 0
-)
+if "tags" in current_task and "IFPILM" in current_task["tags"]:
+    current_task_time = current_task["duration"] + time.time()
+else:
+    current_task_time = 0
 
 url = "https://toggl.com/reports/api/v2/summary"
 r = requests.get(url, auth=auth, params=params)
+seconds = r.json()["total_grand"]
+if seconds is not None:
+    seconds /= 1000
+else:
+    seconds = 0
 time_today_hours = datetime.timedelta(
-    seconds=(r.json()["total_grand"] / 1000 + current_task_time)
+    seconds=(seconds+ current_task_time)
 )
 
 date_this_month = datetime.date.today().replace(day=1)
@@ -39,8 +45,13 @@ params = {
     "since": date_this_month,
 }
 r2 = requests.get(url, auth=auth, params=params)
+seconds = r2.json()["total_grand"]
+if seconds is not None:
+    seconds /= 1000
+else:
+    seconds = 0
 time_this_month = datetime.timedelta(
-    seconds=(r2.json()["total_grand"] / 1000 + current_task_time)
+    seconds=(seconds + current_task_time)
 )
 time_required_today = (
     datetime.timedelta(hours=4)
