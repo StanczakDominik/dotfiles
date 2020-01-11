@@ -1,6 +1,7 @@
 [user]
-	email = dominik.stanczak@ifpilm.pl
+	email = stanczakdominik@gmail.com
 	name = Dominik Stańczak
+	signingkey = 9C760E9505AB7902C690AAA68865CBD713B79546
 [alias]
 	slog = log --oneline --topo-order --graph
 	adog = log --all --decorate --oneline --graph
@@ -33,6 +34,6 @@
 [diff]
   tool = vimdiff
 [commit]
-	gpgsign = false
+	gpgsign = true
 [github]
 	user = StanczakDominik
