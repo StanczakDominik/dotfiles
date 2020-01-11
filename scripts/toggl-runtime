@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+import click
+import os
+import requests
+import pytz
+from datetime import datetime, date, time, timedelta
+from astropy import units
+
+def get_data(weekly = False):
+    tz = pytz.timezone('Europe/Warsaw')
+    the_date = date.today()
+    if weekly:
+        the_date -= timedelta(days=7)
+    midnight_without_tzinfo = datetime.combine(the_date, time())
+    today_string = midnight_without_tzinfo.strftime("%Y-%m-%d")
+
+    toggl_details_endpoint = "https://toggl.com/reports/api/v2/summary"
+    toggl_apikey = os.environ["TOGGL_APIKEY"]
+    toggl_workspace = os.environ["TOGGL_WORKSPACE"]
+    toggl_email = os.environ["TOGGL_EMAIL"]
+
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+    params = dict(workspace_id=toggl_workspace,
+                  user_agent=toggl_email,
+                  since=today_string,
+                  client_ids="19684457,19898810,34116697,34288834", # TODO make this configurable
+                  grouping="clients",
+                  subgrouping="projects",
+                  )
+    r = requests.get(toggl_details_endpoint, params=params, headers=headers, auth=(toggl_apikey, "api_token"))
+    data = r.json()
+    return data
+
+@click.command()
+@click.option('--verbose', '-v', is_flag=True)
+@click.option('--weekly', '-w', is_flag=True)
+def run(verbose, weekly):
+    data = get_data(weekly)
+    total_grand = data['total_grand']
+    if total_grand is None:
+        total_grand = 0
+    total_grand *= units.ms
+    total_grand = total_grand.to(units.hour)
+    multiplier = 7 if weekly else 1
+    goal = 3.5 * units.hour * multiplier
+    print(f"Done: {total_grand:.1f} / {goal:.1f}")
+
+    if verbose:
+        for client in data['data']:
+            client['time'] *= units.ms
+            client['time'] = client['time'].to(units.hour)
+            print(f"    {client['title']['client']}: {client['time']:.1f}")
+            for project in client['items']:
+                project['time'] *= units.ms
+                project['time'] = project['time'].to(units.hour)
+                print(f"        {project['title']['project']}: {project['time']:.1f}")
+
+if __name__ == "__main__":
+    run()
