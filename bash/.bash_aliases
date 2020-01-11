@@ -35,5 +35,5 @@ alias newsreader='voila /home/dominik/Code/PaperSubscription/newsreader.ipynb --
 alias wttr='curl wttr.in'
 alias sendmusic='beet mv -d /mnt/hdd/Music_beets/\!CurrentTopMusic'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
-alias jrnl='check habit :wrench: Journal/microblog; /home/dominik/.local/bin/jrnl'
+alias jrnl='check habit :wrench: Journal/microblog; jrnl'
 alias prep_dedalus="export LD_LIBRARY_PATH=/progs/miniconda3/envs/dedalus/lib"
