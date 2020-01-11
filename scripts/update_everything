@@ -1,0 +1,14 @@
+#!/bin/sh
+
+aurman -Syu --noconfirm
+
+envs=(base)
+
+for environment in ${envs[@]}; do
+    conda update --all -n $environment -y
+done
+exit 0
+
+
+
+
