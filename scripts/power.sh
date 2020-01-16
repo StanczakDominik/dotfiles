@@ -19,6 +19,7 @@ echo $STATE
 
 if [[ $STATE == "BAT" ]]; then
   echo "Discharging, set governor to powersave"
+  powertop --auto-tune
   cpupower frequency-set -g powersave -u $MAXFREQ
   echo "Disable Syncthing"
   systemctl --user stop syncthing
