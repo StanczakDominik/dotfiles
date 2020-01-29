@@ -31,7 +31,6 @@ export BROWSER=firefox
 
 
 source /usr/share/git/completion/git-prompt.sh
-#PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}@${LRED}\h${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\]"
 PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\]"
 
 EDITOR=nvim
@@ -53,12 +52,7 @@ function yt()
     streamlink $1 best &> /dev/null &
 }
 
-# HISTIGNORE="$HISTIGNORE:jrnl *"
-# eval "`nikola tabcompletion`"
-# export PYTHONBREAKPOINT=ipdb.set_trace
-# export PYTHONBREAKPOINT="import pudb; pu.db"
 export PYTHONBREAKPOINT="pudb.set_trace"
-
 
 source ~/.bash_completion
 source ~/.bash_aliases
@@ -96,3 +90,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+# https://wiki.archlinux.org/index.php/Bash#Mimic_Zsh_run-help_ability
+run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE"; }
+bind -m vi-insert -x '"\eh": run-help'
+bind -m emacs -x     '"\eh": run-help'
+

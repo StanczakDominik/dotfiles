@@ -32,8 +32,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-sleuth'           
 Plugin 'sheerun/vim-polyglot'       
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax' 
+" Plugin 'vim-pandoc/vim-pandoc'
+" Plugin 'vim-pandoc/vim-pandoc-syntax' 
 
 
 ""Interface
@@ -73,7 +73,6 @@ Plugin 'tpope/vim-dispatch'
 " let g:languagetool_cmd='/usr/bin/languagetool'
 " Plugin 'goerz/jupytext.vim'
 " let g:jupytext_enable = 1
-
 
 Plugin 'neoclide/coc.nvim'
 
@@ -150,17 +149,17 @@ let g:markdown_folding = 1
 
 Plugin 'vimwiki/vimwiki'
 call vundle#end()
-let g:vimwiki_list = [
-  \ {'path': '$HOME/vimwiki',
-  \ 'syntax': 'markdown',
-  \ 'ext': '.md',
-  \ },
-  \ {'path': '$HOME/vimwiki_private',
-  \ 'template_path': '$HOME/vimwiki_private/templates',
-  \ 'path_html': '$HOME/vimwiki_private/public/',
-  \ 'template_default': 'default',
-  \ 'auto_tags': 1,
-  \ 'template_ext': '.html'}]
+" let g:vimwiki_list = [
+"   \ {'path': '$HOME/vimwiki',
+"   \ 'syntax': 'markdown',
+"   \ 'ext': '.md',
+"   \ },
+"   \ {'path': '$HOME/vimwiki_private',
+"   \ 'template_path': '$HOME/vimwiki_private/templates',
+"   \ 'path_html': '$HOME/vimwiki_private/public/',
+"   \ 'template_default': 'default',
+"   \ 'auto_tags': 1,
+"   \ 'template_ext': '.html'}]
 
 autocmd FileType make setlocal noexpandtab
 nnoremap <leader>m :Make<CR>
@@ -178,4 +177,10 @@ endfunction
 nnoremap <leader>v :call TestFunction()<CR>
 set statusline^=%{coc#status()}
 filetype plugin indent on
-" colorscheme solarized
+colorscheme solarized
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
