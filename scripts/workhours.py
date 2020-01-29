@@ -98,3 +98,24 @@ if time_this_month > time_required_month:
     print("Go home for the rest of the month, actually!")
 else:
     print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month.")
+
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, date, timedelta
+from calendar import weekday, monthrange, TUESDAY, WEDNESDAY, FRIDAY
+
+def num_days_between( start, end, week_day):
+    num_weeks, remainder = divmod( (end-start).days, 7)
+    if ( week_day - start.weekday() ) % 7 <= remainder:
+       return num_weeks + 1
+    else:
+       return num_weeks
+
+rozpiska = {TUESDAY: 8, WEDNESDAY: 8, FRIDAY: 4}
+today = date.today()
+first_day = today.replace(day=1) + relativedelta(months=1)
+hours_remaining_available = sum([num_days_between(date.today(), first_day, day) * hours for day, hours in rozpiska.items()])
+
+overtime = -time_this_month + time_required_month - timedelta(hours=hours_remaining_available)
+if overtime > timedelta(seconds=0):
+    print(f"Must fit in {td_as_h(overtime)} overtime sometime.")
+
