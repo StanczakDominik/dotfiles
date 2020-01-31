@@ -39,7 +39,7 @@ EDITOR=nvim
 
 source ~/.keysrc
 source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:$PATH
+export PATH=/home/dominik/Code/scripts:/home/dominik/.local/bin/:$PATH
 
 setopt COMPLETE_ALIASES
 
@@ -78,4 +78,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+#
+# Enable and load bashcompinit
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+# Argcomplete explicit registration for pubs
+eval "$(register-python-argcomplete pubs)"
