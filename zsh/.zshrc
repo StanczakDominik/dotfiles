@@ -39,7 +39,7 @@ EDITOR=nvim
 
 source ~/.keysrc
 source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:$PATH
+export PATH=/home/dominik/Code/scripts:$PATH:/home/dominik/.local/bin
 
 setopt COMPLETE_ALIASES
 
