@@ -39,7 +39,7 @@ EDITOR=nvim
 
 source ~/.keysrc
 source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:/home/dominik/.local/bin/:$PATH
+export PATH=/home/dominik/Code/scripts:$PATH:/home/dominik/.local/bin
 
 setopt COMPLETE_ALIASES
 
@@ -63,6 +63,13 @@ source ~/.bash_aliases
 export JULIA_NUM_THREADS=4
 
 eval $(thefuck --alias)
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
