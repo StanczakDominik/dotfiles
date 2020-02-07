@@ -169,7 +169,7 @@ c.InteractiveShellApp.exec_lines = ["import numpy as np", "import matplotlib.pyp
 #c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#c.InteractiveShell.banner1 = "Python 3.7.6 (default, Jan  8 2020, 19:59:22) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.11.1 -- An enhanced Interactive Python. Type '?' for help.\n"
+#c.InteractiveShell.banner1 = "Python 3.7.3 (default, Mar 26 2019, 21:43:19) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.5.0 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #c.InteractiveShell.banner2 = ''
@@ -296,7 +296,7 @@ c.InteractiveShellApp.exec_lines = ["import numpy as np", "import matplotlib.pyp
 c.TerminalInteractiveShell.editing_mode = 'vi'
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-#c.TerminalInteractiveShell.editor = 'vi'
+c.TerminalInteractiveShell.editor = 'nvim'
 
 ## Allows to enable/disable the prompt toolkit history search
 #c.TerminalInteractiveShell.enable_history_search = True
