@@ -1,27 +1,29 @@
 #!/bin/bash
+# TODO should be a doit python script tbh
 
-diff vim/.vimrc ~/.vimrc
-ln -isb $(pwd)/vim/.vimrc ~/.vimrc
-diff vim/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -isb $(pwd)/vim/.config/nvim/init.vim ~/.config/nvim/init.vim
+setup_config () {
+    echo "Diff between $1 and $2:"
+    diff $1 $2
+    ln -isb $(pwd)/$1 $2
+}
 
-diff scripts/workhours.py ~/Code/scripts/workhours.py
-ln -isb $(pwd)/scripts/workhours.py ~/Code/scripts/workhours.py
+setup_config vim/.vimrc ~/.vimrc
+setup_config vim/.config/nvim/init.vim ~/.config/nvim/init.vim
+
+setup_config scripts/workhours.py ~/Code/scripts/workhours.py
 
 echo "Link git/.gitconfig manually!"
-diff git/.gitignore_global ~/.gitignore_global
-ln -isb $(pwd)/git/.gitignore_global ~/.gitignore_global
+setup_config git/.gitignore_global ~/.gitignore_global
 
-diff conda/.condarc ~/.condarc
-ln -isb $(pwd)/conda/.condarc ~/.condarc
+setup_config conda/.condarc ~/.condarc
 
-diff bash/.bash_aliases ~/.bash_aliases
-ln -isb $(pwd)/bash/.bash_aliases ~/.bash_aliases
-diff bash/.bash_completion ~/.bash_completion
-ln -isb $(pwd)/bash/.bash_completion ~/.bash_completion
-diff bash/.bash_profile ~/.bash_profile
-ln -isb $(pwd)/bash/.bash_profile ~/.bash_profile
-diff bash/.bashrc ~/.bashrc
-ln -isb $(pwd)/bash/.bashrc ~/.bashrc
+setup_config bash/.bash_aliases ~/.bash_aliases
+setup_config bash/.bash_completion ~/.bash_completion
+setup_config bash/.bash_profile ~/.bash_profile
+setup_config bash/.bashrc ~/.bashrc
 
 echo "Link bash/.bashrc_local manually!"
+
+setup_config ipython/profile_default/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+setup_config ipython/profile_default/ipython_kernel_config.py ~/.ipython/profile_default/ipython_kernel_config.py
+echo "Link ~/.ipython/profile_default/startup manually!"
