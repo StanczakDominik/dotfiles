@@ -39,6 +39,7 @@ def task_create_symlinks():
         ("bash/.bash_completion", home / ".bash_completion"),
         ("bash/.bash_profile", home / ".bash_profile"),
         ("bash/.bashrc", home / ".bashrc"),
+        ("wtfutil/config.yml", home / ".config/wtf/config.yml"),
         # ("echo "Link bash/.bashrc_local manually!"
         (
             "ipython/profile_default/ipython_config.py",
