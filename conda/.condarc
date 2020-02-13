@@ -1,4 +1,5 @@
 channels:
+  - numba
   - defaults
   - conda-forge
 auto_activate_base: false
