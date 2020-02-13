@@ -30,17 +30,6 @@ wtf:
         height: 1
         width: 2
       refreshInterval: 1
-    # uptime:
-    #   args: [""]
-    #   cmd: "uptime"
-    #   enabled: true
-    #   position:
-    #     top: 3
-    #     left: 4
-    #     height: 1
-    #     width: 2
-    #   refreshInterval: 30
-    #   type: cmdrunner
     git:
       commitCount: 5
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
@@ -100,6 +89,17 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 0
+    workhours:
+      args: [""]
+      cmd: "workhours.py"
+      enabled: true
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 30
+      type: cmdrunner
     prettyweather:
       enabled: true
       city: "warsaw"
