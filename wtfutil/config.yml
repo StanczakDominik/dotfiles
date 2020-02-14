@@ -47,6 +47,7 @@ wtf:
       - "/home/dominik/Magisterium/"
       - "/home/dominik/Code/PlasmaPy/"
       - "/home/dominik/stanczakdominik.github.io/"
+      - "/home/dominik/.pubs"
     # github:
     #   apiKey: ""
     #   baseURL: ""
