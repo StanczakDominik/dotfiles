@@ -40,6 +40,7 @@ def task_create_symlinks():
         ("bash/.bash_profile", home / ".bash_profile"),
         ("bash/.bashrc", home / ".bashrc"),
         ("wtfutil/config.yml", home / ".config/wtf/config.yml"),
+        ("jrnl/.config/jrnl/jrnl.yaml", home / ".config/jrnl/jrnl.yaml"),
         # ("echo "Link bash/.bashrc_local manually!"
         (
             "ipython/profile_default/ipython_config.py",
