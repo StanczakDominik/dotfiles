@@ -47,6 +47,7 @@ wtf:
       - "/home/dominik/Magisterium/"
       - "/home/dominik/Code/PlasmaPy/"
       - "/home/dominik/stanczakdominik.github.io/"
+      - "/home/dominik/.pubs"
     # github:
     #   apiKey: ""
     #   baseURL: ""
@@ -87,7 +88,7 @@ wtf:
         top: 3
         left: 2
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 0
     workhours:
       args: [""]
@@ -106,7 +107,7 @@ wtf:
       position:
         top: 2
         left: 3
-        height: 2
+        height: 1
         width: 1
       refreshInterval: 300
       unit: "m"
