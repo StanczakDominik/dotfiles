@@ -32,8 +32,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-sleuth'           
 Plugin 'sheerun/vim-polyglot'       
-" Plugin 'vim-pandoc/vim-pandoc'
-" Plugin 'vim-pandoc/vim-pandoc-syntax' 
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax' 
 
 
 ""Interface
