@@ -39,7 +39,7 @@ def task_create_symlinks():
         ("bash/.bash_completion", home / ".bash_completion"),
         ("bash/.bash_profile", home / ".bash_profile"),
         ("bash/.bashrc", home / ".bashrc"),
-        ("wtfutil/config.yml", home / ".config/wtf/config.yml"),
+        ("wtfutil/config.yml", home / ".config/wtf/config.yml"), # TODO split
         ("jrnl/.config/jrnl/jrnl.yaml", home / ".config/jrnl/jrnl.yaml"),
         # ("echo "Link bash/.bashrc_local manually!"
         (
