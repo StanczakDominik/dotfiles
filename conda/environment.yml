@@ -46,9 +46,18 @@ dependencies:
   - arviz
   - ipython
   - line_profiler
+  - mpmath
+  - sphinx
+  - towncrier
+  - sphinx-gallery
+  - sphinx-automodapi
+  - sphinx_rtd_theme
+  - numpydoc
+  - flake8
   - pip:
     - pytest-pudb
     - todoist-python
     - togglCli
     - pubs
+    - flake8-docstrings
 
