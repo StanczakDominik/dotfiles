@@ -4,12 +4,12 @@ channels:
   - conda-forge
 dependencies:
   - python=3.8
+  - colorama
   - black
   - pyvista
   - numpy
   - scipy
   - numba
-  - plasmapy
   - pytest
   - tqdm
   - astropy
