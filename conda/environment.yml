@@ -1,0 +1,51 @@
+name: base
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.8
+  - black
+  - pyvista
+  - numpy
+  - scipy
+  - numba
+  - plasmapy
+  - pytest
+  - tqdm
+  - astropy
+  - xarray
+  - dask
+  - hypothesis
+  - bokeh
+  - matplotlib
+  - pymc3
+  - seaborn
+  - jupyterlab
+  - fenics
+  - pandas
+  - ipywidgets
+  - click
+  - doit
+  - h5py
+  - lmfit
+  - pillow
+  - pudb
+  - pynvim
+  - pytest-cov
+  - requests
+  - scikit-image
+  - shapely
+  - sympy
+  - tox
+  - tox-conda
+  - ipympl
+  - nodejs
+  - widgetsnbextension
+  - itkwidgets
+  - pip
+  - pip:
+    - pytest-pudb
+    - todoist-python
+    - togglCli
+    - pubs
+
