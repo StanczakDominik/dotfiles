@@ -43,6 +43,9 @@ dependencies:
   - widgetsnbextension
   - itkwidgets
   - pip
+  - arviz
+  - ipython
+  - line_profiler
   - pip:
     - pytest-pudb
     - todoist-python

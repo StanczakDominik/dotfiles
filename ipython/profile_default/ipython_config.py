@@ -29,7 +29,7 @@
 #c.InteractiveShellApp.exec_files = []
 
 ## lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ["import numpy as np", "import matplotlib.pyplot as plt", "import astropy.units as u"]
+#c.InteractiveShellApp.exec_lines = []
 
 ## A list of dotted module names of IPython extensions to load.
 #c.InteractiveShellApp.extensions = []
