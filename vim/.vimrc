@@ -186,6 +186,9 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
 
+" https://vi.stackexchange.com/a/470
+nnoremap <F5> :checktime<CR>
+
 " coc.vim
 "
 "" TextEdit might fail if hidden is not set.
