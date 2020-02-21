@@ -30,7 +30,8 @@ def create_symlink2(dependencies, targets):
 
 def task_create_symlinks():
     for source, target in [
-        ("vim/.vimrc", home / ".vimrc"),
+        ("vim/.vimrc", home / ".config/nvim/.vimrc"),
+        (home / ".config/nvim/.vimrc", home / ".vimrc",),
         ("vim/.config/nvim/init.vim", home / ".config/nvim/init.vim"),
         # ("echo "Link git/.gitconfig manually!"
         ("git/.gitignore_global", home / ".gitignore_global"),
