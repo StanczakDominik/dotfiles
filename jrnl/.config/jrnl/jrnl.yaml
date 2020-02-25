@@ -8,18 +8,6 @@ journals:
   default:
     encrypt: true
     journal: /home/dominik/Sync/journal.txt
-  ifpilm:
-    encrypt: false
-    journal: /home/dominik/Sync/ifpilmjournal.txt
-  procrastination:
-    encrypt: true
-    journal: /home/dominik/Sync/procrastijournal.txt
-  sc2:
-    encrypt: false
-    journal: /home/dominik/Sync/starcraftjournal.txt
-  work:
-    encrypt: false
-    journal: /home/dominik/Sync/workjournal.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
