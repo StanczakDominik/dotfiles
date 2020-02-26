@@ -89,9 +89,12 @@ active = alias,git
 # aliases can also be defined with descriptions using the following configobj
 # subsectioning.  NOTE: any aliases defined this way should come after all other
 # aliases, otherwise simple aliases will be ignored.
-# [[[count]]]
-# command = !pubs list -k | wc -l
-# description = lists number of pubs in repo
+[[[read]]]
+command = !pubs doc open $1; pubs note $1
+description = Open doc and edit notes
+[[[todo]]]
+command = !pubs list tag:TODO $@
+description = List TODO items
 
 [[git]]
 # The git plugin will commit changes to the repository in a git repository
