@@ -4,7 +4,7 @@ Description=Push git repos on system shutdown
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStop=/home/dominik/dotfiles/scripts/git-push-on-shutdown.py /home/dominik/.pubsrc /home/dominik/Magisterium /home/dominik/IFPILM /home/dominik/dotfiles /home/dominik/Code/PlasmaPy
+ExecStop=/home/dominik/dotfiles/scripts/git-push-on-shutdown.py /home/dominik/.pubs /home/dominik/Magisterium /home/dominik/IFPILM /home/dominik/dotfiles /home/dominik/Code/PlasmaPy
 
 [Install]
 WantedBy=multi-user.target
