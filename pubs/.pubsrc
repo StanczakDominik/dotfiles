@@ -92,6 +92,9 @@ active = alias,git
 [[[read]]]
 command = !pubs doc open $1; pubs note $1
 description = Open doc and edit notes
+[[[todo]]]
+command = !pubs list tag:TODO $@
+description = List TODO items
 
 [[git]]
 # The git plugin will commit changes to the repository in a git repository
