@@ -33,7 +33,6 @@ zstyle ':completion:*' rehash true
 
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-EDITOR=nvim
 
 
 
@@ -92,3 +91,5 @@ compinit
 bashcompinit
 # Argcomplete explicit registration for pubs
 eval "$(register-python-argcomplete pubs)"
+export SUDO_EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/nvim
