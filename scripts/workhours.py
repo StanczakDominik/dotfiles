@@ -101,7 +101,7 @@ else:
 
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, date, timedelta
-from calendar import weekday, monthrange, TUESDAY, WEDNESDAY, FRIDAY
+from calendar import weekday, monthrange, MONDAY, WEDNESDAY, THURSDAY
 
 def num_days_between( start, end, week_day):
     num_weeks, remainder = divmod( (end-start).days, 7)
@@ -110,7 +110,7 @@ def num_days_between( start, end, week_day):
     else:
        return num_weeks
 
-rozpiska = {TUESDAY: 8, WEDNESDAY: 8, FRIDAY: 4}
+rozpiska = {MONDAY: 8, WEDNESDAY: 8, THURSDAY: 4}
 today = date.today()
 first_day = today.replace(day=1) + relativedelta(months=1)
 hours_remaining_available = sum([num_days_between(date.today(), first_day, day) * hours for day, hours in rozpiska.items()])
