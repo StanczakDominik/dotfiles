@@ -17,7 +17,6 @@ Plugin 'w0rp/ale'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'sirver/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'lervag/wiki.vim'
 Plugin 'psf/black'
 
 "Functionality
@@ -140,26 +139,10 @@ function! g:Goyo_after()
 endfunction
 
 let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
-nmap <Leader>tx <Plug>VimwikiToggleRejectedListItem
-nmap <Leader>vwr <Plug>Vimwiki2HTMLBrowse
-nmap <Leader>vwb <Plug>Vimwiki2HTML
-
 " markdown folding https://vi.stackexchange.com/questions/9543/how-to-fold-markdown-using-the-built-in-markdown-mode 
 let g:markdown_folding = 1
 
-Plugin 'vimwiki/vimwiki'
 call vundle#end()
-" let g:vimwiki_list = [
-"   \ {'path': '$HOME/vimwiki',
-"   \ 'syntax': 'markdown',
-"   \ 'ext': '.md',
-"   \ },
-"   \ {'path': '$HOME/vimwiki_private',
-"   \ 'template_path': '$HOME/vimwiki_private/templates',
-"   \ 'path_html': '$HOME/vimwiki_private/public/',
-"   \ 'template_default': 'default',
-"   \ 'auto_tags': 1,
-"   \ 'template_ext': '.html'}]
 
 autocmd FileType make setlocal noexpandtab
 nnoremap <leader>m :Make<CR>
@@ -168,13 +151,6 @@ nnoremap <leader>m :Make<CR>
 set spelllang=pl,en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-function! g:TestFunction()
-    let l:bar = substitute(@%, ".md", ".html", "")
-    echo 
-    silent execute printf("!google-chrome-stable public/%s", l:bar)
-endfunction
-
-nnoremap <leader>v :call TestFunction()<CR>
 set statusline^=%{coc#status()}
 filetype plugin indent on
 colorscheme solarized
