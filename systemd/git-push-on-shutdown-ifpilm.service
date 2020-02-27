@@ -1,9 +1,10 @@
 [Unit]
 Description=Push git repos on system shutdown
+RequiresMountsFor=/home
 
 [Service]
 Type=oneshot
-RemainAfterExit=true
+RemainAfterExit=yes
 ExecStop=/home/dominik/dotfiles/scripts/git-push-on-shutdown.py /home/dominik/.pubs /home/dominik/Magisterium /home/dominik/IFPILM /home/dominik/dotfiles /home/dominik/Code/PlasmaPy
 
 [Install]
