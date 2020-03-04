@@ -8,6 +8,9 @@ journals:
   default:
     encrypt: true
     journal: /home/dominik/Sync/journal.txt
+  work:
+    encrypt: false
+    journal: /home/dominik/Sync/work.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
