@@ -92,6 +92,9 @@ active = alias,git
 [[[read]]]
 command = !pubs doc open $1; pubs note $1
 description = Open doc and edit notes
+[[[sync]]]
+command = !pubs doc export $(pubs list tag:TODO -k | xargs) ~/Sync/ReadNow/
+description = Sync ReadNow list
 [[[todo]]]
 command = !pubs list tag:TODO $@
 description = List TODO items
