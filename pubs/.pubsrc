@@ -95,6 +95,9 @@ description = Open doc and edit notes
 [[[todo]]]
 command = !pubs list tag:TODO $@
 description = List TODO items
+[[[todo-work]]]
+command = !pubs list tag:IFPILM $@
+description = List TODO work items
 [[[todo-notes]]]
 command = !rg  "\- \[ \]" ~/.pubs/notes
 description = List TODO items in notes
