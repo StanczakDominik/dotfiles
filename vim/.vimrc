@@ -1,30 +1,70 @@
 set rtp+=~/.vim/bundle/vundle/
 syntax on
 call vundle#rc()
+"
+" plugin manager
+Bundle 'gmarik/vundle'                         
 
-Bundle 'gmarik/vundle'
-Plugin 'junegunn/goyo.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/nerdtree'
-Plugin 'metalelf0/supertab'
-Plugin 'prakashdanish/vimport'
-Plugin 'reedes/vim-pencil'
+" distraction-free mode
+Plugin 'junegunn/goyo.vim'                     
+
+" shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
+Plugin 'airblade/vim-gitgutter'                
+
+" comment stuff out; gcc command
+Plugin 'tpope/vim-commentary'                  
+"
+":NERDTree command
+Plugin 'preservim/nerdtree'
+"
+"use Tab for all completions
+" Plugin 'metalelf0/supertab'
+"
+" TODO something with imports?
+" Plugin 'prakashdanish/vimport'
+"
+" TODO tool for writers?
+" Plugin 'reedes/vim-pencil'
+"
+" Automatic folding of python code
 Plugin 'kalekundert/vim-coiled-snake'
+
+" limit automatic fold updates
 Plugin 'Konfekt/FastFold'
+
+" TODO Git stuff
 Bundle 'tpope/vim-fugitive'       
-Plugin 'w0rp/ale'
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-rhubarb'        
+
+" TODO Linter, completion
+" Plugin 'w0rp/ale'
+
+" PyCharm style multiple cursors via <C-n>
+" Plugin 'terryma/vim-multiple-cursors'
+
+" TODO snippets
 " Plugin 'sirver/ultisnips'
+
+" <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
 Plugin 'christoomey/vim-tmux-navigator'
+
+" :Black
 Plugin 'psf/black'
 
 "Functionality
 Plugin 'junegunn/fzf'      
 Plugin 'junegunn/fzf.vim'
+Plugin 'jesseleite/vim-agriculture'
+
 Plugin 'mhinz/vim-grepper'
 Plugin 'janko/vim-test'
 Plugin 'heavenshell/vim-pydocstring'
+
+" VIM Jedi
+Plugin 'davidhalter/jedi-vim'
+
+" :Pytest
+Plugin 'alfredodeza/pytest.vim'
 
 ""Languages
 Plugin 'plasticboy/vim-markdown'
@@ -42,40 +82,27 @@ Plugin 'vim-airline/vim-airline'
 ""Themes
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'fenetikm/falcon'
-"Plugin 'tpope/vim-rhubarb'        
+
+"
 Plugin 'tpope/vim-surround'
+
+" Transparent editing of gnupg-encrypted files
 Plugin 'jamessan/vim-gnupg'
 Plugin 'JuliaEditorSupport/julia-vim'
 autocmd BufRead,BufNewFile *.jl set filetype=julia
-" Plugin 'ActivityWatch/aw-watcher-vim'
 
-"Plugin 'majutsushi/tagbar'
-"Plugin 'tmhedberg/SimpylFold'
-""Plugin 'Valloric/YouCompleteMe'
-""vim-ultisnips?
-""vim-taglist?
-""vim-supertab?
-""vim-seti?
-""vim-rails?
-""vim-project
-""vim-nerdcommenter
-""vim-jedi
 Plugin 'lervag/vimtex'
-"Plugin 'tpope/vim-commentary'       
-"Plugin 'tpope/vim-unimpaired'       
-"Plugin 'w0rp/ale'           
-"Plugin 'mileszs/ack.vim'    
 Plugin 'tpope/vim-dispatch'
-"Plugin 'morhetz/gruvbox'
-" Plugin 'szymonmaszke/vimpyter'
-" Plugin 'Eluminae/vim-LanguageTool'
 " let g:languagetool_cmd='/usr/bin/languagetool'
+"
+" Plugin 'szymonmaszke/vimpyter'
 " Plugin 'goerz/jupytext.vim'
 " let g:jupytext_enable = 1
+"
+let g:pydocstring_doq_path='/home/dominik/miniconda3/bin/doq'
 
 Plugin 'neoclide/coc.nvim'
 
-"let g:syntastic_always_populate_loc_list = 1
 "map <Leader>j :Make<CR>
 "let g:tex_flavor = "latex"
 set backspace=indent,eol,start
@@ -164,6 +191,18 @@ nmap <silent> t<C-g> :TestVisit<CR>
 
 " https://vi.stackexchange.com/a/470
 nnoremap <F5> :checktime<CR>
+
+" Start NERDTree
+autocmd VimEnter * NERDTree
+" Go to previous (last accessed) window.
+autocmd VimEnter * wincmd p
+
+let g:pytest_test_dir = 'tests'
+" Pytest
+nmap <silent><Leader>y <Esc>:Pytest file<CR>
+nmap <silent><Leader>t <Esc>:Pytest project<CR>
+" let g:pytest_open_errors = 'current'
+
 
 " coc.vim
 "
