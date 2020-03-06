@@ -55,6 +55,7 @@ dependencies:
   - numpydoc
   - flake8
   - pre_commit
+  - nbdime
   - pip:
     - pytest-pudb
     - todoist-python
