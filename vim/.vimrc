@@ -13,6 +13,9 @@ Plugin 'airblade/vim-gitgutter'
 
 " comment stuff out; gcc command
 Plugin 'tpope/vim-commentary'                  
+
+" vim-unimpaired - ]l jumps, etc
+Plugin 'tpope/vim-unimpaired'                  
 "
 ":NERDTree command
 Plugin 'preservim/nerdtree'
@@ -36,14 +39,15 @@ Plugin 'Konfekt/FastFold'
 Bundle 'tpope/vim-fugitive'       
 Plugin 'tpope/vim-rhubarb'        
 
-" TODO Linter, completion
-" Plugin 'w0rp/ale'
+" Linter
+Plugin 'w0rp/ale'
+
+" Docstring generation
+Plugin 'kkoomen/vim-doge'
+let g:doge_doc_standard_python = 'numpy'
 
 " PyCharm style multiple cursors via <C-n>
 " Plugin 'terryma/vim-multiple-cursors'
-
-" TODO snippets
-" Plugin 'sirver/ultisnips'
 
 " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
 Plugin 'christoomey/vim-tmux-navigator'
