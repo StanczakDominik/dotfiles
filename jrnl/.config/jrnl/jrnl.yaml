@@ -1,3 +1,8 @@
+colors:
+  body: none
+  date: none
+  tags: none
+  title: none
 default_hour: 9
 default_minute: 0
 editor: nvim -c ProseMode -c startinsert
@@ -11,8 +16,11 @@ journals:
   work:
     encrypt: false
     journal: /home/dominik/Sync/work.txt
+  work:
+    encrypt: true
+    journal: /home/dominik/Sync/gratitude.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
-version: v2.0.1
+version: v2.2-beta
