@@ -21,7 +21,7 @@ params = {
 current_task = requests.get(
     "https://www.toggl.com/api/v8/time_entries/current", auth=auth
 ).json()["data"]
-if "tags" in current_task and "IFPILM" in current_task["tags"]:
+if current_task is not None and "tags" in current_task and "IFPILM" in current_task["tags"]:
     current_task_time = current_task["duration"] + time.time()
 else:
     current_task_time = 0
@@ -94,14 +94,15 @@ else:
 print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_month)}")
 
 
-if time_this_month > time_required_month:
-    print("Go home for the rest of the month, actually!")
-else:
-    print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month.")
-
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, date, timedelta
 from calendar import weekday, monthrange, FRIDAY, WEDNESDAY, THURSDAY
+
+if time_this_month > time_required_month:
+    print("Go home for the rest of the month, actually!")
+else:
+    print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month - "
+          f"{(-time_this_month + time_required_month)/timedelta(minutes=25):.0f} pomodoros.")
 
 def num_days_between( start, end, week_day):
     num_weeks, remainder = divmod( (end-start).days, 7)
