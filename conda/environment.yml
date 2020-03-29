@@ -1,61 +1,67 @@
-name: base
+name: py38
 channels:
-  - anaconda
+  - defaults
   - conda-forge
 dependencies:
-  - python=3.8
-  - colorama
-  - black
-  - pyvista
-  - numpy
-  - scipy
-  - numba
-  - pytest
-  - tqdm
+  - arviz
   - astropy
-  - xarray
-  - dask
-  - hypothesis
+  - black
   - bokeh
-  - matplotlib
-  - pymc3
-  - seaborn
-  - jupyterlab
-  - fenics
-  - pandas
-  - ipywidgets
   - click
+  - colorama
+  - cupy
+  - dask
+  - distributed
   - doit
+  - fuzzywuzzy
+  - flake8
   - h5py
+  - hypothesis
+  - ipykernel
+  - ipympl
+  - ipython
+  - ipywidgets
+  - jupyterlab
+  - line_profiler
   - lmfit
+  - markdown
+  - matplotlib
+  - mpmath
+  - nbdime
+  - nodejs
+  - numba
+  - numpy
+  - numpydoc
+  - pandas
   - pillow
+  - pip
+  - pre_commit
+  - pyaudio
   - pudb
+  - pymc3
   - pynvim
+  - pytest
   - pytest-cov
+  - python=3.8
+  - pyvista
   - requests
   - scikit-image
+  - scikit-learn
+  - scipy
+  - seaborn
   - shapely
+  - sphinx
+  - sphinx-automodapi
+  - sphinx-gallery
+  - sphinx_rtd_theme
   - sympy
+  - theano
+  - towncrier
   - tox
   - tox-conda
-  - ipympl
-  - nodejs
+  - tqdm
   - widgetsnbextension
-  - itkwidgets
-  - pip
-  - arviz
-  - ipython
-  - line_profiler
-  - mpmath
-  - sphinx
-  - towncrier
-  - sphinx-gallery
-  - sphinx-automodapi
-  - sphinx_rtd_theme
-  - numpydoc
-  - flake8
-  - pre_commit
-  - nbdime
+  - xarray
   - pip:
     - pytest-pudb
     - todoist-python
