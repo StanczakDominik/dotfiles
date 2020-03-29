@@ -1,0 +1,12 @@
+[Unit]
+Description=jrnl-beeminder restarter
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl --user restart jrnl-beeminder.service
+StartLimitIntervalSec=20
+StartLimitBurst=2
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+[Path]
+Unit=jrnl-beeminder-watcher.service
+PathChanged=/home/dominik/Sync/jrnl
+
+[Install]
+WantedBy=multi-user.target
