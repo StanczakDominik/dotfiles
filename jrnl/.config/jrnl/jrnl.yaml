@@ -12,13 +12,13 @@ indent_character: '|'
 journals:
   default:
     encrypt: true
-    journal: /home/dominik/Sync/journal.txt
+    journal: /home/dominik/Sync/jrnl/journal.txt
   work:
     encrypt: false
-    journal: /home/dominik/Sync/work.txt
-  work:
+    journal: /home/dominik/Sync/jrnl/work.txt
+  gratitude:
     encrypt: true
-    journal: /home/dominik/Sync/gratitude.txt
+    journal: /home/dominik/Sync/jrnl/gratitude.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
