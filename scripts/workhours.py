@@ -85,24 +85,29 @@ def td_as_h(td):
     seconds = s - (minutes * 60)
     return f"{int(hours):02d}:{int(minutes):02d}"
 
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, date, timedelta
+from calendar import weekday, monthrange, FRIDAY, WEDNESDAY, THURSDAY
 
 print(f"Time today: {td_as_h(time_today_hours)} / {td_as_h(time_required_today)}")
 if time_today_hours > time_required_today:
     print("Go home!")
 else:
-    print(f"{td_as_h(-time_today_hours + time_required_today)} remaining.")
+    n25 = (-time_today_hours + time_required_today)/timedelta(minutes=25)
+    n52 = (-time_today_hours + time_required_today)/timedelta(minutes=52)
+    print(f"{td_as_h(-time_today_hours + time_required_today)} remaining today - "
+          f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
 print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_month)}")
 
 
-from dateutil.relativedelta import relativedelta
-from datetime import datetime, date, timedelta
-from calendar import weekday, monthrange, FRIDAY, WEDNESDAY, THURSDAY
 
 if time_this_month > time_required_month:
     print("Go home for the rest of the month, actually!")
 else:
+    n25 = (-time_this_month + time_required_month)/timedelta(minutes=25)
+    n52 = (-time_this_month + time_required_month)/timedelta(minutes=52)
     print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month - "
-          f"{(-time_this_month + time_required_month)/timedelta(minutes=25):.0f} pomodoros.")
+          f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
 
 def num_days_between( start, end, week_day):
     num_weeks, remainder = divmod( (end-start).days, 7)
