@@ -93,8 +93,8 @@ print(f"Time today: {td_as_h(time_today_hours)} / {td_as_h(time_required_today)}
 if time_today_hours > time_required_today:
     print("Go home!")
 else:
-    n25 = (-time_today_hours + time_required_today)/timedelta(minutes=25)
-    n52 = (-time_today_hours + time_required_today)/timedelta(minutes=52)
+    n25 = (-time_today_hours + time_required_today)/timedelta(minutes=30)
+    n52 = (-time_today_hours + time_required_today)/timedelta(minutes=69)
     print(f"{td_as_h(-time_today_hours + time_required_today)} remaining today - "
           f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
 print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_month)}")
@@ -104,8 +104,8 @@ print(f"Time this month: {td_as_h(time_this_month)} / {td_as_h(time_required_mon
 if time_this_month > time_required_month:
     print("Go home for the rest of the month, actually!")
 else:
-    n25 = (-time_this_month + time_required_month)/timedelta(minutes=25)
-    n52 = (-time_this_month + time_required_month)/timedelta(minutes=52)
+    n25 = (-time_this_month + time_required_month)/timedelta(minutes=30)
+    n52 = (-time_this_month + time_required_month)/timedelta(minutes=69)
     print(f"{td_as_h(-time_this_month + time_required_month)} remaining this month - "
           f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
 

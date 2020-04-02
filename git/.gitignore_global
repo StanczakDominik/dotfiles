@@ -54,3 +54,4 @@ pip-wheel-metadata
 
 .pre-commit-config.yaml
 .vim/coc-settings.json
+.eggs
