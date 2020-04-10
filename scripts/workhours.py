@@ -69,11 +69,13 @@ def express_remainder(time_this_period, time_required, period_name):
 #     print(f"Time {period_name}: {td_as_h(time_this_period)} / {td_as_h(time_required)}")
     if time_this_period > time_required:
         print(f"Enough for {period_name}!")
+        return 0
     else:
         n25 = (-time_this_period + time_required)/timedelta(minutes=30)
         n52 = (-time_this_period + time_required)/timedelta(minutes=69)
         print(f"{td_as_h(-time_this_period + time_required)} remaining {period_name} - "
               f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
+        return n52
 
 def missed_hours(since):
     total_time_worked_roughly = (today - since).days // 7 * 20
@@ -84,6 +86,10 @@ def missed_hours(since):
 
     hours_missed_till_monday = (time_should_have_worked - time_worked)
     return hours_missed_till_monday
+
+def spread(n52, end_period):
+    remaining = (end_period - today)
+    print(f"That's {n52 // remaining.days:.0f} 52-pomodoros every day of the next {remaining.days} days.")
 
 current_task_time = grab_current_time()
 time_today_hours = grab_seconds(since = date.today(), current_task_time = current_task_time)
@@ -119,9 +125,11 @@ monday = today - timedelta(days=today.weekday())
 
 time_this_week = grab_seconds(since = monday, current_task_time = current_task_time)
 required_weekly_time = timedelta(hours = 20)
+next_monday = today - timedelta(days=today.weekday(), weeks = -1)
+
 
 express_remainder(time_today_hours, time_required_today, "today")
-express_remainder(time_this_week, required_weekly_time, "this week")
+spread(express_remainder(time_this_week, required_weekly_time, "this week"), next_monday)
 express_remainder(time_this_month, time_required_month, "this month")
 # start_work_date = date.fromisoformat("2019-12-01")
 # def num_days_between( start, end, week_day):
@@ -141,4 +149,4 @@ express_remainder(time_this_month, time_required_month, "this month")
 #     print(f"Must fit in {td_as_h(overtime)} overtime sometime.")
 
 start_work_date = date.fromisoformat("2020-03-01")
-express_remainder(timedelta(seconds=0), missed_hours(start_work_date), "overdue")
+spread(express_remainder(timedelta(seconds=0), missed_hours(start_work_date), "overdue"), next_monday)
