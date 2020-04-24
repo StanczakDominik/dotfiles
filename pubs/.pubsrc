@@ -95,6 +95,9 @@ description = Open doc and edit notes
 [[[continue]]]
 command = !pubs read $(pubs list -k tag:InProgress | shuf -n 1)
 description = Pick a random in progress article and read it
+[[[finish]]]
+command = !pubs tag $1 :InProgress
+description = Remove InProgress tag from an article  (TODO integrate with beeminder)
 [[[sync]]]
 command = !pubs doc export $(pubs list tag:TODO -k | xargs) ~/Sync/ReadNow/
 description = Sync ReadNow list
