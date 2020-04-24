@@ -5,6 +5,7 @@
 [alias]
 	slog = log --oneline --topo-order --graph
 	adog = log --all --decorate --oneline --graph
+	adog-local = adog --not "--remotes=*"
 	dog = log --decorate --oneline --graph
 	majonez = status
 	stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
