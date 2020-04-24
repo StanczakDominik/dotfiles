@@ -9,43 +9,17 @@ wtf:
     rows: [10, 10, 10, 7]
   refreshInterval: 1
   mods:
-    # put gcal here
-    gcal:
-      colors:
-        title: "red"
-        eventTime: "lightblue"
-        highlights:
-          - ['Paulina', 'magenta']
-          - ['Plan Pauliny na PW', 'magenta']
-        past: "gray"
-      calendarReadLevel: "reader"
-      conflictIcon: "🚨"
-      currentIcon: "💥"
-      displayResponseStatus: true
-      email: "stanczakdominik@gmail.com"
+    workfill:
+      args: [""]
+      cmd: "workfill.py"
       enabled: true
-      eventCount: 15
-      hourFormat: "24"
-      multiCalendar: false
       position:
         top: 0
         left: 0
         height: 4
         width: 2
-      refreshInterval: 300
-      secretFile: "~/.config/wtf/credentials.json"
-      showDeclined: true
-      timezone: "Europe/Warsaw"
-      withLocation: true
-    resourceusage:
-      cpuCombined: false
-      enabled: true
-      position:
-        top: 3
-        left: 4
-        height: 1
-        width: 2
-      refreshInterval: 1
+      refreshInterval: 900
+      type: cmdrunner
     git:
       commitCount: 5
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
