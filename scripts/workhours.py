@@ -3,6 +3,9 @@ import requests
 import os
 import datetime
 import time
+from dateutil import relativedelta
+import workfill
+from math import ceil
 
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
@@ -61,18 +64,18 @@ def td_as_h(td):
     seconds = s - (minutes * 60)
     return f"{int(hours):02d}:{int(minutes):02d}"
 
-from dateutil.relativedelta import relativedelta
+from dateutil import relativedelta
 from datetime import datetime, date, timedelta
 from calendar import weekday, monthrange, FRIDAY, WEDNESDAY, THURSDAY
 
 def express_remainder(time_this_period, time_required, period_name):
-#     print(f"Time {period_name}: {td_as_h(time_this_period)} / {td_as_h(time_required)}")
+    print(f"Time {period_name}: {td_as_h(time_this_period)} / {td_as_h(time_required)}", end = "\t")
     if time_this_period > time_required:
         print(f"Enough for {period_name}!")
         return 0
     else:
-        n25 = (-time_this_period + time_required)/timedelta(minutes=30)
-        n52 = (-time_this_period + time_required)/timedelta(minutes=69)
+        n25 = ceil((-time_this_period + time_required)/timedelta(minutes=30))
+        n52 = ceil((-time_this_period + time_required)/timedelta(minutes=69))
         print(f"{td_as_h(-time_this_period + time_required)} remaining {period_name} - "
               f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
         return n52
@@ -88,17 +91,17 @@ def missed_hours(since):
     return hours_missed_till_monday
 
 def spread(n52, end_period):
-    remaining = (end_period - today)
-    print(f"That's {n52 // remaining.days:.0f} 52-pomodoros every day of the next {remaining.days} days.")
+    remaining = end_period - today
+    print(f"That's {round(n52 / remaining.days):.0f} 52-pomodoros every day over the next {remaining.days} days.")
 
 current_task_time = grab_current_time()
 time_today_hours = grab_seconds(since = date.today(), current_task_time = current_task_time)
 time_this_month = grab_seconds(since = date.today().replace(day=1), current_task_time = current_task_time)
 
 time_required_today = (
-    timedelta(hours=4)
-    if date.today().weekday() == 4
-    else timedelta(hours=8)
+    timedelta(minutes = 4 * (52 + 17))
+    # if date.today().weekday() <= 4
+    # else timedelta(hours=0)
 )
 
 time_per_month = {2020:{
@@ -128,9 +131,10 @@ required_weekly_time = timedelta(hours = 20)
 next_monday = today - timedelta(days=today.weekday(), weeks = -1)
 
 
+end_of_month = today - timedelta(days=today.day) + relativedelta.relativedelta(months=1)
 express_remainder(time_today_hours, time_required_today, "today")
 spread(express_remainder(time_this_week, required_weekly_time, "this week"), next_monday)
-express_remainder(time_this_month, time_required_month, "this month")
+spread(express_remainder(time_this_month, time_required_month, "this month"), end_of_month)
 # start_work_date = date.fromisoformat("2019-12-01")
 # def num_days_between( start, end, week_day):
 #     num_weeks, remainder = divmod( (end-start).days, 7)
