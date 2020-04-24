@@ -93,3 +93,10 @@ bashcompinit
 eval "$(register-python-argcomplete pubs)"
 export SUDO_EDITOR=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
+#compdef toggl
+_toggl() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
+  compdef _toggl toggl
+fi
