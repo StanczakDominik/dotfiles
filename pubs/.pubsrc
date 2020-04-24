@@ -99,7 +99,7 @@ description = Sync ReadNow list
 command = !pubs list tag:TODO $@
 description = List TODO items
 [[[todo-work]]]
-command = !pubs list tag:IFPILM $@
+command = !pubs list tag:TodoAtWork $@
 description = List TODO work items
 [[[todo-notes]]]
 command = !rg  "\- \[ \]" ~/.pubs/notes
