@@ -16,6 +16,9 @@ journals:
   work:
     encrypt: false
     journal: /home/dominik/Sync/jrnl/work.txt
+  writing:
+    encrypt: false
+    journal: /home/dominik/Sync/jrnl/writing.txt
   gratitude:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/gratitude.txt
