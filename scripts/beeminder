@@ -17,7 +17,7 @@ def show_timings():
     for goal in sorted(r, key = lambda x: x['losedate']):
         url = f"https://www.beeminder.com/api/v1/users/{username}/goals/{goal}.json"
         ts = datetime.utcfromtimestamp(goal['losedate']).strftime('%Y-%m-%d %H:%M:%S')
-        print(f"{goal['slug'].upper():15}{goal['limsum']:30} derails at {ts:30}{goal['title']}")
+        print(f"{goal['slug'].upper():18}{goal['limsum']:27} derails at {ts:25}{goal['title']}")
 
 if __name__ == '__main__':
     show_timings()
