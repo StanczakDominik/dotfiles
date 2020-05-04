@@ -200,11 +200,6 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " https://vi.stackexchange.com/a/470
 nnoremap <F5> :checktime<CR>
 
-" Start NERDTree
-autocmd VimEnter * NERDTree
-" Go to previous (last accessed) window.
-autocmd VimEnter * wincmd p
-
 let g:pytest_test_dir = 'tests'
 " Pytest
 nmap <silent><Leader>y <Esc>:Pytest file<CR>
