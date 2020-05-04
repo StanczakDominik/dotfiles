@@ -99,7 +99,7 @@ time_today_hours = grab_seconds(since = date.today(), current_task_time = curren
 time_this_month = grab_seconds(since = date.today().replace(day=1), current_task_time = current_task_time)
 
 time_required_today = (
-    timedelta(minutes = 4 * (52 + 17))
+    timedelta(hours=4)
     # if date.today().weekday() <= 4
     # else timedelta(hours=0)
 )
