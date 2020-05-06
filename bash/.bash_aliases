@@ -6,7 +6,12 @@ alias vi=nvim
 alias todo='todoist --color --indent list --filter "today"'
 
 alias phone="scrcpy -b2M -m800"
-alias phone-connect="adb tcpip 5555; adb connect $(ip neigh | grep 9c:e0:63:53:19:90 | cut -f 1 -d ' ' | head -n 1):5555"
+function phone-connect () {
+    adb tcpip 5555
+    adb connect $(ip neigh | grep 9c:e0:63:53:19:90 | cut -f 1 -d ' ' | head -n 1):5555
+}
+
+
 alias jupylab="/progs/miniconda3/bin/jupyter-lab"
 alias jupylab-pass="/progs/miniconda3/bin/jupyter notebook list"
 alias sympy="/progs/miniconda3/bin/ipython --profile sympy"
