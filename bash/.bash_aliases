@@ -26,3 +26,28 @@ alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias jrnl-review='jrnl -from "one month ago"'
 alias blogging='cd ~/Writing/blog; vim in_progress/*'
+function masters-pages () {
+    pdfinfo ~/Writing/Magisterium/build/pracaMagisterska.pdf | grep Pages | awk '{print $2}'
+}
+
+
+function lightmode () {
+    lookandfeeltool -a 'org.kde.breeze.desktop'
+    kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
+    kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
+    DISCORD_CONFIG="/home/dominik/.config/discord"
+    jq '.BACKGROUND_COLOR = "#ffffff"' $DISCORD_CONFIG/settings.json > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG/settings.json
+    # TODO:
+    # unify these two functions
+    # firefox theme
+    # treestyletabs theme
+    # discord does not quite work...
+}
+
+function darkmode () {
+    lookandfeeltool -a 'org.kde.breezedark.desktop'
+    kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
+    kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
+    DISCORD_CONFIG="/home/dominik/.config/discord"
+    jq '.BACKGROUND_COLOR = "#202225"' $DISCORD_CONFIG/settings.json > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG/settings.json
+}
