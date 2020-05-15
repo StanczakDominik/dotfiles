@@ -96,7 +96,7 @@ description = Open docs, set tags to in progress, and edit notes - TODO start to
 command = !pubs read $(pubs list -k tag:InProgress | shuf -n 1)
 description = Pick a random in progress article and read it
 [[[finish]]]
-command = !pubs tag $1 :InProgress; beeminder update papers-read 1 -d $1
+command = !pubs tag $1 :InProgress; pubs tag $1 +Done; beeminder update papers-read 1 -d $1
 description = Remove InProgress tag from an article  (TODO integrate with beeminder)
 [[[sync]]]
 command = !pubs doc export $(pubs list tag:TODO -k | xargs) ~/Sync/ReadNow/
