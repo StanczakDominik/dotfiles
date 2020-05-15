@@ -35,8 +35,10 @@ function lightmode () {
     lookandfeeltool -a 'org.kde.breeze.desktop'
     kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
     kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
-    DISCORD_CONFIG="/home/dominik/.config/discord"
-    jq '.BACKGROUND_COLOR = "#ffffff"' $DISCORD_CONFIG/settings.json > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG/settings.json
+    DISCORD_CONFIG="/home/dominik/.config/discord/settings.json"
+    jq '.BACKGROUND_COLOR = "#ffffff"' $DISCORD_CONFIG > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG
+    CAPRINE_CONFIG="/home/dominik/.config/Caprine/config.json"
+    jq '.darkmode = false' $CAPRINE_CONFIG > tmp.config.json && mv tmp.config.json $CAPRINE_CONFIG
     # TODO:
     # unify these two functions
     # firefox theme
@@ -48,6 +50,14 @@ function darkmode () {
     lookandfeeltool -a 'org.kde.breezedark.desktop'
     kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
     kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
-    DISCORD_CONFIG="/home/dominik/.config/discord"
-    jq '.BACKGROUND_COLOR = "#202225"' $DISCORD_CONFIG/settings.json > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG/settings.json
+    DISCORD_CONFIG="/home/dominik/.config/discord/settings.json"
+    jq '.BACKGROUND_COLOR = "#202225"' $DISCORD_CONFIG > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG
+    CAPRINE_CONFIG="/home/dominik/.config/Caprine/config.json"
+    jq '.darkmode = true' $CAPRINE_CONFIG > tmp.config.json && mv tmp.config.json $CAPRINE_CONFIG
+}
+alias beemind-watch='watch -n600 beeminder -ndt -ndl'
+
+function powerwrite () {
+    atom -w $1
+    beeminder update powermode-writing 1 "$(wc -w $1)"
 }
