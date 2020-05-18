@@ -13,9 +13,14 @@ Plugin 'airblade/vim-gitgutter'
 
 " comment stuff out; gcc command
 Plugin 'tpope/vim-commentary'                  
+Plugin 'preservim/nerdcommenter'
 
 " vim-unimpaired - ]l jumps, etc
 Plugin 'tpope/vim-unimpaired'                  
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+
+Plugin 'tpope/vim-repeat'
 "
 ":NERDTree command
 Plugin 'preservim/nerdtree'
@@ -70,6 +75,9 @@ Plugin 'davidhalter/jedi-vim'
 " :Pytest
 Plugin 'alfredodeza/pytest.vim'
 
+"` Relative line number
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
 ""Languages
 Plugin 'plasticboy/vim-markdown'
 Plugin 'othree/html5.vim'
@@ -86,8 +94,6 @@ Plugin 'altercation/vim-colors-solarized'
 "Plugin 'fenetikm/falcon'
 
 "
-Plugin 'tpope/vim-surround'
-
 " Transparent editing of gnupg-encrypted files
 Plugin 'jamessan/vim-gnupg'
 Plugin 'JuliaEditorSupport/julia-vim'
@@ -101,6 +107,8 @@ Plugin 'tpope/vim-dispatch'
 " Plugin 'goerz/jupytext.vim'
 " let g:jupytext_enable = 1
 "
+Plugin 'ryanoasis/vim-devicons'
+
 let g:pydocstring_doq_path='/home/dominik/miniconda3/bin/doq'
 
 "map <Leader>j :Make<CR>
