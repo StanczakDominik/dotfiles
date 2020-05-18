@@ -58,6 +58,5 @@ function darkmode () {
 alias beemind-watch='watch -n600 beeminder -ndt -ndl'
 
 function powerwrite () {
-    atom -w $1
-    beeminder update powermode-writing 1 "$(wc -w $1)"
+    atom -w $1 && beeminder update powermode-writing 1 "$(wc -w $1)"
 }
