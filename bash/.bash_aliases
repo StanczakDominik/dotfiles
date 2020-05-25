@@ -60,3 +60,6 @@ alias beemind-watch='watch -n600 beeminder -ndt -ndl'
 function powerwrite () {
     atom -w $1 && beeminder update powermode-writing 1 "$(wc -w $1)"
 }
+function worklog () {
+    jrnl work $@ && beeminder update worklog 1 "$(date)"
+}
