@@ -1,7 +1,7 @@
 set rtp+=~/.vim/bundle/vundle/
 syntax on
 call vundle#rc()
-"
+" Plugins {{{
 " plugin manager
 Bundle 'gmarik/vundle'                         
 
@@ -32,7 +32,33 @@ Plugin 'preservim/nerdtree'
 " Plugin 'prakashdanish/vimport'
 "
 " TODO tool for writers?
-" Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-pencil'
+" Plugin 'kana/vim-textobject-user'
+" Plugin 'reedes/vim-textobj-quote'
+" Plugin 'reedes/vim-textobj-sentence'
+
+" augroup textobj_sentence
+"   autocmd!
+"   autocmd FileType markdown call textobj#sentence#init()
+"   autocmd FileType textile call textobj#sentence#init()
+" augroup END
+
+
+
+" augroup textobj_quote
+"   autocmd!
+"   autocmd FileType markdown call textobj#quote#init()
+"   autocmd FileType textile call textobj#quote#init()
+"   autocmd FileType text call textobj#quote#init({'educate': 0})
+" augroup END
+
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 "
 " Automatic folding of python code
 Plugin 'kalekundert/vim-coiled-snake'
@@ -93,6 +119,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'fenetikm/falcon'
 
+Plugin 'junegunn/limelight.vim'
+
 "
 " Transparent editing of gnupg-encrypted files
 Plugin 'jamessan/vim-gnupg'
@@ -101,7 +129,10 @@ autocmd BufRead,BufNewFile *.jl set filetype=julia
 
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-dispatch'
-" let g:languagetool_cmd='/usr/bin/languagetool'
+
+Plugin 'dpelle/vim-LanguageTool'
+let g:languagetool_cmd='/usr/bin/languagetool'
+let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,DASH_RULE,CURRENCY'
 "
 " Plugin 'szymonmaszke/vimpyter'
 " Plugin 'goerz/jupytext.vim'
@@ -110,6 +141,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'ryanoasis/vim-devicons'
 
 let g:pydocstring_doq_path='/home/dominik/miniconda3/bin/doq'
+
+" }}}
 
 "map <Leader>j :Make<CR>
 "let g:tex_flavor = "latex"
@@ -132,7 +165,49 @@ set tabstop=4 shiftwidth=4 expandtab
 set spelllang=en_us
 "set tags=~/.mytags
 
-"Prose Mode from https://statico.github.io/vim3.html
+" Limelight {{{
+
+
+
+" Color name (:help gui-colors) or RGB color
+
+let g:limelight_conceal_guifg = 'DarkGray'
+
+let g:limelight_conceal_guifg = '#777777'
+
+" Color name (:help cterm-colors) or ANSI code
+
+let g:limelight_conceal_ctermfg = 'gray'
+
+let g:limelight_conceal_ctermfg = 240
+
+
+" }}}
+"
+" Goyo {{{
+function! g:Goyo_before()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+  Limelight
+endfunction
+
+function! g:Goyo_after()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+  Limelight!
+endfunction
+
+let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
+" }}}
+"Prose Mode from https://statico.github.io/vim3.html {{{
 function! ProseMode()
   call goyo#execute(0, [])
   set spell noci nosi noai nolist noshowmode noshowcmd wrap
@@ -148,6 +223,7 @@ endfunction
 "
 command! ProseMode call ProseMode()
 nmap \p :ProseMode<CR>
+" }}}
 
 let g:ale_linters = {
 \   'python': ['flake8'],
@@ -161,27 +237,6 @@ let g:ale_python_flake8_use_global = 1
 command! SpellPL setlocal spell spelllang=pl
 command! SpellEN setlocal spell spelllang=en
 
-nnoremap <C-p> :<C-u>FZF<CR>
-
-function! g:Goyo_before()
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! g:Goyo_after()
-  " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
-endfunction
-
-let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
 " markdown folding https://vi.stackexchange.com/questions/9543/how-to-fold-markdown-using-the-built-in-markdown-mode 
 let g:markdown_folding = 1
 
@@ -214,7 +269,42 @@ nmap <silent><Leader>y <Esc>:Pytest file<CR>
 nmap <silent><Leader>t <Esc>:Pytest project<CR>
 " let g:pytest_open_errors = 'current'
 
+" Disable arrows {{{
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+" }}}
+
+" floating fzf as in https://www.reddit.com/r/neovim/comments/djmehv/im_probably_really_late_to_the_party_but_fzf_in_a/ {{{
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
+nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
+" }}}
+" folding as per https://dougblack.io/words/a-good-vimrc.html#organization
+" vim:foldmethod=marker:foldlevel=0
