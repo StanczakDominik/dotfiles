@@ -1,0 +1,11 @@
+[Unit]
+Description=Run beeminder-todoist 6min after every boot, then every 180 min
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+OnBootSec=6min
+OnUnitActiveSec=180min
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Beemind Todoist, Pubs, Youtube backlogs
+After=network.target
+
+[Service]
+ExecStart=/home/dominik/Code/dotfiles/beeminder/beeminder-todoist-backlog.py
+
+[Install]
+WantedBy=multi-user.target
