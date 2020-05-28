@@ -24,7 +24,10 @@ alias newsreader='voila /home/dominik/Code/PaperSubscription/newsreader.ipynb --
 alias wttr='curl wttr.in'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
-alias jrnl-review='jrnl -from "one month ago"'
+function jrnl-review () {
+    conda activate
+    jrnl -from "one month ago" $@ | less
+}
 alias blogging='cd ~/Writing/blog; vim in_progress/*'
 function masters-pages () {
     pdfinfo ~/Writing/Magisterium/build/pracaMagisterska.pdf | grep Pages | awk '{print $2}'
@@ -61,5 +64,6 @@ function powerwrite () {
     atom -w $1 && beeminder update powermode-writing 1 "$(wc -w $1)"
 }
 function worklog () {
+    conda activate
     jrnl work $@ && beeminder update worklog 1 "$(date)"
 }
