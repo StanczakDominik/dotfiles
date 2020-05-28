@@ -90,7 +90,7 @@ active = alias,git
 # subsectioning.  NOTE: any aliases defined this way should come after all other
 # aliases, otherwise simple aliases will be ignored.
 [[[read]]]
-command = !pubs tag $1 +InProgress; pubs tag $1 :TODO; pubs tag $1 :TodoAtWork; pubs doc open $1; pubs note $1
+command = !pubs tag $1 +InProgress; pubs tag $1 :TODO; pubs tag $1 :TodoAtWork; pubs doc open $1; toggl start -a Reading $1; pubs note $1
 description = Open docs, set tags to in progress, and edit notes - TODO start toggl
 [[[continue]]]
 command = !pubs read $(pubs list -k tag:InProgress | shuf -n 1)
@@ -99,7 +99,7 @@ description = Pick a random in progress article and read it
 command = !pubs tag $1 :InProgress; pubs tag $1 +Done; beeminder update papers-read 1 "$1"
 description = Remove InProgress tag from an article
 [[[sync]]]
-command = !pubs doc export $(pubs list tag:TODO -k | xargs) ~/Sync/ReadNow/
+command = !pubs doc export $(pubs list tag:InProgress -k | xargs) ~/Sync/ReadNow/
 description = Sync ReadNow list
 [[[todo]]]
 command = !pubs list tag:TODO $@
