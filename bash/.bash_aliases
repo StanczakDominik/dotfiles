@@ -67,3 +67,4 @@ function worklog () {
     conda activate
     jrnl work $@ && beeminder update worklog 1 "$(date)"
 }
+alias termdownsay='termdown -v english'
