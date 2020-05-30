@@ -4,6 +4,7 @@ slugs = [
     "todoist-backlog",
     "todoist-unprioritized",
     "todoist-breakdown",
+    "todoist-inbox",
     "papers-backlog",
     "youtube-backlog-upgrade",
 ]
