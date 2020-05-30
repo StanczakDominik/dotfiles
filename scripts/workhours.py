@@ -80,19 +80,10 @@ def express_remainder(time_this_period, time_required, period_name):
               f"{n25:.0f}x25 or {n52:.0f}x52 pomodoros.")
         return n52
 
-def missed_hours(since):
-    total_time_worked_roughly = (today - since).days // 7 * 20
-
-    time_worked = grab_seconds(since)
-    time_should_have_worked = timedelta(hours=total_time_worked_roughly)
-    time_should_have_worked
-
-    hours_missed_till_monday = (time_should_have_worked - time_worked)
-    return hours_missed_till_monday
-
 def spread(n52, end_period):
     remaining = end_period - today
-    print(f"That's {round(n52 / remaining.days):.0f} 52-pomodoros every day over the next {remaining.days} days.")
+    if remaining.days > 0:
+        print(f"That's {round(n52 / remaining.days):.0f} 52-pomodoros every day over the next {remaining.days} days.")
 
 current_task_time = grab_current_time()
 time_today_hours = grab_seconds(since = date.today(), current_task_time = current_task_time)
@@ -135,22 +126,3 @@ end_of_month = today - timedelta(days=today.day) + relativedelta.relativedelta(m
 express_remainder(time_today_hours, time_required_today, "today")
 spread(express_remainder(time_this_week, required_weekly_time, "this week"), next_monday)
 spread(express_remainder(time_this_month, time_required_month, "this month"), end_of_month)
-# start_work_date = date.fromisoformat("2019-12-01")
-# def num_days_between( start, end, week_day):
-#     num_weeks, remainder = divmod( (end-start).days, 7)
-#     if ( week_day - start.weekday() ) % 7 <= remainder:
-#        return num_weeks + 1
-#     else:
-#        return num_weeks
-
-# rozpiska = {FRIDAY: 4, WEDNESDAY: 8, THURSDAY: 8}
-# today = date.today()
-# first_day = today.replace(day=1) + relativedelta(months=1)
-# hours_remaining_available = sum([num_days_between(date.today(), first_day, day) * hours for day, hours in rozpiska.items()])
-
-# overtime = -time_this_month + time_required_month - timedelta(hours=hours_remaining_available)
-# if overtime > timedelta(seconds=0):
-#     print(f"Must fit in {td_as_h(overtime)} overtime sometime.")
-
-start_work_date = date.fromisoformat("2020-03-01")
-spread(express_remainder(timedelta(seconds=0), missed_hours(start_work_date), "overdue"), next_monday)

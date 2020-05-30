@@ -82,6 +82,7 @@ if __name__ == "__main__":
 
     print(f"Hours remaining: {hours:.1f}")
     for label, days_remaining in days.items():
-        hours_per_day = hours / days_remaining
-        pomos_per_day = hours_per_day * (60 / (52 + 17))
-        print(f"{label}: {days_remaining}, hours per day: {display_hour(hours_per_day)}, pomodoros per day: {pomos_per_day:.1f}")
+        if days_remaining > 0:
+            hours_per_day = hours / days_remaining
+            pomos_per_day = hours_per_day * (60 / (25 + 5))
+            print(f"{label}: {days_remaining}, hours per day: {display_hour(hours_per_day)}, pomodoros per day: {pomos_per_day:.1f}")
