@@ -37,7 +37,6 @@ Plugin 'reedes/vim-pencil'
 " Plugin 'kana/vim-textobject-user'
 " Plugin 'reedes/vim-textobj-quote'
 " Plugin 'reedes/vim-textobj-sentence'
-
 " augroup textobj_sentence
 "   autocmd!
 "   autocmd FileType markdown call textobj#sentence#init()
@@ -66,6 +65,8 @@ Plugin 'kalekundert/vim-coiled-snake'
 " limit automatic fold updates
 Plugin 'Konfekt/FastFold'
 
+" "xgr
+Plugin  'inkarkat/vim-ReplaceWithRegister'
 " TODO Git stuff
 Bundle 'tpope/vim-fugitive'       
 Plugin 'tpope/vim-rhubarb'        
