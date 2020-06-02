@@ -21,6 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-speeddating'
 
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-obsession'
 "
 ":NERDTree command
 Plugin 'preservim/nerdtree'
@@ -53,11 +54,11 @@ Plugin 'reedes/vim-pencil'
 " augroup END
 
 
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
+" augroup pencil
+"   autocmd!
+"   autocmd FileType markdown,mkd call pencil#init()
+"   autocmd FileType text         call pencil#init()
+" augroup END
 "
 " Automatic folding of python code
 Plugin 'kalekundert/vim-coiled-snake'
@@ -72,7 +73,7 @@ Bundle 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'        
 
 " Linter
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
 
 " Docstring generation
 Plugin 'kkoomen/vim-doge'
@@ -115,6 +116,7 @@ Plugin 'sheerun/vim-polyglot'
 ""Interface
 Plugin 'thaerkh/vim-workspace'
 Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#whitespace#enabled = 0
 
 ""Themes
 Plugin 'altercation/vim-colors-solarized'
@@ -131,9 +133,6 @@ autocmd BufRead,BufNewFile *.jl set filetype=julia
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-dispatch'
 
-Plugin 'dpelle/vim-LanguageTool'
-let g:languagetool_cmd='/usr/bin/languagetool'
-let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,DASH_RULE,CURRENCY'
 "
 " Plugin 'szymonmaszke/vimpyter'
 " Plugin 'goerz/jupytext.vim'
@@ -171,15 +170,10 @@ set spelllang=en_us
 
 
 " Color name (:help gui-colors) or RGB color
-
 let g:limelight_conceal_guifg = 'DarkGray'
-
 let g:limelight_conceal_guifg = '#777777'
-
 " Color name (:help cterm-colors) or ANSI code
-
 let g:limelight_conceal_ctermfg = 'gray'
-
 let g:limelight_conceal_ctermfg = 240
 
 
@@ -251,6 +245,7 @@ set spelllang=pl,en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " set statusline^=%{coc#status()}
+set statusline^=%{ObsessionStatus()}
 filetype plugin indent on
 colorscheme solarized
 
