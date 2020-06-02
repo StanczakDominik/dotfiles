@@ -100,3 +100,5 @@ _toggl() {
 if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
+
+source "/usr/share/todoist/todoist_functions_fzf.sh"

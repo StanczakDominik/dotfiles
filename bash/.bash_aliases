@@ -3,7 +3,7 @@ alias ls='ls --color=auto'
 alias youtube-mp3='youtube-dl -x --audio-format=mp3 --audio-quality=0 --embed-thumbnail --add-metadata'
 alias vim=nvim
 alias vi=nvim
-alias todo='todoist --color --indent list --filter "today"'
+alias todo='todoist --color list --filter "today | overdue"'
 
 alias phone="scrcpy -b2M -m800"
 function phone-connect () {
