@@ -185,7 +185,6 @@ function! g:Goyo_before()
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-  Limelight
 endfunction
 
 function! g:Goyo_after()
@@ -197,7 +196,6 @@ function! g:Goyo_after()
       qa
     endif
   endif
-  Limelight!
 endfunction
 
 let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
