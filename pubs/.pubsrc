@@ -107,6 +107,9 @@ description = List TODO items
 [[[todo-work]]]
 command = !pubs list tag:TodoAtWork $@
 description = List TODO work items
+[[[inprogress]]]
+command = !pubs list tag:InProgress $@
+description = List items in progress
 [[[todo-notes]]]
 command = !rg  "\- \[ \]" ~/.pubs/notes
 description = List TODO items in notes
