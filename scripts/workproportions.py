@@ -56,6 +56,8 @@ all_time = r_all.json()['total_grand']
 params['project_ids'] = projects
 r = requests.get(url, auth=auth, params=params)
 chill_time = r.json()['total_grand']
+if chill_time is None:
+    chill_time = 0
 
 focus_time = all_time - chill_time
 proportion = focus_time / all_time
