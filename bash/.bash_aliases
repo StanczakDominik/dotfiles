@@ -67,3 +67,5 @@ function worklog () {
     jrnl work $@ && beeminder update worklog 1 "$(date)"
 }
 alias termdownsay='termdown -v english'
+alias watch_workhours='watch -n600 "workfill.py; workhours.py; workproportions.py"'
+alias joplin-todo="rg '\- \[ \]' ~/Sync/Joplin"
