@@ -1,0 +1,13 @@
+# /etc/systemd/user/jupyter-notebook.service
+[Unit]
+Description=Jupyter Notebook Service
+After=network.target
+
+[Service]
+ExecStart=/progs/miniconda3/envs/py38/bin/jupyter-lab --config=%h/.jupyter/jupyter_notebook_config.py
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
