@@ -129,6 +129,7 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'JuliaEditorSupport/julia-vim'
 autocmd BufRead,BufNewFile *.jl set filetype=julia
+autocmd BufRead,BufNewFile *.txt set filetype=markdown
 
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-dispatch'
@@ -142,6 +143,7 @@ Plugin 'ryanoasis/vim-devicons'
 
 let g:pydocstring_doq_path='/home/dominik/miniconda3/bin/doq'
 
+Plugin 'wannesm/wmgraphviz.vim'
 " }}}
 
 "map <Leader>j :Make<CR>
