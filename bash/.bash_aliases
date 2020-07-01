@@ -12,7 +12,7 @@ function phone-connect () {
 }
 
 
-alias jupylab="/progs/miniconda3/bin/jupyter-lab"
+alias jupylab="conda activate py38; jupyter-lab"
 alias jupylab-pass="/progs/miniconda3/bin/jupyter notebook list"
 alias sympy="/progs/miniconda3/bin/ipython --profile sympy"
 
@@ -62,9 +62,11 @@ function darkmode () {
 function powerwrite () {
     atom -w $1 && beeminder update powermode-writing 1 "$(wc -w $1)"
 }
-function worklog () {
+function update () {
     conda activate
-    jrnl work $@ && beeminder update worklog 1 "$(date)"
+    jrnl $@ && beeminder update log 1 "$(date)"
+    WORDCOUNT=$(jrnl -from 2000 | sed -e 's/| //' | wc -w)
+    curl -X POST https://www.beeminder.com/api/v1/users/stanczakdominik/goals/jrnl/datapoints.json -d auth_token=$BEEMINDER_TOKEN -d value=$WORDCOUNT
 }
 alias termdownsay='termdown -v english'
 alias watch_workhours='watch -n600 "workfill.py; workhours.py; workproportions.py"'
