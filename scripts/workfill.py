@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import numpy as np
 import pathlib
 import humanize
@@ -8,12 +9,15 @@ import os
 import requests 
 import datetime
 import dateutil
+import math
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
 
+
+offset = None
 def get_total_from(year, month):
     last_day = calendar.monthrange(year, month)[1]
     params = {
@@ -81,8 +85,12 @@ if __name__ == "__main__":
         print(df.to_string())
 
     print(f"Hours remaining: {hours:.1f}")
+    if offset is not None:
+        hours -= offset
+        print(f"Hours without offset: {hours:.1f}")
     for label, days_remaining in days.items():
         if days_remaining > 0:
             hours_per_day = hours / days_remaining
-            pomos_per_day = hours_per_day * (60 / (25 + 5))
-            print(f"{label}: {days_remaining}, hours per day: {display_hour(hours_per_day)}, pomodoros per day: {pomos_per_day:.1f}")
+            pomos_per_day = math.ceil(hours_per_day * (60 / (25 + 5)))
+            pomos_per_day2 = math.ceil(hours_per_day * (60 / (52 + 17)))
+            print(f"{label}: {days_remaining}, hours per day: {display_hour(hours_per_day)}, pomodoros per day: {pomos_per_day:.0f} / {pomos_per_day2:.0f}")
