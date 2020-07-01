@@ -7,6 +7,10 @@ slugs = [
     "todoist-inbox",
     "papers-backlog",
     "youtube-backlog-upgrade",
+    "joplin-notes",
+    "papers-notes",
+    "screenshots-parse",
+    "jrnl",
 ]
 goals = [create_goal(slug=slug) for slug in slugs]
 for goal in goals:
