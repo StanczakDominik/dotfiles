@@ -10,12 +10,16 @@ import requests
 import datetime
 import dateutil
 import math
+
+from dateutil.relativedelta import relativedelta
+
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
 
+today = datetime.date.today()
 
 offset = None
 def get_total_from(year, month):
@@ -53,17 +57,36 @@ def get_df():
 def get_hours(df = None):
     if df is None:
         df = get_df()
-    current = df.loc[datetime.date.today().month-1]
+    current = df.iloc[-1]
     return -current.cumulative_overtime
 
-def get_days_remaining_in_month(workdays = True):
-    today = datetime.date.today()
-    from dateutil.relativedelta import relativedelta
-    first_day = today.replace(day=1) + relativedelta(months=1)
-    if workdays:
-        return np.busday_count(today, first_day)
+def get_current_month_progress(df=None):
+    if df is None:
+        df = get_df()
+    current = df.iloc[-1]
+    time_done_this_month_accounting_for_undertime = df.iloc[-2].cumulative_overtime + current.done
+    start_month = today.replace(day=1)
+    first_day_next_month = start_month + relativedelta(months=1)
+    workday_proportion = (np.busday_count(start_month, today) +1) / np.busday_count(start_month, first_day_next_month)
+    expected_time_atm = current.halftime * workday_proportion
+
+    proportion = time_done_this_month_accounting_for_undertime / expected_time_atm - 1
+    if proportion >= 0:
+        desc_str = "ahead"
     else:
-        return (first_day - today).days
+        desc_str = "behind"
+
+    print(f"{time_done_this_month_accounting_for_undertime:.1f} hours done vs {expected_time_atm:.0f} expected by now. "
+          f"{proportion:.0%} {desc_str}.")
+
+
+
+def get_days_remaining_in_month(workdays = True, remaining = True):
+    first_day_next_month = today.replace(day=1) + remaining * relativedelta(months=1)
+    if workdays:
+        return np.busday_count(today, first_day_next_month)
+    else:
+        return (first_day_next_month - today).days
 
 def display_hour(hours):
     delta = datetime.timedelta(hours=hours)
@@ -84,10 +107,11 @@ if __name__ == "__main__":
     with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
         print(df.to_string())
 
-    print(f"Hours remaining: {hours:.1f}")
+    print(f"Hours remaining this month: {hours:.1f}")
     if offset is not None:
         hours -= offset
         print(f"Hours without offset: {hours:.1f}")
+    get_current_month_progress(df)
     for label, days_remaining in days.items():
         if days_remaining > 0:
             hours_per_day = hours / days_remaining
