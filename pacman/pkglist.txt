@@ -10,7 +10,7 @@ archlinux-themes-sddm
 ark
 atom
 aur-auto-vote-git
-aurman-git
+aurman
 autoconf
 automake
 bash
@@ -152,6 +152,7 @@ khelpcenter
 kid3
 kio-gdrive
 knights
+koi
 konsole
 korganizer
 ksystemlog
