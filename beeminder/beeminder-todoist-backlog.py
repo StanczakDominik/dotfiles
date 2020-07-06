@@ -11,6 +11,7 @@ slugs = [
     "papers-notes",
     "screenshots-parse",
     "jrnl",
+    "toggl-tag",
 ]
 goals = [create_goal(slug=slug) for slug in slugs]
 for goal in goals:

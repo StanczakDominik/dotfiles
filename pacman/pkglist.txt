@@ -151,6 +151,7 @@ kgraphviewer
 khelpcenter
 kid3
 kio-gdrive
+klick-git
 knights
 koi
 konsole
@@ -203,7 +204,8 @@ mono
 mplayer
 mpv
 ncdu
-neovim
+neovim-git
+neovim-qt
 nerd-fonts-complete
 netctl
 networkmanager-openconnect
@@ -257,7 +259,6 @@ psmisc
 pubs-git
 pulseaudio-bluetooth
 pyalpm
-pycharm-community-eap
 python-aiohttp
 python-antlr4
 python-argcomplete
@@ -457,6 +458,7 @@ xf86-input-synaptics
 xf86-video-intel
 xf86-video-nouveau
 xfsprogs
+xmind
 xorg-server
 xorg-xhost
 xorg-xinit
