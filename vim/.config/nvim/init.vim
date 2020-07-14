@@ -15,8 +15,11 @@ let test#strategy = "dispatch"
 au FileType vimwiki set syntax=pandoc
 
 set backupskip+=*.asc
-set viminfo=
 
+set viminfo+=n$HOME/.config/nvim/files/info
+set viminfo='100,n$HOME/.config/nvim/files/info
+"Make them both live in peace and harmony
+let NERDTreeHijackNetrw=0 
 augroup GPG
   autocmd!
   autocmd BufReadPost  *.asc :%!gpg -q -d

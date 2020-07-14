@@ -10,7 +10,6 @@ archlinux-themes-sddm
 ark
 atom
 aur-auto-vote-git
-aurman
 autoconf
 automake
 bash
@@ -211,7 +210,7 @@ netctl
 networkmanager-openconnect
 networkmanager-openvpn
 nfs-utils
-nikola
+nikola-git
 nodejs-reveal-md
 noto-fonts-emoji
 ntfs-3g

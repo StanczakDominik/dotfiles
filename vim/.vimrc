@@ -44,7 +44,7 @@ Plugin 'reedes/vim-pencil'
 "   autocmd FileType textile call textobj#sentence#init()
 " augroup END
 
-
+Plugin 'mhinz/vim-startify'
 
 " augroup textobj_quote
 "   autocmd!
