@@ -91,7 +91,10 @@ active = alias,git
 # aliases, otherwise simple aliases will be ignored.
 [[[read]]]
 command = !pubs tag $1 +InProgress; pubs tag $1 :TODO; pubs tag $1 :TodoAtWork; pubs doc open $1; toggl start -a Reading $1; pubs note $1
-description = Open docs, set tags to in progress, and edit notes - TODO start toggl
+description = "Open docs, set tags to in progress, and edit notes"
+[[[open]]]
+command = !pubs doc open $1; pubs note $1
+description = "Open doc, edit notes"
 [[[continue]]]
 command = !pubs read $(pubs list -k tag:InProgress | shuf -n 1)
 description = Pick a random in progress article and read it
