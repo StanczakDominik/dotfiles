@@ -66,6 +66,7 @@ etckeeper
 ethtool
 expac
 fakeroot
+fd
 fdupes
 festival
 festival-english
