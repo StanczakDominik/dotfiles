@@ -47,7 +47,6 @@ bindkey '^R' history-incremental-search-backward
 export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 
-export FZF_DEFAULT_COMMAND='rg --files'
 
 function yt()
 {
@@ -57,6 +56,13 @@ function yt()
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 source ~/.zsh_completion
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
 source ~/.bash_aliases
 
 export JULIA_NUM_THREADS=4
