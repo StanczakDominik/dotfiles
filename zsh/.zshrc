@@ -21,6 +21,12 @@ compinit
 # PROMPT='{yellow}\t {cyan}\u{RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\]'
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
 RPROMPT='[%F{yellow}%?%f]'
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# »'
+else
+  PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
+fi
+RPROMPT='[%F{yellow}%?%f]'
 
 bindkey -M vicmd '^[h' run-help
 bindkey -M viins '^[h' run-help
@@ -66,6 +72,10 @@ bindkey '^I' $fzf_default_completion
 source ~/.bash_aliases
 
 export JULIA_NUM_THREADS=4
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
 eval $(thefuck --alias)
 unset SSH_AGENT_PID
