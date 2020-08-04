@@ -22,7 +22,6 @@ bluez-utils
 boinc
 bumblebee
 bzip2
-calibre
 calibre-python3
 caprine
 clementine
@@ -37,6 +36,7 @@ cpupower
 cryfs
 cryptsetup
 ctags
+cudnn
 cups
 cython
 deepin-boot-maker
@@ -57,6 +57,7 @@ doxygen
 dragon
 e2fsprogs
 efibootmgr
+element-desktop
 elementary-planner-git
 elinks
 engauge
@@ -113,7 +114,6 @@ gwenview
 gzip
 h5utils
 hdf5
-heroku-cli
 hplip
 hplip-plugin
 htop
@@ -133,7 +133,6 @@ iw
 jfsutils
 joplin
 jq
-jrnl
 julia
 julia-docs
 jupyterlab_server
@@ -206,8 +205,10 @@ mpv
 ncdu
 neovim-git
 neovim-qt
+neovim-remote
 nerd-fonts-complete
 netctl
+netstat-nat
 networkmanager-openconnect
 networkmanager-openvpn
 nfs-utils
@@ -238,8 +239,9 @@ pacgraph
 packagekit-qt5
 pacman
 pacman-contrib
-pandoc-bin
+pandoc
 patch
+pavucontrol
 pciutils
 pdfgrep
 peco
@@ -264,7 +266,6 @@ python-antlr4
 python-argcomplete
 python-arrow
 python-astroid
-python-astropy
 python-async_generator
 python-atomicwrites
 python-beautifulsoup4
@@ -357,7 +358,6 @@ python-xlib
 redshift
 reflector
 reiserfsprogs
-riot-desktop
 ripgrep
 rmlint-shredder
 rrdtool
@@ -376,6 +376,7 @@ sloccount
 smb4k
 spectacle
 spotify
+spotify-adkiller-git
 sqlitebrowser
 sshfs
 steam
@@ -418,7 +419,6 @@ transmission-qt
 trash-cli
 tree
 ttf-dejavu
-ttf-eurostile-complete
 ttf-font-awesome
 ttf-humor-sans
 ttf-inconsolata
@@ -449,7 +449,6 @@ wol
 workrave
 wpa_actiond
 wpa_supplicant
-wtfutil
 wttr
 xclip
 xdg-desktop-portal

@@ -22,6 +22,9 @@ journals:
   gratitude:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/gratitude.txt
+  sc2:
+    encrypt: false
+    journal: /home/dominik/Sync/jrnl/sc2.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
