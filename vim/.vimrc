@@ -45,6 +45,7 @@ Plugin 'reedes/vim-pencil'
 " augroup END
 
 Plugin 'mhinz/vim-startify'
+source ~/.config/nvim/plugin-config/start-screen.vim
 
 " augroup textobj_quote
 "   autocmd!
@@ -95,14 +96,14 @@ Plugin 'airblade/vim-rooter'
 Plugin 'jesseleite/vim-agriculture'
 
 Plugin 'mhinz/vim-grepper'
-Plugin 'janko/vim-test'
+Plugin 'vim-test/vim-test'
 Plugin 'heavenshell/vim-pydocstring'
 
 " VIM Jedi
 Plugin 'davidhalter/jedi-vim'
 
 " :Pytest
-Plugin 'alfredodeza/pytest.vim'
+" Plugin 'alfredodeza/pytest.vim'
 
 "` Relative line number
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -129,6 +130,7 @@ Plugin 'junegunn/limelight.vim'
 " Transparent editing of gnupg-encrypted files
 Plugin 'jamessan/vim-gnupg'
 Plugin 'JuliaEditorSupport/julia-vim'
+let g:latex_to_unicode_tab = 1
 autocmd BufRead,BufNewFile *.jl set filetype=julia
 autocmd BufRead,BufNewFile *.txt set filetype=markdown
 
@@ -137,8 +139,7 @@ Plugin 'tpope/vim-dispatch'
 
 "
 " Plugin 'szymonmaszke/vimpyter'
-" Plugin 'goerz/jupytext.vim'
-" let g:jupytext_enable = 1
+Plugin 'goerz/jupytext.vim'
 "
 Plugin 'ryanoasis/vim-devicons'
 
@@ -255,6 +256,7 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "dispatch"
 
 
 " https://vi.stackexchange.com/a/470

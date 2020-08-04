@@ -16,7 +16,6 @@
 	default = simple
 [core]
 	excludesfile = /home/dominik/.gitignore_global
-	editor = vim
 [url "git@github.com:"]                                                         
     insteadOf = "gh:"                                                           
 [url "git@gitlab.com:"]                                                         

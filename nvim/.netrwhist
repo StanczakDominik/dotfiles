@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/dominik/Code/github/PlasmaPy/PlasmaPy/plasmapy/formulary/tests/__pycache__'
+let g:netrw_dirhist_2='/home/dominik/Code/github/PlasmaPy/PlasmaPy/plasmapy/formulary/tests'
+let g:netrw_dirhist_1='/home/dominik/Code/PyMC3TS'
+let g:netrw_dirhist_0='/home/dominik/Sync'
+let g:netrw_dirhist_9='/home/dominik'
+let g:netrw_dirhist_8='/home/dominik/JuliaPIC'
+let g:netrw_dirhist_7='/home/dominik'
+let g:netrw_dirhist_6='/home/dominik/Code/github/PlasmaPy/PlasmaPy'
+let g:netrw_dirhist_5='/home/dominik/.local/pipx/venvs/jrnl/lib/python3.8/site-packages/jrnl'
+let g:netrw_dirhist_4='/home/dominik/Code/PlasmaPy'
