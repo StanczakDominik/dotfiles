@@ -119,6 +119,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'thaerkh/vim-workspace'
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
 
 ""Themes
 Plugin 'altercation/vim-colors-solarized'
