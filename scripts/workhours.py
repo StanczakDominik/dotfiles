@@ -90,7 +90,7 @@ time_today_hours = grab_seconds(since = date.today(), current_task_time = curren
 time_this_month = grab_seconds(since = date.today().replace(day=1), current_task_time = current_task_time)
 
 time_required_today = (
-    timedelta(hours=4)
+    timedelta(hours=8)
     # if date.today().weekday() <= 4
     # else timedelta(hours=0)
 )
@@ -110,15 +110,44 @@ time_per_month = {2020:{
     12: 168,
 }}
 time_required_month = timedelta(
-    hours=time_per_month[date.today().year][date.today().month] / 2
+    hours=time_per_month[date.today().year][date.today().month]
 )
+
+def time_in_projects_or_tags(
+    since = date.today(),
+    until = None,
+    user_agent = email,
+    workspace_id = int(workspace),
+    tag_ids = 8229720,
+    current_task_time = 0,
+    project_ids = "157825064",
+):
+    url = "https://toggl.com/reports/api/v2/details"
+    params = {
+        "user_agent": email,
+        "workspace_id": workspace_id,
+        "tag_ids": tag_ids,
+        "since": since,
+        "until": until
+    }
+    r1 = requests.get(url, auth=auth, params=params)
+    params = {
+        "user_agent": email,
+        "workspace_id": workspace_id,
+        "project_ids": project_ids,
+        "since": since,
+        "until": until
+    }
+    r2 = requests.get(url, auth=auth, params=params)
+    items = list({item['id']: item for item in r2.json()['data'] + r1.json()['data']}.values())
+    return timedelta(milliseconds=sum(item['dur'] for item in items)).total_seconds() / 3600
 
 
 today = date.today()
 monday = today - timedelta(days=today.weekday())
 
 time_this_week = grab_seconds(since = monday, current_task_time = current_task_time)
-required_weekly_time = timedelta(hours = 20)
+required_weekly_time = timedelta(hours = 40)
 next_monday = today - timedelta(days=today.weekday(), weeks = -1)
 
 
@@ -126,3 +155,5 @@ end_of_month = today - timedelta(days=today.day) + relativedelta.relativedelta(m
 express_remainder(time_today_hours, time_required_today, "today")
 spread(express_remainder(time_this_week, required_weekly_time, "this week"), next_monday)
 spread(express_remainder(time_this_month, time_required_month, "this month"), end_of_month)
+masters_time = time_in_projects_or_tags()
+print(f"Master's thesis time today: {masters_time:.2f}h, {masters_time / 3 :.0%} of 3h goal.")

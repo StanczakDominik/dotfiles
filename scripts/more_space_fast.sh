@@ -12,3 +12,4 @@ trash-empty
 yarn cache clean
 
 rm -rfI ~/.cache/jedi
+sudo journalctl --vacuum-size=1G

@@ -67,7 +67,9 @@ def get_current_month_progress(df=None):
     time_done_this_month_accounting_for_undertime = df.iloc[-2].cumulative_overtime + current.done
     start_month = today.replace(day=1)
     first_day_next_month = start_month + relativedelta(months=1)
-    workday_proportion = (np.busday_count(start_month, today) +1) / np.busday_count(start_month, first_day_next_month)
+    today_start_work = datetime.datetime.now().replace(hour=7,minute=0,second=0, microsecond=0)
+    factor_today = (datetime.datetime.now() - today_start_work) / datetime.timedelta(hours=8)
+    workday_proportion = (np.busday_count(start_month, today) + factor_today) / np.busday_count(start_month, first_day_next_month)
     expected_time_atm = current.halftime * workday_proportion
 
     proportion = time_done_this_month_accounting_for_undertime / expected_time_atm - 1
@@ -104,8 +106,8 @@ if __name__ == "__main__":
         "workdays without today": workdays_remaining_in_month - 1,
         }
 
-    with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-        print(df.to_string())
+    # with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+    #     print(df.round(1).to_string())
 
     print(f"Hours remaining this month: {hours:.1f}")
     if offset is not None:

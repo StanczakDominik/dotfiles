@@ -22,26 +22,27 @@ auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
-url = f"https://toggl.com/app/reports/summary/{workspace}/from/{start_date}/projects/{projects}/tags/{work_tag}/to/{end_date}"
-# print(url)
+# url = f"https://toggl.com/app/reports/summary/{workspace}/from/{start_date}/projects/{projects}/tags/{work_tag}/to/{end_date}"
+# # print(url)
 
-params = {
-    "user_agent": email,
-    "workspace_id": int(workspace),
-    "tag_ids": work_tag,
-    "since": start_date,
-    "until": end_date,
-}
+# params = {
+#     "user_agent": email,
+#     "workspace_id": int(workspace),
+#     "tag_ids": work_tag,
+#     "since": start_date,
+#     "until": end_date,
+# }
 
-url = "https://toggl.com/reports/api/v2/summary"
-r = requests.get(url, auth=auth, params=params)
-all_time = r.json()['total_grand']
-params['project_ids'] = projects
-r = requests.get(url, auth=auth, params=params)
-chill_time = r.json()['total_grand']
+# url = "https://toggl.com/reports/api/v2/summary"
+# r = requests.get(url, auth=auth, params=params)
+# all_time = r.json()['total_grand']
+# params['project_ids'] = projects
+# r = requests.get(url, auth=auth, params=params)
+# chill_time = r.json()['total_grand']
 
-focus_time = all_time - chill_time
-original_proportion = focus_time / all_time
+# focus_time = all_time - chill_time
+# original_proportion = focus_time / all_time
+original_proportion = 52 / (52 + 17 + 60 / 4)
 
 params = {
     "user_agent": email,
@@ -67,7 +68,6 @@ delta_proportion = proportion - original_proportion
 if delta_proportion > 0:
     break_length = datetime.timedelta(milliseconds=delta_proportion * all_time)
     print(f"Could take {humanize.naturaldelta(break_length)} ({break_length}) of a break if you'd like.")
-    # print((-delta_proportion * all_time + focus_time) / all_time, proportion, original_proportion)
 
 for project in sorted(r_all.json()['data'], key=lambda item: item['time'], reverse=True):
     title = project['title']
