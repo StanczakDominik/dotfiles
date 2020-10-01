@@ -68,8 +68,10 @@ from dateutil import relativedelta
 from datetime import datetime, date, timedelta
 from calendar import weekday, monthrange, FRIDAY, WEDNESDAY, THURSDAY
 
-def express_remainder(time_this_period, time_required, period_name):
+def express_remainder(time_this_period, time_required, period_name, display_end_time = False):
     print(f"Time {period_name}: {td_as_h(time_this_period)} / {td_as_h(time_required)}", end = "\t")
+    if display_end_time:
+        print(f"Estimated time of finish: {datetime.now() + time_required - time_this_period:%X}")
     if time_this_period > time_required:
         print(f"Enough for {period_name}!")
         return 0
@@ -152,7 +154,7 @@ next_monday = today - timedelta(days=today.weekday(), weeks = -1)
 
 
 end_of_month = today - timedelta(days=today.day) + relativedelta.relativedelta(months=1)
-express_remainder(time_today_hours, time_required_today, "today")
+express_remainder(time_today_hours, time_required_today, "today", display_end_time=True)
 spread(express_remainder(time_this_week, required_weekly_time, "this week"), next_monday)
 spread(express_remainder(time_this_month, time_required_month, "this month"), end_of_month)
 masters_time = time_in_projects_or_tags()
