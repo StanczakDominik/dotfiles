@@ -100,3 +100,6 @@ bind -m emacs -x     '"\eh": run-help'
 
 # Created by `userpath` on 2020-03-23 13:35:42
 export PATH="$PATH:/home/dominik/.local/bin"
+
+# added by travis gem
+[ ! -s /home/dominik/.travis/travis.sh ] || source /home/dominik/.travis/travis.sh
