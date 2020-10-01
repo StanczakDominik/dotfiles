@@ -4,7 +4,7 @@ Description=Jupyter Notebook Service
 After=network.target
 
 [Service]
-ExecStart=/progs/miniconda3/envs/py38/bin/jupyter-lab --config=%h/.jupyter/jupyter_notebook_config.py
+ExecStart=/usr/bin/jupyter-lab --config=%h/.jupyter/jupyter_notebook_config.py
 RemainAfterExit=no
 Restart=on-failure
 RestartSec=5s
