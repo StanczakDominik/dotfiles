@@ -6,6 +6,8 @@ source /home/dominik/.config/nvim/.vimrc
 source /home/dominik/.config/nvim/window-switching.vim
 source /home/dominik/.config/nvim/preferred-editor.vim
 source /home/dominik/.config/nvim/latex.vim
+" source /home/dominik/.config/nvim/coc.vim
+" source /home/dominik/.config/nvim/julia.vim
 
 nnoremap <C-p> :<C-u>FZF<Cr>
 
@@ -16,6 +18,9 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 nnoremap <Leader>g :Grepper -tool git<CR>
 nnoremap <Leader>G :Grepper -tool rg<CR>
+command! Todo :Grepper -tool rg -query TODO
+nnoremap <Leader>T :Grepper -tool rg -query TODO <CR>
+
 let test#strategy = "dispatch"
 
 au FileType vimwiki set syntax=pandoc

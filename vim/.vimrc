@@ -10,6 +10,11 @@ Plugin 'junegunn/goyo.vim'
 
 " shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
 Plugin 'airblade/vim-gitgutter'                
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+set updatetime=500
+
+Plugin 'ludovicchabant/vim-gutentags'
 
 " comment stuff out; gcc command
 Plugin 'tpope/vim-commentary'                  
@@ -100,7 +105,7 @@ Plugin 'vim-test/vim-test'
 Plugin 'heavenshell/vim-pydocstring'
 
 " VIM Jedi
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 
 " :Pytest
 " Plugin 'alfredodeza/pytest.vim'
@@ -130,9 +135,52 @@ Plugin 'junegunn/limelight.vim'
 "
 " Transparent editing of gnupg-encrypted files
 Plugin 'jamessan/vim-gnupg'
+
+" Snippets
+"
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.local/share/nvim/plugged')
 Plugin 'JuliaEditorSupport/julia-vim'
+
+Plugin 'neovim/nvim-lsp'
+
+call plug#end()
+
+lua << EOF
+    require'nvim_lsp'.julials.setup{}
+EOF
+
+
+autocmd Filetype julia setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+
+
+Plugin 'kdheepak/JuliaFormatter.vim'
 let g:latex_to_unicode_tab = 1
-autocmd BufRead,BufNewFile *.jl set filetype=julia
 autocmd BufRead,BufNewFile *.txt set filetype=markdown
 
 Plugin 'lervag/vimtex'
@@ -230,6 +278,20 @@ let g:ale_linters = {
 " Use the global executable with a special name for flake8.
 let g:ale_python_flake8_executable = '/usr/bin/flake8'
 let g:ale_python_flake8_use_global = 1
+
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : 'build',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'hooks' : [],
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 " za http://blog.stelmisoft.pl/2010/sprawdzanie-pisowni-w-edytorze-tekstu-vim/
 command! SpellPL setlocal spell spelllang=pl
