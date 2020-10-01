@@ -115,7 +115,7 @@ command = !pubs list tag:InProgress $@
 description = List items in progress
 [[[inbox]]]
 command = !pubs list tag:Automated $@
-description = List items in progress
+description = List automatically downloaded items
 [[[todo-notes]]]
 command = !rg  "\- \[ \]" ~/.pubs/notes
 description = List TODO items in notes
