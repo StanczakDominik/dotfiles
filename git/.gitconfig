@@ -1,6 +1,7 @@
 [user]
 	email = stanczakdominik@gmail.com
 	name = Dominik Stańczak
+	user = StanczakDominik
 	signingkey = 9C760E9505AB7902C690AAA68865CBD713B79546
 [alias]
 	slog = log --oneline --topo-order --graph
