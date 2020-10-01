@@ -44,7 +44,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 source ~/.keysrc
 source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin
+export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin:/home/dominik/.gem/ruby/2.7.0/bin
 
 setopt COMPLETE_ALIASES
 
@@ -118,3 +118,20 @@ if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
 fi
 
 source "/usr/share/todoist/todoist_functions_fzf.sh"
+
+
+export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
+
+# added by travis gem
+[ ! -s /home/dominik/.travis/travis.sh ] || source /home/dominik/.travis/travis.sh
+
+
+
+if [[ -z "$TMUX" ]] ;then
+    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
