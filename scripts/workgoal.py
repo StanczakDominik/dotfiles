@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from work2 import WorkTimer
+from work import WorkTimer
 import datetime
 import holidays
 
