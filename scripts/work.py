@@ -209,16 +209,24 @@ class WorkTimer:
             )
             return n52
 
+    def describe_current(self):
+        focused = '-' if self.current_task_is_chill else '+'
+        task = self.r_current_json['data']
+        print(f"{focused} {task['description']} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
+
+
     def describe_briefly(self, prefix = None):
         prefix = "" if prefix is None else prefix
+        task = self.r_current_json['data']
         time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}, +{td_as_h(self.time_remaining)}"
         proportion_status = f"focus: {self.focus_proportion:.0%} ({self.delta_proportion:+.0%})"
-        print(f"{prefix}{time_status}, {proportion_status}")
+        print(f"{prefix}{time_status}, {proportion_status}, now: {task['description']}")
 
 
 if __name__ == "__main__":
     timer = WorkTimer()
     timer.describe_proportion(breaks=True)
     timer.describe_projects()
+    timer.describe_current()
     timer.express_remainder(pomodoros=True)
     timer.describe_briefly()
