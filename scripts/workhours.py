@@ -110,7 +110,11 @@ time_per_month = {2020:{
     10: 176,
     11: 160,
     12: 168,
-}}
+},
+    2021: {
+        1: 152,
+    },
+                  }
 time_required_month = timedelta(
     hours=time_per_month[date.today().year][date.today().month]
 )

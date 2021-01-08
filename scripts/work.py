@@ -282,11 +282,15 @@ def get_current_month_progress(df=None):
     if df is None:
         df = get_df()
     current = df.iloc[-1]
-    time_done_this_month_accounting_for_undertime = df.iloc[-2].cumulative_overtime + current.done
+    remaining_undertime = df.iloc[-2].cumulative_overtime
+    time_done_this_month_accounting_for_undertime = remaining_undertime + current.done
     start_month = today.replace(day=1)
     first_day_next_month = start_month + relativedelta(months=1)
     today_start_work = datetime.now().replace(hour=7,minute=0,second=0, microsecond=0)
-    factor_today = (datetime.now() - today_start_work) / timedelta(hours=8)
+    factor_today = min([
+        (datetime.now() - today_start_work) / timedelta(hours=8),
+        1]
+                       )
     work_days_since_start_month = np.busday_count(start_month, today)
     work_days_this_month = np.busday_count(start_month, first_day_next_month)
     workday_proportion = (work_days_since_start_month + factor_today) / work_days_this_month 
