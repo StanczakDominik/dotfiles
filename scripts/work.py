@@ -17,7 +17,8 @@ email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
 
 
-def td_as_h(td: datetime.timedelta):
+requests.get
+def td_as_h(td: datetime.timedelta) -> str:
     s = td.total_seconds()
     hours = s // 3600
     s = s - (hours * 3600)
@@ -81,6 +82,8 @@ class WorkTimer:
     @cached_property
     def all_time(self):
         all_time = self.r_all_json["total_grand"]
+        if all_time is None:
+            all_time = 0
         return all_time + self.current_time
 
     @cached_property
@@ -97,6 +100,8 @@ class WorkTimer:
 
     @cached_property
     def focus_proportion(self):
+        if self.all_time == 0:
+            return 0
         return self.focus_time / self.all_time
 
     @cached_property
@@ -122,6 +127,8 @@ class WorkTimer:
     @cached_property
     def current_task_is_chill(self):
         current_task = self.r_current_json['data']
+        if current_task is None or 'pid' not in current_task:
+            return True
         return str(current_task['pid']) in chill_projects
 
     def describe_proportion(self, breaks=False):
@@ -143,6 +150,8 @@ class WorkTimer:
         return self.r_all_json["data"]
 
     def describe_projects(self):
+        if not self.data:
+            return
         max_client_name = max(
             len(project["title"]["client"])
             for project in self.data
@@ -170,7 +179,7 @@ class WorkTimer:
 
     @cached_property
     def time_done(self):
-        return datetime.timedelta(milliseconds=self.all_time + self.current_time)
+        return datetime.timedelta(milliseconds=self.all_time)
 
     time_required=datetime.timedelta(hours=8)
     @cached_property
@@ -212,15 +221,21 @@ class WorkTimer:
     def describe_current(self):
         focused = '-' if self.current_task_is_chill else '+'
         task = self.r_current_json['data']
-        print(f"{focused} {task['description']} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
+        description = task['description'] if 'description' in task else ''
+        print(f"{focused} {description} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
 
 
     def describe_briefly(self, prefix = None):
         prefix = "" if prefix is None else prefix
         task = self.r_current_json['data']
+        if task is not None:
+            description = f", now: {task['description']} " if 'description' in task else ''
+            description += td_as_h(datetime.timedelta(milliseconds=self.current_time))
+        else:
+            description = ''
         time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}, +{td_as_h(self.time_remaining)}"
         proportion_status = f"focus: {self.focus_proportion:.0%} ({self.delta_proportion:+.0%})"
-        print(f"{prefix}{time_status}, {proportion_status}, now: {task['description']}")
+        print(f"{prefix}{time_status}, {proportion_status}{description}")
 
 
 if __name__ == "__main__":

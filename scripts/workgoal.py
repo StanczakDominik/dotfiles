@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Prints current work status in a single line."""
 from work import WorkTimer
 import datetime
 import holidays
@@ -15,3 +16,4 @@ if __name__ == "__main__":
         print("Enjoy your free day!")
     else:
         single_line()
+
