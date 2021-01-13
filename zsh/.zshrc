@@ -3,6 +3,7 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=1000000
 setopt appendhistory autocd nomatch notify
+stty -ixon
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -127,11 +128,14 @@ export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 
 
-if [[ -z "$TMUX" ]] ;then
-    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-    if [[ -z "$ID" ]] ;then # if not available create a new one
-        tmux new-session
-    else
-        tmux attach-session -t "$ID" # if available attach to it
-    fi
-fi
+# if [[ -z "$TMUX" ]] ;then
+#     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+#     if [[ -z "$ID" ]] ;then # if not available create a new one
+#         tmux new-session
+#     else
+#         tmux attach-session -t "$ID" # if available attach to it
+#     fi
+# fi
+#
+
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
