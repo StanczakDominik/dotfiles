@@ -101,6 +101,11 @@ description = Pick a random in progress article and read it
 [[[finish]]]
 command = !pubs tag $1 :InProgress; pubs tag $1 +Done; beeminder update papers-read 1 "$1"
 description = Remove InProgress tag from an article
+[[[skimmed]]]
+command = !pubs tag $1 :Automated; pubs tag $1 :InProgress; pubs tag $1 +Skimmed; beeminder update papers-skimmed 1 "$1"
+description = Add Skimmed tag to article
+[[[inboxrand]]]
+command = !pubs list tag:Automated | shuf -n 1
 [[[sync]]]
 command = !pubs doc export $(pubs list tag:InProgress -k | xargs) ~/Sync/ReadNow/
 description = Sync ReadNow list
