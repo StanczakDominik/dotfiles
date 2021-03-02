@@ -8,16 +8,17 @@ import humanize
 import math
 from functools import cached_property
 import time
+import json
 
 key = os.environ["TOGGL_KEY"]
-# TODO use current task
 auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
+goals = '{"mgr": {"projects": ["Magisterka"], "tags": ["Magisterka"], "daily_time_hours": 4}}'   # ""os.environ["
+goals = json.loads(goals)
 
 
-requests.get
 def td_as_h(td: datetime.timedelta) -> str:
     s = td.total_seconds()
     hours = s // 3600
@@ -76,7 +77,18 @@ class WorkTimer:
 
         url = "https://toggl.com/reports/api/v2/summary"
         r_all = requests.get(url, auth=auth, params=params).json()
-        current_json = self.r_current_json
+        return r_all
+
+    @cached_property
+    def r_detailed_json(self):
+        params = {
+            "user_agent": email,
+            "workspace_id": int(workspace),
+            "since": current_date.isoformat(),
+        }
+
+        url = "https://toggl.com/reports/api/v2/details"
+        r_all = requests.get(url, auth=auth, params=params).json()
         return r_all
 
     @cached_property
@@ -236,6 +248,22 @@ class WorkTimer:
         proportion_status = f"focus: {self.focus_proportion:.0%} ({self.delta_proportion:+.0%})"
         print(f"{prefix}{time_status}, {proportion_status}{description}")
 
+    def describe_goals(self):
+        def item_in_goal(item, goal):
+            item_in_project = item['project'] in goal['projects']
+            tags_intersect = bool(set(item['tags']).intersection(goal['tags'] ))
+            return item_in_project or tags_intersect
+        filtered = {name: list(filter(lambda i: item_in_goal(i, g), timer.r_detailed_json['data'])) for name, g in goals.items()}
+        total_durations = {key: sum(item['dur'] for item in goal_items)/3600_000 for key, goal_items in filtered.items()}
+        fractions = {key: total_durations[key] / goal["daily_time_hours"] for key, goal in goals.items()}
+        for key, goal in goals.items():
+            fraction = fractions[key]
+            duration = total_durations[key]
+            planned_duration = goal['daily_time_hours']
+            state = "completed!" if fraction > 1 else ""
+            print(f"{key}: {fraction:.0%} ({duration:.1f}h / {planned_duration:.1f}h) {state}")
+
+
 
 if __name__ == "__main__":
     timer = WorkTimer()
@@ -244,3 +272,4 @@ if __name__ == "__main__":
     timer.describe_current()
     timer.express_remainder(pomodoros=True)
     timer.describe_briefly()
+    timer.describe_goals()
