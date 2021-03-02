@@ -191,13 +191,12 @@ class WorkTimer:
         display_end_time=True,
         pomodoros=False,
     ):
-        time_this_period = datetime.timedelta(milliseconds=self.all_time)
         print(
             f"Time today: {td_as_h(self.time_done)} / {td_as_h(self.time_required)}",
             end="\t",
         )
         if self.time_done > self.time_required:
-            print(f"Enough for {period_name}!")
+            print(f"Enough for today!")
         elif display_end_time:
             print(
                 f"Estimated time of finish: {datetime.datetime.now() + self.time_required - self.time_done:%X}"

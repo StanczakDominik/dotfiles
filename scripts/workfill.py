@@ -99,14 +99,15 @@ def get_current_month_progress(df=None):
     workday_proportion = (work_days_since_start_month + factor_today) / work_days_this_month 
     expected_time_atm = current.halftime * workday_proportion
 
-    proportion = time_done_this_month_accounting_for_undertime / expected_time_atm - 1
+    difference = time_done_this_month_accounting_for_undertime - expected_time_atm
+    proportion = difference / expected_time_atm
     if proportion >= 0:
         desc_str = "ahead"
     else:
         desc_str = "behind"
 
     print(f"{time_done_this_month_accounting_for_undertime:.1f} hours done vs {expected_time_atm:.0f} expected by now. "
-          f"{proportion:.0%} {desc_str}.")
+          f"{difference:.1f} ({proportion:.0%}) {desc_str}.")
 
 
 
