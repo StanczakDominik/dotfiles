@@ -1,19 +1,29 @@
 #!/usr/bin/python
 from beeminder import create_goal
+import time
 slugs = [
     # "todoist-backlog",
     # "todoist-unprioritized",
     # "todoist-breakdown",
-    # "todoist-inbox",
+    "todoist-inbox",
     "papers-backlog",
     "youtube-backlog",
     "joplin-notes",
     "papers-notes",
     "screenshots-parse",
-    # "jrnl",
+    "jrnl",
     "toggl-tag",
     "github-inbox",
+    "wallabag-backlog",
+    "gratitude",
+    "lichess",
+    "lichess-puzzles",
+    "lichess-puzzles-rating",
+    "lichess-blitz-rating",
 ]
 goals = [create_goal(slug=slug) for slug in slugs]
 for goal in goals:
-    goal.update()
+    try:
+        goal.update()
+    except Exception as e:
+        print(e)
