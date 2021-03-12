@@ -57,3 +57,4 @@
 	rebase = false
 [init]
 	templateDir = /home/dominik/.git-template
+	defaultBranch = main
