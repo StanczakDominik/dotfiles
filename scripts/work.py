@@ -15,7 +15,7 @@ auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
-goals = '{"mgr": {"projects": ["Magisterka"], "tags": ["Magisterka"], "daily_time_hours": 4}}'   # ""os.environ["
+goals = '{"mgr": {"projects": ["Magisterka"], "tags": ["Magisterka"], "daily_time_hours": 4}, "read": {"projects": [], "tags":"Reading", "daily_time_hours": 0.5}}'   # ""os.environ["
 goals = json.loads(goals)
 
 
@@ -62,7 +62,8 @@ def get_original_proportion(
 
 
 # original_proportion = 4 * 52 / (4 * 52 + 3 * 17 + 60)
-original_proportion = 2 / 3
+original_proportion = 0.70
+daily_worktime = 8 * 3600
 
 
 class WorkTimer:
@@ -89,6 +90,7 @@ class WorkTimer:
 
         url = "https://toggl.com/reports/api/v2/details"
         r_all = requests.get(url, auth=auth, params=params).json()
+        # r_all['data'].append(self.r_current_json['data'])
         return r_all
 
     @cached_property
@@ -143,19 +145,20 @@ class WorkTimer:
             return True
         return str(current_task['pid']) in chill_projects
 
-    def describe_proportion(self, breaks=False):
+    def describe_proportion(self):
         describer = "more" if self.delta_proportion > 0 else "less"
         print(
             f"{self.focus_proportion:.0%}: {abs(self.delta_proportion):.0%} {describer} focused wrt planned ratio {100*original_proportion:.0f}%"
         )
-        if breaks:
-            break_length = datetime.timedelta(
-                milliseconds=self.delta_proportion * self.all_time
-            )
-            if self.delta_proportion > 0:
-                print(f"Could take {td_as_h(break_length)}  of a break if you'd like.")
-            elif self.delta_proportion < 0:
-                print(f"Need {td_as_h(abs(break_length))} of focused work, still.")
+        current_focused_time = (self.time_done * self.focus_proportion).total_seconds()
+        focus_goal = original_proportion * daily_worktime
+        delta_time = current_focused_time - focus_goal
+        if current_focused_time > focus_goal:
+            print(f"Today's focus goal achieved. Take a break if you'd like.")
+        else:
+            focused_to_go = datetime.timedelta(seconds=focus_goal - current_focused_time)
+            remaining_break = datetime.timedelta(seconds = daily_worktime) - focused_to_go - self.time_done
+            print(f"Still need {td_as_h(focused_to_go)} focused time to go. Then, you may take a break of {td_as_h(abs(remaining_break))}.")
 
     @property
     def data(self):
@@ -267,7 +270,7 @@ class WorkTimer:
 
 if __name__ == "__main__":
     timer = WorkTimer()
-    timer.describe_proportion(breaks=True)
+    timer.describe_proportion()
     timer.describe_projects()
     timer.describe_current()
     timer.express_remainder(pomodoros=True)

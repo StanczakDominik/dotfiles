@@ -29,6 +29,9 @@ else
 fi
 RPROMPT='[%F{yellow}%?%f]'
 
+eval "$(starship init zsh)"
+
+
 bindkey -M vicmd '^[h' run-help
 bindkey -M viins '^[h' run-help
 
@@ -139,3 +142,7 @@ export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 #
 
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
+if command -v tmux >/dev/null 2>&1; then
+    # if not inside a tmux session, and if no session is started, start a new session
+    [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
+fi
