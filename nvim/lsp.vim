@@ -27,3 +27,8 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 lua <<EOF
 require'lspconfig'.julials.setup{}
 EOF
+
+lua <<EOF
+require'lspconfig'.fortls.setup{}
+EOF
+
