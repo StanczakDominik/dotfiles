@@ -331,8 +331,9 @@ assign [class="TogglDesktop"] $ws1
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
-assign [class="slack"] $wsbreak
-assign [class="signal"] $wsbreak
+assign [class="Slack"] $wsbreak
+assign [class="Signal"] $wsbreak
+assign [class="discord"] $wsbreak
 assign [class="clementine"] $ws10
 
 # i3-resurrect
