@@ -1,6 +1,7 @@
 acpi
 acpid
 acroread
+activitywatch-bin
 all-contributors-cli
 android-tools
 android-udev
@@ -25,6 +26,7 @@ brightnessctl
 bumblebee
 bzip2
 calibre
+choqok
 clementine
 clyrics
 cmus
@@ -60,11 +62,13 @@ doxygen
 drawio-desktop
 e2fsprogs
 efibootmgr
+electron9-bin
 element-desktop
 elinks
+elisa
 engauge
-espeak
 espeak-ng
+espeak-ng-espeak
 etckeeper
 ethtool
 expac
@@ -80,7 +84,6 @@ file
 filelight
 filesystem
 findutils
-firefox
 flake8
 foliate
 foomatic-db
@@ -100,15 +103,17 @@ gimagereader-qt
 gimp
 git
 git-big-picture
+git-delta
 git-lfs
 github-cli
 glibc
-gn-m85
+gnome-sound-recorder
 gnuplot
 go
 go-mtpfs-git
 google-chrome
 googler
+gource
 gparted
 graphviz
 grep
@@ -145,7 +150,6 @@ jfsutils
 joplin-beta
 jq
 julia
-julia-docs
 jupyterlab
 kaccounts-providers
 kalarm
@@ -165,6 +169,7 @@ kgraphviewer
 khelpcenter
 kid3
 kio-gdrive
+kitty
 klick-git
 kmymoney
 knights
@@ -206,7 +211,6 @@ lightdm
 lightdm-gtk-greeter
 linux
 linux-lts
-lld
 logmein-hamachi
 logrotate
 lsd
@@ -217,11 +221,14 @@ m4
 make
 man-db
 man-pages
+mbrola-voices-en1
+mbrola-voices-us1
+mbrola-voices-us2
 mdadm
 meld
 mesa-demos
 mimeo
-minecraft
+minecraft-launcher
 mono
 mplayer
 mpv
@@ -277,6 +284,7 @@ patch
 pavucontrol
 pciutils
 pdfgrep
+pdftk
 peco
 perl
 perl-anyevent-i3
@@ -289,6 +297,7 @@ plasma-meta
 plasma5-applets-kargos-git
 playerctl
 plymouth
+pomotroid-bin
 potato
 powerline-fonts
 powertop
@@ -399,6 +408,7 @@ python-pytest-forked
 python-pytest-mock
 python-pytest-xdist
 python-pytzdata
+python-pyvista
 python-qrcode
 python-regex
 python-requests
@@ -443,7 +453,6 @@ qutebrowser
 redshift
 reflector
 reiserfsprogs
-rescuetime2
 ripgrep
 rmlint-shredder
 rocketchat-client-bin
@@ -469,6 +478,7 @@ slack-desktop
 sloccount
 smb4k
 spectacle
+speech-dispatcher
 spotify
 spyder
 sqlitebrowser
@@ -506,6 +516,7 @@ texlive-fontsextra
 texlive-formatsextra
 texlive-langgreek
 texlive-latexextra
+texlive-local-revtex
 texlive-pictures
 texlive-pstricks
 texlive-science
@@ -591,9 +602,9 @@ xscreensaver
 xsel
 xterm
 xtitle-git
+xxd-standalone
 yakuake
 yarn
-yasm
 yay
 yed
 youtube-dl
