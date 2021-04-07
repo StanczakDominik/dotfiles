@@ -27,3 +27,4 @@ endfunction
 nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <C-p> :<C-u>FZF<Cr>
+nnoremap <C-G> :Rg<CR>
