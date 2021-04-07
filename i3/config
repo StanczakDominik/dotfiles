@@ -333,6 +333,7 @@ exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
 assign [class="Slack"] $wsbreak
 assign [class="Signal"] $wsbreak
+assign [class="Element"] $ws4
 assign [class="discord"] $wsbreak
 assign [class="clementine"] $ws10
 
