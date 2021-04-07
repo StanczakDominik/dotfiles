@@ -2,8 +2,6 @@ syntax on
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'                     " distraction-free mode
 Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir = "/tmp"
 Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'preservim/nerdcommenter'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -25,6 +23,7 @@ let g:slime_target = "neovim"
 Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
+Plug 'ActivityWatch/aw-watcher-vim'
 
 Plug 'whatyouhide/vim-gotham'
 
