@@ -10,14 +10,13 @@ success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being
 disabled = true
 
 [python]
-symbol = "👾 "
 pyenv_version_name = true
 
 [time]
 disabled = false
 format = '🕙[\[ $time \]]($style) '
 time_format = "%T"
-utc_time_offset = "+1"
+utc_time_offset = "local"
 
 
 [cmd_duration]
