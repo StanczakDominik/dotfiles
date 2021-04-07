@@ -134,8 +134,8 @@ if __name__ == "__main__":
         "workdays without today": workdays_remaining_in_month - 1,
         }
 
-    with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-        print(df.round(1).to_string())
+    # with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+    #     print(df.round(1).to_string())
 
     print(f"Hours remaining this month: {hours:.1f}")
     if offset is not None:

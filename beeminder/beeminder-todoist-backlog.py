@@ -20,6 +20,7 @@ slugs = [
     "lichess-puzzles",
     "lichess-puzzles-rating",
     "lichess-blitz-rating",
+    "youtube-backlog",
 ]
 goals = [create_goal(slug=slug) for slug in slugs]
 for goal in goals:
