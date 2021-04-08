@@ -19,6 +19,7 @@ slugs = [
     "lichess",
     "lichess-puzzles",
     "lichess-puzzles-rating",
+    "lichess-games",
     "lichess-blitz-rating",
     "youtube-backlog",
 ]
