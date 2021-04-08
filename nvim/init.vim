@@ -20,6 +20,7 @@ source /home/dominik/.config/nvim/airline.vim
 source /home/dominik/.config/nvim/markdown.vim
 source /home/dominik/.config/nvim/lsp.vim
 source /home/dominik/.config/nvim/julia.vim
+source /home/dominik/.config/nvim/ipython-cell.vim
 
 au FileType vimwiki set syntax=pandoc
 set backupskip+=*.asc
