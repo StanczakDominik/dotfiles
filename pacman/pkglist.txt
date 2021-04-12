@@ -26,8 +26,8 @@ brightnessctl
 bumblebee
 bzip2
 calibre
+cantata
 choqok
-clementine
 clyrics
 cmus
 cmusfm
@@ -230,6 +230,9 @@ mesa-demos
 mimeo
 minecraft-launcher
 mono
+mpc
+mpd
+mpd-rich-presence-discord-git
 mplayer
 mpv
 ncdu
@@ -600,6 +603,7 @@ xournalpp
 xsane
 xscreensaver
 xsel
+xss-lock
 xterm
 xtitle-git
 xxd-standalone
