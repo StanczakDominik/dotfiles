@@ -6,7 +6,7 @@ import humanize
 import pandas
 import calendar
 import os
-import requests 
+import requests
 import datetime
 import dateutil
 import math
@@ -28,6 +28,8 @@ work_tag = os.environ["TOGGL_WORK_TAG"]
 today = datetime.date.today()
 
 offset = None
+
+
 def get_total_in(year: int, month: int) -> float:
     "Total time spent working since args, in seconds"
     last_day = calendar.monthrange(year, month)[1]
@@ -41,47 +43,60 @@ def get_total_in(year: int, month: int) -> float:
 
     url = "https://toggl.com/reports/api/v2/summary"
     r = requests.get(url, auth=auth, params=params)
-    total = r.json()['total_grand']
+    total = r.json()["total_grand"]
     if total is None:
         fill = 0
     else:
-        fill = r.json()['total_grand'] / 1000 / 3600
+        fill = r.json()["total_grand"] / 1000 / 3600
     return fill
 
+
 def get_df():
-    df = pandas.read_csv(pathlib.Path(__file__).parent / "godziny_pracy.csv", index_col=0)
+    df = pandas.read_csv(
+        pathlib.Path(__file__).parent / "godziny_pracy.csv", index_col=0
+    )
 
     fill_time = {}
-    for yearmonth in pd.date_range('2019-12-01', datetime.date.today() + datetime.timedelta(days=32), freq='MS').strftime("%Y %m").tolist():
+    for yearmonth in (
+        pd.date_range(
+            "2019-12-01", datetime.date.today() + datetime.timedelta(days=32), freq="MS"
+        )
+        .strftime("%Y %m")
+        .tolist()
+    ):
         year, month = yearmonth.split()
         month = int(month)
         year = int(year)
         value = get_total_in(year, month)
         if value == 0:
             continue
-        fill_time[yearmonth] = value 
+        fill_time[yearmonth] = value
 
-    df['done'] = pandas.Series(fill_time)
-    df['req_cumsum'] = df['halftime'].cumsum()
-    df['done_cumsum'] = df['done'].cumsum()
-    df['cumulative_overtime'] = df.done_cumsum - df.req_cumsum
+    df["done"] = pandas.Series(fill_time)
+    df["req_cumsum"] = df["halftime"].cumsum()
+    df["done_cumsum"] = df["done"].cumsum()
+    df["cumulative_overtime"] = df.done_cumsum - df.req_cumsum
     return df.dropna()
 
-def get_hours(df = None):
+
+def get_hours(df=None):
     if df is None:
         df = get_df()
     current = df.iloc[-1]
     return -current.cumulative_overtime
 
+
 def day_is_holiday(day):
     return (day.date() in holidays_pl) or (day.dayofweek >= 5)
 
+
 def busday_count(start_date, end_date):
     busdays = 0
-    for day in pd.date_range(start_date, end_date, freq='D')[:-1]:
+    for day in pd.date_range(start_date, end_date, freq="D")[:-1]:
         if not day_is_holiday(day):
             busdays += 1
     return busdays
+
 
 def get_current_month_progress(df=None):
     if df is None:
@@ -91,15 +106,18 @@ def get_current_month_progress(df=None):
     time_done_this_month_accounting_for_undertime = remaining_undertime + current.done
     start_month = today.replace(day=1)
     first_day_next_month = start_month + relativedelta(months=1)
-    today_start_work = datetime.datetime.now().replace(hour=7,minute=0,second=0, microsecond=0)
-    factor_today = min([
-        (datetime.datetime.now() - today_start_work) / datetime.timedelta(hours=8),
-        1]
-                       )
+    today_start_work = datetime.datetime.now().replace(
+        hour=7, minute=0, second=0, microsecond=0
+    )
+    factor_today = min(
+        [(datetime.datetime.now() - today_start_work) / datetime.timedelta(hours=8), 1]
+    )
     factor_today *= today.weekday() < 5
     work_days_since_start_month = busday_count(start_month, today)
     work_days_this_month = busday_count(start_month, first_day_next_month)
-    workday_proportion = (work_days_since_start_month + factor_today) / work_days_this_month 
+    workday_proportion = (
+        work_days_since_start_month + factor_today
+    ) / work_days_this_month
     expected_time_atm = current.halftime * workday_proportion
 
     difference = time_done_this_month_accounting_for_undertime - expected_time_atm
@@ -109,22 +127,25 @@ def get_current_month_progress(df=None):
     else:
         desc_str = "behind"
 
-    print(f"{time_done_this_month_accounting_for_undertime:.1f} hours done vs {expected_time_atm:.0f} expected by now. "
-          f"{difference:.1f} ({proportion:.0%}) {desc_str}.")
+    print(
+        f"{time_done_this_month_accounting_for_undertime:.1f} hours done vs {expected_time_atm:.0f} expected by now. "
+        f"{difference:.1f} ({proportion:.0%}) {desc_str}."
+    )
 
 
-
-def get_days_remaining_in_month(workdays = True, remaining = True):
+def get_days_remaining_in_month(workdays=True, remaining=True):
     first_day_next_month = today.replace(day=1) + remaining * relativedelta(months=1)
     if workdays:
         return busday_count(today, first_day_next_month)
     else:
         return (first_day_next_month - today).days
 
+
 def display_hour(hours):
     seconds = hours * 3600
-    delta = datetime.timedelta(minutes = seconds // 60)
+    delta = datetime.timedelta(minutes=seconds // 60)
     return str(delta)
+
 
 def main():
     df = get_df()
@@ -136,9 +157,11 @@ def main():
         "days without today": days_remaining_in_month - 1,
         "workdays with today": workdays_remaining_in_month,
         "workdays without today": workdays_remaining_in_month - 1,
-        }
+    }
 
-    with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+    with pandas.option_context(
+        "display.max_rows", None, "display.max_columns", None
+    ):  # more options can be specified also
         print(df.round(1).to_string())
 
     print(f"Hours remaining this month: {hours:.1f}")
@@ -166,6 +189,7 @@ def main():
                 str(int(pomos_per_day2)),
             )
     print(table)
+
 
 if __name__ == "__main__":
     main()
