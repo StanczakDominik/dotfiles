@@ -12,6 +12,8 @@ import dateutil
 import math
 import pandas as pd
 import holidays
+from rich import print
+from rich.table import Table
 
 holidays_pl = holidays.Polish()
 
@@ -26,7 +28,8 @@ work_tag = os.environ["TOGGL_WORK_TAG"]
 today = datetime.date.today()
 
 offset = None
-def get_total_from(year, month):
+def get_total_in(year: int, month: int) -> float:
+    "Total time spent working since args, in seconds"
     last_day = calendar.monthrange(year, month)[1]
     params = {
         "user_agent": email,
@@ -53,7 +56,7 @@ def get_df():
         year, month = yearmonth.split()
         month = int(month)
         year = int(year)
-        value = get_total_from((year), (month))
+        value = get_total_in(year, month)
         if value == 0:
             continue
         fill_time[yearmonth] = value 
@@ -119,10 +122,11 @@ def get_days_remaining_in_month(workdays = True, remaining = True):
         return (first_day_next_month - today).days
 
 def display_hour(hours):
-    delta = datetime.timedelta(hours=hours)
-    return delta
+    seconds = hours * 3600
+    delta = datetime.timedelta(minutes = seconds // 60)
+    return str(delta)
 
-if __name__ == "__main__":
+def main():
     df = get_df()
     hours = get_hours(df)
     workdays_remaining_in_month = get_days_remaining_in_month()
@@ -134,17 +138,34 @@ if __name__ == "__main__":
         "workdays without today": workdays_remaining_in_month - 1,
         }
 
-    # with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-    #     print(df.round(1).to_string())
+    with pandas.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+        print(df.round(1).to_string())
 
     print(f"Hours remaining this month: {hours:.1f}")
     if offset is not None:
         hours -= offset
         print(f"Hours without offset: {hours:.1f}")
     get_current_month_progress(df)
+    table = Table(title="Time remaining to be at 0 this month")
+    table.add_column("Option")
+    table.add_column("days")
+    table.add_column("per day")
+    table.add_column("25-pomo/day")
+    table.add_column("52-pomo/day")
+
     for label, days_remaining in days.items():
         if days_remaining > 0:
             hours_per_day = hours / days_remaining
             pomos_per_day = math.ceil(hours_per_day * (60 / (25 + 5)))
             pomos_per_day2 = math.ceil(hours_per_day * (60 / (52 + 17)))
-            print(f"{label}: {days_remaining}, hours per day: {display_hour(hours_per_day)}, pomodoros per day: {pomos_per_day:.0f} / {pomos_per_day2:.0f}")
+            table.add_row(
+                label,
+                str(days_remaining),
+                display_hour(hours_per_day),
+                str(int(pomos_per_day)),
+                str(int(pomos_per_day2)),
+            )
+    print(table)
+
+if __name__ == "__main__":
+    main()
