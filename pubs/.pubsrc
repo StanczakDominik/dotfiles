@@ -112,9 +112,6 @@ description = Sync ReadNow list
 [[[todo]]]
 command = !pubs list tag:TODO $@
 description = List TODO items
-[[[todo-work]]]
-command = !pubs list tag:TodoAtWork $@
-description = List TODO work items
 [[[inprogress]]]
 command = !pubs list tag:InProgress $@
 description = List items in progress

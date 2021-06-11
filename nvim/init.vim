@@ -28,6 +28,12 @@ Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
 Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'andweeb/presence.nvim'
+Plug 'kdav5758/TrueZen.nvim'
+Plug 'junegunn/vim-peekaboo'
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'lervag/wiki.vim'
 
 Plug 'whatyouhide/vim-gotham'
 
