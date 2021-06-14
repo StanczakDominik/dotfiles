@@ -50,23 +50,17 @@ def get_total_in(year: int, month: int) -> float:
         fill = r.json()["total_grand"] / 1000 / 3600
     return fill
 
-
 def get_df():
     df = pandas.read_csv(
         pathlib.Path(__file__).parent / "godziny_pracy.csv", index_col=0
     )
 
-    fill_time = {}
-    for yearmonth in (
-        pd.date_range(
+    yearmonths = pd.date_range(
             "2019-12-01", datetime.date.today() + datetime.timedelta(days=32), freq="MS"
-        )
-        .strftime("%Y %m")
-        .tolist()
-    ):
-        year, month = yearmonth.split()
-        month = int(month)
-        year = int(year)
+        ).strftime("%Y %m").tolist()
+    fill_time = {}
+    for yearmonth in yearmonths:
+        year, month = (int(i) for i in yearmonth.split())
         value = get_total_in(year, month)
         if value == 0:
             continue

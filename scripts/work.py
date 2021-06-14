@@ -9,14 +9,19 @@ import math
 from functools import cached_property
 import time
 import json
+from rich import print
+import yaml
+import pathlib
 
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
 work_tag = os.environ["TOGGL_WORK_TAG"]
-goals = '{"mgr": {"projects": ["Magisterka"], "tags": ["Magisterka"], "daily_time_hours": 4}, "read": {"projects": [], "tags":"Reading", "daily_time_hours": 0.5}}'   # ""os.environ["
-goals = json.loads(goals)
+path = pathlib.Path(__file__).parent / "goals.yaml"
+with open(path) as f:
+    goals = yaml.load(f, Loader=yaml.FullLoader)
+
 
 
 def td_as_h(td: datetime.timedelta) -> str:
@@ -256,7 +261,7 @@ class WorkTimer:
             item_in_project = item['project'] in goal['projects']
             tags_intersect = bool(set(item['tags']).intersection(goal['tags'] ))
             return item_in_project or tags_intersect
-        filtered = {name: list(filter(lambda i: item_in_goal(i, g), timer.r_detailed_json['data'])) for name, g in goals.items()}
+        filtered = {name: list(filter(lambda i: item_in_goal(i, g), self.r_detailed_json['data'])) for name, g in goals.items()}
         total_durations = {key: sum(item['dur'] for item in goal_items)/3600_000 for key, goal_items in filtered.items()}
         fractions = {key: total_durations[key] / goal["daily_time_hours"] for key, goal in goals.items()}
         for key, goal in goals.items():
