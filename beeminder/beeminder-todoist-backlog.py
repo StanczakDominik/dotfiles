@@ -8,7 +8,7 @@ slugs = [
     "todoist-inbox",
     "papers-backlog",
     "youtube-backlog",
-    "joplin-notes",
+    # "joplin-notes",
     "papers-notes",
     "screenshots-parse",
     "jrnl",
@@ -16,7 +16,6 @@ slugs = [
     "github-inbox",
     "wallabag-backlog",
     "gratitude",
-    "lichess",
     "lichess-puzzles",
     "lichess-puzzles-rating",
     "lichess-games",
@@ -28,4 +27,4 @@ for goal in goals:
     try:
         goal.update()
     except Exception as e:
-        print(e)
+        print(goal, e)
