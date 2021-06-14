@@ -17,21 +17,16 @@ function! g:Goyo_after()
 endfunction
 
 let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
-" }}}
-"Prose Mode from https://statico.github.io/vim3.html {{{
+
+"Prose Mode from https://statico.github.io/vim3.html
 function! ProseMode()
   call goyo#execute(0, [])
-  set spell noci nosi noai nolist noshowmode noshowcmd wrap
+  " call Limelight TODO how to?
+  " TODO set vs setlocal?
+  set nospell noci nosi noai nolist noshowmode noshowcmd wrap
+  " set textwidth=80
   set complete+=s
-"  set bg=light
-"  if !has('gui_running')
-"    let g:solarized_termcolors=256
-" endif
-"  colors solarized
 endfunction
-"
-"set shell=/bin/bash
-"
+
 command! ProseMode call ProseMode()
-nmap \p :ProseMode<CR>
-" }}}
+" nmap \p :ProseMode<CR> # conflicts with ipython

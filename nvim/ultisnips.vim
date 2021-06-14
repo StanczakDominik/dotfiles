@@ -5,3 +5,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" let g:UltiSnipsSnippetDirectories=['UltiSnips', 'my_snippets']
+let g:UltiSnipsSnippetDirectories=['/home/dominik/.vim/plugged/vim-snippets/UltiSnips']
+let g:ultisnips_python_style = 'numpy'

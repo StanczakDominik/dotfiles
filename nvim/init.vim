@@ -1,4 +1,4 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+" set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 "
 " TODO break this one up
@@ -9,10 +9,12 @@ Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump betwe
 Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'preservim/nerdcommenter'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Plug 'ron89/thesaurus_query.vim'
 
 Plug 'tpope/vim-unimpaired'                  " ]l jumps, etc
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
+Plug 'ferrine/md-img-paste.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'preservim/nerdtree'                    " :NERDTree command
@@ -28,10 +30,9 @@ Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
 Plug 'ActivityWatch/aw-watcher-vim'
-Plug 'andweeb/presence.nvim'
+" Plug 'andweeb/presence.nvim'
 Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
-
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/wiki.vim'
 
@@ -51,7 +52,7 @@ Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux
 Plug 'psf/black'                  " :Black
 Plug 'junegunn/fzf'      
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 Plug 'jesseleite/vim-agriculture'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-test/vim-test'
@@ -86,7 +87,9 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-dispatch'
 Plug 'goerz/jupytext.vim'
 Plug 'ryanoasis/vim-devicons'
-let g:pydocstring_doq_path='/home/dominik/miniconda3/bin/doq'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+let g:pydocstring_doq_path = '/home/dominik/.local/bin/doq'
+let g:pydocstring_formatter = 'numpy'
 Plug 'wannesm/wmgraphviz.vim'
 
 call plug#end()
@@ -105,9 +108,11 @@ set showmatch
 set smartcase
 set hidden
 set number
+set title
 set tabstop=4 shiftwidth=4 expandtab
 set spelllang=en_us
-colorscheme gotham
+set inccommand=split
+colorscheme solarized
 
 
 
@@ -137,20 +142,21 @@ source /home/dominik/.config/nvim/limelight.vim
 source /home/dominik/.config/nvim/goyo.vim
 source /home/dominik/.config/nvim/test.vim
 source /home/dominik/.config/nvim/learn-vim.vim
-source /home/dominik/.config/nvim/ale.vim
+" source /home/dominik/.config/nvim/ale.vim
 source /home/dominik/.config/nvim/multilingua.vim
 source /home/dominik/.config/nvim/airline.vim
 source /home/dominik/.config/nvim/markdown.vim
 source /home/dominik/.config/nvim/lsp.vim
 source /home/dominik/.config/nvim/julia.vim
 source /home/dominik/.config/nvim/ipython-cell.vim
+" source /home/dominik/.config/nvim/darkmode.vim
 
 au FileType vimwiki set syntax=pandoc
 set backupskip+=*.asc
 set viminfo+=n$HOME/.config/nvim/files/info
 set viminfo='100,n$HOME/.config/nvim/files/info
 "Make them both live in peace and harmony
-let NERDTreeHijackNetrw=0 
+let NERDTreeHijackNetrw=1
 augroup GPG
   autocmd!
   autocmd BufReadPost  *.asc :%!gpg -q -d
@@ -160,3 +166,27 @@ augroup GPG
   autocmd VimLeave     *.asc :!clear
 augroup END
 
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+
+set suffixesadd+=.md
+
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {"flowchart":{"useMaxWidth":"True"}},
+    \ 'disable_sync_scroll': 1,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+let g:wiki_root = '~/vimwiki'
+let g:wiki_filetypes = ['wiki', 'md', 'markdown']
+let g:wiki_global_load = 0
+let g:wiki_link_target_type = 'md'
