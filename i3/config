@@ -233,7 +233,7 @@ exec xss-lock -- i3lock -n -c 000000
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "i3lock -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
+    bindsym l exec --no-startup-id "i3lock -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
     # bindsym l exec "loginctl lock-session $XDG_SESSION_ID", mode "default"
     # broken because neither tmux nor i3 get the env var!
     bindsym e exec --no-startup-id "i3-msg exit", mode "default"

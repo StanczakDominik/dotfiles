@@ -118,7 +118,6 @@ gnome-sound-recorder
 gnuplot
 go
 go-mtpfs-git
-google-chrome
 googler
 gource
 gparted
@@ -159,6 +158,7 @@ joplin-appimage
 jq
 jrnl
 julia
+jupyter-nbextension-rise
 jupyterlab
 jupyterlab-extension-jupyterlab_git
 jupyterlab-widgets
@@ -228,6 +228,7 @@ lostfiles
 lsd
 lsof
 lutris
+lutris-battlenet-meta
 lvm2
 m4
 make
@@ -246,6 +247,7 @@ mpd
 mpd-rich-presence-discord-git
 mplayer
 mpv
+nano
 ncdu
 ncl
 neovim-git
@@ -314,6 +316,7 @@ plymouth
 pomotroid-bin
 potato
 powerline-fonts
+powerstat-git
 powertop
 prettier
 primus
@@ -436,7 +439,6 @@ python-pytest-cov
 python-pytest-datadir
 python-pytest-enabler
 python-pytest-forked
-python-pytest-mock
 python-pytest-mpl
 python-pytest-pudb
 python-pytest-xdist
@@ -514,6 +516,7 @@ shadow
 signal-desktop
 skanlite
 sl
+slack-desktop
 sloccount
 smb4k
 spectacle

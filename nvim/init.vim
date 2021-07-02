@@ -57,7 +57,6 @@ Plug 'jesseleite/vim-agriculture'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-test/vim-test'
 Plug 'heavenshell/vim-pydocstring'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'   "` Relative line number
 Plug 'plasticboy/vim-markdown'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-sleuth'           
