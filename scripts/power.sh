@@ -2,7 +2,7 @@
 
 STATE=""
 BAT="BAT1"
-MAXFREQ="2.7G"
+MAXFREQ="G"
 
 if [[ "$1" == "BAT" || "$1" == "AC" ]]; then
   STATE="$1"

@@ -1,10 +1,11 @@
 colors:
   body: none
-  date: none
-  tags: none
-  title: none
+  date: BLUE
+  tags: YELLOW
+  title: GREEN
 default_hour: 9
 default_minute: 0
+display_format: markdown
 editor: nvim -c ProseMode -c startinsert
 encrypt: true
 highlight: true
@@ -13,17 +14,18 @@ journals:
   default:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/journal.txt
-  work:
-    encrypt: false
-    journal: /home/dominik/Sync/jrnl/work.txt
-  writing:
-    encrypt: false
-    journal: /home/dominik/Sync/jrnl/writing.txt
   gratitude:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/gratitude.txt
+  progress:
+    encrypt: true
+    journal: /home/dominik/Sync/jrnl/progress.txt
+    template: /home/dominik/Sync/jrnl/daily-template.txt
+  work:
+    encrypt: false
+    journal: /home/dominik/Sync/jrnl/work.txt
 linewrap: 79
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
-version: v2.2-beta
+version: v2.8.1

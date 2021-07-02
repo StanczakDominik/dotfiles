@@ -1,6 +1,7 @@
 [user]
 	email = stanczakdominik@gmail.com
 	name = Dominik Stańczak
+	user = StanczakDominik
 	signingkey = 9C760E9505AB7902C690AAA68865CBD713B79546
 [alias]
 	slog = log --oneline --topo-order --graph
@@ -12,11 +13,12 @@
 	files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
 	review = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 	reviewone = !vim -p +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+	bp = big-picture
+    todo = !rg TODO $(git diff master --name-only)
 [push]
 	default = simple
 [core]
 	excludesfile = /home/dominik/.gitignore_global
-	editor = vim
 [url "git@github.com:"]                                                         
     insteadOf = "gh:"                                                           
 [url "git@gitlab.com:"]                                                         
@@ -56,3 +58,4 @@
 	rebase = false
 [init]
 	templateDir = /home/dominik/.git-template
+	defaultBranch = main
