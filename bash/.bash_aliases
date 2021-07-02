@@ -1,9 +1,17 @@
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias ls='ls --color=auto'
 alias youtube-mp3='youtube-dl -x --audio-format=mp3 --audio-quality=0 --embed-thumbnail --add-metadata'
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  if [ -x "$(command -v nvr)" ]; then
+    alias nvim=nvr
+  else
+    alias nvim='echo "No nesting!"'
+  fi
+fi
 alias vim=nvim
 alias vi=nvim
 alias todo='todoist --color list --filter "today | overdue"'
+alias todowork='todoist --color list --filter "(today | overdue) & (##IFPILM | @work)"'
 
 alias phone="scrcpy -b2M -m800"
 function phone-connect () {
@@ -14,14 +22,13 @@ function phone-connect () {
 
 alias jupylab="conda activate py38; jupyter-lab"
 alias jupylab-pass="/progs/miniconda3/bin/jupyter notebook list"
-alias sympy="/progs/miniconda3/bin/ipython --profile sympy"
 
 alias plasmapy="cd ~/Code/github/PlasmaPy/PlasmaPy"
 alias pythonpic="cd ~/Code/PythonPIC"
 alias nbody="cd ~/Code/NBody-MD/"
 
 alias newsreader='voila /home/dominik/Code/PaperSubscription/newsreader.ipynb --port=8897'
-alias wttr='curl wttr.in'
+alias wttr='curl wttr.in/Warsaw'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 function jrnl-review () {
@@ -33,41 +40,108 @@ function masters-pages () {
     pdfinfo ~/Writing/Magisterium/build/pracaMagisterska.pdf | grep Pages | awk '{print $2}'
 }
 
+# Konsole color changing
+theme-night() {
+  switch-term-color "colors=Solarized"
+}
+theme-light() {
+  switch-term-color "colors=SolarizedLight"
+}
+switch-term-color() {
+  arg="${1:-colors=Solarized}"
+  if [[ -z "$TMUX" ]]
+  then
+    konsoleprofile "$arg"
+  else
+    printf '\033Ptmux;\033\033]50;%s\007\033\\' "$arg"
+  fi
+}
 
 function lightmode () {
-    lookandfeeltool -a 'org.kde.breeze.desktop'
-    kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
-    kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Light.profile"
-    DISCORD_CONFIG="/home/dominik/.config/discord/settings.json"
-    jq '.BACKGROUND_COLOR = "#ffffff"' $DISCORD_CONFIG > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG
-    CAPRINE_CONFIG="/home/dominik/.config/Caprine/config.json"
-    jq '.darkmode = false' $CAPRINE_CONFIG > tmp.config.json && mv tmp.config.json $CAPRINE_CONFIG
-    # TODO:
-    # unify these two functions
-    # firefox theme
-    # treestyletabs theme
-    # discord does not quite work...
+    ~/.local/share/light-mode.d/gtk-theme.sh
+    ~/.local/share/light-mode.d/kde-theme.sh
+    ~/.local/share/light-mode.d/konsole-theme.sh
 }
 
 function darkmode () {
-    lookandfeeltool -a 'org.kde.breezedark.desktop'
-    kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
-    kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key "DefaultProfile" "Dark.profile"
-    DISCORD_CONFIG="/home/dominik/.config/discord/settings.json"
-    jq '.BACKGROUND_COLOR = "#202225"' $DISCORD_CONFIG > tmp.settings.json && mv tmp.settings.json $DISCORD_CONFIG
-    CAPRINE_CONFIG="/home/dominik/.config/Caprine/config.json"
-    jq '.darkmode = true' $CAPRINE_CONFIG > tmp.config.json && mv tmp.config.json $CAPRINE_CONFIG
+    ~/.local/share/dark-mode.d/gtk-theme.sh
+    ~/.local/share/dark-mode.d/kde-theme.sh
+    ~/.local/share/dark-mode.d/konsole-theme.sh
 }
 
 function powerwrite () {
-    atom -w $1 && beeminder update powermode-writing 1 "$(wc -w $1)"
+    update $@ && beeminder update powermode-writing 1 
 }
-function update () {
-    conda activate
-    jrnl $@ && beeminder update log 1 "$(date)"
-    WORDCOUNT=$(jrnl -from 2000 | sed -e 's/| //' | wc -w)
-    curl -X POST https://www.beeminder.com/api/v1/users/stanczakdominik/goals/jrnl/datapoints.json -d auth_token=$BEEMINDER_TOKEN -d value=$WORDCOUNT
+# function jrnl () {
+#     /home/dominik/.local/bin/jrnl $@ && beeminder update jrnl
+# }
+function grateful () {
+    (/home/dominik/.local/bin/jrnl gratitude $@; beeminder update gratitude) &
 }
-alias termdownsay='termdown -v english'
+alias termdownsay='termdown -v us-mbrola-1'
 alias watch_workhours='watch -n600 "workfill.py; workhours.py; workproportions.py"'
 alias joplin-todo="rg '\- \[ \]' ~/Sync/Joplin"
+alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
+alias twork="toggl now -a IFPILM"
+alias tbathroom="toggl start -o Bathroom Łazienka"
+alias plasmalogout="qdbus org.kde.ksmserver /KSMServer logout 0 3 3"
+alias workjupyterssh="ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8889:localhost:9000 dstanczak@10.0.0.228; ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8787:localhost:8787 dstanczak@10.0.0.228"
+alias chrome="google-chrome-stable"
+
+function festsay () {
+    speech="(SayText \"$*\")"
+    festival -b '(voice_cmu_us_rms_cg)' $speech
+}
+function poked () {
+  beeminder u friends 1 "'$*'"
+}
+
+function asked () {
+  beeminder u ask 1 "'$*'"
+}
+function tbreak () {
+    toggl start -a IFPILM -o Relax Break
+    if termdownsay "$1m"; then
+        echo "Break going overlong?"
+        toggl start -a IFPILM -o Relax "Break (overlong?)"
+    else
+        echo "Break completed."
+    fi
+}
+
+function bping () {
+  beeminder u "ping-$*" 1 
+}
+
+countdown(){
+    date1=$((`date +%s` + $1));
+    while [ "$date1" -ge `date +%s` ]; do 
+    ## Is this more than 24h away?
+    days=$(($(($(( $date1 - $(date +%s))) * 1 ))/86400))
+    echo -ne "$days day(s) and $(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r"; 
+    sleep 0.1
+    done
+}
+stopwatch(){
+    date1=`date +%s`; 
+    while true; do 
+    days=$(( $(($(date +%s) - date1)) / 86400 ))
+    echo -ne "$days day(s) and $(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+    done
+}
+
+alias noexit='set -o ignoreeof'
+alias plasma-panel-toggle='qdbus org.kde.plasmashell /PlasmaShell evaluateScript "p = panelById(panelIds[0]); p.height = 32 - p.height;"'
+alias lofi='mpv --no-video $(youtube-dl -g https://www.youtube.com/watch\?v=5qap5aO4i9A)'
+alias mux='tmuxinator'
+alias bee='beeminder'
+
+alias profileoff="grep -rli '@profile' plasmapy | xargs -i\"}\" sed -i 's/@profile/#profile/g' \"}\""
+alias profileon="grep -rli '#profile' plasmapy | xargs -i\"}\" sed -i 's/#profile/@profile/g' \"}\""
+
+posprzatane(){
+    sprzatanie done $*
+    beeminder u largecleaning 1 "$*"
+}
+alias pacorphans="pacman -Qqtd "
