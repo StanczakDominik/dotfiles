@@ -16,16 +16,16 @@ params = {
     "since": datetime.date.today().isoformat(),
 }
 
-url = f"https://www.toggl.com/api/v8/workspaces/{workspace}/projects"
+url = f"https://api.track.toggl.com/api/v8/workspaces/{workspace}/projects"
 projects = requests.get(url, auth=auth, params=dict(actual_hours=True)).json()
-url = f"https://www.toggl.com/api/v8/workspaces/{workspace}/clients"
+url = f"https://api.track.toggl.com/api/v8/workspaces/{workspace}/clients"
 clients = requests.get(url, auth=auth).json()
 client_names = {c['id']: c['name'] for c in clients}
 
 params = {
     "user_agent": email,
 }
-projects_weekly = requests.get(f"https://toggl.com/reports/api/v2/weekly?workspace_id={workspace}", auth=auth, params=params).json()
+projects_weekly = requests.get(f"https://api.track.toggl.com/reports/api/v2/weekly?workspace_id={workspace}", auth=auth, params=params).json()
 
 import astropy.units as u
 

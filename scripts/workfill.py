@@ -41,7 +41,7 @@ def get_total_in(year: int, month: int) -> float:
         "until": datetime.date(year, month, last_day),
     }
 
-    url = "https://toggl.com/reports/api/v2/summary"
+    url = "https://api.track.toggl.com/reports/api/v2/summary"
     r = requests.get(url, auth=auth, params=params)
     total = r.json()["total_grand"]
     if total is None:

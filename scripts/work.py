@@ -54,7 +54,7 @@ def get_original_proportion(
         "until": end_date,
     }
 
-    url = "https://toggl.com/reports/api/v2/summary"
+    url = "https://api.track.toggl.com/reports/api/v2/summary"
     r = requests.get(url, auth=auth, params=params)
     all_time = r.json()["total_grand"]
     params["project_ids"] = chill_projects
@@ -81,7 +81,7 @@ class WorkTimer:
             "since": current_date.isoformat(),
         }
 
-        url = "https://toggl.com/reports/api/v2/summary"
+        url = "https://api.track.toggl.com/reports/api/v2/summary"
         r_all = requests.get(url, auth=auth, params=params).json()
         return r_all
 
@@ -93,7 +93,7 @@ class WorkTimer:
             "since": current_date.isoformat(),
         }
 
-        url = "https://toggl.com/reports/api/v2/details"
+        url = "https://api.track.toggl.com/reports/api/v2/details"
         r_all = requests.get(url, auth=auth, params=params).json()
         # r_all['data'].append(self.r_current_json['data'])
         return r_all
@@ -130,7 +130,7 @@ class WorkTimer:
     @cached_property
     def r_current_json(self):
         current_json = requests.get(
-            "https://www.toggl.com/api/v8/time_entries/current", auth=auth
+            "https://api.track.toggl.com/api/v8/time_entries/current", auth=auth
         ).json()
         return current_json
 
@@ -253,8 +253,7 @@ class WorkTimer:
         else:
             description = ''
         time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}, +{td_as_h(self.time_remaining)}"
-        proportion_status = f"focus: {self.focus_proportion:.0%} ({self.delta_proportion:+.0%})"
-        print(f"{prefix}{time_status}, {proportion_status}{description}")
+        print(f"{prefix}{time_status}, {description}")
 
     def describe_goals(self):
         def item_in_goal(item, goal):

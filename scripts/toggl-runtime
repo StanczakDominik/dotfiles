@@ -14,7 +14,7 @@ def get_data(weekly = False):
     midnight_without_tzinfo = datetime.combine(the_date, time())
     today_string = midnight_without_tzinfo.strftime("%Y-%m-%d")
 
-    toggl_details_endpoint = "https://toggl.com/reports/api/v2/summary"
+    toggl_details_endpoint = "https://api.track.toggl.com/reports/api/v2/summary"
     toggl_apikey = os.environ["TOGGL_APIKEY"]
     toggl_workspace = os.environ["TOGGL_WORKSPACE"]
     toggl_email = os.environ["TOGGL_EMAIL"]
