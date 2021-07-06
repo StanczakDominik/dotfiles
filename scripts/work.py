@@ -156,14 +156,9 @@ class WorkTimer:
             f"{self.focus_proportion:.0%}: {abs(self.delta_proportion):.0%} {describer} focused wrt planned ratio {100*original_proportion:.0f}%"
         )
         current_focused_time = (self.time_done * self.focus_proportion).total_seconds()
-        focus_goal = original_proportion * daily_worktime
-        delta_time = current_focused_time - focus_goal
-        if current_focused_time > focus_goal:
-            print(f"Today's focus goal achieved. Take a break if you'd like.")
-        else:
-            focused_to_go = datetime.timedelta(seconds=focus_goal - current_focused_time)
-            remaining_break = datetime.timedelta(seconds = daily_worktime) - focused_to_go - self.time_done
-            print(f"Still need {td_as_h(focused_to_go)} focused time to go. Then, you may take a break of {td_as_h(abs(remaining_break))}.")
+        if self.delta_proportion > 0:
+            remaining_break = self.time_done * self.delta_proportion
+            print(f"Take a break of {td_as_h(remaining_break)} if you'd like.")
 
     @property
     def data(self):
