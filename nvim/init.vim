@@ -35,6 +35,7 @@ Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/wiki.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'whatyouhide/vim-gotham'
 
@@ -145,8 +146,8 @@ source /home/dominik/.config/nvim/learn-vim.vim
 source /home/dominik/.config/nvim/multilingua.vim
 source /home/dominik/.config/nvim/airline.vim
 source /home/dominik/.config/nvim/markdown.vim
-source /home/dominik/.config/nvim/lsp.vim
-source /home/dominik/.config/nvim/julia.vim
+" source /home/dominik/.config/nvim/lsp.vim
+" source /home/dominik/.config/nvim/julia.vim
 source /home/dominik/.config/nvim/ipython-cell.vim
 " source /home/dominik/.config/nvim/darkmode.vim
 
@@ -190,3 +191,30 @@ let g:wiki_filetypes = ['wiki', 'md', 'markdown']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 nnoremap <leader>/ /\<\><left><left>
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()

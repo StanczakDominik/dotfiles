@@ -49,7 +49,7 @@ i3lock
 i3status
 inkscape
 ipython
-joplin
+joplin-appimage
 jrnl
 jupyterlab
 jupyterlab-widgets
@@ -74,7 +74,7 @@ mplayer
 mpv
 ncdu
 ncview
-neovim
+neovim-git
 neovim-plug
 networkmanager
 networkmanager-openvpn
@@ -90,6 +90,7 @@ patch
 pdfgrep
 pkgconf
 plasma-meta
+playerctl
 powertop
 print-manager
 pubs
