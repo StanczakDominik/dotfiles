@@ -34,6 +34,7 @@ firefox
 flex
 fzf
 gcc
+gcc-fortran
 gconf
 git
 gparted
