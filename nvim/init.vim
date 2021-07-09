@@ -218,3 +218,19 @@ EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+
+
+
+" https://vim.fandom.com/wiki/Ignore_white_space_in_vimdiff
+if &diff
+    map gs :call IwhiteToggle()<CR>
+    function! IwhiteToggle()
+        if &diffopt =~ 'iwhite'
+            set diffopt-=iwhite
+        else
+            set diffopt+=iwhite
+        endif
+    endfunction
+endif
+
