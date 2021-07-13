@@ -273,8 +273,6 @@ for_window [class="plasmashell" window_type="notification"] border none, move ri
 no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
-# exec --no-startup-id feh --bg-scale "/home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
-exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*
 
 # # Quiet mode
 
@@ -328,7 +326,7 @@ bindsym $mod+$numlock+KP_5 [con_mark="music"] scratchpad show
 
 assign [class="TogglDesktop"] $ws1
 # assign [class="okular"] $ws1
-bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+# bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
 assign [class="Slack"] $ws9
@@ -409,7 +407,7 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
 
-bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
+# bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
@@ -429,3 +427,6 @@ focus_on_window_activation urgent
 # exec --no-startup-id "alacritty"
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
+#
+# exec --no-startup-id feh --bg-scale "/home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
+exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*
