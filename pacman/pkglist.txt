@@ -37,6 +37,7 @@ gcc
 gcc-fortran
 gconf
 git
+github-cli
 gparted
 graphviz
 grub
