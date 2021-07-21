@@ -23,9 +23,9 @@ Plug 'reedes/vim-pencil'
 Plug 'mhinz/vim-startify'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'yazgoo/unicodemoji'
-Plug 'jpalardy/vim-slime', { 'for': 'python' }
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-let g:slime_target = "neovim"
+" Plug 'jpalardy/vim-slime', { 'for': 'python' }
+" Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" let g:slime_target = "neovim"
 Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
@@ -73,7 +73,10 @@ Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'  
+" Plug 'nvim-lua/completion-nvim'  
+"
+Plug 'hrsh7th/nvim-compe'
+set completeopt=menuone,noselect
 Plug 'JuliaEditorSupport/julia-vim'
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -91,6 +94,12 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 let g:pydocstring_doq_path = '/home/dominik/.local/bin/doq'
 let g:pydocstring_formatter = 'numpy'
 Plug 'wannesm/wmgraphviz.vim'
+
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+Plug 'folke/which-key.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
 
@@ -146,9 +155,10 @@ source /home/dominik/.config/nvim/learn-vim.vim
 source /home/dominik/.config/nvim/multilingua.vim
 source /home/dominik/.config/nvim/airline.vim
 source /home/dominik/.config/nvim/markdown.vim
-" source /home/dominik/.config/nvim/lsp.vim
+source /home/dominik/.config/nvim/lsp.vim
+source /home/dominik/.config/nvim/compe.vim
 " source /home/dominik/.config/nvim/julia.vim
-source /home/dominik/.config/nvim/ipython-cell.vim
+" source /home/dominik/.config/nvim/ipython-cell.vim
 " source /home/dominik/.config/nvim/darkmode.vim
 
 au FileType vimwiki set syntax=pandoc
@@ -234,3 +244,4 @@ if &diff
     endfunction
 endif
 
+nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>

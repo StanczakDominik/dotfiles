@@ -80,6 +80,7 @@ neovim-git
 neovim-plug
 networkmanager
 networkmanager-openvpn
+obsidian-appimage
 octave
 okular
 openssh
@@ -90,6 +91,7 @@ packagekit-qt5
 paraview
 patch
 pdfgrep
+picom
 pkgconf
 plasma-meta
 playerctl
@@ -97,6 +99,7 @@ powertop
 print-manager
 pubs
 pulseaudio-bluetooth
+pyright
 python-argcomplete
 python-black
 python-dateparser
@@ -109,6 +112,7 @@ python-prompt_toolkit
 python-pynvim
 python-rich
 python-virtualenvwrapper
+reflector
 rofi
 rsibreak
 sane
@@ -149,7 +153,7 @@ timidity++
 tmux
 tmuxinator
 todoist-git
-toggldesktop
+toggldesktop-bin
 trash-cli
 tree
 ttf-baekmuk
@@ -177,6 +181,7 @@ workrave
 wtfutil
 xaos
 xclip
+xerox-workcentre-6505
 xf86-video-vesa
 xl2tpd
 xonsh

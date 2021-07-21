@@ -196,7 +196,15 @@ class WorkTimer:
     def time_done(self):
         return datetime.timedelta(milliseconds=self.all_time)
 
-    time_required=datetime.timedelta(hours=8)
+    @cached_property
+    def time_required(self):
+        if current_date.weekday() == 5:
+            return datetime.timedelta(hours=7)
+        elif current_date.weekday() > 5:
+            return datetime.timedelta(hours=0)
+        else:
+            return datetime.timedelta(hours=8)
+
     @cached_property
     def time_remaining(self):
         return self.time_required - self.time_done 

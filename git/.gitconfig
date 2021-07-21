@@ -37,7 +37,7 @@
 [diff]
   tool = vimdiff
 [commit]
-	gpgsign = true
+	gpgSign = false
 [github]
 	user = StanczakDominik
 [diff "jupyternotebook"]
