@@ -67,15 +67,15 @@ def task_create_machine_specific_symlinks():
     hostname = socket.gethostname()
     for dictionary, target in [
         (
-            {"dell": "wtfutil/config_home.yml", "opl-pc28": "wtfutil/config_work.yml"},
+            {"dell": "wtfutil/config_home.yml", "4-734": "wtfutil/config_work.yml"},
             home / ".config/wtf/config.yml",
         ),
         (
-            {"dell": "git/.gitconfig", "opl-pc28": "git/.gitconfig_ifpilm"},
+            {"dell": "git/.gitconfig", "4-734": "git/.gitconfig_ifpilm"},
             home / ".gitconfig",
         ),
         (
-            {"dell": "bash/.bashrc_local_home", "opl-pc28": "bash/.bashrc_local_ifpilm"},
+            {"dell": "bash/.bashrc_local_home", "4-734": "bash/.bashrc_local_ifpilm"},
             home / ".bashrc_local",
         ),
     ]:

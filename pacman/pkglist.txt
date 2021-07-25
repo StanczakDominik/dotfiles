@@ -617,7 +617,6 @@ wol
 workrave
 wpa_actiond
 wpa_supplicant
-wtfutil-bin
 wttr
 x2goclient
 xautolock

@@ -7,8 +7,8 @@ function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let height = float2nr(10)
-  let width = float2nr(80)
+  let height = float2nr(30)
+  let width = float2nr(120)
   let horizontal = float2nr((&columns - width) / 2)
   let vertical = 1
 
@@ -24,7 +24,7 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
-nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <C-p> :<C-u>FZF<Cr>
 nnoremap <C-G> :Rg<CR>
+nnoremap <silent><leader>g :GFiles<CR>

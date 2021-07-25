@@ -151,6 +151,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+bindsym $mod+Escape workspace $ws2; workspace $ws6
 
 
 # resize window (you can also use the mouse for that)
@@ -233,7 +234,7 @@ exec xss-lock -- i3lock -n -c 000000
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "i3lock -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
+    bindsym l exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
     # bindsym l exec "loginctl lock-session $XDG_SESSION_ID", mode "default"
     # broken because neither tmux nor i3 get the env var!
     bindsym e exec --no-startup-id "i3-msg exit", mode "default"
@@ -248,6 +249,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
+bindsym $mod+grave exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
 exec --no-startup-id dunst
 
 
@@ -271,8 +273,6 @@ for_window [class="plasmashell" window_type="notification"] border none, move ri
 no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
-# exec --no-startup-id feh --bg-scale "/home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
-exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*
 
 # # Quiet mode
 
@@ -326,11 +326,12 @@ bindsym $mod+$numlock+KP_5 [con_mark="music"] scratchpad show
 
 assign [class="TogglDesktop"] $ws1
 # assign [class="okular"] $ws1
-bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+# bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
 assign [class="Slack"] $ws9
 assign [class="Signal"] $ws9
+assign [class="microsoft teams - preview"] $ws9
 assign [class="Element"] $ws9
 assign [class="discord"] $ws9
 assign [class="clementine"] $ws10
@@ -406,7 +407,7 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
 
-bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
+# bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
@@ -426,3 +427,5 @@ focus_on_window_activation urgent
 # exec --no-startup-id "alacritty"
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
+
+exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*

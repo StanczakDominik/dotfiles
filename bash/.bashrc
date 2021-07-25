@@ -97,9 +97,3 @@ run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE"; }
 bind -m vi-insert -x '"\eh": run-help'
 bind -m emacs -x     '"\eh": run-help'
 
-
-# Created by `userpath` on 2020-03-23 13:35:42
-export PATH="$PATH:/home/dominik/.local/bin"
-
-# added by travis gem
-[ ! -s /home/dominik/.travis/travis.sh ] || source /home/dominik/.travis/travis.sh

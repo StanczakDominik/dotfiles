@@ -10,24 +10,6 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
 fi
 alias vim=nvim
 alias vi=nvim
-alias todo='todoist --color list --filter "today | overdue"'
-alias todowork='todoist --color list --filter "(today | overdue) & (##IFPILM | @work)"'
-
-alias phone="scrcpy -b2M -m800"
-function phone-connect () {
-    adb tcpip 5555
-    adb connect $(ip neigh | grep 9c:e0:63:53:19:90 | cut -f 1 -d ' ' | head -n 1):5555
-}
-
-
-alias jupylab="conda activate py38; jupyter-lab"
-alias jupylab-pass="/progs/miniconda3/bin/jupyter notebook list"
-
-alias plasmapy="cd ~/Code/github/PlasmaPy/PlasmaPy"
-alias pythonpic="cd ~/Code/PythonPIC"
-alias nbody="cd ~/Code/NBody-MD/"
-
-alias newsreader='voila /home/dominik/Code/PaperSubscription/newsreader.ipynb --port=8897'
 alias wttr='curl wttr.in/Warsaw'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
@@ -35,7 +17,6 @@ function jrnl-review () {
     conda activate
     jrnl -from "one month ago" $@ | less
 }
-alias blogging='cd ~/Writing/blog; vim in_progress/*'
 function masters-pages () {
     pdfinfo ~/Writing/Magisterium/build/pracaMagisterska.pdf | grep Pages | awk '{print $2}'
 }
@@ -69,18 +50,7 @@ function darkmode () {
     ~/.local/share/dark-mode.d/konsole-theme.sh
 }
 
-function powerwrite () {
-    update $@ && beeminder update powermode-writing 1 
-}
-# function jrnl () {
-#     /home/dominik/.local/bin/jrnl $@ && beeminder update jrnl
-# }
-function grateful () {
-    (/home/dominik/.local/bin/jrnl gratitude $@; beeminder update gratitude) &
-}
 alias termdownsay='termdown -v us-mbrola-1'
-alias watch_workhours='watch -n600 "workfill.py; workhours.py; workproportions.py"'
-alias joplin-todo="rg '\- \[ \]' ~/Sync/Joplin"
 alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
 alias twork="toggl now -a IFPILM"
 alias tbathroom="toggl start -o Bathroom Łazienka"
@@ -92,13 +62,7 @@ function festsay () {
     speech="(SayText \"$*\")"
     festival -b '(voice_cmu_us_rms_cg)' $speech
 }
-function poked () {
-  beeminder u friends 1 "'$*'"
-}
 
-function asked () {
-  beeminder u ask 1 "'$*'"
-}
 function tbreak () {
     toggl start -a IFPILM -o Relax Break
     if termdownsay "$1m"; then
@@ -107,10 +71,6 @@ function tbreak () {
     else
         echo "Break completed."
     fi
-}
-
-function bping () {
-  beeminder u "ping-$*" 1 
 }
 
 countdown(){
