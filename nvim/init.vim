@@ -23,9 +23,6 @@ Plug 'reedes/vim-pencil'
 Plug 'mhinz/vim-startify'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'yazgoo/unicodemoji'
-" Plug 'jpalardy/vim-slime', { 'for': 'python' }
-" Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-" let g:slime_target = "neovim"
 Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
@@ -73,8 +70,6 @@ Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'  
-"
 Plug 'hrsh7th/nvim-compe'
 set completeopt=menuone,noselect
 Plug 'JuliaEditorSupport/julia-vim'
@@ -157,8 +152,7 @@ source /home/dominik/.config/nvim/airline.vim
 source /home/dominik/.config/nvim/markdown.vim
 source /home/dominik/.config/nvim/lsp.vim
 source /home/dominik/.config/nvim/compe.vim
-" source /home/dominik/.config/nvim/julia.vim
-" source /home/dominik/.config/nvim/ipython-cell.vim
+source /home/dominik/.config/nvim/julia.vim
 " source /home/dominik/.config/nvim/darkmode.vim
 
 au FileType vimwiki set syntax=pandoc
@@ -201,47 +195,3 @@ let g:wiki_filetypes = ['wiki', 'md', 'markdown']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 nnoremap <leader>/ /\<\><left><left>
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    custom_captures = {
-      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-      ["foo.bar"] = "Identifier",
-    },
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-  indent = {
-    enable = true
-  }
-}
-EOF
-
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-
-
-
-
-" https://vim.fandom.com/wiki/Ignore_white_space_in_vimdiff
-if &diff
-    map gs :call IwhiteToggle()<CR>
-    function! IwhiteToggle()
-        if &diffopt =~ 'iwhite'
-            set diffopt-=iwhite
-        else
-            set diffopt+=iwhite
-        endif
-    endfunction
-endif
-
-nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>

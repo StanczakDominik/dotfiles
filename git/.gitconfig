@@ -2,7 +2,7 @@
 	email = stanczakdominik@gmail.com
 	name = Dominik Stańczak
 	user = StanczakDominik
-	signingkey = 9C760E9505AB7902C690AAA68865CBD713B79546
+	signingkey = 3AF45CAAD779A50168E0E866AA39B6635805CC28
 [alias]
 	slog = log --oneline --topo-order --graph
 	adog = log --all --decorate --oneline --graph
@@ -37,7 +37,7 @@
 [diff]
   tool = vimdiff
 [commit]
-	gpgSign = false
+	gpgsign = true
 [github]
 	user = StanczakDominik
 [diff "jupyternotebook"]

@@ -427,6 +427,5 @@ focus_on_window_activation urgent
 # exec --no-startup-id "alacritty"
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
-#
-# exec --no-startup-id feh --bg-scale "/home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
+
 exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*

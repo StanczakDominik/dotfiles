@@ -24,7 +24,7 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
-nnoremap <silent><leader>b :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <C-p> :<C-u>FZF<Cr>
 nnoremap <C-G> :Rg<CR>
 nnoremap <silent><leader>g :GFiles<CR>

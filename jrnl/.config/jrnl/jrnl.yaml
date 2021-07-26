@@ -14,9 +14,6 @@ journals:
   default:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/journal.txt
-  gratitude:
-    encrypt: true
-    journal: /home/dominik/Sync/jrnl/gratitude.txt
   progress:
     encrypt: true
     journal: /home/dominik/Sync/jrnl/progress.txt

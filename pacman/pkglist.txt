@@ -60,6 +60,7 @@ kdeconnect
 keepassxc
 krita
 kteatime
+kwalletcli-git
 kwalletmanager
 libappindicator-gtk3
 libindicator-gtk2
@@ -70,6 +71,7 @@ linux-firmware
 luit
 m4
 make
+mksh
 mpc
 mpd
 mplayer
