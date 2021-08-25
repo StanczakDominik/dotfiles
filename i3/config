@@ -87,6 +87,7 @@ bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -274,30 +275,6 @@ no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-# # Quiet mode
-
-# set $mode_quiet Quiet (r) toggle, (s) small, (m) medium, (l) large, (Esc\Return\Capslock\$mod+d) default
-# mode "$mode_quiet" {
-#         # These bindings trigger as soon as you enter the resize mode
-
-#         # Move a window in and out the quiet mode
-#         bindsym q exec ~/.config/i3/quiet-cmd.py toggle ; mode "default"
-
-#         # Resize the window in quiet mode
-#         bindsym s exec ~/.config/i3/quiet-cmd.py resize small
-#         bindsym m exec ~/.config/i3/quiet-cmd.py resize medium
-#         bindsym l exec ~/.config/i3/quiet-cmd.py resize large
-
-#         # back to normal
-#         bindsym Escape mode "default"
-#         bindsym Return mode "default"
-#         bindsym Caps_Lock mode "default"
-#         bindsym $mod+d mode "default"
-# }
-
-# bindsym $mod+o exec $HOME/.config/i3/quiet-cmd.py toggle
-# bindsym $mod+Shift+o mode "$mode_quiet"
-# exec_always $HOME/.config/i3/quiet-toggle-bar.py --kill
 
 # for_window [class="^.*"] border pixel 5
 gaps outer 3
@@ -305,24 +282,11 @@ gaps inner 3
 gaps vertical 3
 gaps horizontal 3
 
-
-
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+equal move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+equal scratchpad show
-
-set $numlock mod2
-bindsym $mod+$numlock+KP_1 [class="konsole"] scratchpad show
-# bindsym F12 [class="konsole"] scratchpad show
-bindsym $mod+$numlock+KP_2 [class="Google-chrome"] scratchpad show
-bindsym $mod+$numlock+KP_3 [class="Toggl Desktop"] scratchpad show
-bindsym $mod+$numlock+KP_4 [class="Clementine"] scratchpad show
-
-bindsym $mod+$numlock+KP_5 [con_mark="music"] scratchpad show
-
-
 
 assign [class="TogglDesktop"] $ws1
 # assign [class="okular"] $ws1
@@ -337,69 +301,8 @@ assign [class="discord"] $ws9
 assign [class="clementine"] $ws10
 assign [class="cantata"] $ws10
 
-# i3-resurrect
-set $i3_resurrect i3-resurrect
-
-set $mode_resurrect_save (1-0) save numbered workspace, (v) save current workspace, (Enter/Escape) disable
-# Save workspace mode.
-mode "$mode_resurrect_save" {
-  bindsym 1 exec "$i3_resurrect save -n 1 --swallow=class,instance,title"
-  bindsym 2 exec "$i3_resurrect save -n 2 --swallow=class,instance,title"
-  bindsym 3 exec "$i3_resurrect save -n 3 --swallow=class,instance,title"
-  bindsym 4 exec "$i3_resurrect save -n 4 --swallow=class,instance,title"
-  bindsym 5 exec "$i3_resurrect save -n 5 --swallow=class,instance,title"
-  bindsym 6 exec "$i3_resurrect save -n 6 --swallow=class,instance,title"
-  bindsym 7 exec "$i3_resurrect save -n 7 --swallow=class,instance,title"
-  bindsym 8 exec "$i3_resurrect save -n 8 --swallow=class,instance,title"
-  bindsym 9 exec "$i3_resurrect save -n 9 --swallow=class,instance,title"
-  bindsym 0 exec "$i3_resurrect save -n 10 --swallow=class,instance,title"
-  bindsym v exec "$i3_resurrect save --swallow=class,instance,title"
-  bindsym $mod+v exec "$i3-resurrect save --swallow=class,instance,title"
-
-  # Back to normal: Enter, Escape, or v
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+v mode "$mode_resurrect_save"
-
-set $mode_resurrect_restore (1-0) restore workspace programs, ($mod+1-0) restore workspace layout, b - current workspace, (Enter/Escape) disable
-# Restore workspace mode.
-mode "$mode_resurrect_restore" {
-  bindsym 1 exec "$i3_resurrect restore -n 1 --programs-only"
-  bindsym 2 exec "$i3_resurrect restore -n 2 --programs-only"
-  bindsym 3 exec "$i3_resurrect restore -n 3 --programs-only"
-  bindsym 2 exec "$i3_resurrect restore -n 4 --programs-only"
-  bindsym 5 exec "$i3_resurrect restore -n 5 --programs-only"
-  bindsym 6 exec "$i3_resurrect restore -n 6 --programs-only"
-  bindsym 7 exec "$i3_resurrect restore -n 7 --programs-only"
-  bindsym 8 exec "$i3_resurrect restore -n 8 --programs-only"
-  bindsym 9 exec "$i3_resurrect restore -n 9 --programs-only"
-  bindsym 0 exec "$i3_resurrect restore -n 10 --programs-only"
-
-  bindsym $mod+1 exec "$i3_resurrect restore -n 1 --layout-only"
-  bindsym $mod+2 exec "$i3_resurrect restore -n 2 --layout-only"
-  bindsym $mod+3 exec "$i3_resurrect restore -n 3 --layout-only"
-  bindsym $mod+4 exec "$i3_resurrect restore -n 4 --layout-only"
-  bindsym $mod+5 exec "$i3_resurrect restore -n 5 --layout-only"
-  bindsym $mod+6 exec "$i3_resurrect restore -n 6 --layout-only"
-  bindsym $mod+7 exec "$i3_resurrect restore -n 7 --layout-only"
-  bindsym $mod+8 exec "$i3_resurrect restore -n 8 --layout-only"
-  bindsym $mod+8 exec "$i3_resurrect restore -n 9 --layout-only"
-  bindsym $mod+0 exec "$i3_resurrect restore -n 10 --layout-only"
-  bindsym b exec "$i3_resurrect restore --programs-only"
-  bindsym $mod+b exec "$i3_resurrect restore --layout-only"
-
-  # Back to normal: Enter, Escape, or n
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+b mode "$mode_resurrect_restore"
-
 hide_edge_borders smart
 for_window [title="User 1 - Anki"] focus; split h; layout stacked
-for_window [title="Joplin"] focus; split h; layout stacked
 
 bindsym $mod+g sticky toggle
 
@@ -428,4 +331,4 @@ focus_on_window_activation urgent
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
 
-exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*
+exec --no-startup-id "sh -c 'sleep 15; feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*'"
