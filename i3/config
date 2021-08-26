@@ -278,10 +278,14 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 
 # for_window [class="^.*"] border pixel 5
-gaps outer 1
-gaps inner 1
-gaps vertical 1
+gaps outer 0
+gaps inner 10
+gaps vertical 4
 gaps horizontal 1
+
+title_align center
+
+bindsym $mod+u border toggle
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+equal move scratchpad
