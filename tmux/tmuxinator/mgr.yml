@@ -47,11 +47,13 @@ root: ~/Code/PlasmaPy
 windows:
   - editor: nvim -c "SLoad mgr"
   - pytest: 
+      root: ~/Code/fortran
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - pytest --pudb --hypothesis-profile=dev -- plasmapy/transport plasmapy/plasma/tests/test_fluxsurface.py
-        - pytest --looponfail --hypothesis-profile=dev -- plasmapy/transport plasmapy/plasma/tests/test_fluxsurface.py
+        - pytest  test_nclassmn.py -vv --runxfail -k 'simple' --show-capture=no
+        - pytest --looponfail --hypothesis-profile=dev -- /home/dominik/Code/PlasmaPy/plasmapy/transport /home/dominik/Code/PlasmaPy/plasmapy/plasma/tests/test_fluxsurface.py
   - ipython: ipython
+  - f2py: echo "f2py --debug --debug-capi -c -m nclassmn nclassmn.f"

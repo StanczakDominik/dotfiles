@@ -105,4 +105,3 @@ posprzatane(){
     beeminder u largecleaning 1 "$*"
 }
 alias pacorphans="pacman -Qqtd "
-alias sprzatanie="sprzatanie show --n-max 3"

@@ -303,6 +303,7 @@ perl-anyevent-i3
 perl-file-mimeinfo
 perl-json-xs
 pgplot
+picard
 picom
 pkgconf
 pkgstats
@@ -523,7 +524,6 @@ steam
 strawberry
 streamlink
 sudo
-sway
 swaybg
 swayidle
 swaylock
@@ -539,7 +539,6 @@ teamviewer
 telegram-desktop
 tensorboard
 termdown
-termite
 tesseract-data-eng
 tesseract-data-pol
 texinfo
@@ -597,7 +596,6 @@ vmware-horizon-tsdr
 vmware-horizon-usb
 vulkan-tools
 vym
-waybar
 wf-recorder
 wget
 which
