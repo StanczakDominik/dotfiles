@@ -4,6 +4,7 @@ import requests
 import os
 import typer
 from rich import print
+import subprocess
 
 import logging
 import contextlib
@@ -59,6 +60,17 @@ def grab_token():
     access = r.json().get('access_token')
     return access
 
+doi_websites = {
+    "https://iopscience.iop.org/article/": "Plasma",
+    "https://link.springer.com/article/": "Plasma",
+}
+
+def pubs_add_by_doi(doi, tags):
+    logging.debug(f"Adding {doi}")
+    run = subprocess.run(f"/usr/bin/pubs add -D {doi} -t {tags},Automated".split())
+    logging.debug(f"returncode: {run.returncode}")
+    logging.debug(f"output: {run.stdout}")
+    logging.debug(f"stderr: {run.stderr}")
 
 
 def main(url: str,
@@ -70,6 +82,11 @@ def main(url: str,
     logging.debug(str(locals()))
     a = 1 if read else 0                       # should the article be already read? 0 or 1
     f = 1 if favorited else 0                       # should the article be added as favorited? 0 or 1
+
+    for website, tags in doi_websites.items():
+        if website in url:
+            pubs_add_by_doi(url.replace(website, ""), tags)
+            return
 
     with debug_requests():
         access = grab_token()
