@@ -109,16 +109,15 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: org"
-set $ws2 "2: mgr"
-set $ws3 "3: lrn"
-set $ws4 "4: ppy"
-set $ws5 "5: wri"
+set $ws2 "2: magisterka"
+set $ws3 "3: learn!"
+set $ws4 "4: PlasmaPy"
+set $ws5 "5: writing"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8: personal"
 set $ws9 "9: social"
-set $ws10 "10: mus"
-set $wsbreak "!break"
+set $ws10 "10: music"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -126,9 +125,9 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
@@ -138,12 +137,11 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Shift+minus move container to workspace $wsbreak
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -152,7 +150,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
-bindsym $mod+Escape workspace $ws2; workspace $ws6
 
 
 # resize window (you can also use the mouse for that)
@@ -185,21 +182,20 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        
-        mode hide
-        hidden_state hide
-        strip_workspace_name no
-        verbose yes
-        # mode hide
-        position top 
-        # status_command i3status --config ~/.i3status.conf
-        status_command i3blocks
-        colors {
-          statusline #ffffff
-          background $transparent
-        }
-        tray_output none
+    mode hide
+    hidden_state hide
+    strip_workspace_name no
+    verbose yes
+    position top 
+    binding_mode_indicator yes
+    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
+    colors {
+      statusline #ffffff
+      background $transparent
+    }
+    tray_output none
 }
+
 
 # exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
 exec_always "setxkbmap pl"
@@ -236,8 +232,7 @@ exec xss-lock -- i3lock -n -c 000000
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
-    # bindsym l exec "loginctl lock-session $XDG_SESSION_ID", mode "default"
+    bindsym l exec --no-startup-id "loginctl lock-session", mode "default"
     # broken because neither tmux nor i3 get the env var!
     bindsym e exec --no-startup-id "i3-msg exit", mode "default"
     bindsym s exec --no-startup-id "systemctl suspend", mode "default"
@@ -251,7 +246,8 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
-bindsym $mod+grave exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
+# bindsym $mod+Escape exec --no-startup-id "loginctl lock-session"
+bindsym $mod+Escape exec --no-startup-id "qdbus org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
 exec --no-startup-id dunst
 
 
@@ -293,17 +289,16 @@ bindsym $mod+Shift+equal move scratchpad
 # Show the first scratchpad window
 bindsym $mod+equal scratchpad show
 
-assign [class="TogglDesktop"] $ws1
 # assign [class="okular"] $ws1
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
-assign [class="Slack"] $ws9
-assign [class="Signal"] $ws9
 assign [class="microsoft teams - preview"] $ws9
-assign [class="Element"] $ws9
-assign [class="discord"] $ws9
-assign [class="clementine"] $ws10
+assign [class="Element"] $ws4
+assign [title="work-notes - Obsidian"] $ws5
+assign [class="TogglDesktop"] $ws8
+assign [title="vimwiki - Obsidian"] $ws8
+assign [class="Signal"] $ws8
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
@@ -336,4 +331,4 @@ focus_on_window_activation urgent
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
 
-exec --no-startup-id feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*
+exec --no-startup-id "sh -c 'sleep 15; feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*'"
