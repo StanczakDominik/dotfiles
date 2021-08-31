@@ -153,7 +153,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
-bindsym $mod+Escape workspace $ws2; workspace $ws6
 
 
 # resize window (you can also use the mouse for that)
@@ -250,8 +249,7 @@ exec xss-lock -- i3lock -n -c 000000
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png", mode "default"
-    # bindsym l exec "loginctl lock-session $XDG_SESSION_ID", mode "default"
+    bindsym l exec --no-startup-id "loginctl lock-session", mode "default"
     # broken because neither tmux nor i3 get the env var!
     bindsym e exec --no-startup-id "i3-msg exit", mode "default"
     bindsym s exec --no-startup-id "systemctl suspend", mode "default"
@@ -265,7 +263,8 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
-bindsym $mod+grave exec --no-startup-id "i3lock -c 000000 -t -i /home/dominik/Pictures/Plasmas/MAST_Tokamak.png"
+# bindsym $mod+Escape exec --no-startup-id "loginctl lock-session"
+bindsym $mod+Escape exec --no-startup-id "qdbus org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
 exec --no-startup-id dunst
 
 
@@ -307,17 +306,16 @@ bindsym $mod+Shift+equal move scratchpad
 # Show the first scratchpad window
 bindsym $mod+equal scratchpad show
 
-assign [class="TogglDesktop"] $ws1
 # assign [class="okular"] $ws1
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
-assign [class="Slack"] $ws9
-assign [class="Signal"] $ws9
 assign [class="microsoft teams - preview"] $ws9
-assign [class="Element"] $ws9
-assign [class="discord"] $ws9
-assign [class="clementine"] $ws10
+assign [class="Element"] $ws4
+assign [title="work-notes - Obsidian"] $ws5
+assign [class="TogglDesktop"] $ws8
+assign [title="vimwiki - Obsidian"] $ws8
+assign [class="Signal"] $ws8
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
@@ -329,16 +327,16 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
 
-workspace 1 output $leftscreen
-workspace 2 output $mainscreen
-workspace 3 output $mainscreen
-workspace 4 output $mainscreen
-workspace 5 output $mainscreen
-workspace 6 output $mainscreen
-workspace 7 output $mainscreen
-workspace 8 output $mainscreen
-workspace 9 output $mainscreen
-workspace 10 output $mainscreen
+workspace $ws1 output $leftscreen
+workspace $ws2 output $mainscreen
+workspace $ws3 output $mainscreen
+workspace $ws4 output $mainscreen
+workspace $ws5 output $mainscreen
+workspace $ws6 output $mainscreen
+workspace $ws7 output $mainscreen
+workspace $ws8 output $mainscreen
+workspace $ws9 output $mainscreen
+workspace $ws10 output $mainscreen
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
