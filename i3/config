@@ -46,6 +46,9 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+set $mainscreen "eDP-1"
+set $leftscreen "HDMI-1"
+
 
 # rofi
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "IBM Plex Sans Medium 14" '
@@ -108,17 +111,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: org"
-set $ws2 "2: mgr"
-set $ws3 "3: lrn"
-set $ws4 "4: ppy"
-set $ws5 "5: wri"
+set $ws1 "1: left screen"
+set $ws2 "2: magisterka"
+set $ws3 "3: learn!"
+set $ws4 "4: PlasmaPy"
+set $ws5 "5: writing"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8: personal"
 set $ws9 "9: social"
-set $ws10 "10: mus"
-set $wsbreak "!break"
+set $ws10 "10: music"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -126,9 +128,9 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
@@ -138,12 +140,11 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Shift+minus move container to workspace $wsbreak
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -185,21 +186,34 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        
-        mode hide
-        hidden_state hide
-        strip_workspace_name no
-        verbose yes
-        # mode hide
-        position top 
-        # status_command i3status --config ~/.i3status.conf
-        status_command i3blocks
-        colors {
-          statusline #ffffff
-          background $transparent
-        }
-        tray_output none
+    output eDP-1
+    mode hide
+    hidden_state hide
+    strip_workspace_name no
+    verbose yes
+    position top 
+    binding_mode_indicator yes
+    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
+    colors {
+      statusline #ffffff
+      background $transparent
+    }
+    tray_output none
 }
+
+bar {
+    output HDMI-1
+    strip_workspace_name no
+    verbose yes
+    position bottom 
+    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks-left.conf
+    colors {
+      statusline #ffffff
+      background $transparent
+    }
+    tray_output none
+}
+
 
 # exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
 exec_always "setxkbmap pl"
@@ -314,6 +328,17 @@ bindsym $mod+g sticky toggle
 # bindsym $mod+m bar hidden_state toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
+
+workspace 1 output $leftscreen
+workspace 2 output $mainscreen
+workspace 3 output $mainscreen
+workspace 4 output $mainscreen
+workspace 5 output $mainscreen
+workspace 6 output $mainscreen
+workspace 7 output $mainscreen
+workspace 8 output $mainscreen
+workspace 9 output $mainscreen
+workspace 10 output $mainscreen
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
