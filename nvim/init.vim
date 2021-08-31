@@ -63,6 +63,9 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'thaerkh/vim-workspace'
 Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
+
+let g:airline#extensions#tagbar#enabled = 1
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/limelight.vim'
