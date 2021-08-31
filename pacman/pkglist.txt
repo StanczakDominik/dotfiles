@@ -16,6 +16,7 @@ binutils
 bison
 bluez-utils
 cantata
+cowfortune
 ctags
 cups
 cups-pdf
@@ -38,6 +39,7 @@ gcc-fortran
 gconf
 git
 github-cli
+github-desktop-bin
 gparted
 graphviz
 grub
