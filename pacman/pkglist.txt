@@ -83,6 +83,7 @@ ncdu
 ncview
 neovim-git
 neovim-plug
+nerd-fonts-hack
 networkmanager
 networkmanager-openvpn
 obsidian-appimage
