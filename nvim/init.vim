@@ -198,3 +198,5 @@ let g:wiki_filetypes = ['wiki', 'md', 'markdown']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 nnoremap <leader>/ /\<\><left><left>
+
+nmap <F8> :TagbarToggle<CR>
