@@ -68,6 +68,8 @@ Plug 'majutsushi/tagbar'
 let g:airline#extensions#tagbar#enabled = 1
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'gcmt/taboo.vim'
+set sessionoptions+=tabpages,globals
 Plug 'junegunn/limelight.vim'
 Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'SirVer/ultisnips'
