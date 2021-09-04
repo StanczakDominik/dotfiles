@@ -68,6 +68,8 @@ Plug 'majutsushi/tagbar'
 let g:airline#extensions#tagbar#enabled = 1
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'gcmt/taboo.vim'
+set sessionoptions+=tabpages,globals
 Plug 'junegunn/limelight.vim'
 Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'SirVer/ultisnips'
@@ -198,3 +200,5 @@ let g:wiki_filetypes = ['wiki', 'md', 'markdown']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 nnoremap <leader>/ /\<\><left><left>
+
+nmap <F8> :TagbarToggle<CR>
