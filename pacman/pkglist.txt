@@ -11,6 +11,7 @@ automake
 base
 bash-completion
 bashtop
+bat
 biber
 binutils
 bison
@@ -29,6 +30,7 @@ element-desktop
 element-web
 engauge
 etckeeper
+exa
 fakeroot
 feh
 firefox
@@ -115,6 +117,8 @@ python-pip
 python-pre-commit
 python-prompt_toolkit
 python-pynvim
+python-pytest-html
+python-pytorch-opt
 python-rich
 python-virtualenvwrapper
 reflector
@@ -128,6 +132,8 @@ signal-desktop
 skanlite
 skypeforlinux-stable-bin
 spectacle
+spotify
+spotify-adblock-git
 starship
 sudo
 syncthingtray
@@ -155,6 +161,7 @@ texlive-publishers
 texlive-science
 thefuck
 timidity++
+tldr
 tmux
 tmuxinator
 todoist-git
@@ -184,7 +191,6 @@ wine
 wine-gecko
 wine-mono
 workrave
-wtfutil
 xaos
 xclip
 xerox-workcentre-6505
