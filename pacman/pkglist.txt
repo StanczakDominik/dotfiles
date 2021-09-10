@@ -85,6 +85,7 @@ ncdu
 ncview
 neovim-git
 neovim-plug
+neovim-symlinks
 nerd-fonts-hack
 networkmanager
 networkmanager-openvpn
@@ -176,8 +177,6 @@ ttf-joypixels
 ttf-liberation
 ttf-nerd-fonts-symbols
 unzip
-vi
-vim
 vlc
 vmware-horizon-client
 vmware-horizon-rtav
