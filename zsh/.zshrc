@@ -243,3 +243,4 @@ if [[ $autoenv_event == 'enter' ]]; then
 else
   add-zsh-hook -d chpwd _my_autoenv_venv_chpwd
 fi
+preexec() { print -Pn "\e]0;$1%~\a" }

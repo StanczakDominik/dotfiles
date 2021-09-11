@@ -46,6 +46,9 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+set $mainscreen "eDP-1"
+set $leftscreen "HDMI-1-0"
+
 
 # rofi
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "IBM Plex Sans Medium 14" '
@@ -182,6 +185,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    output eDP-1
     mode hide
     hidden_state hide
     strip_workspace_name no
@@ -189,6 +193,19 @@ bar {
     position top 
     binding_mode_indicator yes
     status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
+    colors {
+      statusline #ffffff
+      background $transparent
+    }
+    tray_output none
+}
+
+bar {
+    output HDMI-1-0
+    strip_workspace_name no
+    verbose yes
+    position bottom 
+    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks-left.conf
     colors {
       statusline #ffffff
       background $transparent
@@ -309,6 +326,17 @@ bindsym $mod+g sticky toggle
 # bindsym $mod+m bar hidden_state toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
+
+workspace $ws1 output $leftscreen
+workspace $ws2 output $mainscreen
+workspace $ws3 output $mainscreen
+workspace $ws4 output $mainscreen
+workspace $ws5 output $mainscreen
+workspace $ws6 output $mainscreen
+workspace $ws7 output $mainscreen
+workspace $ws8 output $mainscreen
+workspace $ws9 output $mainscreen
+workspace $ws10 output $mainscreen
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 

@@ -27,7 +27,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
 Plug 'ActivityWatch/aw-watcher-vim'
-" Plug 'andweeb/presence.nvim'
 Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'machakann/vim-highlightedyank'
@@ -102,7 +101,6 @@ Plug 'folke/which-key.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
-
 
 set backspace=indent,eol,start
 syntax enable
