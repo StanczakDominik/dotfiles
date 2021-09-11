@@ -152,7 +152,6 @@ ipython
 irssi
 iw
 jfsutils
-joplin-appimage
 jq
 jrnl
 julia
@@ -486,7 +485,6 @@ python-zope-interface
 qgit
 qmltermwidget
 qutebrowser
-rdfind
 redshift
 reflector
 reiserfsprogs

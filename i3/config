@@ -116,23 +116,23 @@ set $ws2 "2: magisterka"
 set $ws3 "3: learn!"
 set $ws4 "4: PlasmaPy"
 set $ws5 "5: writing"
-set $ws6 "6"
+set $ws6 "6: gaming"
 set $ws7 "7: PlasmaPy"
 set $ws8 "8: personal"
 set $ws9 "9: social"
 set $ws10 "10: music"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace $ws1; bar mode hide
+bindsym $mod+2 workspace $ws2; bar mode hide
+bindsym $mod+3 workspace $ws3; bar mode hide
+bindsym $mod+4 workspace $ws4; bar mode hide
+bindsym $mod+5 workspace $ws5; bar mode hide
+bindsym $mod+6 workspace $ws6; bar mode invisible
+bindsym $mod+7 workspace $ws7; bar mode hide
+bindsym $mod+8 workspace $ws8; bar mode hide
+bindsym $mod+9 workspace $ws9; bar mode hide
+bindsym $mod+0 workspace $ws10; bar mode hide
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
