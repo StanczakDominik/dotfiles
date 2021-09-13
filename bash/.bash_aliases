@@ -1,5 +1,4 @@
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias ls='ls --color=auto'
 alias youtube-mp3='youtube-dl -x --audio-format=mp3 --audio-quality=0 --embed-thumbnail --add-metadata'
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   if [ -x "$(command -v nvr)" ]; then
@@ -105,3 +104,6 @@ posprzatane(){
     beeminder u largecleaning 1 "$*"
 }
 alias pacorphans="pacman -Qqtd "
+alias ls=exa
+alias cat=bat
+
