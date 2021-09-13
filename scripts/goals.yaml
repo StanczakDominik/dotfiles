@@ -1,5 +1,5 @@
 Magisterka:
-  daily_time_hours: 6
+  daily_time_hours: 5
   projects:
   - Magisterka
   tags:
@@ -8,12 +8,6 @@ Reading:
   daily_time_hours: 0.5
   projects: []
   tags: Reading
-Julia:
-  daily_time_hours: 1
-  projects:
-  - Julia
-  - JuliaPIC
-  tags: []
 Plasma:
   daily_time_hours: 1
   projects:
@@ -21,4 +15,9 @@ Plasma:
   - Transport
   - W7X
   - PIC
+  tags: []
+PHA:
+  daily_time_hours: 1
+  projects:
+  - PHA
   tags: []
