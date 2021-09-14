@@ -123,6 +123,7 @@ python-pynvim
 python-pytest-html
 python-pytorch-opt
 python-rich
+python-seaborn
 python-selenium
 python-virtualenvwrapper
 reflector
@@ -135,6 +136,7 @@ sddm-kcm
 signal-desktop
 skanlite
 skypeforlinux-stable-bin
+sloccount
 spectacle
 spotify
 spotify-adblock-git

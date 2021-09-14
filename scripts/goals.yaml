@@ -1,5 +1,5 @@
 Magisterka:
-  daily_time_hours: 5
+  daily_time_hours: 4
   projects:
   - Magisterka
   tags:
@@ -7,7 +7,8 @@ Magisterka:
 Reading:
   daily_time_hours: 0.5
   projects: []
-  tags: Reading
+  tags: 
+  - Reading
 Plasma:
   daily_time_hours: 1
   projects:
