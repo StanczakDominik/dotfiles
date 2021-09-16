@@ -67,6 +67,7 @@ krita
 kteatime
 kwalletcli-git
 kwalletmanager
+lazarus-qt5
 libappindicator-gtk3
 libindicator-gtk2
 liblastfm-qt5
@@ -182,6 +183,8 @@ ttf-joypixels
 ttf-liberation
 ttf-nerd-fonts-symbols
 unzip
+vifm
+visual-studio-code-bin
 vlc
 vmware-horizon-client
 vmware-horizon-rtav
