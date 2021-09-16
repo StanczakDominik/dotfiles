@@ -49,7 +49,6 @@ bindsym $mod+Shift+q kill
 set $mainscreen "eDP-1"
 set $leftscreen "HDMI-1"
 
-
 # rofi
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "IBM Plex Sans Medium 14" '
 # bindsym $mod+d exec --no-startup-id 'rofi -combi-modi window,drun,ssh -theme solarized -font "IBM Plex Sans Medium 14" -show combi'
@@ -111,8 +110,6 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: left screen"
-set $ws2 "2: magisterka"
 set $ws3 "3: learn!"
 set $ws4 "4"
 set $ws5 "5: writing"
@@ -123,7 +120,6 @@ set $ws9 "9: social"
 set $ws10 "10: music"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4

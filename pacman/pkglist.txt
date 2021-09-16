@@ -122,6 +122,7 @@ python-pre-commit
 python-prompt_toolkit
 python-pynvim
 python-pytest-html
+python-pytest-regressions
 python-pytorch-opt
 python-rich
 python-seaborn
