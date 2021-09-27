@@ -31,6 +31,10 @@ Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/wiki.vim'
+
+Plug 't9md/vim-quickhl'
+source ~/.config/nvim/plugin-config/highlights.vim
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'whatyouhide/vim-gotham'
@@ -156,6 +160,7 @@ source /home/dominik/.config/nvim/markdown.vim
 source /home/dominik/.config/nvim/lsp.vim
 source /home/dominik/.config/nvim/compe.vim
 source /home/dominik/.config/nvim/julia.vim
+" source /home/dominik/.config/nvim/highlights.vim
 " source /home/dominik/.config/nvim/darkmode.vim
 
 au FileType vimwiki set syntax=pandoc
