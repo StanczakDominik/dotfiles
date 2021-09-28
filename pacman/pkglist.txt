@@ -3,6 +3,7 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
 alacritty
 alsa-utils
+anaconda
 android-file-transfer
 anki
 ark
@@ -121,6 +122,7 @@ python-pip
 python-pre-commit
 python-prompt_toolkit
 python-pynvim
+python-pytest-cov
 python-pytest-html
 python-pytest-regressions
 python-pytorch-opt
@@ -142,6 +144,7 @@ sloccount
 spectacle
 spotify
 spotify-adblock-git
+sshfs
 starship
 sudo
 syncthingtray

@@ -106,4 +106,5 @@ posprzatane(){
 alias pacorphans="pacman -Qqtd "
 alias ls=exa
 alias cat=bat
+alias klastermount="sshfs klaster:/home/dstanczak ~/klaster -o idmap=user"
 

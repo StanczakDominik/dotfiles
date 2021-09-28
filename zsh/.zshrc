@@ -95,6 +95,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
+export MINICONDA_DIR='/home/dominik/.miniconda3'
 __conda_setup="$('$MINICONDA_DIR/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
