@@ -58,6 +58,7 @@ i3status
 inkscape
 ipython
 jrnl
+julia
 jupyterlab
 jupyterlab-widgets
 jupyterlab_pygments
@@ -65,7 +66,6 @@ kdeconnect
 keepassxc
 kmail
 krita
-kteatime
 kwalletcli-git
 kwalletmanager
 lazarus-qt5
