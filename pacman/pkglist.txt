@@ -31,6 +31,8 @@ efibootmgr
 element-desktop
 element-web
 engauge
+espeak-ng
+espeak-ng-espeak
 etckeeper
 exa
 fakeroot
@@ -79,6 +81,8 @@ luit
 m4
 make
 mayavi
+mbrola
+mbrola-voices-us1
 mksh
 mpc
 mpd

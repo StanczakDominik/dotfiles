@@ -122,6 +122,7 @@ set $ws9 "9: social"
 set $ws10 "10: music"
 
 # switch to workspace
+bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
