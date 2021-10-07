@@ -31,6 +31,10 @@ Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/wiki.vim'
+
+Plug 't9md/vim-quickhl'
+source ~/.config/nvim/plugin-config/highlights.vim
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'whatyouhide/vim-gotham'
