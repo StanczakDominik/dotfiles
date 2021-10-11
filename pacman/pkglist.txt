@@ -5,7 +5,7 @@ alacritty
 alsa-utils
 anaconda
 android-file-transfer
-anki
+anki-release-source
 ark
 autoconf
 automake
