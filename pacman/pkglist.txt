@@ -18,7 +18,6 @@ binutils
 bison
 bluez-utils
 cantata
-chromedriver
 cowfortune
 ctags
 cups
