@@ -191,6 +191,7 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 unzip
 vifm
+virt-viewer
 visual-studio-code-bin
 vlc
 vmware-horizon-client
