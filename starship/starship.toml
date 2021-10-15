@@ -22,3 +22,6 @@ utc_time_offset = "local"
 
 [cmd_duration]
 min_time = 5000
+
+[git_metrics]
+disabled = false
