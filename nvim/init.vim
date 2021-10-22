@@ -92,6 +92,8 @@ Plug 'kdheepak/JuliaFormatter.vim'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-dispatch'
 Plug 'goerz/jupytext.vim'
+let g:jupytext_print_debug_msgs = 1
+let g:jupytext_fmt = 'py'
 Plug 'ryanoasis/vim-devicons'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 let g:pydocstring_doq_path = '/home/dominik/.local/bin/doq'
