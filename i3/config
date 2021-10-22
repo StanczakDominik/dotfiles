@@ -47,7 +47,7 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 bindsym $mod+Shift+q kill
 
 set $mainscreen "eDP-1"
-set $leftscreen "HDMI-1-0"
+set_from_resource $leftscreen SecondMonitorXrandrName "HDMI-1-0"
 
 
 # rofi
@@ -123,16 +123,16 @@ set $ws9 "9: social"
 set $ws10 "10: music"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1; bar mode hide
-bindsym $mod+2 workspace $ws2; bar mode hide
-bindsym $mod+3 workspace $ws3; bar mode hide
-bindsym $mod+4 workspace $ws4; bar mode hide
-bindsym $mod+5 workspace $ws5; bar mode hide
-bindsym $mod+6 workspace $ws6; bar mode invisible
-bindsym $mod+7 workspace $ws7; bar mode hide
-bindsym $mod+8 workspace $ws8; bar mode hide
-bindsym $mod+9 workspace $ws9; bar mode hide
-bindsym $mod+0 workspace $ws10; bar mode hide
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -304,7 +304,8 @@ bindsym $mod+u border toggle
 bindsym $mod+Shift+equal move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+equal scratchpad show
+bindsym $mod+equal [title=".*(?<!Anki)$"] scratchpad show
+bindsym $mod+mod2+KP_1 [title=".*Anki$"] scratchpad show 
 
 # assign [class="okular"] $ws1
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '

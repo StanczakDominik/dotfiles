@@ -12,10 +12,7 @@ alias vi=nvim
 alias wttr='curl wttr.in/Warsaw'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
-function jrnl-review () {
-    conda activate
-    jrnl -from "one month ago" $@ | less
-}
+
 function masters-pages () {
     pdfinfo ~/Writing/Magisterium/build/pracaMagisterska.pdf | grep Pages | awk '{print $2}'
 }
@@ -106,4 +103,5 @@ posprzatane(){
 alias pacorphans="pacman -Qqtd "
 alias ls=exa
 alias cat=bat
+alias klastermount="sshfs klaster:/home/dstanczak ~/klaster -o idmap=user"
 

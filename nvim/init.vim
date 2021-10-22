@@ -160,6 +160,7 @@ source /home/dominik/.config/nvim/markdown.vim
 source /home/dominik/.config/nvim/lsp.vim
 source /home/dominik/.config/nvim/compe.vim
 source /home/dominik/.config/nvim/julia.vim
+" source /home/dominik/.config/nvim/highlights.vim
 " source /home/dominik/.config/nvim/darkmode.vim
 
 au FileType vimwiki set syntax=pandoc

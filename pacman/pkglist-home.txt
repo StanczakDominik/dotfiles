@@ -75,6 +75,7 @@ espeak-ng
 espeak-ng-espeak
 etckeeper
 ethtool
+exa
 expac
 fakeroot
 fd
@@ -182,7 +183,6 @@ klick-git
 kmymoney
 koi
 konsole
-korganizer
 krita
 kronometer
 ksystemlog
@@ -194,7 +194,6 @@ kwalletmanager
 kwave
 lammps
 languagetool
-legendary
 less
 lib32-alsa-oss
 lib32-gamemode
@@ -401,7 +400,6 @@ python-more-itertools
 python-myst-parser
 python-networkx
 python-notify2
-python-numba
 python-numexpr
 python-orjson
 python-pafy
@@ -440,6 +438,7 @@ python-pytest-mpl
 python-pytest-pudb
 python-pytest-xdist
 python-pytzdata
+python-pyvista
 python-qrcode
 python-regex
 python-requests
@@ -584,6 +583,7 @@ unrar
 unzip
 usbutils
 util-linux
+vifm
 vim
 virtualbox
 vlc
