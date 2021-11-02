@@ -49,6 +49,7 @@ function darkmode () {
 alias termdownsay='termdown -v us-mbrola-1'
 alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
 alias twork="toggl now -a IFPILM"
+alias tworkr="toggl now -a IFPILM,Remote"
 alias tbathroom="toggl start -o Bathroom Łazienka"
 alias plasmalogout="qdbus org.kde.ksmserver /KSMServer logout 0 3 3"
 alias workjupyterssh="ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8889:localhost:9000 dstanczak@10.0.0.228; ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8787:localhost:8787 dstanczak@10.0.0.228"
@@ -103,5 +104,6 @@ posprzatane(){
 alias pacorphans="pacman -Qqtd "
 alias ls=exa
 alias cat=bat
-alias klastermount="sshfs klaster:/home/dstanczak ~/klaster -o idmap=user; ssh -NfL 8889:localhost:8889 dstanczak@10.0.0.228"
+alias klastermount="sshfs klaster:/home/dstanczak /mnt/klaster -o idmap=user; ssh -NfL 8889:localhost:8889 klaster"
+alias klastermountdisable="fusermount -u /mnt/klaster; ssh -O ClearAllForwardings=yes klaster"
 

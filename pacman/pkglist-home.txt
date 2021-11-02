@@ -400,6 +400,7 @@ python-more-itertools
 python-myst-parser
 python-networkx
 python-notify2
+python-numba
 python-numexpr
 python-orjson
 python-pafy
@@ -483,6 +484,7 @@ python-zope-event
 python-zope-interface
 qgit
 qmltermwidget
+qsshfs
 qutebrowser
 redshift
 reflector
@@ -500,6 +502,7 @@ samba
 sane
 sane-airscan
 scalapack
+scdoc
 scrcpy
 sddm-git
 sed
