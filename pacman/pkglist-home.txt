@@ -154,7 +154,6 @@ irssi
 iw
 jfsutils
 jq
-jrnl
 julia
 jupyter-nbextension-rise
 jupyterlab
@@ -334,7 +333,6 @@ python-arrow
 python-arviz
 python-aspy-yaml
 python-astroid
-python-astropy
 python-async_generator
 python-atomicwrites
 python-beautifulsoup4
@@ -502,7 +500,6 @@ samba
 sane
 sane-airscan
 scalapack
-scdoc
 scrcpy
 sddm-git
 sed

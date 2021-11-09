@@ -207,3 +207,4 @@ let g:wiki_link_target_type = 'md'
 nnoremap <leader>/ /\<\><left><left>
 
 nmap <F8> :TagbarToggle<CR>
+set isfname+=32

@@ -112,7 +112,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: org"
-set $ws2 "2: magisterka"
+set $ws2 "2: praca"
 set $ws3 "3: learn!"
 set $ws4 "4: PlasmaPy"
 set $ws5 "5: writing"
@@ -186,7 +186,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output eDP-1
-    mode hide
     hidden_state hide
     strip_workspace_name no
     verbose yes
@@ -292,9 +291,9 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # for_window [class="^.*"] border pixel 5
 gaps outer 0
-gaps inner 10
-gaps vertical 4
-gaps horizontal 1
+gaps inner 0
+gaps vertical 0
+gaps horizontal 0
 
 title_align center
 
@@ -328,16 +327,16 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
 
-workspace $ws1 output $leftscreen
-workspace $ws2 output $mainscreen
-workspace $ws3 output $mainscreen
-workspace $ws4 output $mainscreen
-workspace $ws5 output $mainscreen
-workspace $ws6 output $mainscreen
-workspace $ws7 output $mainscreen
-workspace $ws8 output $mainscreen
-workspace $ws9 output $mainscreen
-workspace $ws10 output $mainscreen
+# workspace $ws1 output $leftscreen
+# workspace $ws2 output $mainscreen
+# workspace $ws3 output $mainscreen
+# workspace $ws4 output $mainscreen
+# workspace $ws5 output $mainscreen
+# workspace $ws6 output $mainscreen
+# workspace $ws7 output $mainscreen
+# workspace $ws8 output $mainscreen
+# workspace $ws9 output $mainscreen
+# workspace $ws10 output $mainscreen
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
