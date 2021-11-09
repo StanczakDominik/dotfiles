@@ -7,9 +7,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'                     " distraction-free mode
 Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
 Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
+Plug 'alemidev/vim-combo'
 Plug 'preservim/nerdcommenter'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-" Plug 'ron89/thesaurus_query.vim'
+Plug 'ron89/thesaurus_query.vim'
 
 Plug 'tpope/vim-unimpaired'                  " ]l jumps, etc
 Plug 'tpope/vim-surround'
@@ -65,10 +66,8 @@ Plug 'sheerun/vim-polyglot'
 
 
 Plug 'thaerkh/vim-workspace'
-Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
-
-let g:airline#extensions#tagbar#enabled = 1
+Plug 'vim-airline/vim-airline'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'gcmt/taboo.vim'
@@ -164,6 +163,9 @@ source /home/dominik/.config/nvim/compe.vim
 source /home/dominik/.config/nvim/julia.vim
 " source /home/dominik/.config/nvim/highlights.vim
 " source /home/dominik/.config/nvim/darkmode.vim
+" 
+" 
+" 
 
 au FileType vimwiki set syntax=pandoc
 set backupskip+=*.asc

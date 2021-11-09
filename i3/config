@@ -189,7 +189,7 @@ bar {
     hidden_state hide
     strip_workspace_name no
     verbose yes
-    position top 
+    position bottom 
     binding_mode_indicator yes
     status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
     colors {
@@ -291,7 +291,7 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # for_window [class="^.*"] border pixel 5
 gaps outer 0
-gaps inner 10
+gaps inner 0
 gaps vertical 4
 gaps horizontal 1
 

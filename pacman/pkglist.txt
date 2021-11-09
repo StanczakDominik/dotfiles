@@ -44,7 +44,6 @@ gcc-fortran
 gconf
 git
 github-cli
-github-desktop-bin
 gparted
 graphviz
 grub
@@ -133,6 +132,7 @@ python-rich
 python-seaborn
 python-selenium
 python-virtualenvwrapper
+rclone
 reflector
 rofi
 rsibreak
