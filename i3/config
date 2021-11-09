@@ -47,7 +47,8 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 bindsym $mod+Shift+q kill
 
 set $mainscreen "eDP-1"
-set $leftscreen "HDMI-1"
+set_from_resource $leftscreen SecondMonitorXrandrName "HDMI-1-0"
+
 
 # rofi
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "IBM Plex Sans Medium 14" '
@@ -185,7 +186,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output eDP-1
-    mode hide
     hidden_state hide
     strip_workspace_name no
     verbose yes
@@ -200,7 +200,7 @@ bar {
 }
 
 bar {
-    output HDMI-1
+    output $leftscreen
     strip_workspace_name no
     verbose yes
     position bottom 
@@ -292,8 +292,8 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # for_window [class="^.*"] border pixel 5
 gaps outer 0
 gaps inner 0
-gaps vertical 4
-gaps horizontal 1
+gaps vertical 0
+gaps horizontal 0
 
 title_align center
 

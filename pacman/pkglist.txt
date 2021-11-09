@@ -127,7 +127,7 @@ python-pynvim
 python-pytest-cov
 python-pytest-html
 python-pytest-regressions
-python-pytorch-opt
+python-pytorch
 python-rich
 python-seaborn
 python-selenium
