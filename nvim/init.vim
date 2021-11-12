@@ -10,7 +10,7 @@ Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'alemidev/vim-combo'
 Plug 'preservim/nerdcommenter'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'ron89/thesaurus_query.vim'
+" Plug 'ron89/thesaurus_query.vim'
 
 Plug 'tpope/vim-unimpaired'                  " ]l jumps, etc
 Plug 'tpope/vim-surround'
@@ -32,6 +32,7 @@ Plug 'kdav5758/TrueZen.nvim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/wiki.vim'
+Plug 'AndrewRadev/linediff.vim'
 
 Plug 't9md/vim-quickhl'
 source ~/.config/nvim/plugin-config/highlights.vim
