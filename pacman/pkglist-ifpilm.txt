@@ -107,6 +107,7 @@ pdfgrep
 picom
 pkgconf
 plasma-meta
+plasma5-applets-thermal-monitor-git
 playerctl
 powertop
 print-manager
@@ -116,10 +117,13 @@ pyright
 python-altair
 python-argcomplete
 python-black
+python-dask
 python-dateparser
+python-distributed
 python-doit
 python-humanize
 python-nbdime
+python-opt_einsum
 python-pip
 python-pre-commit
 python-prompt_toolkit
