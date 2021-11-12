@@ -68,13 +68,10 @@ function yt()
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 source ~/.zsh_completion
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-export FZF_DEFAULT_COMMAND='rg -L --files'
+[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
+source "/usr/share/fzf/key-bindings.zsh"
+# export FZF_DEFAULT_COMMAND='rg -L --files'
 # export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
-bindkey '^I' $fzf_default_completion
 
 source ~/.bash_aliases
 
@@ -245,3 +242,4 @@ else
   add-zsh-hook -d chpwd _my_autoenv_venv_chpwd
 fi
 preexec() { print -Pn "\e]0;$1%~\a" }
+
