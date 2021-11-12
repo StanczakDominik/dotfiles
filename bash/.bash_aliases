@@ -107,3 +107,4 @@ alias cat=bat
 alias klastermount="sshfs klaster:/home/dstanczak /mnt/klaster -o idmap=user; ssh -NfL 8889:localhost:8889 klaster"
 alias klastermountdisable="fusermount -u /mnt/klaster; ssh -O ClearAllForwardings=yes klaster"
 
+alias jrnl='vim "$HOME/Notes/vimwiki/dziennik/daily/$(date +%F).md"'
