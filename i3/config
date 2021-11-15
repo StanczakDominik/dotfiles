@@ -200,7 +200,7 @@ bar {
 }
 
 bar {
-    output HDMI-1-0
+    output $leftscreen
     strip_workspace_name no
     verbose yes
     position bottom 
@@ -310,12 +310,11 @@ bindsym $mod+mod2+KP_1 [title=".*Anki$"] scratchpad show
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws3
-assign [class="microsoft teams - preview"] $ws9
-assign [title="work-notes - Obsidian"] $ws5
+assign [title="vimwiki - Obsidian"] $ws5
 assign [class="Element"] $ws7
 assign [class="TogglDesktop"] $ws8
-assign [title="vimwiki - Obsidian"] $ws8
 assign [class="Signal"] $ws8
+assign [class="microsoft teams - preview"] $ws9
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
@@ -327,16 +326,16 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+m move workspace to output right
 
-# workspace $ws1 output $leftscreen
-# workspace $ws2 output $mainscreen
-# workspace $ws3 output $mainscreen
-# workspace $ws4 output $mainscreen
-# workspace $ws5 output $mainscreen
-# workspace $ws6 output $mainscreen
-# workspace $ws7 output $mainscreen
-# workspace $ws8 output $mainscreen
-# workspace $ws9 output $mainscreen
-# workspace $ws10 output $mainscreen
+workspace $ws1 output $leftscreen
+workspace $ws2 output $mainscreen
+workspace $ws3 output $mainscreen
+workspace $ws4 output $mainscreen
+workspace $ws5 output $mainscreen
+workspace $ws6 output $mainscreen
+workspace $ws7 output $mainscreen
+workspace $ws8 output $mainscreen
+workspace $ws9 output $mainscreen
+workspace $ws10 output $mainscreen
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
