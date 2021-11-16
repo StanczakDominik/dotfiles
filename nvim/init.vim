@@ -213,3 +213,5 @@ nnoremap <leader>/ /\<\><left><left>
 
 nmap <F8> :TagbarToggle<CR>
 set isfname+=32
+set splitright
+set splitbelow
