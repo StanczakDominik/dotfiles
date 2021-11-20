@@ -3,6 +3,13 @@
 from work import WorkTimer
 import datetime
 import holidays
+import pathlib
+
+def workday_override(path="/tmp/WORKDAY"):
+    path = pathlib.Path(path)
+    return path.exists()
+
+
 
 def single_line():
     timer = WorkTimer()
@@ -12,7 +19,7 @@ def single_line():
 if __name__ == "__main__":
     holidays_pl = holidays.Polish()
     today = datetime.date.today()
-    if (today in holidays_pl) or (today.weekday() >= 5):
+    if (not workday_override()) and ((today in holidays_pl) or (today.weekday() >= 5)):
         print("Enjoy your free day!")
     else:
         single_line()
