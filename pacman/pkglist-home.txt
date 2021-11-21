@@ -509,7 +509,6 @@ shadow
 signal-desktop
 skanlite
 sl
-slack-desktop
 sloccount
 smb4k
 spectacle

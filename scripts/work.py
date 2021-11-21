@@ -198,10 +198,8 @@ class WorkTimer:
 
     @cached_property
     def time_required(self):
-        if current_date.weekday() == 5:
+        if current_date.weekday() == 4:
             return datetime.timedelta(hours=7)
-        elif current_date.weekday() > 5:
-            return datetime.timedelta(hours=0)
         else:
             return datetime.timedelta(hours=8)
 
