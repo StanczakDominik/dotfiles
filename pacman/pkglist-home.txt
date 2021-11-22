@@ -19,6 +19,7 @@ autopep8
 bash
 bash-completion
 bashtop
+bat
 bbswitch
 beets-bandcamp
 beets-check
@@ -508,7 +509,6 @@ shadow
 signal-desktop
 skanlite
 sl
-slack-desktop
 sloccount
 smb4k
 spectacle

@@ -67,8 +67,10 @@ Plug 'sheerun/vim-polyglot'
 
 
 Plug 'thaerkh/vim-workspace'
-Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
+
+let g:airline#extensions#tagbar#enabled = 1
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'gcmt/taboo.vim'
@@ -211,3 +213,5 @@ nnoremap <leader>/ /\<\><left><left>
 
 nmap <F8> :TagbarToggle<CR>
 set isfname+=32
+set splitright
+set splitbelow

@@ -198,10 +198,8 @@ class WorkTimer:
 
     @cached_property
     def time_required(self):
-        if current_date.weekday() == 5:
+        if current_date.weekday() == 4:
             return datetime.timedelta(hours=7)
-        elif current_date.weekday() > 5:
-            return datetime.timedelta(hours=0)
         else:
             return datetime.timedelta(hours=8)
 
@@ -255,8 +253,9 @@ class WorkTimer:
             description += td_as_h(datetime.timedelta(milliseconds=self.current_time))
         else:
             description = ''
-        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}, +{td_as_h(self.time_remaining)}"
-        print(f"{prefix}{time_status}, {description}")
+        est_end_time = (datetime.datetime.now() + self.time_remaining).strftime("%H:%M")
+        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)} ->| {est_end_time}"
+        print(f"{prefix}{time_status}{description}")
 
     def describe_goals(self):
         def item_in_goal(item, goal):
