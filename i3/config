@@ -309,7 +309,7 @@ bindsym $mod+mod2+KP_1 [title=".*Anki$"] scratchpad show
 # assign [class="okular"] $ws1
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
-assign [class="anki"] $ws3
+# assign [class="anki"] $ws3
 assign [title="vimwiki - Obsidian"] $ws5
 assign [class="Element"] $ws7
 assign [class="TogglDesktop"] $ws8
@@ -318,7 +318,7 @@ assign [class="microsoft teams - preview"] $ws9
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
-for_window [title="User 1 - Anki"] focus; split h; layout stacked
+# for_window [title="User 1 - Anki"] focus; split h; layout stacked
 
 bindsym $mod+g sticky toggle
 

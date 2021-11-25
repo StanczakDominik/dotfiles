@@ -3,7 +3,6 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
 alacritty
 alsa-utils
-anaconda
 android-file-transfer
 anki-release-source
 ark
@@ -87,7 +86,6 @@ mpd
 mplayer
 mpv
 ncdu
-ncview
 neovim-git
 neovim-plug
 neovim-symlinks
@@ -149,8 +147,6 @@ skanlite
 skypeforlinux-stable-bin
 sloccount
 spectacle
-spotify
-spotify-adblock-git
 sshfs
 starship
 sudo
@@ -184,6 +180,7 @@ tmux
 tmuxinator
 todoist-git
 toggldesktop-bin
+translate-shell
 trash-cli
 tree
 ttf-baekmuk
@@ -196,7 +193,6 @@ ttf-nerd-fonts-symbols
 unzip
 vifm
 virt-viewer
-visual-studio-code-bin
 vlc
 vmware-horizon-client
 vmware-horizon-rtav

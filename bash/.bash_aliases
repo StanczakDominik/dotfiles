@@ -49,6 +49,10 @@ function darkmode () {
 alias termdownsay='termdown -v us-mbrola-1'
 alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
 alias twork="toggl now -a IFPILM"
+function tworkstarted() {
+    toggl stop -p "$1"
+    toggl start -s "$1" -a IFPILM -o "Day start" "Day start"
+}
 alias tworkr="toggl now -a IFPILM,Remote"
 alias tbathroom="toggl start -o Bathroom Łazienka"
 alias plasmalogout="qdbus org.kde.ksmserver /KSMServer logout 0 3 3"
@@ -104,7 +108,7 @@ posprzatane(){
 alias pacorphans="pacman -Qqtd "
 alias ls=exa
 alias cat=bat
-alias klastermount="sshfs klaster:/home/dstanczak /mnt/klaster -o idmap=user; ssh -NfL 8889:localhost:8889 klaster"
+alias klastermount="sshfs klaster:/home/dstanczak /mnt/klaster -o idmap=user,auto_cache,reconnect,Cipher=no; ssh -NfL 8889:localhost:8889 klaster"
 alias klastermountdisable="fusermount -u /mnt/klaster; ssh -O ClearAllForwardings=yes klaster"
 
 alias jrnl='cd $HOME/Notes/vimwiki; vim "dziennik/daily/$(date +%F).md"'
