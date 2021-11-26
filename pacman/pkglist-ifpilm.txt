@@ -65,6 +65,7 @@ kdeconnect
 keepassxc
 kmail
 krita
+kteatime
 kwalletcli-git
 kwalletmanager
 lazarus-qt5
