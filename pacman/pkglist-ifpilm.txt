@@ -56,7 +56,6 @@ i3lock
 i3status
 inkscape
 ipython
-jrnl
 julia
 jupyterlab
 jupyterlab-widgets
@@ -101,6 +100,7 @@ openvpn
 os-prober
 otf-ipafont
 packagekit-qt5
+pandoc
 patch
 pdfgrep
 picom
