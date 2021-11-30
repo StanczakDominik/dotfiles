@@ -1,0 +1,10 @@
+{
+    // Git
+    // @jupyterlab/git:plugin
+    // jupyterlab-git settings.
+    // ************************
+
+    // Show diff on double click
+    // If true, doubling clicking a file in the list of changed files will open a diff.
+    "doubleClickDiff": true
+}
