@@ -112,12 +112,12 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: org"
-set $ws2 "2: praca"
-set $ws3 "3: learn!"
+set $ws2 "2: magisterka"
+set $ws3 "3: PHA"
 set $ws4 "4: PlasmaPy"
-set $ws5 "5: writing"
-set $ws6 "6: relax"
-set $ws7 "7: PlasmaPy"
+set $ws5 "5: pracownia"
+set $ws6 "6: varia"
+set $ws7 "7: relax"
 set $ws8 "8: personal"
 set $ws9 "9: social"
 set $ws10 "10: music"
@@ -309,11 +309,11 @@ bindsym $mod+mod2+KP_1 [title=".*Anki$"] scratchpad show
 # assign [class="okular"] $ws1
 # bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 exec --no-startup-id redshift-gtk
-assign [class="anki"] $ws3
-assign [title="vimwiki - Obsidian"] $ws5
-assign [class="Element"] $ws7
+assign [class="anki"] $ws8
+assign [title="vimwiki - Obsidian"] $ws8
+assign [class="Element"] $ws9
 assign [class="TogglDesktop"] $ws8
-assign [class="Signal"] $ws8
+assign [class="Signal"] $ws9
 assign [class="microsoft teams - preview"] $ws9
 assign [class="cantata"] $ws10
 
