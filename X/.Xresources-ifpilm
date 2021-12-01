@@ -60,5 +60,5 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 /* URxvt.keysym.Control-Right: \033[1;5C */
 /* URxvt.keysym.Control-Left: \033[1;5D */
 
-SecondMonitorXrandrName: "HDMI-1-0"
-SecondMonitorI3WorkspaceName: "org"
+SecondMonitorXrandrName: "HDMI-1"
+SecondMonitorI3WorkspaceName: "leftscreen"

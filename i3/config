@@ -112,6 +112,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: org"
+set $ws1 "1: left screen"
 set $ws2 "2: magisterka"
 set $ws3 "3: PHA"
 set $ws4 "4: PlasmaPy"
@@ -189,7 +190,7 @@ bar {
     hidden_state hide
     strip_workspace_name no
     verbose yes
-    position top 
+    position bottom 
     binding_mode_indicator yes
     status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
     colors {
@@ -318,7 +319,7 @@ assign [class="microsoft teams - preview"] $ws9
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
-for_window [title="User 1 - Anki"] focus; split h; layout stacked
+# for_window [title="User 1 - Anki"] focus; split h; layout stacked
 
 bindsym $mod+g sticky toggle
 
