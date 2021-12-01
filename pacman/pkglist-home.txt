@@ -180,6 +180,7 @@ kid3
 kio-gdrive
 kitty
 klick-git
+kmail
 kmymoney
 koi
 konsole
@@ -399,6 +400,7 @@ python-more-itertools
 python-myst-parser
 python-networkx
 python-notify2
+python-npx
 python-numba
 python-numexpr
 python-orjson
