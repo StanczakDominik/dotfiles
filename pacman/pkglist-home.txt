@@ -5,7 +5,7 @@ alacritty
 all-contributors-cli
 android-tools
 android-udev
-anki
+anki-official-binary-bundle
 arc-kde
 archivetools
 archlinux-themes-sddm
@@ -21,7 +21,6 @@ bash-completion
 bashtop
 bat
 bbswitch
-beets-bandcamp
 beets-check
 beets-git
 biber
@@ -245,7 +244,6 @@ mplayer
 mpv
 nano
 ncdu
-ncl
 neovim-git
 neovim-qt
 neovim-remote
@@ -400,7 +398,6 @@ python-more-itertools
 python-myst-parser
 python-networkx
 python-notify2
-python-npx
 python-numba
 python-numexpr
 python-orjson
@@ -639,7 +636,6 @@ yakuake
 yarn
 yay
 yed
-yin-yang-git
 youtube-dl
 zathura
 zathura-djvu

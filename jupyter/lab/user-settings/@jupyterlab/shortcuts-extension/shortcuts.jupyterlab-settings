@@ -1,12 +1,11 @@
-{
-    "shortcuts": [
-        {
-        "command": "runmenu:restart-and-run-all",
-        "keys": [
-            "0",
-            "-"
-        ],
-        "selector": "[data-jp-kernel-user]:focus"
+{"shortcuts": [
+    {
+            "command": "runmenu:restart-and-run-all",
+            "keys": [
+                "0",
+                "-",
+            ],
+            "selector": "[data-jp-code-runner]"
         },
         {
          "command":"notebook:enter-command-mode",
