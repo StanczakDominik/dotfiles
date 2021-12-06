@@ -5,7 +5,7 @@
                 "0",
                 "-",
             ],
-            "selector": "[data-jp-code-runner]"
+            "selector": "[data-jp-kernel-user]:focus"
         },
         {
          "command":"notebook:enter-command-mode",

@@ -187,6 +187,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output eDP-1
+    mode hide
     hidden_state hide
     strip_workspace_name no
     verbose yes
@@ -198,6 +199,7 @@ bar {
       background $transparent
     }
     tray_output none
+    # font pango:DejaVu Sans Mono 12
 }
 
 bar {
