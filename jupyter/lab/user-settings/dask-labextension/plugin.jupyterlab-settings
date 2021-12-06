@@ -1,0 +1,10 @@
+{
+    // Dask Dashboard
+    // dask-labextension:plugin
+    // Settings for the Dask Dashboard plugin.
+    // ***************************************
+
+    // Auto-Start Client
+    // If set to true, every notebook and console will automatically have a dask client for the active cluster injected into the kernel under the name 'client'
+    "autoStartClient": false
+}

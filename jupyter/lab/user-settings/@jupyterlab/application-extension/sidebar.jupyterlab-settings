@@ -1,0 +1,16 @@
+{
+    // Sidebar
+    // @jupyterlab/application-extension:sidebar
+    // Sidebar layout settings.
+    // *****************************************
+
+    // Overrides
+    // Overrides for where to show sidebar items
+    // e.g., {"tab-manager": "right"}
+    "overrides": {
+        "@jupyterlab-dataRegistry/explorer": "right",
+        "@jupyterlab-dataregistry/browser": "right",
+        "jp-property-inspector": "left",
+        "jp-debugger-sidebar": "left"
+    }
+}
