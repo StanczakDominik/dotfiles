@@ -2,7 +2,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-set statusline^=%{ObsessionStatus()}
+" set statusline^=%{ObsessionStatus()}
 
 " function! g:ComboStatus()
 " 	if !exists('g:combo')
