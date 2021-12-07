@@ -1,8 +1,7 @@
-[user]
-	email = stanczakdominik@gmail.com
-	name = Dominik Stańczak
-	user = StanczakDominik
-	signingkey = 3AF45CAAD779A50168E0E866AA39B6635805CC28
+[include]
+    path = Code/dotfiles/git/config-personal
+[includeIf "gitdir:**/IFPILM/**/.git"]
+  path = Code/dotfiles/git/config-ifpilm
 [alias]
 	slog = log --oneline --topo-order --graph
 	adog = log --all --decorate --oneline --graph
@@ -37,7 +36,7 @@
 [diff]
   tool = vimdiff
 [commit]
-	gpgsign = true
+	gpgSign = true
 [github]
 	user = StanczakDominik
 [diff "jupyternotebook"]

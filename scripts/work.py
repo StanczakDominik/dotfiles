@@ -249,12 +249,13 @@ class WorkTimer:
         prefix = "" if prefix is None else prefix
         task = self.r_current_json['data']
         if task is not None:
-            description = f", now: {task['description']} " if 'description' in task else ''
-            description += td_as_h(datetime.timedelta(milliseconds=self.current_time))
+            description = f", now: {task['description']} {td_as_h(datetime.timedelta(milliseconds = self.current_time))}" if 'description' in task else ''
         else:
             description = ''
-        est_end_time = (datetime.datetime.now() + self.time_remaining).strftime("%H:%M")
-        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)} ->| {est_end_time}"
+        if self.time_remaining.total_seconds() > 0:
+            est_end_time = f' ->| {(datetime.datetime.now() + self.time_remaining).strftime("%H:%M")}'
+            description += est_end_time
+        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}"
         print(f"{prefix}{time_status}{description}")
 
     def describe_goals(self):
