@@ -314,6 +314,7 @@ etckeeper
 exa
 fakeroot
 feh
+filelight
 firefox
 flex
 fzf
@@ -457,7 +458,7 @@ thefuck
 timidity++
 tldr
 tmux
-tmuxinator
+tmux-plugin-manager
 todoist-git
 toggldesktop-bin
 translate-shell
