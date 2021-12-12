@@ -38,6 +38,7 @@ coreutils
 cowfortune
 cpuburn
 cpupower
+crda
 cryfs
 cryptsetup
 ctags
@@ -223,8 +224,8 @@ logrotate
 lostfiles
 lsd
 lsof
-lutris
 lutris-battlenet-meta
+lutris-git
 lvm2
 m4
 make
@@ -554,6 +555,7 @@ tikzit
 tk
 tldr
 tmux
+tmux-plugin-manager
 tmuxinator
 todoist
 toggldesktop-bin
@@ -601,6 +603,7 @@ wine-gecko
 wine-mono
 wine-staging
 winetricks
+wireless_tools
 wol
 workrave
 wpa_actiond
