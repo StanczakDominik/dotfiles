@@ -1,9 +1,3 @@
-Magisterka:
-  daily_time_hours: 4
-  projects:
-  - Magisterka
-  tags:
-  - Magisterka
 Reading:
   daily_time_hours: 0.5
   projects: []
