@@ -21,8 +21,6 @@ bash-completion
 bashtop
 bat
 bbswitch
-beets-check
-beets-git
 biber
 binutils
 bison
@@ -158,7 +156,6 @@ jq
 julia
 jupyter-nbextension-rise
 jupyterlab
-jupyterlab-extension-jupyterlab_git
 jupyterlab-widgets
 kaccounts-providers
 kalarm
@@ -245,7 +242,7 @@ mplayer
 mpv
 nano
 ncdu
-neovim-git
+neovim
 neovim-qt
 neovim-remote
 nerd-fonts-dejavu-complete
@@ -334,6 +331,7 @@ python-arrow
 python-arviz
 python-aspy-yaml
 python-astroid
+python-astropy
 python-async_generator
 python-atomicwrites
 python-beautifulsoup4
@@ -371,12 +369,12 @@ python-gpustat
 python-h5py
 python-humanize
 python-husl
+python-hvplot
 python-hypothesis
 python-i3ipc
 python-identify
 python-ipympl
 python-isort
-python-jupyter-cache
 python-jupyter_packaging
 python-jupyter_sphinx
 python-jupyterlab_server
@@ -398,12 +396,13 @@ python-micawber
 python-more-itertools
 python-myst-parser
 python-networkx
+python-nevergrad
 python-notify2
-python-numba
 python-numexpr
 python-orjson
 python-pafy
 python-pandas
+python-paramiko
 python-pathspec
 python-pendulum
 python-phpserialize
@@ -411,6 +410,7 @@ python-pip
 python-pipx
 python-pluggy
 python-poetry
+python-pooch
 python-poppler-qt5
 python-pre-commit
 python-ptable
@@ -425,7 +425,6 @@ python-pymongo
 python-pynvim
 python-pyphen
 python-pyqt5
-python-pystan
 python-pytest
 python-pytest-arraydiff
 python-pytest-benchmark
@@ -461,10 +460,8 @@ python-statsmodels
 python-sympy
 python-tabulate
 python-tensorboard_plugin_wit
-python-tensorflow-cuda
 python-termcolor
 python-terminaltables
-python-titlecase
 python-toml
 python-tox
 python-tqdm
@@ -585,7 +582,6 @@ unzip
 usbutils
 util-linux
 vifm
-vim
 virtualbox
 vlc
 vmware-horizon-client

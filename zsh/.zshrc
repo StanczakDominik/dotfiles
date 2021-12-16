@@ -92,15 +92,14 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-export MINICONDA_DIR='/home/dominik/.miniconda3'
-__conda_setup="$('$MINICONDA_DIR/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/dominik/.miniconda3.9/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$MINICONDA_DIR/etc/profile.d/conda.sh" ]; then
-        . "$MINICONDA_DIR/etc/profile.d/conda.sh"
+    if [ -f "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh" ]; then
+        . "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh"
     else
-        export PATH="$MINICONDA_DIR/bin:$PATH"
+        export PATH="/home/dominik/.miniconda3.9/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -170,24 +169,24 @@ switch-term-color() {
 # fi
 export MANPAGER='nvim +Man!'
 
-function cd() {
-  builtin cd "$@"
+# function cd() {
+#   builtin cd "$@"
 
-  if [[ -z "$VIRTUAL_ENV" ]] ; then
-    ## If env folder is found then activate the vitualenv
-      if [[ -d ./.env ]] ; then
-        source ./.env/bin/activate
-      fi
-  else
-    ## check the current folder belong to earlier VIRTUAL_ENV folder
-    # if yes then do nothing
-    # else deactivate
-      parentdir="$(dirname "$VIRTUAL_ENV")"
-      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-        deactivate
-      fi
-  fi
-}
+#   if [[ -z "$VIRTUAL_ENV" ]] ; then
+#     ## If env folder is found then activate the vitualenv
+#       if [[ -d ./.env ]] ; then
+#         # source ./.env/bin/activate  # commented out by conda initialize
+#       fi
+#   else
+#     ## check the current folder belong to earlier VIRTUAL_ENV folder
+#     # if yes then do nothing
+#     # else deactivate
+#       parentdir="$(dirname "$VIRTUAL_ENV")"
+#       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+#         deactivate
+#       fi
+#   fi
+# }
 
 eval `dircolors ~/.dir_colors`
 
