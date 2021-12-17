@@ -4,7 +4,7 @@ adobe-source-han-sans-kr-fonts
 alacritty
 alsa-utils
 android-file-transfer
-anki-release-source
+anki
 ark
 autoconf
 automake
@@ -87,7 +87,7 @@ mpd
 mplayer
 mpv
 ncdu
-neovim-git
+neovim
 neovim-plug
 neovim-symlinks
 nerd-fonts-hack
