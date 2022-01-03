@@ -385,7 +385,6 @@ python-levenshtein
 python-linkify-it-py
 python-livereload
 python-lmfit
-python-logzero
 python-lyricwikia
 python-magic
 python-markdown
@@ -615,7 +614,6 @@ xf86-input-synaptics
 xf86-video-intel
 xf86-video-nouveau
 xfsprogs
-xmind
 xonsh
 xorg-server
 xorg-xev
@@ -641,6 +639,7 @@ zathura-djvu
 zathura-pdf-poppler
 zip
 zoom
+zotero-beta
 zplug
 zsh
 zsh-syntax-highlighting
