@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import textwrap
 # coding: utf-8
 import os
 import requests
@@ -245,11 +246,13 @@ class WorkTimer:
         print(f"{focused} {description} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
 
 
-    def describe_briefly(self, prefix = None):
+    def describe_briefly(self, prefix = None, maxwidth = 35):
         prefix = "" if prefix is None else prefix
         task = self.r_current_json['data']
-        if task is not None:
-            description = f", now: {task['description']} {td_as_h(datetime.timedelta(milliseconds = self.current_time))}" if 'description' in task else ''
+        if task is not None and 'description' in task:
+            data = task['description']
+            description = textwrap.shorten(data, width=maxwidth)
+            description = f", now: {description} {td_as_h(datetime.timedelta(milliseconds = self.current_time))}"
         else:
             description = ''
         if self.time_remaining.total_seconds() > 0:
