@@ -126,6 +126,7 @@ python-opt_einsum
 python-pip
 python-pre-commit
 python-prompt_toolkit
+python-pudb
 python-pynvim
 python-pytest-cov
 python-pytest-html
@@ -267,7 +268,7 @@ yay
 youtube-dl
 zip
 zoom
-zotero
+zotero-beta
 zplug
 zsh
 zsh-syntax-highlighting
