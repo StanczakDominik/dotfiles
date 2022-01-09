@@ -242,7 +242,7 @@ class WorkTimer:
     def describe_current(self):
         focused = '-' if self.current_task_is_chill else '+'
         task = self.r_current_json['data']
-        description = task['description'] if 'description' in task else ''
+        description = task['description'] if (task and 'description' in task) else ''
         print(f"{focused} {description} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
 
 
