@@ -255,10 +255,10 @@ class WorkTimer:
             description = f", now: {description} {td_as_h(datetime.timedelta(milliseconds = self.current_time))}"
         else:
             description = ''
+        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}"
         if self.time_remaining.total_seconds() > 0:
             est_end_time = f' ->| {(datetime.datetime.now() + self.time_remaining).strftime("%H:%M")}'
-            description += est_end_time
-        time_status = f"{td_as_h(self.time_done)} / {td_as_h(self.time_required)}"
+            time_status += est_end_time
         print(f"{prefix}{time_status}{description}")
 
     def describe_goals(self):
