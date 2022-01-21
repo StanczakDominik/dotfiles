@@ -122,21 +122,6 @@ source "/usr/share/todoist/todoist_functions_fzf.sh"
 
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
-# added by travis gem
-[ ! -s /home/dominik/.travis/travis.sh ] || source /home/dominik/.travis/travis.sh
-
-
-
-# if [[ -z "$TMUX" ]] ;then
-#     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-#     if [[ -z "$ID" ]] ;then # if not available create a new one
-#         tmux new-session
-#     else
-#         tmux attach-session -t "$ID" # if available attach to it
-#     fi
-# fi
-#
-
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 export DISABLE_AUTO_TITLE=true
 
@@ -157,32 +142,7 @@ switch-term-color() {
   fi
 }
 
-# currenttime=$(date +%H:%M)
-# if [[ "$currenttime" > "19:00" ]] || [[ "$currenttime" < "06:30" ]]; then
-#     theme-night
-# else
-#     theme-light
-# fi
 export MANPAGER='nvim +Man!'
-
-# function cd() {
-#   builtin cd "$@"
-
-#   if [[ -z "$VIRTUAL_ENV" ]] ; then
-#     ## If env folder is found then activate the vitualenv
-#       if [[ -d ./.env ]] ; then
-#         # source ./.env/bin/activate  # commented out by conda initialize
-#       fi
-#   else
-#     ## check the current folder belong to earlier VIRTUAL_ENV folder
-#     # if yes then do nothing
-#     # else deactivate
-#       parentdir="$(dirname "$VIRTUAL_ENV")"
-#       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-#         deactivate
-#       fi
-#   fi
-# }
 
 eval `dircolors ~/.dir_colors`
 
