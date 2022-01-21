@@ -245,6 +245,7 @@ ncdu
 neovim
 neovim-qt
 neovim-remote
+nerd-dictation-git
 nerd-fonts-dejavu-complete
 nerd-fonts-fira-code
 nerd-fonts-hack
@@ -361,6 +362,7 @@ python-fastapi
 python-fasteners
 python-fastprogress
 python-flake8-docstrings
+python-flit-core
 python-fsspec
 python-fuzzywuzzy
 python-ghp-import
@@ -373,6 +375,7 @@ python-hvplot
 python-hypothesis
 python-i3ipc
 python-identify
+python-install
 python-ipympl
 python-isort
 python-jupyter_packaging
@@ -462,6 +465,7 @@ python-tensorboard_plugin_wit
 python-termcolor
 python-terminaltables
 python-toml
+python-tomli-w
 python-tox
 python-tqdm
 python-typer
@@ -525,8 +529,10 @@ syncthing
 syncthingtray
 sysfsutils
 system-config-printer
+systemd-kcm
 systemd-sysvcompat
 tar
+tasker-permissions-git
 teams
 teamviewer
 telegram-desktop
@@ -559,6 +565,7 @@ tor
 torbrowser-launcher
 torsocks
 towncrier
+traceroute
 tracker
 translate-shell
 transmission-qt
@@ -588,6 +595,7 @@ vmware-horizon-mmr
 vmware-horizon-smartcard
 vmware-horizon-tsdr
 vmware-horizon-usb
+vpn-slice-git
 vulkan-tools
 vym
 wf-recorder
