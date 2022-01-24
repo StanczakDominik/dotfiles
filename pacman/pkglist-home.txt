@@ -362,7 +362,6 @@ python-fastapi
 python-fasteners
 python-fastprogress
 python-flake8-docstrings
-python-flit-core
 python-fsspec
 python-fuzzywuzzy
 python-ghp-import
@@ -375,7 +374,6 @@ python-hvplot
 python-hypothesis
 python-i3ipc
 python-identify
-python-install
 python-ipympl
 python-isort
 python-jupyter_packaging
@@ -465,7 +463,6 @@ python-tensorboard_plugin_wit
 python-termcolor
 python-terminaltables
 python-toml
-python-tomli-w
 python-tox
 python-tqdm
 python-typer
