@@ -189,7 +189,7 @@ bar {
     verbose yes
     position top 
     binding_mode_indicator yes
-    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
+    status_command i3blocks -c ~/Code/dotfiles/i3/ifpilm/i3blocks.conf
     colors {
       statusline #ffffff
       background $transparent
@@ -203,7 +203,7 @@ bar {
     strip_workspace_name no
     verbose yes
     position bottom 
-    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks-left.conf
+    status_command i3blocks -c ~/Code/dotfiles/i3/ifpilm/i3blocks-left.conf
     colors {
       statusline #ffffff
       background $transparent
