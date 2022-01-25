@@ -53,7 +53,7 @@ set_from_resource $leftscreen SecondMonitorXrandrName "HDMI-1-0"
 # rofi
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "IBM Plex Sans Medium 14" '
 # bindsym $mod+d exec --no-startup-id 'rofi -combi-modi window,drun,ssh -theme solarized -font "IBM Plex Sans Medium 14" -show combi'
-bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,window,ssh -show combi -font \\"IBM Plex Sans Medium 14\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,window,ssh -show combi"
 
 
 # start dmenu (a program launcher)
