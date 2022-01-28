@@ -307,7 +307,7 @@ bindsym $mod+equal  scratchpad show
 
 # assign [class="okular"] $ws1
 bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
-exec --no-startup-id redshift-gtk
+# exec --no-startup-id redshift-gtk
 assign [class="anki"] $ws8
 assign [title="vimwiki - Obsidian"] $ws8
 assign [class="Element"] $ws9

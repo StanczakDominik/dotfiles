@@ -362,6 +362,7 @@ python-fastapi
 python-fasteners
 python-fastprogress
 python-flake8-docstrings
+python-flit
 python-fsspec
 python-fuzzywuzzy
 python-ghp-import
