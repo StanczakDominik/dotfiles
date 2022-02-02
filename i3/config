@@ -359,4 +359,4 @@ focus_on_window_activation urgent
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
 
-exec --no-startup-id "sh -c 'sleep 15; feh --randomize --bg-scale /home/dominik/Pictures/Wallpapers/*'"
+exec --no-startup-id "sh -c 'sleep 15; feh --randomize --bg-fill /home/dominik/Pictures/Wallpapers/*'"
