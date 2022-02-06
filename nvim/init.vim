@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump betwe
 Plug 'alemidev/vim-combo'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
+Plug 'preservim/vimux'
 Plug 'dkarter/bullets.vim'
 Plug 'erietz/vim-terminator'
 Plug 'ferrine/md-img-paste.vim'
