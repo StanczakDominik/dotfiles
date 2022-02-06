@@ -35,6 +35,8 @@
   tool = vimdiff
 [commit]
 	gpgSign = true
+	verbose = true
+	template = /home/dominik/.gitmessage
 [github]
 	user = StanczakDominik
 [diff "jupyternotebook"]
