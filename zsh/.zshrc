@@ -11,6 +11,7 @@ bindkey -v
 zstyle :compinstall filename '/home/dominik/.zshrc'
 source /usr/share/zsh/scripts/zplug/init.zsh
 zplug "Tarrasch/zsh-autoenv"
+setopt completealiases
 
 autoload -Uz compinit
 compinit
