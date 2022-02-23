@@ -60,3 +60,4 @@ tags.temp
 tags.lock
 .github_cache
 .stignore
+Session.vim

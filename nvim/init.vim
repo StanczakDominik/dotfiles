@@ -9,6 +9,7 @@ endif
 source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts 
 
 call plug#begin('~/.vim/plugged')
+Plug 'preservim/vim-thematic'
 Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'JuliaEditorSupport/julia-vim'
@@ -28,7 +29,7 @@ Plug 'folke/which-key.nvim'
 Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
 Plug 'goerz/jupytext.vim'
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'honza/vim-snippets'
 Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -50,7 +51,6 @@ Plug 'lervag/wiki.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
-Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'othree/html5.vim'
@@ -68,6 +68,7 @@ Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'       
 Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'        
 Plug 'tpope/vim-sleuth'           
@@ -75,6 +76,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'                  " ]l jumps, etc
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-test/vim-test'
 Plug 'wannesm/wmgraphviz.vim'
 Plug 'whatyouhide/vim-gotham'
@@ -84,7 +86,18 @@ call plug#end()
 syntax enable
 
 autocmd FileType make setlocal noexpandtab
-colorscheme solarized
+let g:thematic#defaults = {
+\ 'colorscheme': 'solarized',
+\ 'airline-theme': 'solarized',
+\ 'background': 'dark',
+\ }
+let g:thematic#themes = {
+\ 'solarized'  : {
+\                },
+\ 'light' :      {'background': 'light',
+\                },
+\ }
+let g:thematic#theme_name = 'solarized'
 let NERDTreeHijackNetrw=1 "Make them both live in peace and harmony
 runtime ftplugin/man.vimi
 set backspace=indent,eol,start

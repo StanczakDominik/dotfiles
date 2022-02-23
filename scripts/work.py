@@ -23,6 +23,12 @@ path = pathlib.Path(__file__).parent / "goals.yaml"
 with open(path) as f:
     goals = yaml.load(f, Loader=yaml.FullLoader)
 
+def workday_override(path="/tmp/WORKDAY"):
+    path = pathlib.Path(path)
+    try:
+        return float(path.read_text())
+    except:
+        return path.exists()
 
 
 def td_as_h(td: datetime.timedelta) -> str:
@@ -199,10 +205,12 @@ class WorkTimer:
 
     @cached_property
     def time_required(self):
+        override = workday_override()
+        if isinstance(override, float):
+            return datetime.timedelta(hours=override)
         if current_date.weekday() == 4:
             return datetime.timedelta(hours=7)
-        else:
-            return datetime.timedelta(hours=8)
+        return datetime.timedelta(hours=8)
 
     @cached_property
     def time_remaining(self):

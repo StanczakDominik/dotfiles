@@ -7,7 +7,10 @@ import pathlib
 
 def workday_override(path="/tmp/WORKDAY"):
     path = pathlib.Path(path)
-    return path.exists()
+    try:
+        return float(path.read_text())
+    except:
+        return path.exists()
 
 
 

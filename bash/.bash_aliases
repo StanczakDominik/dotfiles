@@ -114,3 +114,4 @@ alias klastermountdisable="fusermount -u /mnt/klaster; ssh -O ClearAllForwarding
 alias jrnl='cd $HOME/Notes/vimwiki; vim "dziennik/$(date +%Y-%W).md"'
 alias vimwiki='cd $HOME/Notes/vimwiki; vim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias pacdiff="DIFFPROG='nvim -d' pacdiff"

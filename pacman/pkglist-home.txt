@@ -5,7 +5,7 @@ alacritty
 all-contributors-cli
 android-tools
 android-udev
-anki-official-binary-bundle
+anki
 arc-kde
 archivetools
 archlinux-themes-sddm
@@ -176,6 +176,7 @@ khelpcenter
 kid3
 kio-gdrive
 kitty
+kiwix-desktop
 klick-git
 kmail
 kmymoney
@@ -388,6 +389,7 @@ python-levenshtein
 python-linkify-it-py
 python-livereload
 python-lmfit
+python-lsp-black
 python-lyricwikia
 python-magic
 python-markdown
@@ -557,7 +559,6 @@ tk
 tldr
 tmux
 tmux-plugin-manager
-tmuxinator
 todoist
 toggldesktop-bin
 tor

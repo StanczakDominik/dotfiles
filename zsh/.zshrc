@@ -72,6 +72,8 @@ source ~/.zsh_completion
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
 source "/usr/share/fzf/key-bindings.zsh"
 # export FZF_DEFAULT_COMMAND='rg -L --files'
+export FZF_DEFAULT_COMMAND='rg --files --hidden -Tjupyter'
+
 # export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
 
 source ~/.bash_aliases
@@ -151,7 +153,7 @@ preexec() { print -Pn "\e]0;$1%~\a" }
 
 # if tmux is executable, X is running, and not inside a tmux session, then try to attach.
 # if attachment fails, start a new session
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
-fi
+# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+#   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
+# fi
 
