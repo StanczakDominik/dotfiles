@@ -225,10 +225,10 @@ bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPlay exec playerctl -i Gwenview play-pause
+bindsym XF86AudioNext exec playerctl -i Gwenview next
+bindsym XF86AudioPrev exec playerctl -i Gwenview previous
+bindsym XF86AudioStop exec playerctl -i Gwenview stop
 
 bindsym Print exec spectacle
 
