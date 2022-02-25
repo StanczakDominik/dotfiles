@@ -112,7 +112,7 @@ bindsym $mod+c focus child
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: left screen"
-set $ws2 "2: IFPiLM"
+set $ws2 "2: work"
 set $ws3 "3: notes"
 set $ws4 "4: reading"
 set $ws5 "5: breaks"

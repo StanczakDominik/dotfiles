@@ -110,7 +110,7 @@ class WorkTimer:
         all_time = self.r_all_json["total_grand"]
         if all_time is None:
             all_time = 0
-        return all_time + self.current_time
+        return all_time + self.current_time_if_work
 
     @cached_property
     def chill_time(self):
@@ -118,7 +118,7 @@ class WorkTimer:
             project["time"]
             for project in self.data
             if str(project["id"]) in chill_projects
-        ) + self.current_time * self.current_task_is_chill
+        ) + self.current_time_if_work * self.current_task_is_chill
 
     @cached_property
     def focus_time(self):
@@ -142,9 +142,17 @@ class WorkTimer:
         return current_json
 
     @cached_property
+    def current_time_if_work(self):
+        current_task = self.r_current_json['data']
+        if "tags" in current_task and "IFPILM" in current_task["tags"]:
+            return self.current_time
+        else:
+            return 0
+    
+    @cached_property
     def current_time(self):
         current_task = self.r_current_json['data']
-        if current_task is not None and "tags" in current_task and "IFPILM" in current_task["tags"]:
+        if current_task is not None:
             current_task_time = current_task["duration"] + time.time()
         else:
             current_task_time = 0
