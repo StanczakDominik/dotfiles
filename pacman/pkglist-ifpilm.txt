@@ -131,10 +131,12 @@ python-pynvim
 python-pytest-cov
 python-pytest-html
 python-pytest-regressions
+python-pytest-xdist
 python-pytorch
 python-rich
 python-seaborn
 python-selenium
+python-uncertainties
 python-virtualenvwrapper
 rclone
 reflector
