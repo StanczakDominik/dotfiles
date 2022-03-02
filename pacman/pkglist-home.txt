@@ -51,7 +51,7 @@ dictd
 diffpdf
 diffutils
 digikam
-discord_arch_electron
+discord
 djvu2pdf
 dmenu
 dnsmasq
@@ -61,7 +61,6 @@ dolphin-plugins
 dot2tex
 downgrader-git
 doxygen
-drawio-desktop
 ds4drv
 e2fsprogs
 efibootmgr
@@ -588,6 +587,8 @@ unzip
 usbutils
 util-linux
 vifm
+vim
+vim-colors-solarized-git
 virtualbox
 vlc
 vmware-horizon-client
