@@ -43,7 +43,6 @@ ctags
 cudnn
 cups
 cython
-darkman
 device-mapper
 dhcpcd
 dialog
@@ -643,6 +642,7 @@ yarn
 yay
 yed
 youtube-dl
+yt-dlp
 zathura
 zathura-djvu
 zathura-pdf-poppler

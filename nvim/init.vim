@@ -10,6 +10,7 @@ source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts
 
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vim-thematic'
+Plug 'voldikss/vim-translator'
 Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'JuliaEditorSupport/julia-vim'
@@ -71,6 +72,7 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'        
+Plug 'ludovicchabant/vim-gutentags'               " Automatic tags management
 Plug 'tpope/vim-sleuth'           
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
@@ -81,6 +83,15 @@ Plug 'vim-test/vim-test'
 Plug 'wannesm/wmgraphviz.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'yazgoo/unicodemoji'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'mjlbach/onedark.nvim'    " -- Theme inspired by Atom
+
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 call plug#end()
 
 syntax enable
@@ -145,3 +156,10 @@ source ~/.config/nvim/python.vim
 source ~/.config/nvim/test.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/window-switching.vim
+source ~/.config/nvim/telescope.vim
+
+let g:translator_target_lang = 'en'
+
+" Replace the text with translation
+nmap <silent> <Leader>r <Plug>TranslateR
+vmap <silent> <Leader>r <Plug>TranslateRV
