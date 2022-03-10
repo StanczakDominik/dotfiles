@@ -13,7 +13,7 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <C-G> :RG<CR>
+
 
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
@@ -35,10 +35,6 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
-
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <C-p> :<C-u>FZF<Cr>
-nnoremap <silent><leader>g :GFiles<CR>
 
 let g:fzf_colors =                                                                         
 \ { 'fg':      ['fg', 'Normal'],                                                           

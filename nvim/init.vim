@@ -36,8 +36,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'jesseleite/vim-agriculture'
-Plug 'junegunn/fzf'      
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                     " distraction-free mode
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -97,18 +95,6 @@ call plug#end()
 syntax enable
 
 autocmd FileType make setlocal noexpandtab
-let g:thematic#defaults = {
-\ 'colorscheme': 'solarized',
-\ 'airline-theme': 'solarized',
-\ 'background': 'dark',
-\ }
-let g:thematic#themes = {
-\ 'solarized'  : {
-\                },
-\ 'light' :      {'background': 'light',
-\                },
-\ }
-let g:thematic#theme_name = 'solarized'
 let NERDTreeHijackNetrw=1 "Make them both live in peace and harmony
 runtime ftplugin/man.vimi
 set backspace=indent,eol,start
@@ -137,7 +123,6 @@ set wildmenu
 
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/compe.vim
-source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/goyo.vim
 source ~/.config/nvim/gpg.vim
@@ -157,9 +142,4 @@ source ~/.config/nvim/test.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/window-switching.vim
 source ~/.config/nvim/telescope.vim
-
-let g:translator_target_lang = 'en'
-
-" Replace the text with translation
-nmap <silent> <Leader>r <Plug>TranslateR
-vmap <silent> <Leader>r <Plug>TranslateRV
+source ~/.config/nvim/thematic.vim
