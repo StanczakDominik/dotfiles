@@ -11,7 +11,6 @@ source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vim-thematic'
 Plug 'voldikss/vim-translator'
-Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'Konfekt/FastFold' " limit automatic fold updates

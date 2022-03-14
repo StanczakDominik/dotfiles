@@ -1,6 +1,5 @@
 acpi
 acpid
-activitywatch-bin
 alacritty
 all-contributors-cli
 android-tools
@@ -43,6 +42,7 @@ ctags
 cudnn
 cups
 cython
+darkman
 device-mapper
 dhcpcd
 dialog
