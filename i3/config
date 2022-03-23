@@ -116,8 +116,8 @@ set $ws2 "2: workL"
 set $ws3 "3: workR"
 set $ws4 "4: notes"
 set $ws5 "5: reading"
-set $ws6 "6: breaks"
-set $ws7 "7"
+set $ws6 "6: anki"
+set $ws7 "7: breaks"
 set $ws8 "8"
 set $ws9 "9: social"
 set $ws10 "10: music"
@@ -127,9 +127,9 @@ workspace $ws2 output $leftscreen
 workspace $ws3 output $mainscreen
 workspace $ws4 output $mainscreen
 workspace $ws5 output $mainscreen
-# workspace number 6 output $mainscreen
-# workspace number 7 output $mainscreen
-# workspace number 8 output $mainscreen
+workspace $ws6 output $mainscreen
+workspace $ws7 output $mainscreen
+workspace $ws8 output $mainscreen
 workspace $ws9 output $mainscreen
 workspace $ws10 output $mainscreen
 
@@ -141,8 +141,8 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
@@ -153,8 +153,8 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
@@ -318,16 +318,25 @@ bindsym $mod+Shift+equal move scratchpad
 # Show the first scratchpad window
 bindsym $mod+equal  scratchpad show
 
-# assign [class="okular"] $ws1
 bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 # exec --no-startup-id redshift-gtk
-assign [class="anki"] number 4
+#
+#
+assign [class="crx_jdlbbgabicimjlakajjcohhamlflhipe"] $ws3
 assign [title="Obsidian"] $ws4
+
+assign [class="okular"] $ws5
+assign [class="Zotero"] $ws5
+
+assign [class="anki"] $ws7
+
+assign [class="TogglDesktop"] $ws1
+
 assign [class="Element"] $ws9
-assign [class="TogglDesktop"] $ws8
 assign [class="Signal"] $ws9
 assign [class="kmail"] $ws9
-assign [class="microsoft teams - preview"] $ws9
+assign [class="teams"] $ws9
+
 assign [class="cantata"] $ws10
 
 hide_edge_borders smart
@@ -344,20 +353,23 @@ bindsym $mod+m move workspace to output right
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
 
-# # Scratchpad terminal.
-# # https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
-# # Using a custom title string with criteria is deliberate and keeps things simple.
-# exec --no-startup-id alacritty --title "Life is beautiful." -e jrnl
-# for_window [instance="alacritty" title="Life"] floating enable, move scratchpad, scratchpad show;
-# for_window [instance="alacritty" title="Life"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
-# bindsym End  [instance="alacritty" title="Life"] scratchpad show
 
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
+bindsym $mod+Control+Left focus output left
+bindsym $mod+Control+Right focus output right
 
 # # Add this to your i3 config (~/.config/i3/config) and restart i3 (Super+Shift+R)
 # exec --no-startup-id "alacritty"
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
 
-exec --no-startup-id "sh -c 'sleep 15; feh --randomize --bg-fill /home/dominik/Pictures/Wallpapers/*'"
+exec --no-startup-id "sh -c 'sleep 3; feh --randomize --bg-fill /home/dominik/Pictures/Wallpapers/*'"
+
+# # Scratchpad terminal.
+# # https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
+# # Using a custom title string with criteria is deliberate and keeps things simple.
+exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
+for_window [instance="Alacritty" title="Dropdown"] move scratchpad
+for_window [class="ksysguard"] move scratchpad
+bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show

@@ -115,6 +115,7 @@ gnome-sound-recorder
 gnuplot
 go
 go-mtpfs-git
+google-chrome
 googler
 gource
 gparted
@@ -558,7 +559,7 @@ tldr
 tmux
 tmux-plugin-manager
 todoist
-toggldesktop-bin
+toggldesktop
 tor
 torbrowser-launcher
 torsocks
@@ -648,7 +649,7 @@ zathura-djvu
 zathura-pdf-poppler
 zip
 zoom
-zotero-beta
+zotero
 zplug
 zsh
 zsh-syntax-highlighting
