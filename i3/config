@@ -46,8 +46,8 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $mainscreen "HDMI-0"
-set $leftscreen "eDP-1-1"
+set $primary "HDMI-0"
+set $secondary "eDP-1-1"
 
 
 # rofi
@@ -122,16 +122,16 @@ set $ws8 "8"
 set $ws9 "9: social"
 set $ws10 "10: music"
 
-workspace $ws1 output $leftscreen
-workspace $ws2 output $leftscreen
-workspace $ws3 output $mainscreen
-workspace $ws4 output $mainscreen
-workspace $ws5 output $mainscreen
-workspace $ws6 output $mainscreen
-workspace $ws7 output $mainscreen
-workspace $ws8 output $mainscreen
-workspace $ws9 output $mainscreen
-workspace $ws10 output $mainscreen
+workspace $ws1 output $secondary
+workspace $ws2 output $secondary
+workspace $ws3 output $primary
+workspace $ws4 output $primary
+workspace $ws5 output $primary
+workspace $ws6 output $primary
+workspace $ws7 output $primary
+workspace $ws8 output $primary
+workspace $ws9 output $primary
+workspace $ws10 output $primary
 
 
 # switch to workspace
