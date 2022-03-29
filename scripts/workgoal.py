@@ -18,13 +18,17 @@ def workday_override(path="/tmp/WORKDAY"):
 
 list_entries = list(workhours.items())
 def single_line(index):
-    next_index = (index+1) % len(list_entries)
-    k, d = list_entries[index]
+    if index > (len(list_entries) + 1):
+        print("All done")
+        return
+    next_index = (index+1)
+    k, d = list_entries[index % len(list_entries)]
     timer = WorkTimer(k, **d)
     if timer.is_inactive_today:
         return single_line(next_index)
     now = datetime.datetime.now().strftime("%X")
     print(timer.describe_briefly(f"{now}: "))
+    # TODO json format, set color as percentage from red to white, or RGB for each goal
 
 if __name__ == "__main__":
     single_line(os.environ.get("_state", 0))

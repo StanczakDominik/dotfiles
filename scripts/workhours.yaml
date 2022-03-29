@@ -1,5 +1,5 @@
 IFPILM:
-  daily_time: "8/8/8/8/8/0/0"
+  daily_time: "8/8/8/8/7/0/0"
   tag: "IFPILM"
   tag_id: 7126563
   project: 155380188
@@ -17,3 +17,9 @@ Skills:
   tag_id: 7039850
   project: -1
   client: "Skills"
+Personal:
+  daily_time: "1/1/1/1/1/1/1"
+  tag: "None"
+  tag_id: -1
+  project: -1
+  client: "Personal"

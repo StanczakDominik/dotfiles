@@ -34,7 +34,6 @@ def td_as_h(td: datetime.timedelta) -> str:
     hours = s // 3600
     s = s - (hours * 3600)
     minutes = s // 60
-    seconds = s - (minutes * 60)
     return f"{int(hours):02d}:{int(minutes):02d}"
 
 
@@ -158,7 +157,9 @@ class WorkTimer:
     @cached_property
     def current_time_if_work(self):
         current_task = self.r_current_json['data']
-        if "tags" in current_task and self.tag in current_task["tags"]:
+        if not current_task:
+            return 0
+        elif "tags" in current_task and self.tag in current_task["tags"]:
             return self.current_time
         elif "pid" in current_task and self.project == current_task["pid"]:
             return self.current_time
