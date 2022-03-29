@@ -48,6 +48,7 @@ bindsym $mod+Shift+q kill
 
 set $primary "HDMI-0"
 set $secondary "eDP-1-1"
+# set $secondary_screen HDMI-1 DP-1-2
 
 
 # rofi
@@ -320,21 +321,26 @@ bindsym $mod+equal  scratchpad show
 
 bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 # exec --no-startup-id redshift-gtk
+bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_format" --text "Enter a title" --entry`
+
+
 #
 #
-assign [class="crx_jdlbbgabicimjlakajjcohhamlflhipe"] $ws3
+assign [class="Alacritty" title="LHD.*"] $ws2
+assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] $ws3
 assign [title="Obsidian"] $ws4
 
 assign [class="okular"] $ws5
 assign [class="Zotero"] $ws5
 
-assign [class="anki"] $ws7
+assign [class="Anki"] $ws6
 
 assign [class="TogglDesktop"] $ws1
 
 assign [class="Element"] $ws9
 assign [class="Signal"] $ws9
 assign [class="kmail"] $ws9
+assign [class="discord"] $ws9
 assign [class="teams"] $ws9
 
 assign [class="cantata"] $ws10
@@ -373,3 +379,15 @@ exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c
 for_window [instance="Alacritty" title="Dropdown"] move scratchpad
 for_window [class="ksysguard"] move scratchpad
 bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
+for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws3
+
+for_window [workspace=$ws1] layout tabbed
+for_window [workspace=$ws2] layout tabbed
+for_window [workspace=$ws3] layout stacking
+for_window [workspace=$ws4] layout tabbed
+for_window [workspace=$ws5] layout tabbed
+for_window [workspace=$ws6] layout tabbed
+for_window [workspace=$ws7] layout tabbed
+for_window [workspace=$ws8] layout tabbed
+for_window [workspace=$ws9] layout tabbed
+# for_window [workspace=$ws10] layout tabbed
