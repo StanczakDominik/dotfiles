@@ -4,7 +4,7 @@ from os import environ as ENV
 
 STATES = { "ready" : "running", "running" : "blocked", "blocked" : "ready" }
 
-state = STATES[ENV["_state"]]
-block = { "full_text" : state, "_state" : state }
+current_state = STATES[ENV["_state"]]
+block = { "full_text" : current_state, "_state" : current_state }
 
 print(json.dumps(block))
