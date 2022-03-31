@@ -30,7 +30,6 @@ bzip2
 calibre
 cantata
 choqok
-code
 coreutils
 cowfortune
 cpuburn
@@ -508,6 +507,7 @@ python-wheel
 python-xarray
 python-xlib
 python-xlrd
+python-xlsxwriter
 python-zarr
 python-zope-event
 python-zope-interface
