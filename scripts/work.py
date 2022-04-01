@@ -5,6 +5,7 @@ import os
 import requests
 import datetime
 import dateparser
+import pandas
 import humanize
 import math
 from functools import cached_property
@@ -13,22 +14,19 @@ import json
 from rich import print
 import yaml
 import pathlib
+from copy import deepcopy
 
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
 workspace = os.environ["TOGGL_WORKSPACE"]
 email = os.environ["TOGGL_EMAIL"]
-work_tag = os.environ["TOGGL_WORK_TAG"]
-path = pathlib.Path(__file__).parent / "goals.yaml"
+
+path = pathlib.Path(__file__).parent / "workhours.yaml"
 with open(path) as f:
-    goals = yaml.load(f, Loader=yaml.FullLoader)
+    workhours = yaml.load(f, Loader=yaml.FullLoader)
 
 def workday_override(path="/tmp/WORKDAY"):
-    path = pathlib.Path(path)
-    try:
-        return float(path.read_text())
-    except:
-        return path.exists()
+    return True
 
 
 def td_as_h(td: datetime.timedelta) -> str:
@@ -36,15 +34,14 @@ def td_as_h(td: datetime.timedelta) -> str:
     hours = s // 3600
     s = s - (hours * 3600)
     minutes = s // 60
-    seconds = s - (minutes * 60)
     return f"{int(hours):02d}:{int(minutes):02d}"
 
 
-chill_projects = "174393665,162951165,141502477,141502549,141502946,147217653,148352666,148534427,148766728,150021963,150036826,150070561,150743908,151223027,152829725,154858133,154858881,155817483,156139235,157403954,157517194,158175677,19330977,19330987,23088688,30524866,31882430,35439582,37275803,51052890,68905520,71944118,76372541,160367027,161791765"
 current_date = datetime.date.today()
 
 
 def get_original_proportion(
+    work_tag,
     start_date="2019-12-01",
     end_date="2020-02-29",
     date_query=None,  # TODO argparse
@@ -64,7 +61,7 @@ def get_original_proportion(
     url = "https://api.track.toggl.com/reports/api/v2/summary"
     r = requests.get(url, auth=auth, params=params)
     all_time = r.json()["total_grand"]
-    params["project_ids"] = chill_projects
+    params["project_ids"] = self.chill_projects
     r = requests.get(url, auth=auth, params=params)
     chill_time = r.json()["total_grand"]
 
@@ -75,35 +72,55 @@ def get_original_proportion(
 
 # original_proportion = 4 * 52 / (4 * 52 + 3 * 17 + 60)
 original_proportion = 0.70
-daily_worktime = 8 * 3600
 
+def r_all_json():
+    params = {
+        "user_agent": email,
+        "workspace_id": int(workspace),
+        "since": current_date.isoformat(),
+    }
 
+    url = "https://api.track.toggl.com/reports/api/v2/details"
+    r_all = requests.get(url, auth=auth, params=params).json()
+    return r_all
+global_json = r_all_json()
+
+from dataclasses import dataclass, InitVar
+@dataclass
 class WorkTimer:
+    name: str
+    tag: str
+    tag_id: int
+    project: int
+    client: str
+    daily_time: InitVar[str]
+    chill_projects: str = ""
+
+    def __post_init__(self, daily_time):
+        times = daily_time.split("/")
+        time_for_today = int(times[current_date.weekday()])
+        self.time_required = datetime.timedelta(hours=time_for_today)
+
     @cached_property
     def r_all_json(self):
-        params = {
-            "user_agent": email,
-            "workspace_id": int(workspace),
-            "tag_ids": work_tag,
-            "since": current_date.isoformat(),
-        }
-
-        url = "https://api.track.toggl.com/reports/api/v2/summary"
-        r_all = requests.get(url, auth=auth, params=params).json()
+        r_all = deepcopy(global_json)
+        r_all.pop("total_billable")
+        r_all.pop("total_currencies")
+        def filterfunc(item):
+            if item['client'] == self.client:
+                return True
+            if item['project'] == self.project:
+                return True
+            if self.tag in item['tags']:
+                return True
+            return False
+        r_all['data'] = list(filter(filterfunc, r_all['data']))
+        r_all['total_grand'] = sum(item['dur'] for item in r_all['data'])
         return r_all
 
     @cached_property
-    def r_detailed_json(self):
-        params = {
-            "user_agent": email,
-            "workspace_id": int(workspace),
-            "since": current_date.isoformat(),
-        }
-
-        url = "https://api.track.toggl.com/reports/api/v2/details"
-        r_all = requests.get(url, auth=auth, params=params).json()
-        # r_all['data'].append(self.r_current_json['data'])
-        return r_all
+    def entry_dataframe(self):
+        return pandas.DataFrame(self.r_all_json['data'])
 
     @cached_property
     def all_time(self):
@@ -114,11 +131,7 @@ class WorkTimer:
 
     @cached_property
     def chill_time(self):
-        return sum(
-            project["time"]
-            for project in self.data
-            if str(project["id"]) in chill_projects
-        ) + self.current_time_if_work * self.current_task_is_chill
+        return self.entry_dataframe[self.entry_dataframe.pid.astype(str).isin(self.chill_projects.split(","))].dur.sum() + self.current_time_if_work * self.current_task_is_chill
 
     @cached_property
     def focus_time(self):
@@ -144,7 +157,11 @@ class WorkTimer:
     @cached_property
     def current_time_if_work(self):
         current_task = self.r_current_json['data']
-        if "tags" in current_task and "IFPILM" in current_task["tags"]:
+        if not current_task:
+            return 0
+        elif "tags" in current_task and self.tag in current_task["tags"]:
+            return self.current_time
+        elif "pid" in current_task and self.project == current_task["pid"]:
             return self.current_time
         else:
             return 0
@@ -163,9 +180,11 @@ class WorkTimer:
         current_task = self.r_current_json['data']
         if current_task is None or 'pid' not in current_task:
             return True
-        return str(current_task['pid']) in chill_projects
+        return str(current_task['pid']) in self.chill_projects
 
     def describe_proportion(self):
+        if not self.chill_projects:
+            return
         describer = "more" if self.delta_proportion > 0 else "less"
         print(
             f"{self.focus_proportion:.0%}: {abs(self.delta_proportion):.0%} {describer} focused wrt planned ratio {100*original_proportion:.0f}%"
@@ -182,43 +201,20 @@ class WorkTimer:
     def describe_projects(self):
         if not self.data:
             return
-        max_client_name = max(
-            len(project["title"]["client"])
-            for project in self.data
-            if project["title"]["client"] is not None
-        )
-        max_project_name = max(
-            len(project["title"]["project"])
-            for project in self.data
-            if project["title"]["project"] is not None
-        )
-        for project in sorted(self.data, key=lambda item: item["time"], reverse=True):
-            title = project["title"]
-            client = title["client"] if title["client"] is not None else ""
-            projectname = title["project"] if title["project"] is not None else ""
-            focused = "-" if (str(project["id"]) in chill_projects) else "+"
-            items = ", ".join(
-                item["title"]["time_entry"]
-                for item in sorted(
-                    project["items"], key=lambda item: item["time"], reverse=True
-                )
-            )
+        max_client_name = self.entry_dataframe['client'].str.len().max()
+        for project, project_group in self.entry_dataframe.groupby("project"):
+            focused = "-" if (str(project_group["pid"].iloc[0]) in self.chill_projects) else "+"
+            client = project_group["client"].iloc[0] if project_group["client"] is not None else ""
+            items = ", ".join(set(project_group.sort_values("dur", ascending=False).description))
             print(
-                f"{focused} {client: <{max_client_name}} - {projectname} : {td_as_h(datetime.timedelta(milliseconds=project['time']))} -  {items}"
+                f"{focused} {client: <{max_client_name}} - {project} :"
+                f"{td_as_h(datetime.timedelta(milliseconds=int(project_group['dur'].sum())))}"
+                f"-  {items}"
             )
 
     @cached_property
     def time_done(self):
         return datetime.timedelta(milliseconds=self.all_time)
-
-    @cached_property
-    def time_required(self):
-        override = workday_override()
-        if isinstance(override, float):
-            return datetime.timedelta(hours=override)
-        if current_date.weekday() == 4:
-            return datetime.timedelta(hours=7)
-        return datetime.timedelta(hours=8)
 
     @cached_property
     def time_remaining(self):
@@ -258,6 +254,8 @@ class WorkTimer:
     def describe_current(self):
         focused = '-' if self.current_task_is_chill else '+'
         task = self.r_current_json['data']
+        if self.current_time_if_work == 0:
+            return
         description = task['description'] if (task and 'description' in task) else ''
         print(f"{focused} {description} : {td_as_h(datetime.timedelta(milliseconds=self.current_time))}")
 
@@ -275,30 +273,19 @@ class WorkTimer:
         if self.time_remaining.total_seconds() > 0:
             est_end_time = f' ->| {(datetime.datetime.now() + self.time_remaining).strftime("%H:%M")}'
             time_status += est_end_time
-        print(f"{prefix}{time_status}{description}")
+        return f"{self.name}: {prefix}{time_status}{description}"
 
-    def describe_goals(self):
-        def item_in_goal(item, goal):
-            item_in_project = item['project'] in goal['projects']
-            tags_intersect = bool(set(item['tags']).intersection(goal['tags'] ))
-            return item_in_project or tags_intersect
-        filtered = {name: list(filter(lambda i: item_in_goal(i, g), self.r_detailed_json['data'])) for name, g in goals.items()}
-        total_durations = {key: sum(item['dur'] for item in goal_items)/3600_000 for key, goal_items in filtered.items()}
-        fractions = {key: total_durations[key] / goal["daily_time_hours"] for key, goal in goals.items()}
-        for key, goal in goals.items():
-            fraction = fractions[key]
-            duration = total_durations[key]
-            planned_duration = goal['daily_time_hours']
-            state = "completed!" if fraction > 1 else ""
-            print(f"{key}: {fraction:.0%} ({duration:.1f}h / {planned_duration:.1f}h) {state}")
-
-
+    @property
+    def is_inactive_today(self):
+        return self.time_remaining.total_seconds() <= 0
 
 if __name__ == "__main__":
-    timer = WorkTimer()
-    timer.describe_proportion()
-    timer.describe_projects()
-    timer.describe_current()
-    timer.express_remainder(pomodoros=True)
-    timer.describe_briefly()
-    timer.describe_goals()
+    for k, d in workhours.items():
+        timer = WorkTimer(k, **d)
+        if timer.is_inactive_today:
+            continue
+        print(timer.name)
+        timer.describe_proportion()
+        timer.describe_projects()
+        timer.describe_current()
+        timer.express_remainder(pomodoros=True)

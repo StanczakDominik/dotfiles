@@ -11,7 +11,6 @@ source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vim-thematic'
 Plug 'voldikss/vim-translator'
-Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'Konfekt/FastFold' " limit automatic fold updates
@@ -81,6 +80,7 @@ Plug 'vim-test/vim-test'
 Plug 'wannesm/wmgraphviz.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'yazgoo/unicodemoji'
+Plug 'junegunn/gv.vim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -143,3 +143,4 @@ source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/window-switching.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/thematic.vim
+source ~/.config/nvim/gutentags.vim
