@@ -22,6 +22,7 @@ cowfortune
 ctags
 cups
 cups-pdf
+discord
 dnsmasq
 docker
 dolphin
@@ -31,7 +32,6 @@ element-desktop
 element-web
 engauge
 espeak-ng
-espeak-ng-espeak
 etckeeper
 exa
 fakeroot
@@ -139,6 +139,7 @@ python-joblib
 python-jupyter_sphinx
 python-jupytext
 python-lmfit
+python-myst-parser
 python-nevergrad
 python-numba
 python-opt_einsum
@@ -163,6 +164,9 @@ python-scikit-image
 python-seaborn
 python-selenium
 python-sphinx
+python-sphinx-autoapi
+python-sphinx-autobuild
+python-sphinx-autodoc-typehints
 python-sphinx-changelog
 python-sympy
 python-tqdm
