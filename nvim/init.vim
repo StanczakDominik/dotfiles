@@ -18,7 +18,7 @@ Plug 'SidOfc/mkdx'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
 Plug 'alemidev/vim-combo'
-Plug 'altercation/vim-colors-solarized'
+Plug 'ericbn/vim-solarized'
 Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
 Plug 'preservim/vimux'
 Plug 'dkarter/bullets.vim'
@@ -123,7 +123,6 @@ set wildmenu
 
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/compe.vim
-source ~/.config/nvim/git.vim
 source ~/.config/nvim/goyo.vim
 source ~/.config/nvim/gpg.vim
 source ~/.config/nvim/grepper.vim
@@ -144,3 +143,4 @@ source ~/.config/nvim/window-switching.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
+source ~/.config/nvim/git.vim
