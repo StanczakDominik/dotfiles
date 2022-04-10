@@ -120,9 +120,6 @@ if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
 
-source "/usr/share/todoist/todoist_functions_fzf.sh"
-
-
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
