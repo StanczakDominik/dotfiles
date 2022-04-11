@@ -34,7 +34,6 @@ coreutils
 cowfortune
 cpuburn
 cpupower
-crda
 cryfs
 cryptsetup
 ctags
@@ -67,7 +66,6 @@ elinks
 elisa
 engauge
 espeak-ng
-espeak-ng-espeak
 etckeeper
 ethtool
 exa
@@ -384,7 +382,6 @@ python-i3ipc
 python-icecream
 python-identify
 python-inquirer
-python-ipympl
 python-isort
 python-jupyter_packaging
 python-jupyter_sphinx
@@ -588,6 +585,7 @@ tldr
 tmux
 tmux-plugin-manager
 todoist
+todoist-appimage
 toggldesktop
 tor
 torbrowser-launcher
@@ -679,7 +677,7 @@ zathura-djvu
 zathura-pdf-poppler
 zip
 zoom
-zotero
+zotero-bin
 zplug
 zsh
 zsh-syntax-highlighting
