@@ -352,7 +352,7 @@ bindsym $mod+g sticky toggle
 
 # bindsym $mod+m bar hidden_state toggle
 workspace_auto_back_and_forth yes
-bindsym $mod+m move workspace to output right
+# bindsym $mod+m move workspace to output right
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
@@ -391,3 +391,5 @@ for_window [workspace=$ws7] layout tabbed
 for_window [workspace=$ws8] layout tabbed
 for_window [workspace=$ws9] layout tabbed
 # for_window [workspace=$ws10] layout tabbed
+bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
+

@@ -15,7 +15,7 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /home/dominik/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [url "git@github.com:"]                                                         
     insteadOf = "gh:"                                                           
 [url "git@gitlab.com:"]                                                         

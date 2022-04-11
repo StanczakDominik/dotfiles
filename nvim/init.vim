@@ -35,6 +35,8 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'jesseleite/vim-agriculture'
+Plug 'junegunn/fzf'      
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                     " distraction-free mode
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -140,7 +142,7 @@ source ~/.config/nvim/python.vim
 source ~/.config/nvim/test.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/window-switching.vim
-source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim

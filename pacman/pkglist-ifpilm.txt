@@ -27,6 +27,7 @@ dnsmasq
 docker
 dolphin
 dolphin-plugins
+downgrader-git
 efibootmgr
 element-desktop
 element-web
@@ -102,6 +103,7 @@ neovim-symlinks
 nerd-fonts-hack
 networkmanager
 networkmanager-openvpn
+ntfs-3g
 obsidian-appimage
 octave
 okular
@@ -120,7 +122,6 @@ plasma5-applets-thermal-monitor-git
 playerctl
 powertop
 print-manager
-pubs
 pulseaudio-bluetooth
 pyright
 python-altair
