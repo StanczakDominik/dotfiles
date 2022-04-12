@@ -92,6 +92,7 @@ mbrola
 mbrola-voices-en1
 mbrola-voices-us1
 mksh
+mosh
 mpc
 mpd
 mplayer

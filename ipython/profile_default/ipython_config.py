@@ -616,3 +616,10 @@ c.TerminalInteractiveShell.editor = 'nvim'
 ## If True, any %store-d variables will be automatically restored when IPython
 #  starts.
 #c.StoreMagics.autorestore = False
+
+
+# as per https://blog.jupyter.org/inspector-jupyterlab-404cce3e1df6?source=rss----95916e268740---4
+# requires docrepr, jupyterlab_pygments
+c.InteractiveShell.sphinxify_docstring = True
+c.InteractiveShell.enable_html_pager = True
+
