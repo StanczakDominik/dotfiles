@@ -281,7 +281,7 @@ exec --no-startup-id dunst
 
 
 # Plasma compatibility improvements
-for_window [window_role="pop-up"] floating enable
+for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="yakuake"] floating enable
@@ -295,7 +295,7 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="Google-chrome" window_role="pop-up"] floating enable
+for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="^zoom$" class="[zoom]*"] floating enable
@@ -327,7 +327,7 @@ bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_form
 #
 #
 assign [class="Alacritty" title="LHD.*"] $ws2
-assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] $ws3
+assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws3
 assign [title="Obsidian"] $ws4
 
 assign [class="okular"] $ws5
@@ -356,8 +356,8 @@ workspace_auto_back_and_forth yes
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
-for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
-for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
+for_window [class="(?i)(firefox|Google-chrome)"] title_format "<span foreground='orange'>%title</span>"
+for_window [class="(?i)(konsole|alacritty)"] title_format "<span foreground='cyan'>%title</span>"
 
 
 force_display_urgency_hint 0 ms
@@ -379,7 +379,6 @@ exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c
 for_window [instance="Alacritty" title="Dropdown"] move scratchpad
 for_window [class="ksysguard"] move scratchpad
 bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
-for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws3
 
 for_window [workspace=$ws1] layout tabbed
 for_window [workspace=$ws2] layout tabbed
