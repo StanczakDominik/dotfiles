@@ -46,9 +46,6 @@ bindsym $mod+Return exec QT_QPA_PLATFORMTHEME=qt5ct alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $primary "HDMI-0"
-set $secondary "eDP-1-1"
-# set $secondary_screen HDMI-1 DP-1-2
 
 
 # rofi
@@ -123,16 +120,16 @@ set $ws8 "8"
 set $ws9 "9: social"
 set $ws10 "10: music"
 
-workspace $ws1 output $secondary
-workspace $ws2 output $secondary
-workspace $ws3 output $primary
-workspace $ws4 output $primary
-workspace $ws5 output $primary
-workspace $ws6 output $primary
-workspace $ws7 output $primary
-workspace $ws8 output $primary
-workspace $ws9 output $primary
-workspace $ws10 output $primary
+workspace $ws1 output nonprimary
+workspace $ws2 output nonprimary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+workspace $ws10 output primary
 
 
 # switch to workspace
@@ -203,7 +200,7 @@ bar {
     verbose yes
     position top 
     binding_mode_indicator yes
-    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks.conf
+    status_command i3blocks -c ~/Code/dotfiles/i3/i3blocks.conf
     colors {
       statusline #ffffff
       background $transparent
@@ -217,7 +214,7 @@ bar {
     strip_workspace_name no
     verbose yes
     position top 
-    status_command i3blocks -c ~/Code/dotfiles/i3/.i3blocks-left.conf
+    status_command i3blocks -c ~/Code/dotfiles/i3/i3blocks-nonprimary.conf
     colors {
       statusline #ffffff
       background $transparent
@@ -281,7 +278,7 @@ exec --no-startup-id dunst
 
 
 # Plasma compatibility improvements
-for_window [window_role="pop-up"] floating enable
+for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="yakuake"] floating enable
@@ -295,11 +292,12 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="Google-chrome" window_role="pop-up"] floating enable
+for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="^zoom$" class="[zoom]*"] floating enable
-
+for_window [class="[zoom]*" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="[zoom]*" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 
@@ -327,13 +325,13 @@ bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_form
 #
 #
 assign [class="Alacritty" title="LHD.*"] $ws2
-assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] $ws3
+assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws3
 assign [title="Obsidian"] $ws4
 
 assign [class="okular"] $ws5
 assign [class="Zotero"] $ws5
 
-assign [class="Anki"] $ws6
+assign [class="Anki" window_role=".*(?<!task_dialog"] $ws6
 
 assign [class="TogglDesktop"] $ws1
 
@@ -341,9 +339,17 @@ assign [class="Element"] $ws9
 assign [class="Signal"] $ws9
 assign [class="kmail"] $ws9
 assign [class="discord"] $ws9
-assign [class="teams"] $ws9
+assign [class="microsoft teams - preview"] $ws9
 
 assign [class="cantata"] $ws10
+for_window [instance="Alacritty" title="Dropdown"] move scratchpad
+for_window [class="ksysguard"] move scratchpad
+for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
+for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
+for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws3
+for_window [class="scrcpy"] floating enable
+
+
 
 hide_edge_borders smart
 # for_window [title="User 1 - Anki"] focus; split h; layout stacked
@@ -352,13 +358,9 @@ bindsym $mod+g sticky toggle
 
 # bindsym $mod+m bar hidden_state toggle
 workspace_auto_back_and_forth yes
-bindsym $mod+m move workspace to output right
+bindsym $mod+Shift+m move workspace to output right
 
 # bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
-
-for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
-for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
-
 
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
@@ -375,11 +377,8 @@ exec --no-startup-id "sh -c 'sleep 3; feh --randomize --bg-fill /home/dominik/Pi
 # # Scratchpad terminal.
 # # https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
 # # Using a custom title string with criteria is deliberate and keeps things simple.
-exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
-for_window [instance="Alacritty" title="Dropdown"] move scratchpad
-for_window [class="ksysguard"] move scratchpad
-bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
-for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws3
+# exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
+# bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
 
 for_window [workspace=$ws1] layout tabbed
 for_window [workspace=$ws2] layout tabbed
@@ -390,4 +389,6 @@ for_window [workspace=$ws6] layout tabbed
 for_window [workspace=$ws7] layout tabbed
 for_window [workspace=$ws8] layout tabbed
 for_window [workspace=$ws9] layout tabbed
-# for_window [workspace=$ws10] layout tabbed
+for_window [workspace=$ws10] layout tabbed
+bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
+
