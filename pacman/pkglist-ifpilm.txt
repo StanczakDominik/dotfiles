@@ -140,6 +140,7 @@ python-hypothesis
 python-joblib
 python-jupyter_sphinx
 python-jupytext
+python-linkify-it-py
 python-lmfit
 python-myst-parser
 python-nevergrad
@@ -228,6 +229,7 @@ tree
 ttf-baekmuk
 ttf-font-awesome
 ttf-hanazono
+ttf-humor-sans
 ttf-inconsolata
 ttf-joypixels
 ttf-liberation
@@ -310,7 +312,7 @@ yay
 youtube-dl
 zip
 zoom
-zotero
+zotero-bin
 zplug
 zsh
 zsh-syntax-highlighting
