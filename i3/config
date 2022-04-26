@@ -340,6 +340,7 @@ assign [class="Signal"] $ws9
 assign [class="kmail"] $ws9
 assign [class="discord"] $ws9
 assign [class="microsoft teams - preview"] $ws9
+assign [class="Microsoft Teams - Preview"] $ws9
 
 assign [class="cantata"] $ws10
 for_window [instance="Alacritty" title="Dropdown"] move scratchpad
