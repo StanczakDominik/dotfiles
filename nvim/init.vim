@@ -16,7 +16,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'Konfekt/FastFold' " limit automatic fold updates
 Plug 'SidOfc/mkdx'
 Plug 'SirVer/ultisnips'
-Plug 'airblade/vim-gitgutter'      " shows git modified  lines; ]c to jump between hunks; \hs to stage hunks, \hu to unstage, \hp to preview
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'alemidev/vim-combo'
 Plug 'ericbn/vim-solarized'
 Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
@@ -146,3 +146,4 @@ source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim
+source ~/.config/nvim/gitsigns.vim
