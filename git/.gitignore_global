@@ -60,4 +60,7 @@ tags.temp
 tags.lock
 .github_cache
 .stignore
+*.netcdf
+.virtual_documents
+dask-worker-space
 Session.vim

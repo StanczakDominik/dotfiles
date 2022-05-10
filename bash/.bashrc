@@ -40,7 +40,7 @@ source ~/.keysrc
 export XDG_CURRENT_DESKTOP="KDE"
 source /usr/share/git/completion/git-completion.bash
 
-export PATH=/home/dominik/Code/scripts:$PATH:/home/dominik/.gem/ruby/2.6.0/bin
+export PATH="$HOME/Code/scripts:$PATH:$HOME/.gem/ruby/2.6.0/bin"
 export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export VISUAL=nvim
@@ -60,18 +60,18 @@ source ~/.bash_aliases
 export JULIA_NUM_THREADS=4
 
 eval $(thefuck --alias)
-export SCIKIT_LEARN_DATA=/home/dominik/.sklearndata
+export SCIKIT_LEARN_DATA="$HOME/.sklearndata"
 
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
+# unset SSH_AGENT_PID
+# if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+#   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+# fi
 
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 set -o vi
 
-export NLTK_DATA="/home/dominik/.nltk_data"
+export NLTK_DATA="$HOME/.nltk_data"
 export REVIEW_BASE=master
 
 source ~/.bashrc_local
