@@ -82,6 +82,7 @@ export JULIA_NUM_THREADS=4
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
+export PATH="$HOME/Code/scripts:$HOME/Code/dotfiles/scripts:$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.7.0/bin"
 
 eval $(thefuck --alias)
 
