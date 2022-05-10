@@ -34,7 +34,7 @@
 [diff]
   tool = vimdiff
 [commit]
-	gpgSign = true
+	gpgSign = false
 	verbose = true
 [github]
 	user = StanczakDominik

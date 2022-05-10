@@ -8,10 +8,7 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/dominik/.zshrc'
-source /usr/share/zsh/scripts/zplug/init.zsh
-zplug "Tarrasch/zsh-autoenv"
-setopt completealiases
+zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -45,13 +42,7 @@ zstyle ':completion:*' rehash true
 
 
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-
-source ~/.keysrc
-source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin:/home/dominik/.gem/ruby/2.7.0/bin
+export PATH=/home/dstanczak/Code/scripts:/home/dstanczak/Code/dotfiles/scripts:$PATH:/home/dstanczak/.local/bin:/home/dstanczak/.gem/ruby/2.7.0/bin
 
 setopt COMPLETE_ALIASES
 
@@ -68,14 +59,6 @@ function yt()
 
 export PYTHONBREAKPOINT="pudb.set_trace"
 
-source ~/.zsh_completion
-[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
-source "/usr/share/fzf/key-bindings.zsh"
-# export FZF_DEFAULT_COMMAND='rg -L --files'
-export FZF_DEFAULT_COMMAND='rg --files --hidden -Tjupyter'
-
-# export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
-
 source ~/.bash_aliases
 
 export JULIA_NUM_THREADS=4
@@ -84,21 +67,16 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-eval $(thefuck --alias)
-
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dominik/.miniconda3.9/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/dstanczak/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh" ]; then
-        . "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh"
+    if [ -f "/home/dstanczak/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/dstanczak/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/dominik/.miniconda3.9/bin:$PATH"
+        export PATH="/home/dstanczak/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -110,8 +88,8 @@ compinit
 bashcompinit
 # Argcomplete explicit registration for pubs
 eval "$(register-python-argcomplete pubs)"
-export SUDO_EDITOR=/usr/bin/nvim
-export EDITOR=/usr/bin/nvim
+export SUDO_EDITOR=/usr/local/bin/nvim
+export EDITOR=/usr/local/bin/nvim
 #compdef toggl
 _toggl() {
   eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
@@ -120,7 +98,24 @@ if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
 
+
+
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
+
+# added by travis gem
+[ ! -s /home/dstanczak/.travis/travis.sh ] || source /home/dstanczak/.travis/travis.sh
+
+
+
+# if [[ -z "$TMUX" ]] ;then
+#     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+#     if [[ -z "$ID" ]] ;then # if not available create a new one
+#         tmux new-session
+#     else
+#         tmux attach-session -t "$ID" # if available attach to it
+#     fi
+# fi
+#
 
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 export DISABLE_AUTO_TITLE=true
@@ -142,15 +137,37 @@ switch-term-color() {
   fi
 }
 
+# currenttime=$(date +%H:%M)
+# if [[ "$currenttime" > "19:00" ]] || [[ "$currenttime" < "06:30" ]]; then
+#     theme-night
+# else
+#     theme-light
+# fi
 export MANPAGER='nvim +Man!'
 
+function cd() {
+  builtin cd "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+      if [[ -d ./.env ]] ; then
+# source ./.env/bin/activate  # commented out by conda initialize
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
+export WORKON_HOME=~/Envs
 eval `dircolors ~/.dir_colors`
 
-preexec() { print -Pn "\e]0;$1%~\a" }
+# Environment file for all projects.
 
-# if tmux is executable, X is running, and not inside a tmux session, then try to attach.
-# if attachment fails, start a new session
-# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-#   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
-# fi
+preexec() { print -Pn "\e]0;$1%~\a" }
 

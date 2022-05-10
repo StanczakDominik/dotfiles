@@ -16,22 +16,20 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'Konfekt/FastFold' " limit automatic fold updates
 Plug 'SidOfc/mkdx'
 Plug 'SirVer/ultisnips'
-Plug 'lewis6991/gitsigns.nvim'
 Plug 'alemidev/vim-combo'
+Plug 'airblade/vim-gitgutter'
 Plug 'ericbn/vim-solarized'
 Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
 Plug 'preservim/vimux'
 Plug 'dkarter/bullets.vim'
 Plug 'erietz/vim-terminator'
 Plug 'ferrine/md-img-paste.vim'
-Plug 'folke/trouble.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
 Plug 'goerz/jupytext.vim'
-" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'honza/vim-snippets'
-Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'jesseleite/vim-agriculture'
@@ -51,14 +49,11 @@ Plug 'lervag/wiki.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'othree/html5.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'                    " :NERDTree command
 Plug 'psf/black'                  " :Black
-Plug 'ray-x/lsp_signature.nvim'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordy'
 Plug 'ryanoasis/vim-devicons'
@@ -68,7 +63,6 @@ Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'       
 Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'        
 Plug 'ludovicchabant/vim-gutentags'               " Automatic tags management
@@ -85,13 +79,9 @@ Plug 'yazgoo/unicodemoji'
 Plug 'junegunn/gv.vim'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'mjlbach/onedark.nvim'    " -- Theme inspired by Atom
 
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 call plug#end()
 
 syntax enable
@@ -124,15 +114,15 @@ set viminfo='100,n$HOME/.config/nvim/files/info
 set wildmenu
 
 source ~/.config/nvim/airline.vim
-source ~/.config/nvim/compe.vim
+"source ~/.config/nvim/compe.vim
 source ~/.config/nvim/goyo.vim
 source ~/.config/nvim/gpg.vim
 source ~/.config/nvim/grepper.vim
-source ~/.config/nvim/julia.vim
+"source ~/.config/nvim/julia.vim
 source ~/.config/nvim/latex.vim
 source ~/.config/nvim/learn-vim.vim
 source ~/.config/nvim/limelight.vim
-source ~/.config/nvim/lsp.vim
+"source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/multilingua.vim
 source ~/.config/nvim/plugin-config/highlights.vim
@@ -146,4 +136,4 @@ source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim
-source ~/.config/nvim/gitsigns.vim
+" source ~/.config/nvim/gitsigns.vim
