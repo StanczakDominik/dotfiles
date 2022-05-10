@@ -92,6 +92,7 @@ Plug 'mjlbach/onedark.nvim'    " -- Theme inspired by Atom
 
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" TODO Plug 'mfussenegger/nvim-dap'
 call plug#end()
 
 syntax enable

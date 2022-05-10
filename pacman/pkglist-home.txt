@@ -37,6 +37,7 @@ cpupower
 cryfs
 cryptsetup
 ctags
+cuda-tools
 cudnn
 cups
 cython
@@ -82,8 +83,6 @@ file
 filelight
 filesystem
 findutils
-firefox
-firefox-extension-arch-search
 flake8
 foliate
 foomatic-db
@@ -147,7 +146,7 @@ irssi
 iw
 jfsutils
 jq
-julia
+julia-bin
 jupyter-lsp
 jupyter-nbextension-rise
 jupyter-server-mathjax
@@ -235,6 +234,7 @@ meld
 mesa-demos
 mimeo
 mono
+mosh
 mpc
 mpd
 mplayer
