@@ -40,7 +40,7 @@ source ~/.keysrc
 export XDG_CURRENT_DESKTOP="KDE"
 source /usr/share/git/completion/git-completion.bash
 
-export PATH="$HOME/Code/scripts:$PATH:$HOME/.gem/ruby/2.6.0/bin"
+export PATH="$HOME/Code/scripts:$HOME/Code/dotfiles/scripts:$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export VISUAL=nvim
