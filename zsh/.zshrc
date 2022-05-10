@@ -51,7 +51,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 source ~/.keysrc
 source ~/.bashrc_local
-export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin:/home/dominik/.gem/ruby/2.7.0/bin
 
 setopt COMPLETE_ALIASES
 
@@ -83,6 +82,7 @@ export JULIA_NUM_THREADS=4
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
+export PATH="$HOME/Code/scripts:$HOME/Code/dotfiles/scripts:$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.7.0/bin"
 
 eval $(thefuck --alias)
 

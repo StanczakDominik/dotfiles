@@ -36,7 +36,6 @@
 [commit]
 	gpgSign = true
 	verbose = true
-	template = /home/dominik/.gitmessage
 [github]
 	user = StanczakDominik
 [diff "jupyternotebook"]
@@ -58,3 +57,8 @@
 [init]
 	templateDir = /home/dominik/.git-template
 	defaultBranch = main
+[feature]
+	# Support repos with large number of files, improving git status and git
+	# commit performance. See `man git-config` for details
+	# https://github.com/starship/starship/issues/1617#issuecomment-885959971
+	manyFiles = true

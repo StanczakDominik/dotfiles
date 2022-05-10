@@ -83,6 +83,11 @@ Plug 'wannesm/wmgraphviz.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'yazgoo/unicodemoji'
 Plug 'junegunn/gv.vim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -93,6 +98,7 @@ Plug 'mjlbach/onedark.nvim'    " -- Theme inspired by Atom
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " TODO Plug 'mfussenegger/nvim-dap'
+Plug 'L3MON4D3/LuaSnip'
 call plug#end()
 
 syntax enable
@@ -102,7 +108,7 @@ let NERDTreeHijackNetrw=1 "Make them both live in peace and harmony
 runtime ftplugin/man.vimi
 set backspace=indent,eol,start
 set backupskip+=*.asc
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 set foldmethod=syntax
 set hidden
 set hlsearch
