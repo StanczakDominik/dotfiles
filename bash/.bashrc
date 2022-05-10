@@ -1,42 +1,12 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 # TODO is this what fucks my env vars up?
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
+source $HOME/Code/dotfiles/bash/colors.bash
 
-
-# COLORS
-RESTORE='\[\033[0m\]'
-
-RED='\[\033[00;31m\]'
-GREEN='\[\033[00;32m\]'
-YELLOW='\[\033[00;33m\]'
-BLUE='\[\033[00;34m\]'
-PURPLE='\[\033[00;35m\]'
-CYAN='\[\033[00;36m\]'
-LIGHTGRAY='\[\033[00;37m\]'
-
-LRED='\[\033[01;31m\]'
-LGREEN='\[\033[01;32m\]'
-LYELLOW='\[\033[01;33m\]'
-LBLUE='\[\033[01;34m\]'
-LPURPLE='\[\033[01;35m\]'
-LCYAN='\[\033[01;36m\]'
-WHITE='\[\033[01;37m\]'
-export BROWSER=firefox
-
-
-source /usr/share/git/completion/git-prompt.sh
-PS1="${LYELLOW}\t ${CYAN}\u${RESTORE}:${LGREEN} \w${RESTORE} \\$ \[$(tput sgr0)\]"
-
-EDITOR=nvim
+export EDITOR=nvim
 
 source ~/.keysrc
-# export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_CURRENT_DESKTOP="KDE"
 source /usr/share/git/completion/git-completion.bash
 

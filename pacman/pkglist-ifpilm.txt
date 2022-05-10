@@ -70,6 +70,8 @@ jupyterlab-lsp
 jupyterlab-widgets
 jupyterlab_code_formatter
 jupyterlab_pygments
+kamera
+kamoso
 kdeconnect
 keepassxc
 kmail
@@ -140,6 +142,7 @@ python-hypothesis
 python-joblib
 python-jupyter_sphinx
 python-jupytext
+python-lineprofiler
 python-linkify-it-py
 python-lmfit
 python-myst-parser
@@ -147,6 +150,7 @@ python-nevergrad
 python-numba
 python-opt_einsum
 python-pip
+python-pprofile
 python-pre-commit
 python-prompt_toolkit
 python-pudb
@@ -177,6 +181,7 @@ python-uncertainties
 python-virtualenvwrapper
 python-voila
 python-xarray
+ranger
 rclone
 reflector
 rofi

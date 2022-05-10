@@ -42,6 +42,10 @@ zstyle ':completion:*' rehash true
 
 
 
+export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin:/home/dominik/.gem/ruby/2.7.0/bin
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.bashrc_local
+source ~/.keysrc
 setopt COMPLETE_ALIASES
 
 # incremental history https://unix.stackexchange.com/questions/30168/how-to-enable-reverse-search-in-zsh
