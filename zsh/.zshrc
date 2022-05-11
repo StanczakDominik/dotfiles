@@ -100,24 +100,7 @@ if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
 
-
-
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
-
-# added by travis gem
-[ ! -s /home/dstanczak/.travis/travis.sh ] || source /home/dstanczak/.travis/travis.sh
-
-
-
-# if [[ -z "$TMUX" ]] ;then
-#     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-#     if [[ -z "$ID" ]] ;then # if not available create a new one
-#         tmux new-session
-#     else
-#         tmux attach-session -t "$ID" # if available attach to it
-#     fi
-# fi
-#
 
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 export DISABLE_AUTO_TITLE=true
