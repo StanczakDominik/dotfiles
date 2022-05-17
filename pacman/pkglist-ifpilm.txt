@@ -74,6 +74,7 @@ kamera
 kamoso
 kdeconnect
 keepassxc
+kid3
 kmail
 krita
 kteatime

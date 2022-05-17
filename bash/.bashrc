@@ -24,6 +24,7 @@ function yt()
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 source ~/.bash_completion
+source ~/.bashrc_local
 source ~/.bash_aliases
 
 export JULIA_NUM_THREADS=4
