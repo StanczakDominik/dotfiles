@@ -42,7 +42,7 @@ zstyle ':completion:*' rehash true
 
 
 
-export PATH=/home/dominik/Code/scripts:/home/dominik/Code/dotfiles/scripts:$PATH:/home/dominik/.local/bin:/home/dominik/.gem/ruby/2.7.0/bin
+export PATH="$HOME/Code/scripts:$HOME/Code/dotfiles/scripts:$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.bashrc_local
 source ~/.keysrc
@@ -156,3 +156,7 @@ eval `dircolors ~/.dir_colors`
 
 preexec() { print -Pn "\e]0;$1%~\a" }
 
+
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
