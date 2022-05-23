@@ -203,6 +203,7 @@ lib32-libva-intel-driver
 lib32-libva-vdpau-driver
 lib32-nvidia-utils
 lib32-openal
+lib32-pipewire
 lib32-primus
 lib32-virtualgl
 lib32-vulkan-icd-loader
@@ -234,7 +235,7 @@ meld
 mesa-demos
 mimeo
 mono
-mosh
+mosh-git
 mpc
 mpd
 mplayer
@@ -300,6 +301,8 @@ perl-json-xs
 pgplot
 picard
 picom
+pipewire-alsa
+pipewire-pulse
 pkgconf
 pkgstats
 plasma-meta
@@ -317,7 +320,6 @@ print-manager
 procps-ng
 profile-sync-daemon
 psmisc
-pulseaudio-bluetooth
 pyalpm
 pyright-git
 python-aiohttp
@@ -584,8 +586,6 @@ tk
 tldr
 tmux
 tmux-plugin-manager
-todoist
-todoist-appimage
 toggldesktop
 tor
 torbrowser-launcher
@@ -636,6 +636,7 @@ wine-mono
 wine-staging
 winetricks
 wireless_tools
+wireplumber
 wol
 workrave
 wpa_actiond
