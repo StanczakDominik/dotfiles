@@ -71,7 +71,8 @@ source ~/.zsh_completion
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
 source "/usr/share/fzf/key-bindings.zsh"
 # export FZF_DEFAULT_COMMAND='rg -L --files'
-export FZF_DEFAULT_COMMAND='rg --files --hidden -Tjupyter'
+export FZF_DEFAULT_COMMAND='fd --type file --color=always'
+export FZF_DEFAULT_OPTS='--ansi'
 
 # export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
 
@@ -91,14 +92,14 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dominik/.miniconda3.9/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/dominik/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh" ]; then
-        . "/home/dominik/.miniconda3.9/etc/profile.d/conda.sh"
+    if [ -f "/home/dominik/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/dominik/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/dominik/.miniconda3.9/bin:$PATH"
+        export PATH="/home/dominik/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

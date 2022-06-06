@@ -88,6 +88,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'MunifTanjim/nui.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -97,8 +99,10 @@ Plug 'mjlbach/onedark.nvim'    " -- Theme inspired by Atom
 
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-" TODO Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
 Plug 'L3MON4D3/LuaSnip'
+" TODO Plug 'rcarriga/nvim-dap-ui'
 call plug#end()
 
 syntax enable
@@ -154,3 +158,6 @@ source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/gitsigns.vim
+source ~/.config/nvim/dap.vim
+source ~/.config/nvim/neotree.vim
+

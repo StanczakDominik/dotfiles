@@ -1,0 +1,12 @@
+[Unit]
+Description=IFPiLM OneDrive rclone
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/rclone --vfs-cache-mode writes mount "IFPiLM": ~/OneDrive --verbose
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
