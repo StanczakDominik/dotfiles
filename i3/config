@@ -322,8 +322,7 @@ bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name fo
 bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_format" --text "Enter a title" --entry`
 
 
-#
-#
+assign [class="TogglDesktop"] $ws1
 assign [class="Alacritty" title="LHD.*"] $ws2
 assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws3
 assign [title="Obsidian"] $ws4
@@ -333,7 +332,10 @@ assign [class="Zotero"] $ws5
 
 assign [class="Anki" window_role=".*(?<!task_dialog"] $ws6
 
-assign [class="TogglDesktop"] $ws1
+assign [class="lutris"] $ws7
+assign [class="steam"] $ws7
+assign [class="factorio"] $ws7
+
 
 assign [class="Element"] $ws9
 assign [class="Signal"] $ws9
@@ -373,6 +375,7 @@ bindsym $mod+Control+Right focus output right
 # for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
 # bindsym Mod1+space [class="Alacritty"] scratchpad show;
 
+# TODO only on battery
 exec --no-startup-id "sh -c 'sleep 3; feh --randomize --bg-fill /home/dominik/Pictures/Wallpapers/*'"
 
 # # Scratchpad terminal.
@@ -381,15 +384,5 @@ exec --no-startup-id "sh -c 'sleep 3; feh --randomize --bg-fill /home/dominik/Pi
 # exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
 # bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
 
-for_window [workspace=$ws1] layout tabbed
-for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws3] layout stacking
-for_window [workspace=$ws4] layout tabbed
-for_window [workspace=$ws5] layout tabbed
-for_window [workspace=$ws6] layout tabbed
-for_window [workspace=$ws7] layout tabbed
-for_window [workspace=$ws8] layout tabbed
-for_window [workspace=$ws9] layout tabbed
-for_window [workspace=$ws10] layout tabbed
 bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
 
