@@ -28,6 +28,7 @@ docker
 dolphin
 dolphin-plugins
 downgrader-git
+duf
 efibootmgr
 element-desktop
 element-web
@@ -77,6 +78,7 @@ kdeconnect
 keepassxc
 kid3
 kmail
+konsole
 krita
 kteatime
 kwalletcli-git
@@ -108,7 +110,9 @@ neovim-symlinks
 nerd-fonts-hack
 networkmanager
 networkmanager-openvpn
+noto-fonts-cjk
 ntfs-3g
+obs-studio
 obsidian-appimage
 octave
 okular
@@ -152,6 +156,7 @@ python-myst-parser
 python-nevergrad
 python-numba
 python-opt_einsum
+python-paramiko
 python-pip
 python-pprofile
 python-pre-commit
@@ -178,6 +183,7 @@ python-sphinx-autoapi
 python-sphinx-autobuild
 python-sphinx-autodoc-typehints
 python-sphinx-changelog
+python-statsmodels
 python-sympy
 python-tqdm
 python-uncertainties
@@ -195,7 +201,6 @@ sddm
 sddm-kcm
 signal-desktop
 skanlite
-skypeforlinux-stable-bin
 sloccount
 spectacle
 sshfs
@@ -228,7 +233,7 @@ thefuck
 timidity++
 tldr
 tmux
-tmux-plugin-manager-git
+tmux-plugin-manager
 todoist
 toggldesktop
 translate-shell
@@ -314,7 +319,6 @@ xorg-xwininfo
 xorg-xwud
 xss-lock
 yakuake
-yakuake-session-git
 yarn
 yay
 youtube-dl
