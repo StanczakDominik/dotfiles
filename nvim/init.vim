@@ -88,6 +88,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'MunifTanjim/nui.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -157,4 +159,5 @@ source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/gitsigns.vim
 source ~/.config/nvim/dap.vim
+source ~/.config/nvim/neotree.vim
 
