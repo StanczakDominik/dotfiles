@@ -125,6 +125,7 @@ pkgconf
 plasma-meta
 plasma5-applets-thermal-monitor-git
 playerctl
+pomo
 powertop
 print-manager
 pulseaudio-bluetooth
