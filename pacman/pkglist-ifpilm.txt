@@ -47,6 +47,7 @@ gcc
 gcc-fortran
 gconf
 git
+git-delta
 github-cli
 google-chrome
 gparted
