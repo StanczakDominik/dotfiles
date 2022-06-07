@@ -1,5 +1,6 @@
 acpi
 acpid
+aic94xx-firmware
 alacritty
 all-contributors-cli
 android-tools
@@ -29,7 +30,6 @@ bumblebee
 bzip2
 calibre
 cantata
-choqok
 coreutils
 cowfortune
 cpuburn
@@ -59,6 +59,7 @@ dot2tex
 downgrader-git
 doxygen
 ds4drv
+duf
 e2fsprogs
 efibootmgr
 electron9-bin
@@ -276,7 +277,7 @@ openmpi
 openssh
 openvpn
 optimus-manager
-optimus-manager-qt
+optimus-manager-qt-kde
 os-prober
 osdlyrics
 otf-font-awesome
@@ -309,6 +310,7 @@ plasma-meta
 plasma5-applets-kargos-git
 playerctl
 plymouth
+pomo
 pomotroid-bin
 potato
 powerline-fonts
@@ -586,7 +588,7 @@ tk
 tldr
 tmux
 tmux-plugin-manager
-toggldesktop
+toggldesktop-bin
 tor
 torbrowser-launcher
 torsocks
@@ -627,6 +629,7 @@ vpn-slice-git
 vtk
 vulkan-tools
 vym
+wd719x-firmware
 wf-recorder
 wget
 which
