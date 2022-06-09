@@ -346,34 +346,34 @@ bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name fo
 bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_format" --text "Enter a title" --entry`
 
 
-assign [class="TogglDesktop"] $ws1
-assign [class="Alacritty" title="LHD.*"] $ws2
-assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws3
-assign [title="Obsidian"] $ws4
+assign [class="TogglDesktop"] $ws01
+assign [class="Alacritty" title="LHD.*"] $ws02
+assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws03
+assign [title="Obsidian"] $ws04
 
-assign [class="okular"] $ws5
-assign [class="Zotero"] $ws5
+assign [class="okular"] $ws05
+assign [class="Zotero"] $ws05
 
-assign [class="Anki" window_role=".*(?<!task_dialog"] $ws6
+assign [class="Anki" window_role=".*(?<!task_dialog"] $ws06
 
-assign [class="lutris"] $ws7
-assign [class="steam"] $ws7
-assign [class="factorio"] $ws7
+assign [class="lutris"] $ws07
+assign [class="steam"] $ws07
+assign [class="factorio"] $ws07
 
 
-assign [class="Element"] $ws9
-assign [class="Signal"] $ws9
-assign [class="kmail"] $ws9
-assign [class="discord"] $ws9
-assign [class="microsoft teams - preview"] $ws9
-assign [class="Microsoft Teams - Preview"] $ws9
+assign [class="Element"] $ws09
+assign [class="Signal"] $ws09
+assign [class="kmail"] $ws09
+assign [class="discord"] $ws09
+assign [class="microsoft teams - preview"] $ws09
+assign [class="Microsoft Teams - Preview"] $ws09
 
 assign [class="cantata"] $ws10
 for_window [instance="Alacritty" title="Dropdown"] move scratchpad
 for_window [class="ksysguard"] move scratchpad
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
-for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws3
+for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws03
 for_window [class="scrcpy"] floating enable
 
 
