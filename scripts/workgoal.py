@@ -27,9 +27,11 @@ def single_line(index):
     if timer.is_inactive_today:
         return single_line(next_index)
     now = datetime.datetime.now().strftime("%X")
-    print(timer.describe_briefly(f"{now}: "))
+    text = timer.describe_briefly(f"{now}: ")
+    # print(text)
+    print(json.dumps({"_state": next_index, "full_text": text}))
     # TODO json format, set color as percentage from red to white, or RGB for each goal
 
 if __name__ == "__main__":
-    single_line(os.environ.get("_state", 0))
+    single_line(int(os.environ.get("_state", 0)))
 
