@@ -157,6 +157,7 @@ jupyterlab-widgets
 jupyterlab_code_formatter
 kaccounts-providers
 kalarm
+kalzium
 kamoso
 kbibtex
 kcron

@@ -98,7 +98,7 @@ class WorkTimer:
 
     def __post_init__(self, daily_time):
         times = daily_time.split("/")
-        time_for_today = int(times[current_date.weekday()])
+        time_for_today = float(times[current_date.weekday()])
         self.time_required = datetime.timedelta(hours=time_for_today)
 
     @cached_property
