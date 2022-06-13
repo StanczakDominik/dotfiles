@@ -104,7 +104,7 @@ mpd
 mplayer
 mpv
 ncdu
-neovim
+neovim-git
 neovim-plug
 neovim-symlinks
 nerd-fonts-hack
@@ -126,6 +126,7 @@ patch
 pdfgrep
 picom
 pkgconf
+pkgfile
 plasma-meta
 plasma5-applets-thermal-monitor-git
 playerctl
@@ -190,6 +191,7 @@ python-uncertainties
 python-virtualenvwrapper
 python-voila
 python-xarray
+qt6-svg
 ranger
 rclone
 reflector
