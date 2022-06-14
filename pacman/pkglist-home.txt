@@ -402,7 +402,6 @@ python-linkify-it-py
 python-livereload
 python-lmfit
 python-loguru
-python-lsp-black
 python-lyricwikia
 python-magic
 python-markdown
