@@ -17,6 +17,7 @@ function! g:Goyo_after()
 endfunction
 
 let g:goyo_callbacks = [function('g:Goyo_before'), function('g:Goyo_after')]
+let g:goyo_width = '90%'
 
 "Prose Mode from https://statico.github.io/vim3.html
 function! ProseMode()
