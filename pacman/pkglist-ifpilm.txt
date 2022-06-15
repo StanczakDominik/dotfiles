@@ -235,7 +235,7 @@ thefuck
 timidity++
 tldr
 tmux
-tmux-plugin-manager
+tmux-plugin-manager-git
 todoist
 toggldesktop
 translate-shell

@@ -138,7 +138,6 @@ source ~/.config/nvim/airline.vim
 source ~/.config/nvim/compe.vim
 source ~/.config/nvim/goyo.vim
 source ~/.config/nvim/gpg.vim
-source ~/.config/nvim/grepper.vim
 source ~/.config/nvim/julia.vim
 source ~/.config/nvim/latex.vim
 source ~/.config/nvim/learn-vim.vim
