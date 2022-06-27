@@ -216,7 +216,6 @@ light
 lightdm
 lightdm-gtk-greeter
 linux
-linux-lts
 logmein-hamachi
 logrotate
 lostfiles
@@ -247,7 +246,6 @@ ncdu
 neovim
 neovim-qt
 neovim-remote
-nerd-dictation-git
 nerd-fonts-dejavu-complete
 nerd-fonts-fira-code
 nerd-fonts-hack
@@ -289,6 +287,8 @@ pacman
 pacman-contrib
 pamixer
 pandoc-bin
+pandoc-crossref-bin
+pandoc-xnos
 paraview
 patch
 pavucontrol
@@ -609,6 +609,8 @@ ttf-liberation
 ttf-ms-fonts
 ttf-nanum
 ttf-nerd-fonts-symbols
+ttf-segoe-ui-variable
+ttf-selawik
 ttf-symbola
 twine
 unrar
@@ -661,6 +663,7 @@ xorg-xev
 xorg-xhost
 xorg-xinit
 xorg-xinput
+xorg-xlsfonts
 xorg-xrandr
 xorg-xwayland
 xournalpp

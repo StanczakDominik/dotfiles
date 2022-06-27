@@ -14,7 +14,7 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 " let g:mdip_imgdir = 'img'
 " let g:mdip_imgname = 'image'
 
-let g:wiki_root = '~/Notes/vimwiki'
+let g:wiki_root = '~/Notes/Professional'
 let g:wiki_filetypes = ['wiki', 'md', 'markdown']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
