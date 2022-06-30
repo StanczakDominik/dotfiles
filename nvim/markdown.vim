@@ -15,9 +15,20 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 " let g:mdip_imgname = 'image'
 
 let g:wiki_root = '~/Notes/Professional'
-let g:wiki_filetypes = ['wiki', 'md', 'markdown']
+let g:wiki_filetypes = ['md']
+let g:wiki_link_extension = ['.md']
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
+let g:wiki_journal = {
+      \ 'name': 'dziennik/daily',
+      \ 'frequency': 'daily',
+      \ 'date_format': {
+      \   'daily' : '%Y-%m-%d',
+      \   'weekly' : '%Y_w%V',
+      \   'monthly' : '%Y_m%m',
+      \ },
+      \ 'index_use_journal_scheme': v:true,
+      \}
 nnoremap <leader>/ /\<\><left><left>
 
 let g:mkdp_preview_options = {
