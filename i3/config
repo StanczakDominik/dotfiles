@@ -375,6 +375,8 @@ for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title<
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
 for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws03
 for_window [class="scrcpy"] floating enable
+for_window [title="Vimjournal"] floating enable
+for_window [title="Vimwiki"] floating enable
 
 
 
