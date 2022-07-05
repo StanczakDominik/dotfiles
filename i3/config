@@ -278,7 +278,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 20%- # decrea
 
 
 # exec xautolock -time 10 -locker 'loginctl lock-session $XDG_SESSION_ID'
-exec xss-lock -- i3lock -n -c 000000
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
