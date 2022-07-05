@@ -14,9 +14,9 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 " let g:mdip_imgdir = 'img'
 " let g:mdip_imgname = 'image'
 
-let g:wiki_root = '~/Notes/Professional'
+let g:wiki_root = '~/Notes'
 let g:wiki_filetypes = ['md']
-let g:wiki_link_extension = ['.md']
+let g:wiki_link_extension = '.md'
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 let g:wiki_journal = {
@@ -29,6 +29,23 @@ let g:wiki_journal = {
       \ },
       \ 'index_use_journal_scheme': v:true,
       \}
+
+function! TemplateFallback(context)
+  call append(0, '# ' . a:context.name)
+  call append(1, '')
+  call append(2, 'Foobar')
+endfunction
+
+let g:wiki_templates = [
+      \ { 'match_re': 'index',
+      \   'source_filename': '/home/user/templates/index.md'},
+      \ { 'match_re': 'dziennik\\/daily',
+      \   'source_filename': 'Notes/dziennik/template_daily.md'},
+      \ { 'match_func': {x -> v:true},
+      \   'source_func': function('TemplateFallback')},
+      \]
+
+let g:wiki_zotero_root = '~/Zotero'
 nnoremap <leader>/ /\<\><left><left>
 
 let g:mkdp_preview_options = {
@@ -44,7 +61,7 @@ let g:mkdp_preview_options = {
     \ 'content_editable': v:false,
     \ 'disable_filename': 0
     \ }
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" au BufRead,BufNewFile *.md setlocal textwidth=80
 
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 let g:mdip_imgdir = '_resources'

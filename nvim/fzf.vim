@@ -17,6 +17,7 @@ nnoremap <C-G> :RG<CR>
 nnoremap <silent> <C-B> :Buffers<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <C-p> :<C-u>FZF<Cr>
+nnoremap <M-p> :<C-u>WikiFzfPages<Cr>
 nnoremap <silent><leader>g :GFiles<CR>
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 

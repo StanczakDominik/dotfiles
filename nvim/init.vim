@@ -33,7 +33,7 @@ Plug 'goerz/jupytext.vim'
 Plug 'honza/vim-snippets'
 Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
+" Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
 Plug 'jesseleite/vim-agriculture'
 Plug 'junegunn/fzf'      
 Plug 'junegunn/fzf.vim'
@@ -68,7 +68,7 @@ Plug 'tpope/vim-commentary'                 " comment stuff out; gcc command
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'       
 Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
+" Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'        
 Plug 'ludovicchabant/vim-gutentags'               " Automatic tags management
@@ -90,6 +90,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'MunifTanjim/nui.nvim'
+Plug 'jalvesaq/zotcite'
+Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -137,7 +139,7 @@ set wildmenu
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/compe.vim
 source ~/.config/nvim/goyo.vim
-source ~/.config/nvim/gpg.vim
+" source ~/.config/nvim/gpg.vim
 source ~/.config/nvim/julia.vim
 source ~/.config/nvim/latex.vim
 source ~/.config/nvim/learn-vim.vim
@@ -160,3 +162,4 @@ source ~/.config/nvim/gitsigns.vim
 source ~/.config/nvim/dap.vim
 source ~/.config/nvim/neotree.vim
 
+let $ZoteroSQLpath = '~/Zotero/zotero.sqlite'
