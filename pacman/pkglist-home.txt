@@ -257,6 +257,7 @@ networkmanager-openvpn
 newsboat
 nfs-utils
 nikola
+nmap
 nodejs-reveal-md
 noto-fonts-emoji
 ntfs-3g
@@ -621,6 +622,7 @@ vifm
 vim
 vim-colors-solarized-git
 virtualbox
+visual-studio-code-bin
 vlc
 vmware-horizon-client
 vmware-horizon-mmr
