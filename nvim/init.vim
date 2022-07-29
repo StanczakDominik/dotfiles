@@ -104,6 +104,8 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'chriskempson/base16-vim'
+
 " TODO Plug 'rcarriga/nvim-dap-ui'
 call plug#end()
 
@@ -155,7 +157,7 @@ source ~/.config/nvim/test.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/window-switching.vim
 source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/thematic.vim
+" source ~/.config/nvim/thematic.vim
 source ~/.config/nvim/gutentags.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/gitsigns.vim
@@ -163,3 +165,6 @@ source ~/.config/nvim/dap.vim
 source ~/.config/nvim/neotree.vim
 
 let $ZoteroSQLpath = '~/Zotero/zotero.sqlite'
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif

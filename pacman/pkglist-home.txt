@@ -1,5 +1,6 @@
 acpi
 acpid
+activitywatch-bin
 aic94xx-firmware
 alacritty
 all-contributors-cli
@@ -16,6 +17,7 @@ aur-auto-vote-git
 autoconf
 automake
 autopep8
+autorandr
 bash
 bash-completion
 bashtop
@@ -53,6 +55,7 @@ djvu2pdf
 dmenu
 dnsmasq
 docker
+docker-compose
 dolphin
 dolphin-plugins
 dot2tex
@@ -135,7 +138,6 @@ i3-resurrect
 i3blocks
 i3lock
 i3status
-i8kutils
 ifplugd
 inetutils
 inkscape
@@ -157,6 +159,7 @@ jupyterlab-widgets
 jupyterlab_code_formatter
 kaccounts-providers
 kalarm
+kalendar
 kalzium
 kamoso
 kbibtex
@@ -417,6 +420,7 @@ python-nbsphinx
 python-networkx
 python-nevergrad
 python-notify2
+python-nox
 python-numba
 python-numexpr
 python-orjson
@@ -517,6 +521,7 @@ qgit
 qmltermwidget
 qsshfs
 qutebrowser
+r
 redshift
 reflector
 reiserfsprogs
@@ -541,6 +546,7 @@ shadow
 signal-desktop
 skanlite
 sl
+slack-desktop
 sloccount
 smb4k
 spectacle

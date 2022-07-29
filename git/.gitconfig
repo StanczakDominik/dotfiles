@@ -69,3 +69,5 @@
 	# commit performance. See `man git-config` for details
 	# https://github.com/starship/starship/issues/1617#issuecomment-885959971
 	manyFiles = true
+[credential]
+	helper = cache

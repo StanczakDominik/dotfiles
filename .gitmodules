@@ -1,3 +1,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = git@github.com:seebi/dircolors-solarized.git
+[submodule "alacritty/base16-alacritty"]
+	path = alacritty/base16-alacritty
+	url = git@github.com:aarowill/base16-alacritty.git

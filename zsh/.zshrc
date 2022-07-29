@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=1000000
-setopt appendhistory autocd nomatch notify
+setopt appendhistory nomatch notify
 stty -ixon
 unsetopt beep
 bindkey -v
@@ -155,3 +155,10 @@ preexec() { print -Pn "\e]0;$1%~\a" }
 #   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 # fi
 
+
+LIGHT_COLOR='base16-solarized-light.yml'
+DARK_COLOR='base16-solarized-dark.yml'
+
+alias day="alacritty-colorscheme -V apply $LIGHT_COLOR"
+alias night="alacritty-colorscheme -V apply $DARK_COLOR"
+alias toggle="alacritty-colorscheme -V toggle $LIGHT_COLOR $DARK_COLOR"

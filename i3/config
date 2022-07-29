@@ -120,17 +120,59 @@ set $ws08 "8"
 set $ws09 "9: social"
 set $ws10 "10: music"
 
-workspace $ws01 output nonprimary
-workspace $ws02 output nonprimary
-workspace $ws03 output primary
-workspace $ws04 output primary
-workspace $ws05 output primary
-workspace $ws06 output primary
-workspace $ws07 output primary
-workspace $ws08 output primary
-workspace $ws09 output primary
-workspace $ws10 output primary
+# workspace $ws01 output nonprimary
+# workspace $ws02 output nonprimary
+# workspace $ws03 output primary
+# workspace $ws04 output primary
+# workspace $ws05 output primary
+# workspace $ws06 output primary
+# workspace $ws07 output primary
+# workspace $ws08 output primary
+# workspace $ws09 output primary
+# workspace $ws10 output primary
 
+set $ws11 "11a"
+set $ws12 "12a"
+set $ws13 "13a"
+set $ws14 "14a"
+set $ws15 "15a"
+set $ws16 "16a"
+set $ws17 "17a"
+set $ws18 "18a"
+set $ws19 "19a"
+set $ws20 "20a"
+set $ws21 "11b"
+set $ws22 "12b"
+set $ws23 "13b"
+set $ws24 "14b"
+set $ws25 "15b"
+set $ws26 "16b"
+set $ws27 "17b"
+set $ws28 "18b"
+set $ws29 "19b"
+set $ws30 "20b"
+
+workspace $ws11 output eDP-1
+workspace $ws12 output eDP-1
+workspace $ws13 output eDP-1
+workspace $ws14 output eDP-1
+workspace $ws15 output eDP-1
+workspace $ws16 output eDP-1
+workspace $ws17 output eDP-1
+workspace $ws18 output eDP-1
+workspace $ws19 output eDP-1
+workspace $ws20 output eDP-1
+
+workspace $ws21 output HDMI-1-0
+workspace $ws22 output HDMI-1-0
+workspace $ws23 output HDMI-1-0
+workspace $ws24 output HDMI-1-0
+workspace $ws25 output HDMI-1-0
+workspace $ws26 output HDMI-1-0
+workspace $ws27 output HDMI-1-0
+workspace $ws28 output HDMI-1-0
+workspace $ws29 output HDMI-1-0
+workspace $ws30 output HDMI-1-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws01
@@ -403,11 +445,19 @@ bindsym $mod+Control+Right focus output right
 # TODO only on battery
 exec --no-startup-id "sh -c 'sleep 3; feh --randomize --bg-fill /home/dominik/Pictures/Wallpapers/*'"
 
-# # Scratchpad terminal.
-# # https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
-# # Using a custom title string with criteria is deliberate and keeps things simple.
+# Scratchpad terminal.
+# https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
+# Using a custom title string with criteria is deliberate and keeps things simple.
 # exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
-# bindsym End  [instance="Alacritty" title="Dropdown"] scratchpad show
+# for_window [instance="Dropdown"] floating enable;
+# for_window [instance="Dropdown"] move scratchpad; [instance="Dropdown"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
+# bindsym F12  [instance="Alacritty" title="Dropdown"] scratchpad show
+# bindsym Control+F12 exec --no-startupid "alacritty --title 'Dropdown' -e /usr/bin/zsh -e '-l' -e '-c' -e 'tmux attach -t yakuake'"
 
 bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
 
+# exec_always $terminal -name scratchpad
+# for_window [title="^scratchpad$"] border pixel 3, move scratchpad
+# for_window [title="^scratchpad$"] scratchpad show, move position 0px 24px, resize shrink height 350px, resize grow width 960px, move scratchpad
+
+bindsym F12 exec ~/Code/dotfiles/i3/scratchpad.sh
