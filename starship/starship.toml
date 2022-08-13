@@ -1,10 +1,14 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
-command_timeout=1000
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+
+[conda]
+ignore_base = false
+
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -12,6 +16,12 @@ disabled = true
 
 [python]
 pyenv_version_name = true
+
+[rlang]
+disabled = true
+
+[hg_branch]
+disabled=true
 
 [time]
 disabled = false
@@ -22,6 +32,3 @@ utc_time_offset = "local"
 
 [cmd_duration]
 min_time = 5000
-
-[git_metrics]
-disabled = false
