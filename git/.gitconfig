@@ -13,7 +13,7 @@
 	bp = big-picture
     todo = !rg TODO $(git diff master --name-only)
 [push]
-	default = simple
+	default = current
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = delta
@@ -71,3 +71,5 @@
 	manyFiles = true
 [credential]
 	helper = cache
+[help]
+	autocorrect = 10
