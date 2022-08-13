@@ -89,23 +89,13 @@ export PATH="$HOME/Code/scripts:$HOME/Code/dotfiles/scripts:$HOME/.local/bin:$PA
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dominik/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/dominik/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/dominik/.miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dominik/.miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+function conda-enable()
+{
+  source ~/Code/dotfiles/zsh/conda-setup.sh
+}
+
 #
 # Argcomplete explicit registration for pubs
-eval "$(register-python-argcomplete pubs)"
 export SUDO_EDITOR=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
 #compdef toggl
