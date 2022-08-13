@@ -17,7 +17,6 @@ aur-auto-vote-git
 autoconf
 automake
 autopep8
-autorandr
 bash
 bash-completion
 bashtop
@@ -59,7 +58,6 @@ docker-compose
 dolphin
 dolphin-plugins
 dot2tex
-downgrader-git
 doxygen
 ds4drv
 duf
@@ -184,6 +182,7 @@ kmail
 kmymoney
 koi
 konsole
+korganizer
 krita
 kronometer
 ksystemlog
@@ -193,7 +192,6 @@ kvantum-theme-arc
 kwalletcli-git
 kwalletmanager
 kwave
-lammps
 languagetool
 less
 lib32-alsa-oss
@@ -329,6 +327,7 @@ profile-sync-daemon
 psmisc
 pyalpm
 pyright-git
+python-aeppl
 python-aiohttp
 python-altair
 python-ansiwrap
@@ -346,7 +345,6 @@ python-atomicwrites
 python-beautifulsoup4
 python-bibtexparser
 python-black
-python-blessed
 python-blessings
 python-bokeh
 python-brotli
@@ -390,7 +388,6 @@ python-hypothesis
 python-i3ipc
 python-icecream
 python-identify
-python-inquirer
 python-isort
 python-jupyter_packaging
 python-jupyter_sphinx
@@ -421,7 +418,6 @@ python-networkx
 python-nevergrad
 python-notify2
 python-nox
-python-numba
 python-numexpr
 python-orjson
 python-pafy
@@ -448,6 +444,7 @@ python-pydocstyle
 python-pydot
 python-pygal
 python-pylint
+python-pymc
 python-pymeeus
 python-pymongo
 python-pymupdf
@@ -484,11 +481,16 @@ python-shellingham
 python-sip4
 python-snakeviz
 python-sphinx
+python-sphinx-autoapi
+python-sphinx-autobuild
 python-sphinx-automodapi
 python-sphinx-changelog
 python-sphinx-copybutton
 python-sphinx-gallery
 python-sphinx-hoverxref
+python-sphinx-issues
+python-sphinx-notfound-page
+python-sphinx-reredirects
 python-sphinxcontrib-bibtex
 python-statsmodels
 python-sympy
@@ -686,6 +688,7 @@ yay
 yed
 youtube-dl
 yt-dlp
+zanshin
 zathura
 zathura-djvu
 zathura-pdf-poppler
