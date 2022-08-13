@@ -13,8 +13,9 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 zplug "Tarrasch/zsh-autoenv"
 setopt completealiases
 
-autoload -Uz compinit
+autoload -Uz compinit bashcompinit
 compinit
+bashcompinit
 # End of lines added by compinstall
 #
 #
@@ -103,10 +104,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 #
-# Enable and load bashcompinit
-autoload -Uz compinit bashcompinit
-compinit
-bashcompinit
 # Argcomplete explicit registration for pubs
 eval "$(register-python-argcomplete pubs)"
 export SUDO_EDITOR=/usr/bin/nvim
