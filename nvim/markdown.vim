@@ -20,7 +20,7 @@ let g:wiki_link_extension = '.md'
 let g:wiki_global_load = 0
 let g:wiki_link_target_type = 'md'
 let g:wiki_journal = {
-      \ 'name': 'dziennik/daily',
+      \ 'name': 'Osobiste/dziennik/daily',
       \ 'frequency': 'daily',
       \ 'date_format': {
       \   'daily' : '%Y-%m-%d',

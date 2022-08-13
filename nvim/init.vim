@@ -34,6 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'hrsh7th/nvim-compe'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
+Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'jesseleite/vim-agriculture'
 Plug 'junegunn/fzf'      
 Plug 'junegunn/fzf.vim'
