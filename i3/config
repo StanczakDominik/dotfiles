@@ -244,6 +244,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output eDP-1
+    output eDP-1-1
     strip_workspace_name no
     verbose no
     position top 
@@ -260,6 +261,7 @@ bar {
 bar {
     output nonprimary
     output HDMI-1-0
+    output HDMI-0
     strip_workspace_name no
     verbose no
     position top 
