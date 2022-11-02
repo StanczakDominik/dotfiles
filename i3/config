@@ -259,7 +259,6 @@ bar {
 }
 
 bar {
-    output nonprimary
     output HDMI-1-0
     output HDMI-0
     strip_workspace_name no
@@ -311,11 +310,14 @@ bindsym $mod+End mode "$mode_system"
 for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-for_window [class="yakuake"] floating enable
-for_window [class="systemsettings"] floating enable
+# for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
 for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
@@ -323,12 +325,9 @@ for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
-for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"]
 for_window [title="^zoom$" class="[zoom]*"] floating enable
 for_window [class="[zoom]*" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="[zoom]*" window_type="notification"]
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 
 # for_window [class="^.*"] border pixel 5
@@ -357,10 +356,7 @@ assign [class="Alacritty" title="LHD.*"] $ws02
 assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws03
 assign [title="Obsidian"] $ws04
 
-assign [class="okular"] $ws05
 assign [class="Zotero"] $ws05
-
-assign [class="Anki" window_role=".*(?<!task_dialog"] $ws06
 
 assign [class="lutris"] $ws07
 assign [class="steam"] $ws07
@@ -379,6 +375,7 @@ for_window [instance="Alacritty" title="Dropdown"] move scratchpad
 for_window [class="ksysguard"] move scratchpad
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
 for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
+for_window [class="kscreen_osd_service"] floating enable
 for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws03
 for_window [class="scrcpy"] floating enable
 for_window [title="Vimjournal"] floating enable
@@ -423,3 +420,8 @@ for_window [class="^.*"] border pixel 0
 # exec_always $terminal -name scratchpad
 # for_window [title="^scratchpad$"] border pixel 3, move scratchpad
 # for_window [title="^scratchpad$"] scratchpad show, move position 0px 24px, resize shrink height 350px, resize grow width 960px, move scratchpad
+#
+# 
+bindsym F12 exec --no-startup-id alacritty --title "Life is beautiful."
+for_window [title="Life is beautiful."] floating enable
+for_window [title="Life is beautiful."] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1

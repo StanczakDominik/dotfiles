@@ -48,8 +48,7 @@ function darkmode () {
 
 alias termdownsay='termdown -v us-mbrola-1'
 alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
-alias twork="toggl now -a IFPILM"
-alias tworkr="toggl now -a IFPILM,Remote"
+alias twork="toggl now -a Roche"
 function tworkstarted() {
     toggl stop -p "$1"
     toggl start -s "$1" -a IFPILM -o "Day start" "Day start"
@@ -65,7 +64,7 @@ function festsay () {
 }
 
 function tbreak () {
-    toggl start -a IFPILM -o Relax Break
+    toggl start -a Roche -o Relax Break
     if termdownsay "$1m"; then
         echo "Break going overlong?"
         toggl start -a IFPILM -o Relax "Break (overlong?)"

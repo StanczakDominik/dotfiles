@@ -79,7 +79,6 @@ export FZF_DEFAULT_OPTS='--ansi'
 
 source ~/.bash_aliases
 
-export JULIA_NUM_THREADS=4
 
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -147,3 +146,8 @@ DARK_COLOR='base16-solarized-dark.yml'
 alias day="alacritty-colorscheme -V apply $LIGHT_COLOR"
 alias night="alacritty-colorscheme -V apply $DARK_COLOR"
 alias toggle="alacritty-colorscheme -V toggle $LIGHT_COLOR $DARK_COLOR"
+
+
+
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

@@ -17,6 +17,7 @@ aur-auto-vote-git
 autoconf
 automake
 autopep8
+aws-cli-v2-bin
 bash
 bash-completion
 bashtop
@@ -85,6 +86,7 @@ file
 filelight
 filesystem
 findutils
+firefox
 flake8
 foliate
 foomatic-db
@@ -112,7 +114,6 @@ gnuplot
 go
 go-mtpfs-git
 google-chrome
-googler
 gource
 gparted
 graphviz
@@ -149,12 +150,10 @@ jfsutils
 jq
 julia-bin
 jupyter-lsp
-jupyter-nbextension-rise
 jupyter-server-mathjax
 jupyterlab
 jupyterlab-lsp
 jupyterlab-widgets
-jupyterlab_code_formatter
 kaccounts-providers
 kalarm
 kalendar
@@ -222,8 +221,8 @@ logrotate
 lostfiles
 lsd
 lsof
+lutris
 lutris-battlenet-meta
-lutris-git
 lvm2
 m4
 make
@@ -249,8 +248,6 @@ neovim-qt
 neovim-remote
 nerd-fonts-dejavu-complete
 nerd-fonts-fira-code
-nerd-fonts-hack
-nerd-fonts-terminus
 netctl
 netstat-nat
 networkmanager-openconnect
@@ -261,6 +258,7 @@ nikola
 nmap
 nodejs-reveal-md
 noto-fonts-emoji
+nss-mdns
 ntfs-3g
 numdiff
 nvidia
@@ -270,7 +268,7 @@ nvidia-utils
 nvme-cli
 nvtop
 obs-studio
-obsidian-appimage
+obsidian
 octave
 okular
 openbox
@@ -303,6 +301,7 @@ perl-anyevent-i3
 perl-file-mimeinfo
 perl-json-xs
 pgplot
+phpmyadmin
 picard
 picom
 pipewire-alsa
@@ -315,6 +314,7 @@ playerctl
 plymouth
 pomo
 pomotroid-bin
+postgresql
 potato
 powerline-fonts
 powerstat-git
@@ -347,8 +347,10 @@ python-bibtexparser
 python-black
 python-blessings
 python-bokeh
+python-boto3
 python-brotli
 python-cached-property
+python-celery
 python-certifi
 python-cfgv
 python-click
@@ -356,6 +358,7 @@ python-click-completion
 python-cmd2
 python-convertdate
 python-cookiecutter
+python-cupy
 python-dask
 python-dateparser
 python-decorator
@@ -377,7 +380,6 @@ python-fsspec
 python-fuzzywuzzy
 python-ghp-import
 python-gitpython
-python-gpustat
 python-h5py
 python-hijri-converter
 python-holidays
@@ -455,8 +457,10 @@ python-pytest
 python-pytest-arraydiff
 python-pytest-benchmark
 python-pytest-black
+python-pytest-celery
 python-pytest-cov
 python-pytest-datadir
+python-pytest-django
 python-pytest-enabler
 python-pytest-forked
 python-pytest-mpl
@@ -529,7 +533,6 @@ reflector
 reiserfsprogs
 ripgrep
 rmlint-shredder
-rocketchat-client-bin
 rofi
 rrdtool
 rsibreak
@@ -572,7 +575,6 @@ systemd-kcm
 systemd-sysvcompat
 tar
 tasker-permissions-git
-teams
 teamviewer
 tensorboard
 termdown
@@ -610,6 +612,7 @@ trash-cli
 tree
 ttf-dejavu
 ttf-font-awesome
+ttf-hack-nerd
 ttf-humor-sans
 ttf-inconsolata
 ttf-joypixels
@@ -617,10 +620,11 @@ ttf-juliamono
 ttf-liberation
 ttf-ms-fonts
 ttf-nanum
-ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-2048-em
 ttf-segoe-ui-variable
 ttf-selawik
 ttf-symbola
+ttf-terminus-nerd
 twine
 unrar
 unzip
@@ -632,11 +636,6 @@ vim-colors-solarized-git
 virtualbox
 visual-studio-code-bin
 vlc
-vmware-horizon-client
-vmware-horizon-mmr
-vmware-horizon-smartcard
-vmware-horizon-tsdr
-vmware-horizon-usb
 vpn-slice-git
 vtk
 vulkan-tools
@@ -657,7 +656,6 @@ workrave
 wpa_actiond
 wpa_supplicant
 wttr
-x2goclient
 xautolock
 xawtv
 xclip
@@ -682,7 +680,6 @@ xscreensaver
 xsel
 xterm
 xtitle-git
-yakuake
 yarn
 yay
 yed

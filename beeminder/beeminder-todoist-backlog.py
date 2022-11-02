@@ -14,7 +14,7 @@ slugs = [
     # "jrnl",
     # "toggl-tag",
     # "github-inbox",
-    # "wallabag",
+    "wallabag",
     # "vimwiki",
     # "lichess-puzzles",
     # "lichess-puzzles-rating",
