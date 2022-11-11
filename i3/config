@@ -331,10 +331,6 @@ no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
-gaps outer 4
-gaps inner 4
-gaps vertical 4
-gaps horizontal 4
 
 title_align center
 

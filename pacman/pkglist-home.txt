@@ -132,8 +132,8 @@ htop
 hub
 hunspell-pl
 hyphen-en
-i3-gaps
 i3-resurrect
+i3-wm
 i3blocks
 i3lock
 i3status
