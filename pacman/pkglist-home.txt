@@ -130,10 +130,11 @@ hplip-plugin
 hpuld
 htop
 hub
+hugo
 hunspell-pl
 hyphen-en
+i3-git
 i3-resurrect
-i3-wm
 i3blocks
 i3lock
 i3status
@@ -247,7 +248,6 @@ neovim
 neovim-qt
 neovim-remote
 nerd-fonts-dejavu-complete
-nerd-fonts-fira-code
 netctl
 netstat-nat
 networkmanager-openconnect
@@ -327,7 +327,6 @@ profile-sync-daemon
 psmisc
 pyalpm
 pyright-git
-python-aeppl
 python-aiohttp
 python-altair
 python-ansiwrap
@@ -358,7 +357,6 @@ python-click-completion
 python-cmd2
 python-convertdate
 python-cookiecutter
-python-cupy
 python-dask
 python-dateparser
 python-decorator
@@ -446,7 +444,6 @@ python-pydocstyle
 python-pydot
 python-pygal
 python-pylint
-python-pymc
 python-pymeeus
 python-pymongo
 python-pymupdf
@@ -593,6 +590,9 @@ texlive-pstricks
 texlive-science
 thefuck
 thermald
+thunderbird
+thunderbird-dark-reader
+tiberiansun
 tidy
 tikzit
 tk
@@ -611,6 +611,7 @@ transmission-qt
 trash-cli
 tree
 ttf-dejavu
+ttf-firacode-nerd
 ttf-font-awesome
 ttf-hack-nerd
 ttf-humor-sans
@@ -634,7 +635,6 @@ vifm
 vim
 vim-colors-solarized-git
 virtualbox
-visual-studio-code-bin
 vlc
 vpn-slice-git
 vtk

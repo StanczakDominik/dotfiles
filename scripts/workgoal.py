@@ -6,12 +6,17 @@ import holidays
 import pathlib
 import json
 import os
+from requests.exceptions import ConnectionError
 
 list_entries = list(workhours.items())
 def single_line(index):
     index = index % len(list_entries)
     k, d = list_entries[index % len(list_entries)]
-    timer = WorkTimer(k, **d)
+    try:
+        timer = WorkTimer(k, **d)
+    except ConnectionError:
+        print(json.dumps({"_state": index, "full_text": "No network."}))
+        return
     next_index = (index+1)
     if timer.is_inactive_today:
         return single_line(next_index)

@@ -1,3 +1,4 @@
+# i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $black       #212121
@@ -101,17 +102,6 @@ set $ws07 "7: breaks"
 set $ws08 "8"
 set $ws09 "9: social"
 set $ws10 "10: music"
-
-# workspace $ws01 output nonprimary
-# workspace $ws02 output nonprimary
-# workspace $ws03 output primary
-# workspace $ws04 output primary
-# workspace $ws05 output primary
-# workspace $ws06 output primary
-# workspace $ws07 output primary
-# workspace $ws08 output primary
-# workspace $ws09 output primary
-# workspace $ws10 output primary
 
 set $ws11 "11a"
 set $ws12 "12a"
@@ -377,9 +367,6 @@ for_window [class="scrcpy"] floating enable
 for_window [title="Vimjournal"] floating enable
 for_window [title="Vimwiki"] floating enable
 
-
-
-hide_edge_borders both
 # for_window [title="User 1 - Anki"] focus; split h; layout stacked
 
 bindsym $mod+g sticky toggle
@@ -412,7 +399,7 @@ bindsym $mod+Control+Right focus output right
 
 bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
 
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 0
 # exec_always $terminal -name scratchpad
 # for_window [title="^scratchpad$"] border pixel 3, move scratchpad
 # for_window [title="^scratchpad$"] scratchpad show, move position 0px 24px, resize shrink height 350px, resize grow width 960px, move scratchpad
@@ -421,3 +408,7 @@ for_window [class="^.*"] border pixel 0
 bindsym F12 exec --no-startup-id alacritty --title "Life is beautiful."
 for_window [title="Life is beautiful."] floating enable
 for_window [title="Life is beautiful."] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
+smart_borders on
+default_border normal
+default_floating_border normal
+hide_edge_borders smart

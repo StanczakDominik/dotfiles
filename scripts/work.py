@@ -15,6 +15,7 @@ from rich import print
 import yaml
 import pathlib
 from copy import deepcopy
+from typing import List, Union
 
 key = os.environ["TOGGL_KEY"]
 auth = (key, "api_token")
@@ -92,7 +93,7 @@ class WorkTimer:
     tag: str
     tag_id: int
     project: int
-    client: str
+    client: Union[str, List[str]]
     daily_time: InitVar[str]
     chill_projects: str = ""
 
@@ -107,7 +108,7 @@ class WorkTimer:
         r_all.pop("total_billable")
         r_all.pop("total_currencies")
         def filterfunc(item):
-            if item['client'] == self.client:
+            if item['client'] == self.client or item['client'] in self.client:
                 return True
             if item['project'] == self.project:
                 return True
