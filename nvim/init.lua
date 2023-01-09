@@ -36,7 +36,7 @@ require('plugins')
 
 vim.opt.termguicolors = true
 
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme solarized')
 
 
 require('lsp_setup')
@@ -127,4 +127,57 @@ cmp.setup({
       end
     end, {'i', 's'}),
   },
+})
+
+
+---
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+require('telescope').load_extension('fzf')
+
+require('dap-python').setup('/usr/bin/python')
+
+vim.cmd [[
+    nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
+    nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+    nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+    nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+    nnoremap <silent> <Leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+    nnoremap <silent> <Leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+    nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+    nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+    nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
+]]
+
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      }
+    },
+  },
+  ensure_installed = {
+    'python',
+    'css',
+    'json',
+    'lua',
+  },
+})
+
+require('toggleterm').setup({
+  open_mapping = '<C-g>',
+  direction = 'horizontal',
+  shade_terminals = true
 })

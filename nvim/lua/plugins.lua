@@ -89,20 +89,74 @@ return require('packer').startup(function(use)
 
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
-  use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  
+
   -- For luasnip users.
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  
+
   use "rafamadriz/friendly-snippets"
 
+  use {
+	  'nvim-telescope/telescope.nvim', branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {'nvim-telescope/telescope-fzf-native.nvim',
+	  run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+  }
+  use 'ActivityWatch/aw-watcher-vim'
+
+  use 'ericbn/vim-solarized'
+  use 'folke/which-key.nvim'
+
+  use {
+	  'numToStr/Comment.nvim',
+	  config = function ()
+		  require("Comment").setup {
+		  }
+	  end
+  }
+
+  use 'tpope/vim-fugitive'
+
+  use {
+	  'kyazdani42/nvim-tree.lua',
+	  config = function ()
+		  require("nvim-tree").setup({})
+	  end
+  }
+
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+	  "nvim-neotest/neotest-python",
+    },
+	config = function ()
+		require("neotest").setup({
+		  adapters = {
+			require("neotest-python")({
+			  dap = { justMyCode = false },
+			}),
+		  },
+		})
+	end
+  }
+  use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'akinsho/toggleterm.nvim'
+
+  
 
   -- You can specify multiple plugins in a single call
   -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
