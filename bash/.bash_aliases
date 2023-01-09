@@ -120,5 +120,4 @@ alias jrnl='cd $HOME/Notes/vimwiki; vim "dziennik/$(date +%Y-%W).md"'
 alias vimwiki='cd $HOME/Notes/vimwiki; vim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias pacdiff="DIFFPROG='nvim -d' pacdiff"
-alias dropdown='alacritty --title "Dropdown" -e /usr/bin/zsh -e "-l" -e "-c" -e "tmux attach -t yakuake"'
-alias todoist='todoist-cli'
+alias toggl-today='toggl ls -s $(date -I)'

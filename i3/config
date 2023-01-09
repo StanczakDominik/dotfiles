@@ -342,11 +342,15 @@ assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhm
 assign [title="Obsidian"] $ws04
 
 assign [class="Zotero"] $ws05
+assign [class="com.github.johnfactotum.Foliate"] $ws05
+
+assign [class="anki"] $ws06
 
 assign [class="lutris"] $ws07
 assign [class="steam"] $ws07
 assign [class="factorio"] $ws07
 
+assign [class="keepassxc"] $ws08
 
 assign [class="Element"] $ws09
 assign [class="Signal"] $ws09

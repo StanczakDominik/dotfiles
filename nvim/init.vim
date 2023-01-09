@@ -28,7 +28,7 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
-Plug 'goerz/jupytext.vim'
+" Plug 'goerz/jupytext.vim'
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'honza/vim-snippets'
 Plug 'hrsh7th/nvim-compe'
