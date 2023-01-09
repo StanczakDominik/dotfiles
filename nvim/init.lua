@@ -139,6 +139,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 require('telescope').load_extension('fzf')
 
 require('dap-python').setup('/usr/bin/python')
+require('dap-python').test_runner = 'pytest'
 
 vim.cmd [[
     nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
@@ -150,6 +151,9 @@ vim.cmd [[
     nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
     nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
     nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
+	nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+	nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
+	vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 ]]
 
 require('nvim-treesitter.configs').setup({
