@@ -89,6 +89,19 @@ return require('packer').startup(function(use)
 
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  
+  -- For luasnip users.
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  
+  use "rafamadriz/friendly-snippets"
 
 
   -- You can specify multiple plugins in a single call
