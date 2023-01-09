@@ -135,16 +135,16 @@ workspace $ws18 output eDP-1
 workspace $ws19 output eDP-1
 workspace $ws20 output eDP-1
 
-workspace $ws21 output HDMI-1-0
-workspace $ws22 output HDMI-1-0
-workspace $ws23 output HDMI-1-0
-workspace $ws24 output HDMI-1-0
-workspace $ws25 output HDMI-1-0
-workspace $ws26 output HDMI-1-0
-workspace $ws27 output HDMI-1-0
-workspace $ws28 output HDMI-1-0
-workspace $ws29 output HDMI-1-0
-workspace $ws30 output HDMI-1-0
+workspace $ws21 output HDMI-1-0 HDMI-0
+workspace $ws22 output HDMI-1-0 HDMI-0
+workspace $ws23 output HDMI-1-0 HDMI-0
+workspace $ws24 output HDMI-1-0 HDMI-0
+workspace $ws25 output HDMI-1-0 HDMI-0
+workspace $ws26 output HDMI-1-0 HDMI-0
+workspace $ws27 output HDMI-1-0 HDMI-0
+workspace $ws28 output HDMI-1-0 HDMI-0
+workspace $ws29 output HDMI-1-0 HDMI-0
+workspace $ws30 output HDMI-1-0 HDMI-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws01
@@ -239,7 +239,7 @@ bar {
     verbose no
     position top 
     binding_mode_indicator yes
-    status_command i3blocks -c ~/Code/dotfiles/i3/i3blocks.conf
+    status_command i3blocks -c ~/dotfiles/i3/i3blocks.conf
     colors {
       statusline #ffffff
       background #242424
@@ -249,12 +249,11 @@ bar {
 }
 
 bar {
-    output HDMI-1-0
     output HDMI-0
     strip_workspace_name no
     verbose no
     position top 
-    status_command i3blocks -c ~/Code/dotfiles/i3/i3blocks-nonprimary.conf
+    status_command i3blocks -c ~/dotfiles/i3/i3blocks-nonprimary.conf
     colors {
       statusline #ffffff
       background #242424
@@ -397,7 +396,7 @@ bindsym $mod+Control+Right focus output right
 # bindsym F12  [instance="Alacritty" title="Dropdown"] scratchpad show
 # bindsym Control+F12 exec --no-startupid "alacritty --title 'Dropdown' -e /usr/bin/zsh -e '-l' -e '-c' -e 'tmux attach -t yakuake'"
 
-bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
+bindsym $mod+m exec --no-startup-id ~/dotfiles/scripts/i3bartoggle
 
 # for_window [class="^.*"] border pixel 0
 # exec_always $terminal -name scratchpad
@@ -408,7 +407,7 @@ bindsym $mod+m exec --no-startup-id ~/Code/dotfiles/scripts/i3bartoggle
 bindsym F12 exec --no-startup-id alacritty --title "Life is beautiful."
 for_window [title="Life is beautiful."] floating enable
 for_window [title="Life is beautiful."] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
-smart_borders on
-default_border normal
-default_floating_border normal
-hide_edge_borders smart
+# smart_borders on
+# default_border normal
+# default_floating_border normal
+# hide_edge_borders smart

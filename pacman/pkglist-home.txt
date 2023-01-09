@@ -176,7 +176,6 @@ khelpcenter
 kid3
 kio-gdrive
 kitty
-kiwix-desktop
 klick-git
 kmail
 kmymoney
@@ -383,7 +382,6 @@ python-hijri-converter
 python-holidays
 python-humanize
 python-husl
-python-hvplot
 python-hypothesis
 python-i3ipc
 python-icecream

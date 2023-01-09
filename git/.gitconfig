@@ -41,7 +41,6 @@
 	colorMoved = default
   ; tool = vimdiff
 [commit]
-	gpgSign = true
 	verbose = true
 [github]
 	user = StanczakDominik
@@ -73,3 +72,6 @@
 	helper = cache
 [help]
 	autocorrect = 10
+[user]
+	email = stanczakdominik@gmail.com
+	name = Dominik Stańczak-Marikin
