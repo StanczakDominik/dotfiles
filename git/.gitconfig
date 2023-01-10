@@ -41,6 +41,7 @@
 	colorMoved = default
   ; tool = vimdiff
 [commit]
+	gpgSign = false
 	verbose = true
 [github]
 	user = StanczakDominik
@@ -72,6 +73,9 @@
 	helper = cache
 [help]
 	autocorrect = 10
-[user]
-	email = stanczakdominik@gmail.com
-	name = Dominik Stańczak-Marikin
+	[difftool]
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""

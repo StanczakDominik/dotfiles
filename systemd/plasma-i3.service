@@ -3,8 +3,10 @@ Description=Launch Plasma with i3
 Before=plasma-workspace.target
 
 [Service]
+EnvironmentFile=/home/stanczd1/.keysrc
 ExecStart=/usr/bin/i3
 Restart=on-failure
+Slice=session.slice
 
 [Install]
 WantedBy=plasma-workspace.target
