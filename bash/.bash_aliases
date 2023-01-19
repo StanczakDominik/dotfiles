@@ -7,8 +7,6 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
     alias nvim='echo "No nesting!"'
   fi
 fi
-# alias vim=nvim
-# alias vi=nvim
 alias wttr='curl wttr.in/Warsaw'
 alias git-remove-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias git-delete-squashed='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
@@ -121,3 +119,5 @@ alias vimwiki='cd $HOME/Notes/vimwiki; vim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias pacdiff="DIFFPROG='nvim -d' pacdiff"
 alias toggl-today='toggl ls -s $(date -I)'
+
+alias nbx="jupyter nbconvert --execute --to notebook"
