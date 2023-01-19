@@ -63,3 +63,5 @@ tags.lock
 .virtual_documents
 dask-worker-space
 Session.vim
+*.db-shm
+*.db-wal
