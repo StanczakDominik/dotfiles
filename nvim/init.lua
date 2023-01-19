@@ -10,7 +10,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
 -- autocmd FileType make setlocal noexpandtab
--- let NERDTreeHijackNetrw=1 "Make them both live in peace and harmony
 -- runtime ftplugin/man.vimi
 vim.opt.backspace=indent,eol,start
 vim.opt.backupskip:append("*.asc")
@@ -133,7 +132,9 @@ cmp.setup({
 ---
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<C-P>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<C-G>', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 require('telescope').load_extension('fzf')
@@ -157,9 +158,9 @@ vim.cmd [[
 ]]
 
 require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
+  -- highlight = {
+  --   enable = true,
+  -- },
   textobjects = {
     select = {
       enable = true,
@@ -181,7 +182,7 @@ require('nvim-treesitter.configs').setup({
 })
 
 require('toggleterm').setup({
-  open_mapping = '<C-g>',
+  open_mapping = '<leader><C-g>',
   direction = 'horizontal',
   shade_terminals = true
 })
