@@ -6,4 +6,6 @@ if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
 
-source /usr/share/fzf/completion.zsh
+if [ -f "/usr/share/fzf/completion.zsh" ]; then
+    source /usr/share/fzf/completion.zsh
+fi

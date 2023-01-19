@@ -9,8 +9,9 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/dominik/.zshrc'
-source /usr/share/zsh/scripts/zplug/init.zsh
-zplug "Tarrasch/zsh-autoenv"
+if [ -f /usr/share/zsh/scripts/zplug/init.zsh ]; then
+  source /usr/share/zsh/scripts/zplug/init.zsh
+fi
 setopt completealiases
 
 autoload -Uz compinit bashcompinit
@@ -46,7 +47,9 @@ zstyle ':completion:*' rehash true
 
 
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 
 
@@ -69,7 +72,9 @@ export PYTHONBREAKPOINT="pudb.set_trace"
 
 source ~/.zsh_completion
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
-source "/usr/share/fzf/key-bindings.zsh"
+if [ -f  "/usr/share/fzf/key-bindings.zsh" ]; then
+  source "/usr/share/fzf/key-bindings.zsh"
+fi
 # export FZF_DEFAULT_COMMAND='rg -L --files'
 export FZF_DEFAULT_COMMAND='fd --type file --color=always'
 export FZF_DEFAULT_OPTS='--ansi'
@@ -82,7 +87,7 @@ source ~/.bash_aliases
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
-export PATH="$HOME/Code/scripts:$HOME/dotfiles/scripts:$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.7.0/bin"
+export PATH="$HOME/Code/scripts:$HOME/dotfiles/scripts:$HOME/.local/bin:$PATH"
 
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -149,7 +154,6 @@ alias toggle="alacritty-colorscheme -V toggle $LIGHT_COLOR $DARK_COLOR"
 
 
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #compdef toggl
 _toggl() {
   eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)

@@ -1,77 +1,48 @@
+https://github.com/preservim/vim-thematic
+https://github.com/voldikss/vim-translator
+https://github.com/AndrewRadev/linediff.vim
+https://github.com/JuliaEditorSupport/julia-vim
+https://github.com/Konfekt/FastFold
+https://github.com/SidOfc/mkdx
+https://github.com/SirVer/ultisnips
+https://github.com/alemidev/vim-combo
+https://github.com/christoomey/vim-tmux-navigator
+https://github.com/preservim/vimux
+https://github.com/dkarter/bullets.vim
+https://github.com/erietz/vim-terminator
+https://github.com/ferrine/md-img-paste.vim
+https://github.com/gcmt/taboo.vim
+https://github.com/godlygeek/tabular
+https://github.com/goerz/jupytext.vim
+https://github.com/honza/vim-snippets
+https://github.com/jesseleite/vim-agriculture
+https://github.com/kalekundert/vim-coiled-snake
+https://github.com/machakann/vim-highlightedyank
+https://github.com/majutsushi/tagbar
+https://github.com/plasticboy/vim-markdown
+https://github.com/tpope/vim-obsession
+https://github.com/tpope/vim-repeat
+https://github.com/tpope/vim-rhubarb
+https://github.com/ludovicchabant/vim-gutentags
+https://github.com/tpope/vim-sleuth
+https://github.com/tpope/vim-speeddating
+https://github.com/tpope/vim-surround
+https://github.com/vim-airline/vim-airline
+https://github.com/vim-airline/vim-airline-themes
+https://github.com/vim-test/vim-test
+https://github.com/wannesm/wmgraphviz.vim
+https://github.com/whatyouhide/vim-gotham
+https://github.com/yazgoo/unicodemoji
+https://github.com/junegunn/gv.vim
+https://github.com/jalvesaq/zotcite
+https://github.com/dhruvasagar/vim-table-mode
+
 source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts 
-
-Plug 'preservim/vim-thematic'
-Plug 'voldikss/vim-translator'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'Konfekt/FastFold' " limit automatic fold updates
-Plug 'SidOfc/mkdx'
-Plug 'SirVer/ultisnips'
-Plug 'alemidev/vim-combo'
-Plug 'christoomey/vim-tmux-navigator'  " <C-hjkl> to navigate Vim panes and Tmux windows, <C-\> - prev split
-Plug 'preservim/vimux'
-Plug 'dkarter/bullets.vim'
-Plug 'erietz/vim-terminator'
-Plug 'ferrine/md-img-paste.vim'
-Plug 'gcmt/taboo.vim'
-Plug 'godlygeek/tabular'
-" Plug 'goerz/jupytext.vim'
-" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
-Plug 'honza/vim-snippets'
-" Plug 'jamessan/vim-gnupg'   " Transparent editing of gnupg-encrypted files
-Plug 'jesseleite/vim-agriculture'
-Plug 'kalekundert/vim-coiled-snake' " Automatic folding of python code
-Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
-Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-obsession'
-" Plug 'dhruvasagar/vim-prosession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'        
-Plug 'ludovicchabant/vim-gutentags'               " Automatic tags management
-Plug 'tpope/vim-sleuth'           
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'                  " ]l jumps, etc
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-test/vim-test'
-Plug 'wannesm/wmgraphviz.vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'yazgoo/unicodemoji'
-Plug 'junegunn/gv.vim'
-Plug 'jalvesaq/zotcite'
-Plug 'dhruvasagar/vim-table-mode'
-
-call plug#end()
-
-source ~/.config/nvim/airline.vim
-source ~/.config/nvim/compe.vim
 source ~/.config/nvim/goyo.vim
-" source ~/.config/nvim/gpg.vim
-source ~/.config/nvim/julia.vim
-source ~/.config/nvim/latex.vim
-source ~/.config/nvim/learn-vim.vim
-source ~/.config/nvim/limelight.vim
-source ~/.config/nvim/lsp.vim
-source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/multilingua.vim
 source ~/.config/nvim/plugin-config/highlights.vim
 source ~/.config/nvim/plugin-config/start-screen.vim
-source ~/.config/nvim/preferred-editor.vim
-source ~/.config/nvim/python.vim
-source ~/.config/nvim/test.vim
-source ~/.config/nvim/ultisnips.vim
-source ~/.config/nvim/window-switching.vim
 source ~/.config/nvim/fzf.vim
-" source ~/.config/nvim/thematic.vim
-source ~/.config/nvim/gutentags.vim
-source ~/.config/nvim/git.vim
-source ~/.config/nvim/gitsigns.vim
-source ~/.config/nvim/dap.vim
-source ~/.config/nvim/neotree.vim
 
-let $ZoteroSQLpath = '~/Zotero/zotero.sqlite'
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif

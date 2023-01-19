@@ -1,3 +1,5 @@
 # environment variables accessible to scripts as well
 source ~/.keysrc
-source ~/.bashrc_local
+if [ -f "~/.bashrc_local" ]; then
+    source ~/.bashrc_local
+fi

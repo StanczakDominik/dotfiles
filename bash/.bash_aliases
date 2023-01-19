@@ -119,5 +119,8 @@ alias vimwiki='cd $HOME/Notes/vimwiki; vim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias pacdiff="DIFFPROG='nvim -d' pacdiff"
 alias toggl-today='toggl ls -s $(date -I)'
-
 alias nbx="jupyter nbconvert --execute --to notebook"
+LOCAL_ALIASES="~/.aliases_local"
+if [ -f "$LOCAL_ALIASES" ]; then
+    source $LOCAL_ALIASES
+fi

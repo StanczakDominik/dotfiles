@@ -52,6 +52,8 @@ bindsym $mod+l focus right
 
 bindsym $mod+Left workspace prev_on_output
 bindsym $mod+Right workspace next_on_output
+# bindsym $mod+Left focus output left
+# bindsym $mod+Right focus output right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -61,6 +63,8 @@ bindsym $mod+Shift+l move right
 
 bindsym $mod+Shift+Left move container to workspace prev_on_output
 bindsym $mod+Shift+Right move container to workspace next_on_output
+# bindsym $mod+Shift+Left move container to output left
+# bindsym $mod+Shift+Right move container to output right
 
 # split in horizontal orientation
 # bindsym $mod+h split h
@@ -239,7 +243,7 @@ bar {
     verbose no
     position top 
     binding_mode_indicator yes
-    status_command i3blocks -c ~/dotfiles/i3/i3blocks.conf
+    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-`hostname`-1.conf | tee /tmp/i3blocks.out
     colors {
       statusline #ffffff
       background #242424
@@ -249,11 +253,13 @@ bar {
 }
 
 bar {
+    output HDMI-1-0
+    output HDMI-1
     output HDMI-0
     strip_workspace_name no
     verbose no
     position top 
-    status_command i3blocks -c ~/dotfiles/i3/i3blocks-nonprimary.conf
+    status_command i3blocks -c ~/dotfiles/i3/i3blocks-`hostname`-2.conf
     colors {
       statusline #ffffff
       background #242424
@@ -320,6 +326,10 @@ no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
+gaps outer 20
+gaps inner 10
+gaps vertical 10
+gaps horizontal 10
 
 title_align center
 
@@ -343,8 +353,6 @@ assign [title="Obsidian"] $ws04
 
 assign [class="Zotero"] $ws05
 assign [class="com.github.johnfactotum.Foliate"] $ws05
-
-assign [class="anki"] $ws06
 
 assign [class="lutris"] $ws07
 assign [class="steam"] $ws07
@@ -370,6 +378,9 @@ for_window [class="scrcpy"] floating enable
 for_window [title="Vimjournal"] floating enable
 for_window [title="Vimwiki"] floating enable
 
+
+
+hide_edge_borders both
 # for_window [title="User 1 - Anki"] focus; split h; layout stacked
 
 bindsym $mod+g sticky toggle
@@ -385,33 +396,54 @@ focus_on_window_activation urgent
 bindsym $mod+Control+Left focus output left
 bindsym $mod+Control+Right focus output right
 
-# # Add this to your i3 config (~/.config/i3/config) and restart i3 (Super+Shift+R)
-# exec --no-startup-id "alacritty"
-# for_window [class="Alacritty"] move scratchpad, move position 150 150, resize set 1700 800;
-# bindsym Mod1+space [class="Alacritty"] scratchpad show;
-
-
-# Scratchpad terminal.
-# https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
-# Using a custom title string with criteria is deliberate and keeps things simple.
-# exec --no-startup-id alacritty --title "Dropdown" -e /usr/bin/zsh -e '-l' -e '-c' -e "tmux attach -t yakuake"
-# for_window [instance="Dropdown"] floating enable;
-# for_window [instance="Dropdown"] move scratchpad; [instance="Dropdown"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
-# bindsym F12  [instance="Alacritty" title="Dropdown"] scratchpad show
-# bindsym Control+F12 exec --no-startupid "alacritty --title 'Dropdown' -e /usr/bin/zsh -e '-l' -e '-c' -e 'tmux attach -t yakuake'"
-
 bindsym $mod+m exec --no-startup-id ~/dotfiles/scripts/i3bartoggle
 
-# for_window [class="^.*"] border pixel 0
-# exec_always $terminal -name scratchpad
-# for_window [title="^scratchpad$"] border pixel 3, move scratchpad
-# for_window [title="^scratchpad$"] scratchpad show, move position 0px 24px, resize shrink height 350px, resize grow width 960px, move scratchpad
-#
-# 
 bindsym F12 exec --no-startup-id alacritty --title "Life is beautiful."
 for_window [title="Life is beautiful."] floating enable
 for_window [title="Life is beautiful."] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
-# smart_borders on
-# default_border normal
-# default_floating_border normal
-# hide_edge_borders smart
+smart_borders no_gaps
+default_border normal
+default_floating_border normal
+hide_edge_borders none
+smart_gaps inverse_outer
+
+workspace $ws11 gaps inner 0 
+workspace $ws11 gaps outer 0 
+workspace $ws12 gaps inner 0 
+workspace $ws12 gaps outer 0 
+workspace $ws13 gaps inner 0 
+workspace $ws13 gaps outer 0 
+workspace $ws14 gaps inner 0 
+workspace $ws14 gaps outer 0 
+workspace $ws15 gaps inner 0 
+workspace $ws15 gaps outer 0 
+workspace $ws16 gaps inner 0 
+workspace $ws16 gaps outer 0 
+workspace $ws17 gaps inner 0 
+workspace $ws17 gaps outer 0 
+workspace $ws18 gaps inner 0 
+workspace $ws18 gaps outer 0 
+workspace $ws19 gaps inner 0 
+workspace $ws19 gaps outer 0 
+workspace $ws20 gaps inner 0 
+workspace $ws20 gaps outer 0 
+workspace $ws21 gaps inner 0 
+workspace $ws21 gaps outer 0 
+workspace $ws22 gaps inner 0 
+workspace $ws22 gaps outer 0 
+workspace $ws23 gaps inner 0 
+workspace $ws23 gaps outer 0 
+workspace $ws24 gaps inner 0 
+workspace $ws24 gaps outer 0 
+workspace $ws25 gaps inner 0 
+workspace $ws25 gaps outer 0 
+workspace $ws26 gaps inner 0 
+workspace $ws26 gaps outer 0 
+workspace $ws27 gaps inner 0 
+workspace $ws27 gaps outer 0 
+workspace $ws28 gaps inner 0 
+workspace $ws28 gaps outer 0 
+workspace $ws29 gaps inner 0 
+workspace $ws29 gaps outer 0 
+workspace $ws30 gaps inner 0 
+workspace $ws30 gaps outer 0 
