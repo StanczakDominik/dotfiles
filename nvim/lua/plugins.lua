@@ -151,7 +151,7 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim',
 	  run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
   }
-  -- use 'ActivityWatch/aw-watcher-vim'
+  use 'ActivityWatch/aw-watcher-vim'
 
   use 'ericbn/vim-solarized'
   use 'folke/which-key.nvim'
@@ -196,6 +196,11 @@ return require('packer').startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'akinsho/toggleterm.nvim'
+  require("nvim-treesitter.configs").setup({
+	  highlight = {
+		enable = true,
+	  },
+	})
 
   
 
@@ -204,4 +209,20 @@ return require('packer').startup(function(use)
 
   -- You can alias plugin names
   -- use {'dracula/vim', as = 'dracula'}
+  --
+  use {
+    "epwalsh/obsidian.nvim",
+	config = function()
+		require("obsidian").setup({
+			dir = "~/Notes",
+			completion = {
+				nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+			},
+			daily_notes = {
+				"01_Osobiste/dziennik/daily",
+			},
+			use_advanced_uri = true,
+			})
+		end
+		}
 end)

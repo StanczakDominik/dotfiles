@@ -158,9 +158,10 @@ vim.cmd [[
 ]]
 
 require('nvim-treesitter.configs').setup({
-  -- highlight = {
-  --   enable = true,
-  -- },
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = { "markdown" },
+	},
   textobjects = {
     select = {
       enable = true,
@@ -178,6 +179,8 @@ require('nvim-treesitter.configs').setup({
     'css',
     'json',
     'lua',
+	"markdown",
+	"markdown_inline",
   },
 })
 
@@ -186,3 +189,16 @@ require('toggleterm').setup({
   direction = 'horizontal',
   shade_terminals = true
 })
+
+vim.keymap.set(
+  "n",
+  "gf",
+  function()
+    if require('obsidian').util.cursor_on_markdown_link() then
+      return "<cmd>ObsidianFollowLink<CR>"
+    else
+      return "gf"
+    end
+  end,
+  { noremap = false, expr = true}
+)
