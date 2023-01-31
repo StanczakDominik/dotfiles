@@ -236,38 +236,7 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    output eDP-1
-    output eDP-1-1
-    strip_workspace_name no
-    verbose no
-    position top 
-    binding_mode_indicator yes
-    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-`hostname`-1.conf | tee /tmp/i3blocks.out
-    colors {
-      statusline #ffffff
-      background #242424
-    }
-    tray_output none
-    # font pango:DejaVu Sans Mono 12
-}
-
-bar {
-    output HDMI-1-0
-    output HDMI-1
-    output HDMI-0
-    strip_workspace_name no
-    verbose no
-    position top 
-    tray_output none
-	mode hide
-    status_command i3blocks -c ~/dotfiles/i3/i3blocks-`hostname`-2.conf
-    colors {
-      statusline #ffffff
-      background #242424
-    }
-}
-
+include ~/dotfiles/i3/bar-setting.include
 
 # exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
 exec_always "setxkbmap pl"
