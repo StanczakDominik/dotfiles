@@ -65,3 +65,4 @@ dask-worker-space
 Session.vim
 *.db-shm
 *.db-wal
+.run
