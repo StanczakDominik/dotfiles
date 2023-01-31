@@ -139,16 +139,16 @@ workspace $ws18 output eDP-1
 workspace $ws19 output eDP-1
 workspace $ws20 output eDP-1
 
-workspace $ws21 output HDMI-1-0 HDMI-0
-workspace $ws22 output HDMI-1-0 HDMI-0
-workspace $ws23 output HDMI-1-0 HDMI-0
-workspace $ws24 output HDMI-1-0 HDMI-0
-workspace $ws25 output HDMI-1-0 HDMI-0
-workspace $ws26 output HDMI-1-0 HDMI-0
-workspace $ws27 output HDMI-1-0 HDMI-0
-workspace $ws28 output HDMI-1-0 HDMI-0
-workspace $ws29 output HDMI-1-0 HDMI-0
-workspace $ws30 output HDMI-1-0 HDMI-0
+workspace $ws21 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws22 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws23 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws24 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws25 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws26 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws27 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws28 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws29 output HDMI-1-0 HDMI-0 HDMI-1
+workspace $ws30 output HDMI-1-0 HDMI-0 HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws01
@@ -259,12 +259,13 @@ bar {
     strip_workspace_name no
     verbose no
     position top 
+    tray_output none
+	mode hide
     status_command i3blocks -c ~/dotfiles/i3/i3blocks-`hostname`-2.conf
     colors {
       statusline #ffffff
       background #242424
     }
-    tray_output none
 }
 
 
