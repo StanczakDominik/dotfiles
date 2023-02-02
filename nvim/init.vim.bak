@@ -37,7 +37,7 @@ https://github.com/junegunn/gv.vim
 https://github.com/jalvesaq/zotcite
 https://github.com/dhruvasagar/vim-table-mode
 
-source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts 
+source ~/.config/nvim/markdown.vim "here due to mkdx/polyglot conflicts
 source ~/.config/nvim/goyo.vim
 source ~/.config/nvim/plugin-config/highlights.vim
 source ~/.config/nvim/plugin-config/start-screen.vim

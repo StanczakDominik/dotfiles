@@ -36,4 +36,3 @@ require('lspconfig')['sumneko_lua'].setup({
 })
 
 require('lsp_mappings2')
-

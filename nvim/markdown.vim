@@ -1,4 +1,4 @@
-" markdown folding https://vi.stackexchange.com/questions/9543/how-to-fold-markdown-using-the-built-in-markdown-mode 
+" markdown folding https://vi.stackexchange.com/questions/9543/how-to-fold-markdown-using-the-built-in-markdown-mode
 autocmd BufRead,BufNewFile *.txt set filetype=markdown
 
 let g:vim_markdown_math = 1
@@ -80,7 +80,7 @@ let g:mkdx#settings     = {
                 \ 'conceal': 1,
                 \ },
             \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
-            \ 'fold': { 'enable': 1 } 
+            \ 'fold': { 'enable': 1 }
             \ }
 let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
                                        " plugin which unfortunately interferes with mkdx list indentation.

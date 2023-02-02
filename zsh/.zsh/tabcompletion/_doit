@@ -34,18 +34,18 @@ _doit() {
     # complete sub-command or task options
     local -a _command_args
     case "$words[1]" in
-        
+
       (auto)
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
             "(-k|--seek-file)"{-k,--seek-file}"[seek dodo file on parent folders [default: %(default)s\]]" \
             "(-v|--verbosity)"{-v,--verbosity}"[0 capture (do not print) stdout/stderr from task. 1 capture stdout only. 2 do not capture anything (print everything immediately). [default: 1\]]" \
-            
+
             "--success[]" \
             "--failure[]" \
             '*::task:(($tasks))'
@@ -58,7 +58,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -85,7 +85,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -101,7 +101,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -117,7 +117,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -132,7 +132,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -148,7 +148,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -170,7 +170,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -185,7 +185,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -211,7 +211,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \
@@ -228,7 +228,7 @@ _doit() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-f|--file)"{-f,--file}"[load task from dodo FILE [default: %(default)s\]]" \
             "(-d|--dir)"{-d,--dir}"[set path to be used as cwd directory (file paths on dodo file are relative to dodo.py location).]" \

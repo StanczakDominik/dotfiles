@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-    -- Lists all the references 
+    -- Lists all the references
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
     -- Displays a function's signature information

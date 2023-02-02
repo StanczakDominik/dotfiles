@@ -67,9 +67,9 @@ for item in items_due_friday:
     indent += 1
     print(current_indent, "*", item['content'])
     current_indent = indent * 4 * " "
-    
+
     has_next_step = False
-    has_next_step_due_by_Friday = False    
+    has_next_step_due_by_Friday = False
     for child in get_all_children(item):
         if child['checked']:
             checkmark = "X"

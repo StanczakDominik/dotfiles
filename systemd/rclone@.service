@@ -2,7 +2,7 @@
 #
 # Place in ~/.config/systemd/user/
 # File must include the '@' (ex rclone@.service)
-# As your normal user, run 
+# As your normal user, run
 #   systemctl --user daemon-reload
 # You can now start/enable each remote by using rclone@<remote>
 #   systemctl --user enable rclone@dropbox
@@ -12,7 +12,7 @@
 Description=rclone: Remote FUSE filesystem for cloud storage config %i
 Documentation=man:rclone(1)
 After=network-online.target
-Wants=network-online.target 
+Wants=network-online.target
 AssertPathIsDirectory=%h/mnt/%i
 
 [Service]

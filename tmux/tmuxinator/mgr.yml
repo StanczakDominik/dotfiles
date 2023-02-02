@@ -46,7 +46,7 @@ root: ~/Code/PlasmaPy
 
 windows:
   - editor: nvim -c "SLoad mgr"
-  - pytest: 
+  - pytest:
       root: ~/Code/fortran
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.

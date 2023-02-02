@@ -24,7 +24,7 @@ def grab_token():
     r = requests.get('{}/oauth/v2/token'.format(HOST), gettoken)
     access = r.json().get('access_token')
     return access
-    
+
 def get_domain(url):
     parsed_uri = urlparse(url)
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
@@ -42,7 +42,7 @@ def get_scihub_links(df, commit=False, download_links = False, wait_time_max = 0
     scihub_articles = pandas.concat(journal_dfs)
     if download_links:
         sh = SciHub()
-            
+
     if not scihub_articles.empty:
         for index, item in tqdm(scihub_articles.iterrows()):
             url = item.given_url

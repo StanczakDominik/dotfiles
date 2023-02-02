@@ -50,4 +50,3 @@ source ~/.bashrc_local
 run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE"; }
 bind -m vi-insert -x '"\eh": run-help'
 bind -m emacs -x     '"\eh": run-help'
-

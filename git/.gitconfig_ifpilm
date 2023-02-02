@@ -15,10 +15,10 @@
 [core]
 	excludesfile = /home/dominik/.gitignore_global
 	editor = vim
-[url "git@github.com:"]                                                         
-    insteadOf = "gh:"                                                           
-[url "git@gitlab.com:"]                                                         
-    insteadOf = "gl:"    
+[url "git@github.com:"]
+    insteadOf = "gh:"
+[url "git@gitlab.com:"]
+    insteadOf = "gl:"
 [merge]
 	conflictstyle = diff3
         tool = vimdiff

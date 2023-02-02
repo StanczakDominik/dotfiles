@@ -53,7 +53,7 @@ _nikola() {
     # complete sub-command or task options
     local -a _command_args
     case "$words[1]" in
-        
+
       (auto)
           _command_args=(
             "(-p|--port)"{-p,--port}"[Port number (default: 8000)]" \
@@ -70,7 +70,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-a|--always-execute)"{-a,--always-execute}"[always execute tasks even if up-to-date [default: %(default)s\]]" \
             "(-c|--continue)"{-c,--continue}"[continue executing tasks even after a failure [default: %(default)s\]]" \
@@ -109,7 +109,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-c|--clean-dep)"{-c,--clean-dep}"[clean task dependencies too]" \
             "(-a|--clean-all)"{-a,--clean-all}"[clean all task]" \
@@ -134,7 +134,7 @@ _nikola() {
 
       (default_config)
           _command_args=(
-            
+
             ''
         )
       ;;
@@ -142,7 +142,7 @@ _nikola() {
 
       (deploy)
           _command_args=(
-            
+
             ''
         )
       ;;
@@ -152,10 +152,10 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-v|--verbosity)"{-v,--verbosity}"[0 capture (do not print) stdout/stderr from task. 1 capture stdout only. 2 do not capture anything (print everything immediately). [default: 1\]]" \
-            
+
             "--success[]" \
             "--failure[]" \
             '*::task:(($tasks))'
@@ -176,7 +176,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-s|--follow-sub)"{-s,--follow-sub}"[forget task dependencies too]" \
             '*::task:(($tasks))'
@@ -197,7 +197,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             '*::task:(($tasks))'
             '::cmd:(($commands))'
@@ -210,7 +210,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             '*::task:(($tasks))'
             ''
@@ -247,7 +247,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "--no-status[Hides reasons why this task would be executed.  [default: %(default)s\]]" \
             '*::task:(($tasks))'
@@ -269,7 +269,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "--all[list include all sub-tasks from dodo file]" \
             "(-q|--quiet)"{-q,--quiet}"[print just task name (less verbose than default)]" \
@@ -320,7 +320,7 @@ _nikola() {
 
       (orphans)
           _command_args=(
-            
+
             ''
         )
       ;;
@@ -344,7 +344,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             '*::task:(($tasks))'
             ''
@@ -354,7 +354,7 @@ _nikola() {
 
       (rst2html)
           _command_args=(
-            
+
             ''
         )
       ;;
@@ -364,7 +364,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-a|--always-execute)"{-a,--always-execute}"[always execute tasks even if up-to-date [default: %(default)s\]]" \
             "(-c|--continue)"{-c,--continue}"[continue executing tasks even after a failure [default: %(default)s\]]" \
@@ -411,7 +411,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-a|--all)"{-a,--all}"[display all files (not only from within CWD path)]" \
             "--keep[save strace command output into strace.txt]" \
@@ -435,7 +435,7 @@ _nikola() {
           _command_args=(
             "--db-file[file used to save successful runs [default: %(default)s\]]" \
             "--backend[Select dependency file backend. [default: %(default)s\]]" \
-            
+
             "--check_file_uptodate[Choose how to check if files have been modified. Available options [default: %(default)s\]:   'md5': use the md5sum   'timestamp': use the timestamp ]" \
             "(-s|--shell)"{-s,--shell}"[Completion code for SHELL. [default: %(default)s\]]" \
             "--hardcode-tasks[Hardcode tasks from current task list.]" \

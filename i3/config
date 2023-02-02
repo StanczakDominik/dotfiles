@@ -26,7 +26,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Helvetica Neue, FontAwesome 11
- 
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 10
@@ -244,7 +244,7 @@ include ~/dotfiles/i3/bar-setting.include
 exec_always "setxkbmap pl"
 
 ## Pulse Audio controls
-## 
+##
 #bindsym XF86AudioMute exec amixer sset 'Master' toggle
 #bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 #bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
@@ -383,43 +383,43 @@ workspace $ws04 gaps inner 0
 workspace $ws04 gaps horizontal 400
 workspace $ws04 gaps vertical 20
 
-workspace $ws11 gaps inner 0 
-workspace $ws11 gaps outer 0 
-workspace $ws12 gaps inner 0 
-workspace $ws12 gaps outer 0 
-workspace $ws13 gaps inner 0 
-workspace $ws13 gaps outer 0 
-workspace $ws14 gaps inner 0 
-workspace $ws14 gaps outer 0 
-workspace $ws15 gaps inner 0 
-workspace $ws15 gaps outer 0 
-workspace $ws16 gaps inner 0 
-workspace $ws16 gaps outer 0 
-workspace $ws17 gaps inner 0 
-workspace $ws17 gaps outer 0 
-workspace $ws18 gaps inner 0 
-workspace $ws18 gaps outer 0 
-workspace $ws19 gaps inner 0 
-workspace $ws19 gaps outer 0 
-workspace $ws20 gaps inner 0 
-workspace $ws20 gaps outer 0 
-workspace $ws21 gaps inner 0 
-workspace $ws21 gaps outer 0 
-workspace $ws22 gaps inner 0 
-workspace $ws22 gaps outer 0 
-workspace $ws23 gaps inner 0 
-workspace $ws23 gaps outer 0 
-workspace $ws24 gaps inner 0 
-workspace $ws24 gaps outer 0 
-workspace $ws25 gaps inner 0 
-workspace $ws25 gaps outer 0 
-workspace $ws26 gaps inner 0 
-workspace $ws26 gaps outer 0 
-workspace $ws27 gaps inner 0 
-workspace $ws27 gaps outer 0 
-workspace $ws28 gaps inner 0 
-workspace $ws28 gaps outer 0 
-workspace $ws29 gaps inner 0 
-workspace $ws29 gaps outer 0 
-workspace $ws30 gaps inner 0 
-workspace $ws30 gaps outer 0 
+workspace $ws11 gaps inner 0
+workspace $ws11 gaps outer 0
+workspace $ws12 gaps inner 0
+workspace $ws12 gaps outer 0
+workspace $ws13 gaps inner 0
+workspace $ws13 gaps outer 0
+workspace $ws14 gaps inner 0
+workspace $ws14 gaps outer 0
+workspace $ws15 gaps inner 0
+workspace $ws15 gaps outer 0
+workspace $ws16 gaps inner 0
+workspace $ws16 gaps outer 0
+workspace $ws17 gaps inner 0
+workspace $ws17 gaps outer 0
+workspace $ws18 gaps inner 0
+workspace $ws18 gaps outer 0
+workspace $ws19 gaps inner 0
+workspace $ws19 gaps outer 0
+workspace $ws20 gaps inner 0
+workspace $ws20 gaps outer 0
+workspace $ws21 gaps inner 0
+workspace $ws21 gaps outer 0
+workspace $ws22 gaps inner 0
+workspace $ws22 gaps outer 0
+workspace $ws23 gaps inner 0
+workspace $ws23 gaps outer 0
+workspace $ws24 gaps inner 0
+workspace $ws24 gaps outer 0
+workspace $ws25 gaps inner 0
+workspace $ws25 gaps outer 0
+workspace $ws26 gaps inner 0
+workspace $ws26 gaps outer 0
+workspace $ws27 gaps inner 0
+workspace $ws27 gaps outer 0
+workspace $ws28 gaps inner 0
+workspace $ws28 gaps outer 0
+workspace $ws29 gaps inner 0
+workspace $ws29 gaps outer 0
+workspace $ws30 gaps inner 0
+workspace $ws30 gaps outer 0

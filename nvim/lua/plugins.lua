@@ -149,7 +149,7 @@ return require('packer').startup(function(use)
   }
 
   use {'nvim-telescope/telescope-fzf-native.nvim',
-	  run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+	  run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
   use 'ActivityWatch/aw-watcher-vim'
 
@@ -202,7 +202,7 @@ return require('packer').startup(function(use)
 	  },
 	})
 
-  
+
 
   -- You can specify multiple plugins in a single call
   -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
