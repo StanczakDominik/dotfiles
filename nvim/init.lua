@@ -11,7 +11,7 @@ vim.opt.expandtab = false
 
 -- autocmd FileType make setlocal noexpandtab
 -- runtime ftplugin/man.vimi
-vim.opt.backspace=indent,eol,start
+vim.opt.backspace='indent,eol,start'
 vim.opt.backupskip:append("*.asc")
 vim.opt.completeopt={'menu','menuone','noselect'}
 vim.opt.foldmethod='syntax'
@@ -29,7 +29,7 @@ vim.opt.title = true
 -- vim.opt.viminfo+=n$HOME/.config/nvim/files/info
 -- vim.opt.viminfo='100,n$HOME/.config/nvim/files/info'
 vim.opt.wildmenu = true
-vim.g.mapleader = ' '
+-- vim.g.mapleader = '\\'
 
 require('plugins')
 
