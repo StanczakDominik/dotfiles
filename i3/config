@@ -379,6 +379,10 @@ default_floating_border normal
 hide_edge_borders none
 smart_gaps inverse_outer
 
+workspace $ws04 gaps inner 0
+workspace $ws04 gaps horizontal 400
+workspace $ws04 gaps vertical 20
+
 workspace $ws11 gaps inner 0 
 workspace $ws11 gaps outer 0 
 workspace $ws12 gaps inner 0 
