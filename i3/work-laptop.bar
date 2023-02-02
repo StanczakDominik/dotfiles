@@ -3,7 +3,7 @@ bar {
     output eDP-1-1
     strip_workspace_name no
     verbose no
-    position top
+    position top 
     binding_mode_indicator yes
     status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-archlinux-1.conf | tee /tmp/i3blocks.out
     colors {
@@ -20,8 +20,10 @@ bar {
     output HDMI-0
     strip_workspace_name no
     verbose no
-    position top
-    status_command i3blocks -c ~/dotfiles/i3/i3blocks-archlinux-2.conf
+    position top 
+    tray_output none
+	mode hide
+    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-rwauwprlc0105-1.conf-1.conf | tee /tmp/i3blocks.out
     colors {
       statusline #ffffff
       background #242424
