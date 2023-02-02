@@ -1,0 +1,4 @@
+# use:
+# 	git config blame.ignoreRevsFile .git-blame-ignore-revs
+# pre-commit
+53cedd4020a120e2f3eac73b10d143255832c0c0
