@@ -5,7 +5,7 @@ bar {
     verbose no
     position top 
     binding_mode_indicator yes
-    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-archlinux-1.conf | tee /tmp/i3blocks.out
+    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-rwauwprlc0105-1.conf | tee /tmp/i3blocks.out
     colors {
       statusline #ffffff
       background #242424
@@ -23,7 +23,7 @@ bar {
     position top 
     tray_output none
 	mode hide
-    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-rwauwprlc0105-1.conf-1.conf | tee /tmp/i3blocks.out
+    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-rwauwprlc0105-2.conf | tee /tmp/i3blocks.out
     colors {
       statusline #ffffff
       background #242424
