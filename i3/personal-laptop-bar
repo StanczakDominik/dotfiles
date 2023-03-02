@@ -26,4 +26,5 @@ bar {
       statusline #ffffff
       background #242424
     }
+    tray_output none
 }

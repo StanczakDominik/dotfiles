@@ -279,7 +279,9 @@ for_window [window_role="task_dialog"] floating enable
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
-for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+# for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+# for_window [class="plasmashell" window_type="notification"] border none, move position 700 ppt 810 ppt
+for_window [class="plasmashell" window_type="notification"] border none, move right 40ppt, move down 40ppt
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
@@ -327,6 +329,7 @@ assign [class="com.github.johnfactotum.Foliate"] $ws05
 assign [class="lutris"] $ws07
 assign [class="steam"] $ws07
 assign [class="factorio"] $ws07
+assign [class="beyond-all-reason"] $ws07
 
 assign [class="keepassxc"] $ws08
 
