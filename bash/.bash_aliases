@@ -1,5 +1,5 @@
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias youtube-mp3='youtube-dl -x --audio-format=mp3 --audio-quality=0 --embed-thumbnail --add-metadata'
+alias youtube-mp3='yt-dlp -x --audio-format=mp3 --audio-quality=0 --embed-thumbnail --add-metadata'
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   if [ -x "$(command -v nvr)" ]; then
     alias nvim=nvr
