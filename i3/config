@@ -298,10 +298,21 @@ no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
-gaps outer 20
-gaps inner 10
 gaps vertical 10
 gaps horizontal 10
+smart_borders no_gaps
+smart_gaps inverse_outer
+gaps inner 10
+gaps outer 4
+
+set $mode_gaps Toggle gaps: (1) on (2) off
+bindsym $mod+Shift+G mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set 10, gaps outer all set 4
+    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 title_align center
 
@@ -374,53 +385,51 @@ bindsym $mod+m exec --no-startup-id ~/dotfiles/scripts/i3bartoggle
 bindsym F12 exec --no-startup-id alacritty --title "Scratchpad"
 for_window [title="Scratchpad"] floating enable
 for_window [title="Scratchpad"] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
-smart_borders no_gaps
 default_border normal
 default_floating_border normal
 hide_edge_borders none
-smart_gaps inverse_outer
 
 # workspace $ws04 gaps inner 0
 # workspace $ws04 gaps horizontal 400
 # workspace $ws04 gaps vertical 20
 #
-workspace $ws11 gaps inner 0
-workspace $ws11 gaps outer 0
-workspace $ws12 gaps inner 0
-workspace $ws12 gaps outer 0
-workspace $ws13 gaps inner 0
-workspace $ws13 gaps outer 0
-workspace $ws14 gaps inner 0
-workspace $ws14 gaps outer 0
-workspace $ws15 gaps inner 0
-workspace $ws15 gaps outer 0
-workspace $ws16 gaps inner 0
-workspace $ws16 gaps outer 0
-workspace $ws17 gaps inner 0
-workspace $ws17 gaps outer 0
-workspace $ws18 gaps inner 0
-workspace $ws18 gaps outer 0
-workspace $ws19 gaps inner 0
-workspace $ws19 gaps outer 0
-workspace $ws20 gaps inner 0
-workspace $ws20 gaps outer 0
-workspace $ws21 gaps inner 0
-workspace $ws21 gaps outer 0
-workspace $ws22 gaps inner 0
-workspace $ws22 gaps outer 0
-workspace $ws23 gaps inner 0
-workspace $ws23 gaps outer 0
-workspace $ws24 gaps inner 0
-workspace $ws24 gaps outer 0
-workspace $ws25 gaps inner 0
-workspace $ws25 gaps outer 0
-workspace $ws26 gaps inner 0
-workspace $ws26 gaps outer 0
-workspace $ws27 gaps inner 0
-workspace $ws27 gaps outer 0
-workspace $ws28 gaps inner 0
-workspace $ws28 gaps outer 0
-workspace $ws29 gaps inner 0
-workspace $ws29 gaps outer 0
-workspace $ws30 gaps inner 0
-workspace $ws30 gaps outer 0
+# workspace $ws11 gaps inner 0
+# workspace $ws11 gaps outer 0
+# workspace $ws12 gaps inner 0
+# workspace $ws12 gaps outer 0
+# workspace $ws13 gaps inner 0
+# workspace $ws13 gaps outer 0
+# workspace $ws14 gaps inner 0
+# workspace $ws14 gaps outer 0
+# workspace $ws15 gaps inner 0
+# workspace $ws15 gaps outer 0
+# workspace $ws16 gaps inner 0
+# workspace $ws16 gaps outer 0
+# workspace $ws17 gaps inner 0
+# workspace $ws17 gaps outer 0
+# workspace $ws18 gaps inner 0
+# workspace $ws18 gaps outer 0
+# workspace $ws19 gaps inner 0
+# workspace $ws19 gaps outer 0
+# workspace $ws20 gaps inner 0
+# workspace $ws20 gaps outer 0
+# workspace $ws21 gaps inner 0
+# workspace $ws21 gaps outer 0
+# workspace $ws22 gaps inner 0
+# workspace $ws22 gaps outer 0
+# workspace $ws23 gaps inner 0
+# workspace $ws23 gaps outer 0
+# workspace $ws24 gaps inner 0
+# workspace $ws24 gaps outer 0
+# workspace $ws25 gaps inner 0
+# workspace $ws25 gaps outer 0
+# workspace $ws26 gaps inner 0
+# workspace $ws26 gaps outer 0
+# workspace $ws27 gaps inner 0
+# workspace $ws27 gaps outer 0
+# workspace $ws28 gaps inner 0
+# workspace $ws28 gaps outer 0
+# workspace $ws29 gaps inner 0
+# workspace $ws29 gaps outer 0
+# workspace $ws30 gaps inner 0
+# workspace $ws30 gaps outer 0
