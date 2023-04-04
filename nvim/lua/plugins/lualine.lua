@@ -15,6 +15,23 @@ return
     end
 
     return {
+				winbar = {
+					lualine_a = {"mode"},
+					lualine_b = {},
+					lualine_c = {'filename'},
+					lualine_x = {},
+					lualine_y = {},
+					lualine_z = {}
+				},
+
+				inactive_winbar = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = {'filename'},
+					lualine_x = {},
+					lualine_y = {},
+					lualine_z = {}
+				},
       options = {
         theme = "auto",
         globalstatus = true,
@@ -22,7 +39,7 @@ return
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = { "FugitiveHead" },
         lualine_c = {
           {
             "diagnostics",
@@ -74,7 +91,7 @@ return
           end,
         },
       },
-      extensions = { "neo-tree" },
+      extensions = { "neo-tree", "quickfix", "fzf", "fugitive", "trouble" },
     }
   end,
 }

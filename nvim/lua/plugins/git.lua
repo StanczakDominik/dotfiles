@@ -1,5 +1,6 @@
 return {
-     'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
+	"tpope/vim-fugitive",
+	{'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
      config = function() require('gitsigns').setup({
  	  on_attach = function(bufnr)
  		local gs = package.loaded.gitsigns
@@ -41,4 +42,4 @@ return {
  	  end
  	  })
    end
-   }
+   }}
