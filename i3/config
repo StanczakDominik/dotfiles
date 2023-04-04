@@ -97,14 +97,14 @@ bindsym $mod+c focus child
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws01 "1: left screen"
-set $ws02 "2: workL"
-set $ws03 "3: workR"
+set $ws02 "2: work"
+set $ws03 "3: tinker"
 set $ws04 "4: notes"
-set $ws05 "5: reading"
+set $ws05 "5: docs"
 set $ws06 "6: anki"
 set $ws07 "7: breaks"
-set $ws08 "8"
-set $ws09 "9: social"
+set $ws08 "8: tools"
+set $ws09 "9: chat"
 set $ws10 "10: music"
 
 set $ws11 "11a"
@@ -373,7 +373,7 @@ bindsym $mod+g sticky toggle
 workspace_auto_back_and_forth yes
 bindsym $mod+Shift+m move workspace to output right
 
-# bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
+bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
 
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
