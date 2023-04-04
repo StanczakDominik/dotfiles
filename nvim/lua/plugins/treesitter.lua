@@ -24,7 +24,7 @@ return {
 			ensure_installed = {
 				"bash",
 				"c",
-				"help",
+				"vimdoc",
 				"html",
 				"javascript",
 				"json",
@@ -38,6 +38,7 @@ return {
 				"typescript",
 				"vim",
 				"yaml",
+				"comment",
 			},
 			incremental_selection = {
 				enable = true,

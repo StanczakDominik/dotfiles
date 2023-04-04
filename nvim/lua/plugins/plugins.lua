@@ -1,13 +1,11 @@
 return {
   "folke/which-key.nvim",
+  "tpope/vim-unimpaired",
+  "preservim/nerdcommenter",
+  "tpope/vim-obsession",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
-  {'ericbn/vim-solarized', lazy=false,
-      config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme solarized]])
-    end,
-  },
+	{"RRethy/nvim-base16", lazy=false, config = function() vim.cmd([[colorscheme base16-solarized-dark]]) end,},
 }
 
 

@@ -14,7 +14,9 @@ vim.opt.expandtab = false
 vim.opt.backspace='indent,eol,start'
 vim.opt.backupskip:append("*.asc")
 vim.opt.completeopt={'menu','menuone','noselect'}
-vim.opt.foldmethod='syntax'
+vim.opt.foldmethod='expr'
+vim.opt.foldexpr='nvim_treesitter#foldexpr()'
+vim.opt.foldenable=false
 vim.opt.hidden=true
 vim.opt.inccommand='split'
 vim.opt.ruler = true
@@ -48,10 +50,12 @@ require("lazy").setup("plugins")
 
 vim.opt.termguicolors = true
 
+require("mason").setup()
+
 -- vim.cmd('colorscheme solarized')
 
 
--- require('lsp_setup')
+require('lsp_setup')
 -- vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 --
 -- require('luasnip.loaders.from_vscode').lazy_load()

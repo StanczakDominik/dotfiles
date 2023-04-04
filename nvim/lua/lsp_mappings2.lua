@@ -1,8 +1,16 @@
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
 vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   desc = 'LSP actions',
-  callback = function()
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    --vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
     local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = true}
+      local opts = {buffer = ev.buf}
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
@@ -33,14 +41,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Selects a code action available at the current cursor position
     bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-
-    -- Show diagnostics in a floating window
-    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-
-    -- Move to the previous diagnostic
-    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-
-    -- Move to the next diagnostic
-    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
 })
