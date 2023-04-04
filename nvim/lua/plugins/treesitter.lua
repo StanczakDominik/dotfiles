@@ -19,12 +19,11 @@ return {
 		---@type TSConfig
 		opts = {
 			highlight = { enable = true },
-			indent = { enable = true, disable = { "python" } },
+			indent = { enable = true } },
 			context_commentstring = { enable = true, enable_autocmd = false },
 			ensure_installed = {
 				"bash",
 				"c",
-				"vimdoc",
 				"html",
 				"javascript",
 				"json",
@@ -55,4 +54,3 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	}
-}

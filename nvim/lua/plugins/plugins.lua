@@ -6,6 +6,28 @@ return {
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 	{"RRethy/nvim-base16", lazy=false, config = function() vim.cmd([[colorscheme base16-solarized-dark]]) end,},
+	{
+	  "folke/zen-mode.nvim",
+	  config = function()
+		require("zen-mode").setup {
+		  -- your configuration comes here
+		  -- or leave it empty to use the default settings
+		  -- refer to the configuration section below
+				window = {
+				options = {
+					signcolumn = "no",
+					number = false,
+					},
+				},
+				plugins = {
+				alacritty = {
+					enabled = true,
+					font = "14", -- font size
+				},
+		}
+}
+		end
+	},
 }
 
 

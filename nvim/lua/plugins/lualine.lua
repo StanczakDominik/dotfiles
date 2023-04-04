@@ -59,6 +59,7 @@ return
           },
         },
         lualine_x = {
+		  {'nvim_treesitter#statusline'},
           -- stylua: ignore
           {
             function() return require("noice").api.status.command.get() end,
