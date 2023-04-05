@@ -1,6 +1,7 @@
 local M = {}
 M.root_patterns = { ".git", "lua" }
 
+require('telescope').load_extension('vimwiki')
 function M.get_root()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -71,10 +72,12 @@ return {
     { "<leader>ff", M.telescope("files"), desc = "Find Files (root dir)" },
     { "<leader>fF", M.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
     { "<C-P>", M.telescope("files"), desc = "Find Files (root dir)" },
+    { "<leader>fw", "<cmd>Telescope vimwiki<cr>", desc = "Notes" },
+    { "<leader>fW", "<cmd>Telescope vimwiki live_grep<cr>", desc = "Notes (live grep)" },
     -- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-    -- -- git
-    -- { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-    -- { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+    -- git
+    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
     -- -- search
     -- { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
     -- { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
