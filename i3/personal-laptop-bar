@@ -2,6 +2,7 @@ bar {
     output eDP-1
     output eDP-1-1
     strip_workspace_name no
+	strip_workspace_numbers yes
     verbose no
     position top
     binding_mode_indicator yes
@@ -19,6 +20,7 @@ bar {
     output HDMI-1
     output HDMI-0
     strip_workspace_name no
+	strip_workspace_numbers yes
     verbose no
     position top
     status_command i3blocks -c ~/dotfiles/i3/i3blocks-archlinux-2.conf
