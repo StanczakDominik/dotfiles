@@ -2,6 +2,7 @@ local M = {}
 M.root_patterns = { ".git", "lua" }
 
 require('telescope').load_extension('vimwiki')
+require('telescope').load_extension('projects')
 function M.get_root()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
