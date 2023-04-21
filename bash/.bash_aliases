@@ -114,7 +114,7 @@ fi
 alias klastermount="sshfs klaster:/home/dstanczak /mnt/klaster -o idmap=user,auto_cache,reconnect,Cipher=no -oauto_cache,reconnect"
 alias klastermountdisable="fusermount -u /mnt/klaster"
 
-alias jrnl='nvim -c VimwikiMakeDiaryNote'
+alias jrnl='nvim -c VimwikiMakeDiaryNote -c ZenMode'
 alias vimwiki='nvim -c "Telescope vimwiki"'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias pacdiff="DIFFPROG='nvim -d' pacdiff"

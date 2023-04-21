@@ -9,6 +9,12 @@ return {
 				diary_rel_path = 'dziennik/daily',
 			}
 			}
+			vim.api.nvim_create_autocmd("BufNewFile",
+			{
+				pattern = "*/Notes/dziennik/daily/*.md",
+				command = "r ~/Notes/Templates/daily_journal_template.md",
+			}
+			)
 	   end
 	},
 	{"ElPiloto/telescope-vimwiki.nvim",
