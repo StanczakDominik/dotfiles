@@ -141,9 +141,9 @@ return {
       selection_caret = " ",
       mappings = {
         i = {
-          ["<c-t>"] = function(...)
-            return require("trouble.providers.telescope").open_with_trouble(...)
-          end,
+          --["<c-t>"] = function(...)
+            --return require("trouble.providers.telescope").open_with_trouble(...)
+          --end,
           ["<a-i>"] = function()
             M.telescope("find_files", { no_ignore = true })()
           end,
