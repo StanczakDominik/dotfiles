@@ -324,6 +324,7 @@ assign [class="factorio"] $ws07
 assign [class="beyond-all-reason"] $ws07
 
 assign [class="keepassxc"] $ws08
+assign [class="pulseUI"] $ws08
 
 assign [class="Element"] $ws09
 assign [class="Signal"] $ws09
@@ -331,8 +332,12 @@ assign [class="kmail"] $ws09
 assign [class="discord"] $ws09
 assign [class="microsoft teams - preview"] $ws09
 assign [class="Microsoft Teams - Preview"] $ws09
+assign [class="slack"] $ws09
 
 assign [class="cantata"] $ws10
+assign [class="elisa"] $ws10
+assign [class="spotify"] $ws10
+
 for_window [instance="Alacritty" title="Dropdown"] move scratchpad
 for_window [class="ksysguard"] move scratchpad
 for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
