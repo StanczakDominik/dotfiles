@@ -11,3 +11,11 @@ source ~/.keysrc
 export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
 
 export PATH="${PATH}:/home/dominik/.local/bin"
+
+
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+
