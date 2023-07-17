@@ -38,6 +38,7 @@ return {
 				"vim",
 				"yaml",
 				"comment",
+				"elixir",
 			},
 			incremental_selection = {
 				enable = true,

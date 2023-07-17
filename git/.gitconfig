@@ -30,6 +30,7 @@
     insteadOf = "gl:"
 [merge]
 	conflictstyle = diff3
+	tool = fugitive
         ; tool = vimdiff
 [rerere]
 	enabled = true
@@ -84,3 +85,5 @@
     tool = nvimdiff
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
