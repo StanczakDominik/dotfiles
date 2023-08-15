@@ -161,3 +161,13 @@ _toggl() {
 if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
+#compdef toggl
+_toggl() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
+  compdef _toggl toggl
+fi
+
+export WORKON_HOME=~/.envs
+source /usr/bin/virtualenvwrapper.sh

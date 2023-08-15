@@ -322,7 +322,8 @@ assign [class="com.github.johnfactotum.Foliate"] $ws05
 assign [class="lutris"] $ws07
 assign [class="steam"] $ws07
 assign [class="factorio"] $ws07
-assign [class="beyond-all-reason"] $ws07
+assign [instance="Beyond All Reason"] $ws07
+for_window [class="Beyond-All-Reason"] floating enable
 assign [class="spring"] $ws07
 for_window [class="spring"] fullscreen enable
 
