@@ -3,6 +3,11 @@ return
 	{
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+  dependencies = {
+	  {
+		  "nvim-tree/nvim-web-devicons",
+	  },
+  },
   opts = function(plugin)
     -- local icons = require("lazyvim.config").icons
 
@@ -15,40 +20,41 @@ return
     end
 
     return {
-				winbar = {
-					lualine_a = {"mode"},
-					lualine_b = {},
-					lualine_c = {{'filename', path=1}},
-					lualine_x = {'location'},
-					lualine_y = {},
-					lualine_z = {}
-				},
+		winbar = {
+			lualine_a = {"mode"},
+			lualine_b = {},
+			lualine_c = {{'filename', path=1}},
+			lualine_x = {'location'},
+			lualine_y = {},
+			lualine_z = {}
+		},
 
-				inactive_winbar = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = {{'filename', path=1}},
-					lualine_x = {'location'},
-					lualine_y = {},
-					lualine_z = {}
-				},
+		inactive_winbar = {
+			lualine_a = {},
+			lualine_b = {},
+			lualine_c = {{'filename', path=1}},
+			lualine_x = {'location'},
+			lualine_y = {},
+			lualine_z = {}
+		},
       options = {
         theme = "auto",
         globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+		icons_enabled = true,
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "FugitiveHead" },
+        lualine_b = { "branch" },
         lualine_c = {
           {
             "diagnostics",
-            -- symbols = {
-              -- error = icons.diagnostics.Error,
-              -- warn = icons.diagnostics.Warn,
-              -- info = icons.diagnostics.Info,
-              -- hint = icons.diagnostics.Hint,
-            -- },
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
