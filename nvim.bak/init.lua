@@ -1,61 +1,58 @@
-vim.opt.number = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
-vim.opt.wrap = false
-vim.opt.breakindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
-
 -- autocmd FileType make setlocal noexpandtab
 -- runtime ftplugin/man.vimi
-vim.opt.backspace='indent,eol,start'
-vim.opt.backupskip:append("*.asc")
-vim.opt.completeopt={'menu','menuone','noselect'}
-vim.opt.foldmethod='expr'
-vim.opt.foldexpr='nvim_treesitter#foldexpr()'
-vim.opt.foldenable=false
-vim.opt.hidden=true
-vim.opt.inccommand='split'
-vim.opt.ruler = true
-vim.opt.sessionoptions:append("tabpages,globals")
-vim.opt.showmatch = true
-vim.opt.showmode = true
-vim.opt.spelllang=pl,en_us
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.tabstop=4
-vim.opt.title = true
+-- vim.g.mapleader = '\\'
 -- vim.opt.viminfo+=n$HOME/.config/nvim/files/info
 -- vim.opt.viminfo='100,n$HOME/.config/nvim/files/info'
+vim.opt.backspace = "indent,eol,start"
+vim.opt.backupskip:append("*.asc")
+vim.opt.breakindent = true
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.expandtab = false
+vim.opt.foldenable = false
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.hidden = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.inccommand = "split"
+vim.opt.mouse = "a"
+vim.opt.number = true
+vim.opt.ruler = true
+vim.opt.sessionoptions:append("tabpages,globals")
+vim.opt.shiftwidth = 4
+vim.opt.showmatch = true
+vim.opt.showmode = true
+vim.opt.smartcase = true
+vim.opt.spelllang = pl, en_us
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 4
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.title = true
 vim.opt.wildmenu = true
--- vim.g.mapleader = '\\'
+vim.opt.wrap = false
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-vim.opt.termguicolors = true
-
 require("mason").setup()
 
 -- vim.cmd('colorscheme solarized')
 
-
-require('lsp_setup')
+require("lsp_setup")
 -- vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 --
 -- require('luasnip.loaders.from_vscode').lazy_load()
