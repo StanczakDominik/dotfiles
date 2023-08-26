@@ -122,5 +122,6 @@ alias toggl-today='toggl ls -s $(date -I)'
 alias nbx="jupyter nbconvert --execute --to notebook"
 LOCAL_ALIASES="~/.aliases_local"
 if [ -f "$LOCAL_ALIASES" ]; then
-    source $LOCAL_ALIASES
+	source $LOCAL_ALIASES
 fi
+alias sync_conflicts='fd "sync-conflict"'
