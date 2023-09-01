@@ -100,7 +100,7 @@ alias profileon="grep -rli '#profile' plasmapy | xargs -i\"}\" sed -i 's/#profil
 
 posprzatane() {
 	sprzatanie done $*
-	beeminder u largecleaning 1 "$*"
+	# beeminder u largecleaning 1 "$*"
 }
 alias pacorphans="pacman -Qqtd "
 if command -v exa &>/dev/null; then

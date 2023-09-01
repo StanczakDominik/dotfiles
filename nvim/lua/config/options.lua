@@ -4,7 +4,7 @@
 local opt = vim.opt
 opt.relativenumber = false -- disable relative line numbers
 opt.shiftwidth = 4 -- Size of an indent
-opt.spelllang = { "pl", "en-us" }
+opt.spelllang = { "pl", "en" }
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.clipboard = "unnamed" -- Do not by default sync with system cliboard
 -- TODO
