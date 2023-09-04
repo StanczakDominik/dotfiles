@@ -123,3 +123,4 @@ if [ -f "$LOCAL_ALIASES" ]; then
 	source $LOCAL_ALIASES
 fi
 alias sync_conflicts='fd "sync-conflict"'
+alias nvimtutor="nvim --clean +Tutor"
