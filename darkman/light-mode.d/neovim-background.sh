@@ -5,6 +5,6 @@
 # Further, it is assumed that toggling the background in neovim is enough.
 # Anything else should be handled by the set color scheme.
 
-# for server in $(nvr --serverlist | grep nvim); do
-#     nvr --servername "$server" -cc 'colorscheme base16-solarized-light'
-# done
+for server in $(nvr --serverlist | grep nvim); do
+	nvr --servername "$server" -cc 'set background=light'
+done
