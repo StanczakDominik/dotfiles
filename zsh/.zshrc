@@ -171,3 +171,6 @@ fi
 
 export WORKON_HOME=~/.envs
 source /usr/bin/virtualenvwrapper.sh
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+  . /opt/asdf-vm/asdf.sh
+fi
