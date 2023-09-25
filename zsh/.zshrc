@@ -172,3 +172,6 @@ fi
 export WORKON_HOME=~/.envs
 source /usr/bin/virtualenvwrapper.sh
 export TEXMF=/usr/share/texmf-dist/texmf-context
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+  . /opt/asdf-vm/asdf.sh
+fi
