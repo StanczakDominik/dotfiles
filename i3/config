@@ -107,28 +107,6 @@ set $ws08 "8:tools"
 set $ws09 "9:chat"
 set $ws10 "10:music"
 
-workspace $ws11 output eDP-1
-workspace $ws12 output eDP-1
-workspace $ws13 output eDP-1
-workspace $ws14 output eDP-1
-workspace $ws15 output eDP-1
-workspace $ws16 output eDP-1
-workspace $ws17 output eDP-1
-workspace $ws18 output eDP-1
-workspace $ws19 output eDP-1
-workspace $ws20 output eDP-1
-
-workspace $ws21 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws22 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws23 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws24 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws25 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws26 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws27 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws28 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws29 output HDMI-1-0 HDMI-0 HDMI-1
-workspace $ws30 output HDMI-1-0 HDMI-0 HDMI-1
-
 # switch to workspace
 bindsym $mod+1 workspace $ws01
 bindsym $mod+2 workspace $ws02
@@ -152,41 +130,6 @@ bindsym $mod+Shift+7 move container to workspace $ws07
 bindsym $mod+Shift+8 move container to workspace $ws08
 bindsym $mod+Shift+9 move container to workspace $ws09
 bindsym $mod+Shift+0 move container to workspace $ws10
-
-# switch to workspace
-bindsym $mod+Ctrl+1 workspace number 21; workspace number 11;
-bindsym $mod+Ctrl+2 workspace number 22; workspace number 12;
-bindsym $mod+Ctrl+3 workspace number 23; workspace number 13;
-bindsym $mod+Ctrl+4 workspace number 24; workspace number 14;
-bindsym $mod+Ctrl+5 workspace number 25; workspace number 15;
-bindsym $mod+Ctrl+6 workspace number 26; workspace number 16;
-bindsym $mod+Ctrl+7 workspace number 27; workspace number 17;
-bindsym $mod+Ctrl+8 workspace number 28; workspace number 18;
-bindsym $mod+Ctrl+9 workspace number 29; workspace number 19;
-bindsym $mod+Ctrl+0 workspace number 30; workspace number 20;
-
-# move focused container to workspace
-bindsym $mod+Ctrl+Shift+1 move container to workspace number 11
-bindsym $mod+Ctrl+Shift+2 move container to workspace number 12
-bindsym $mod+Ctrl+Shift+3 move container to workspace number 13
-bindsym $mod+Ctrl+Shift+4 move container to workspace number 14
-bindsym $mod+Ctrl+Shift+5 move container to workspace number 15
-bindsym $mod+Ctrl+Shift+6 move container to workspace number 16
-bindsym $mod+Ctrl+Shift+7 move container to workspace number 17
-bindsym $mod+Ctrl+Shift+8 move container to workspace number 18
-bindsym $mod+Ctrl+Shift+9 move container to workspace number 19
-bindsym $mod+Ctrl+Shift+0 move container to workspace number 20
-# move focused container to workspace
-bindsym $mod+Ctrl+Alt+Shift+1 move container to workspace number 21
-bindsym $mod+Ctrl+Alt+Shift+2 move container to workspace number 22
-bindsym $mod+Ctrl+Alt+Shift+3 move container to workspace number 23
-bindsym $mod+Ctrl+Alt+Shift+4 move container to workspace number 24
-bindsym $mod+Ctrl+Alt+Shift+5 move container to workspace number 25
-bindsym $mod+Ctrl+Alt+Shift+6 move container to workspace number 26
-bindsym $mod+Ctrl+Alt+Shift+7 move container to workspace number 27
-bindsym $mod+Ctrl+Alt+Shift+8 move container to workspace number 28
-bindsym $mod+Ctrl+Alt+Shift+9 move container to workspace number 29
-bindsym $mod+Ctrl+Alt+Shift+0 move container to workspace number 30
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -289,12 +232,12 @@ no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
-gaps vertical 2
-gaps horizontal 2
-smart_borders no_gaps
+gaps vertical 10
+gaps horizontal 10
+# smart_borders no_gaps
 smart_gaps inverse_outer
-gaps inner 0
-gaps outer 0
+gaps inner 10
+gaps outer 10
 
 title_align center
 

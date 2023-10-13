@@ -1,4 +1,5 @@
 bar {
+    output eDP-1-1
     output eDP-1
     output DP-0
     strip_workspace_name no
