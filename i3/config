@@ -137,7 +137,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 
 
 # resize window (you can also use the mouse for that)
@@ -317,7 +316,6 @@ bindsym $mod+Control+Right focus output right
 
 bindsym $mod+m exec --no-startup-id ~/dotfiles/scripts/i3bartoggle
 
-bindsym F12 exec --no-startup-id alacritty --title "Scratchpad"
 for_window [title="Scratchpad"] floating enable
 for_window [title="Scratchpad"] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
 default_border normal

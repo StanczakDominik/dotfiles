@@ -1,0 +1,13 @@
+# /etc/systemd/user/jupyter-notebook.service
+[Unit]
+Description=Calibre Server
+After=network.target
+
+[Service]
+ExecStart=calibre-server --port 1287 --trusted-ips 127.0.0.1
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

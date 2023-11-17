@@ -46,14 +46,9 @@ function darkmode() {
 
 alias termdownsay='termdown -v us-mbrola-1'
 alias jl="julia --sysimage ~/.julia/config/sys_plots.so"
-alias twork="toggl now -a Roche"
-function tworkstarted() {
-	toggl stop -p "$1"
-	toggl start -s "$1" -a IFPILM -o "Day start" "Day start"
-}
+alias twork="toggl now -a Work"
 alias tbathroom="toggl start -o Bathroom Łazienka"
 alias plasmalogout="qdbus org.kde.ksmserver /KSMServer logout 0 3 3"
-alias workjupyterssh="ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8889:localhost:9000 dstanczak@10.0.0.228; ssh -i ~/.ssh/id_rsa_ifpilm_workstation -NfL 8787:localhost:8787 dstanczak@10.0.0.228"
 alias chrome="google-chrome-stable"
 
 function festsay() {
@@ -62,10 +57,10 @@ function festsay() {
 }
 
 function tbreak() {
-	toggl start -a Roche -o Relax Break
+	toggl start -a Work -o Relax Break
 	if termdownsay "$1m"; then
 		echo "Break going overlong?"
-		toggl start -a IFPILM -o Relax "Break (overlong?)"
+		toggl start -o Relax "Break (overlong?)"
 	else
 		echo "Break completed."
 	fi
