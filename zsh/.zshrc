@@ -175,3 +175,6 @@ if [ -f /opt/asdf-vm/asdf.sh ]; then
   . /opt/asdf-vm/asdf.sh
 fi
 export TEXMF=/usr/share/texmf-dist/
+
+eval "$(fasd --init auto)"
+
