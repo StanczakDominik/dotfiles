@@ -1,5 +1,6 @@
 bar {
-    output eDP-1
+    output HDMI-1
+    output HDMI-0
     strip_workspace_name no
 	strip_workspace_numbers yes
     verbose no
@@ -17,6 +18,7 @@ bar {
 bar {
     output HDMI-1-0
     output DP-0
+    output eDP-1
     strip_workspace_name no
 	strip_workspace_numbers yes
     verbose no
