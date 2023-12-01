@@ -238,6 +238,16 @@ smart_gaps inverse_outer
 gaps inner 10
 gaps outer 10
 
+set $mode_gaps Toggle gaps: (1) on (2) off
+bindsym $mod+XF86Launch1 mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set 10, gaps outer all set 10
+    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+g mode "$mode_gaps"
+
 title_align center
 
 bindsym $mod+u border toggle
