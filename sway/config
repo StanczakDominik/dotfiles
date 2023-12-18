@@ -1,0 +1,409 @@
+# i3 config file (v4)
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $black       #212121
+set $darkblack   #000000
+set $red         #fb4934
+set $darkred     #cc241d
+set $green       #b8bb26
+set $darkgreen   #98971a
+set $yellow      #fabd2f
+set $darkyellow  #d79921
+set $blue        #83a598
+set $darkblue    #458588
+set $magenta     #d3869b
+set $darkmagenta #b16286
+set $cyan        #8ec07c
+set $darkcyan    #689d6a
+set $white       #ebdbb2
+set $darkwhite   #a89984
+set $background  #000000
+set $transparent #00000000
+
+# Win key
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Helvetica Neue, FontAwesome 11
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 10
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
+# bindsym $mod+Left focus output left
+# bindsym $mod+Right focus output right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move container to workspace prev_on_output
+bindsym $mod+Shift+Right move container to workspace next_on_output
+# bindsym $mod+Shift+Left move container to output left
+# bindsym $mod+Shift+Right move container to output right
+
+# split in horizontal orientation
+# bindsym $mod+h split h
+bindsym $mod+bar split h
+
+# split in vertical orientation
+bindsym $mod+minus split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws01 "1:org"
+set $ws02 "2:work"
+set $ws03 "3:tinker"
+set $ws04 "4:notes"
+set $ws05 "5:docs"
+set $ws06 "6:anki"
+set $ws07 "7:breaks"
+set $ws08 "8:tools"
+set $ws09 "9:chat"
+set $ws10 "10:music"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws01
+bindsym $mod+2 workspace $ws02
+bindsym $mod+3 workspace $ws03
+bindsym $mod+4 workspace $ws04
+bindsym $mod+5 workspace $ws05
+bindsym $mod+6 workspace $ws06
+bindsym $mod+7 workspace $ws07
+bindsym $mod+8 workspace $ws08
+bindsym $mod+9 workspace $ws09
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws01
+bindsym $mod+Shift+2 move container to workspace $ws02
+bindsym $mod+Shift+3 move container to workspace $ws03
+bindsym $mod+Shift+4 move container to workspace $ws04
+bindsym $mod+Shift+5 move container to workspace $ws05
+bindsym $mod+Shift+6 move container to workspace $ws06
+bindsym $mod+Shift+7 move container to workspace $ws07
+bindsym $mod+Shift+8 move container to workspace $ws08
+bindsym $mod+Shift+9 move container to workspace $ws09
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+bar swaybar_command waybar
+#bar {
+#    output eDP-1
+#    strip_workspace_name no
+#	strip_workspace_numbers yes
+#    position top
+#    binding_mode_indicator yes
+#    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-archlinux-1.conf | tee /tmp/i3blocks.out
+#    colors {
+#      statusline #ffffff
+#      background #242424
+#    }
+#    tray_output none
+#    # font pango:DejaVu Sans Mono 12
+#}
+#
+#bar {
+#    output HDMI-1-0
+#    output DP-0
+#    strip_workspace_name no
+#	strip_workspace_numbers yes
+#    position top
+#    status_command i3blocks -c ~/dotfiles/i3/i3blocks-archlinux-2.conf
+#    colors {
+#      statusline #ffffff
+#      background #242424
+#    }
+#    tray_output none
+#}
+
+# exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
+exec_always "setxkbmap pl"
+
+## Pulse Audio controls
+##
+#bindsym XF86AudioMute exec amixer sset 'Master' toggle
+#bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
+#bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+
+
+
+# exec xautolock -time 10 -locker 'loginctl lock-session $XDG_SESSION_ID'
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id "loginctl lock-session", mode "default"
+    # broken because neither tmux nor i3 get the env var!
+    bindsym e exec --no-startup-id "i3-msg exit", mode "default"
+    bindsym s exec --no-startup-id "systemctl suspend", mode "default"
+    bindsym h exec --no-startup-id "systemctl hibernate", mode "default"
+    bindsym r exec --no-startup-id "systemctl reboot", mode "default"
+    bindsym Shift+s exec --no-startup-id "systemctl poweroff", mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+End mode "$mode_system"
+# bindsym $mod+Escape exec --no-startup-id "loginctl lock-session"
+# bindsym $mod+Escape exec --no-startup-id "qdbus org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
+
+
+# # Plasma compatibility improvements
+# for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
+# for_window [window_role="task_dialog"] floating enable
+#
+# # for_window [class="systemsettings"] floating enable
+# for_window [class="plasmashell"] floating enable;
+# for_window [class="Plasma"] floating enable; border none
+# for_window [title="plasma-desktop"] floating enable; border none
+# # for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+# # for_window [class="plasmashell" window_type="notification"] border none, move position 700 ppt 810 ppt
+# for_window [class="plasmashell" window_type="notification"] border none, move right 40ppt, move down 40ppt
+# no_focus [class="plasmashell" window_type="notification"]
+# for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
+#
+# for_window [title="win7"] floating enable; border none
+# for_window [class="krunner"] floating enable; border none
+# for_window [class="Kmix"] floating enable; border none
+# for_window [class="Klipper"] floating enable; border none
+# for_window [class="Plasmoidviewer"] floating enable; border none
+# for_window [class="(?i)*nextcloud*"] floating disable
+# for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
+# for_window [title="^zoom$" class="[zoom]*"] floating enable
+# for_window [class="[zoom]*" window_type="notification"] border none, move right 700px, move down 450px
+# no_focus [class="[zoom]*" window_type="notification"]
+
+
+# for_window [class="^.*"] border pixel 5
+gaps vertical 0
+gaps horizontal 0
+# smart_borders no_gaps
+smart_gaps inverse_outer
+gaps inner 0
+gaps outer 0
+
+title_align center
+
+bindsym $mod+u border toggle
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+equal move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+equal  scratchpad show
+
+bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+# exec --no-startup-id redshift-gtk
+bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_format" --text "Enter a title" --entry`
+
+
+assign [class="TogglDesktop"] $ws01
+assign [class="Alacritty" title="LHD.*"] $ws02
+assign [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe|crx_cofgebihnkcbkbemlohhmicpblolkadh"] $ws03
+assign [title="Obsidian"] $ws04
+
+assign [class="Zotero"] $ws05
+assign [class="com.github.johnfactotum.Foliate"] $ws05
+
+assign [class="lutris"] $ws07
+assign [class="steam"] $ws07
+assign [class="factorio"] $ws07
+assign [instance="Beyond All Reason"] $ws07
+for_window [class="Beyond-All-Reason"] floating enable
+assign [class="spring"] $ws07
+for_window [class="spring"] fullscreen enable
+
+assign [class="keepassxc"] $ws08
+assign [class="pulseUI"] $ws08
+
+assign [class="Element"] $ws09
+assign [class="Signal"] $ws09
+assign [class="kmail"] $ws09
+assign [class="discord"] $ws09
+assign [class="microsoft teams - preview"] $ws09
+assign [class="Microsoft Teams - Preview"] $ws09
+assign [class="slack"] $ws09
+
+assign [class="cantata"] $ws10
+assign [class="elisa"] $ws10
+assign [class="spotify"] $ws10
+
+assign [class="spectacle"] $ws08
+
+for_window [instance="Alacritty" title="Dropdown"] move scratchpad
+for_window [class="ksysguard"] move scratchpad
+for_window [class="(?i)firefox"] title_format "<span foreground='orange'>%title</span>"
+for_window [class="(?i)konsole"] title_format "<span foreground='cyan'>%title</span>"
+for_window [class="kscreen_osd_service"] floating enable
+for_window [instance="crx_jdlbbgabicimjlakajjcohhamlflhipe"] floating disable; move $ws03
+for_window [class="scrcpy"] floating enable
+for_window [title="Vimjournal"] floating enable
+for_window [title="Vimwiki"] floating enable
+
+
+
+hide_edge_borders both
+# for_window [title="User 1 - Anki"] focus; split h; layout stacked
+
+bindsym $mod+g sticky toggle
+
+# bindsym $mod+m bar hidden_state toggle
+workspace_auto_back_and_forth yes
+bindsym $mod+Shift+m move workspace to output right
+
+bindsym $mod+p exec i3-input -F 'title_format "%s"' -P 'New title for this container (use title for def title)'
+
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+bindsym $mod+Control+Left focus output left
+bindsym $mod+Control+Right focus output right
+
+for_window [title="Scratchpad"] floating enable
+for_window [title="Scratchpad"] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
+default_border normal
+default_floating_border normal
+hide_edge_borders none
+
+output "*" bg ~/Pictures/wallpapers_etc/factorio_megabase.jpg fill
+
+bindsym $mod+Return exec alacritty
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+d exec krunner
+bindsym Print exec grim
+bindsym Shift+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g -
+
+input type:touchpad {
+    tap enabled
+    natural_scroll disabled
+}
+
+input * {
+    xkb_layout "pl"
+    xkb_options "grp:win_space_toggle"
+}
+
+input <identifier> xkb_model "pc101"
+
+include /etc/sway/config.d/*
+exec_always systemctl --user start sway-session.target
+# GTK
+exec {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita Dark'
+}
+
+set $nag exec swaynagmode
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag --exit
+    q         $nag --exit
+    Escape    $nag --exit
+
+    Return    $nag --confirm
+
+    Tab       $nag --select prev
+    Shift+Tab $nag --select next
+
+    Left      $nag --select next
+    Right     $nag --select prev
+
+    Up        $nag --select next
+    Down      $nag --select prev
+  }
+}
+swaynag_command swaynagmode
