@@ -168,7 +168,36 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-include ~/dotfiles/i3/bar-setting.include
+
+bar swaybar_command waybar
+#bar {
+#    output eDP-1
+#    strip_workspace_name no
+#	strip_workspace_numbers yes
+#    position top
+#    binding_mode_indicator yes
+#    status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/dotfiles/i3/i3blocks-archlinux-1.conf | tee /tmp/i3blocks.out
+#    colors {
+#      statusline #ffffff
+#      background #242424
+#    }
+#    tray_output none
+#    # font pango:DejaVu Sans Mono 12
+#}
+#
+#bar {
+#    output HDMI-1-0
+#    output DP-0
+#    strip_workspace_name no
+#	strip_workspace_numbers yes
+#    position top
+#    status_command i3blocks -c ~/dotfiles/i3/i3blocks-archlinux-2.conf
+#    colors {
+#      statusline #ffffff
+#      background #242424
+#    }
+#    tray_output none
+#}
 
 # exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
 exec_always "setxkbmap pl"
@@ -203,50 +232,40 @@ bindsym $mod+End mode "$mode_system"
 # bindsym $mod+Escape exec --no-startup-id "qdbus org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
 
 
-# Plasma compatibility improvements
-for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-
-# for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-# for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-# for_window [class="plasmashell" window_type="notification"] border none, move position 700 ppt 810 ppt
-for_window [class="plasmashell" window_type="notification"] border none, move right 40ppt, move down 40ppt
-no_focus [class="plasmashell" window_type="notification"]
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
-
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
-for_window [title="^zoom$" class="[zoom]*"] floating enable
-for_window [class="[zoom]*" window_type="notification"] border none, move right 700px, move down 450px
-no_focus [class="[zoom]*" window_type="notification"]
+# # Plasma compatibility improvements
+# for_window [class=".*(?<!Google-chrome)" window_role="pop-up"] floating enable
+# for_window [window_role="task_dialog"] floating enable
+#
+# # for_window [class="systemsettings"] floating enable
+# for_window [class="plasmashell"] floating enable;
+# for_window [class="Plasma"] floating enable; border none
+# for_window [title="plasma-desktop"] floating enable; border none
+# # for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+# # for_window [class="plasmashell" window_type="notification"] border none, move position 700 ppt 810 ppt
+# for_window [class="plasmashell" window_type="notification"] border none, move right 40ppt, move down 40ppt
+# no_focus [class="plasmashell" window_type="notification"]
+# for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
+#
+# for_window [title="win7"] floating enable; border none
+# for_window [class="krunner"] floating enable; border none
+# for_window [class="Kmix"] floating enable; border none
+# for_window [class="Klipper"] floating enable; border none
+# for_window [class="Plasmoidviewer"] floating enable; border none
+# for_window [class="(?i)*nextcloud*"] floating disable
+# for_window [class="Google-chrome" window_role="pop-up" title=".*(?<!JupyterLab"] floating enable
+# for_window [title="^zoom$" class="[zoom]*"] floating enable
+# for_window [class="[zoom]*" window_type="notification"] border none, move right 700px, move down 450px
+# no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
-gaps vertical 1
-gaps horizontal 1
+gaps vertical 0
+gaps horizontal 0
 # smart_borders no_gaps
 smart_gaps inverse_outer
-gaps inner 1
-gaps outer 1
-
-set $mode_gaps Toggle gaps: (1) on (2) off
-bindsym $mod+XF86Launch1 mode "$mode_gaps"
-mode "$mode_gaps" {
-    bindsym 1 mode "default", gaps inner all set 10, gaps outer all set 10
-    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+g mode "$mode_gaps"
+gaps inner 0
+gaps outer 0
 
 title_align center
 
@@ -324,13 +343,67 @@ focus_on_window_activation urgent
 bindsym $mod+Control+Left focus output left
 bindsym $mod+Control+Right focus output right
 
-bindsym $mod+m exec --no-startup-id ~/dotfiles/scripts/i3bartoggle
-
 for_window [title="Scratchpad"] floating enable
 for_window [title="Scratchpad"] resize grow left 1, resize grow right 1, resize grow down 1, resize grow up 1
 default_border normal
 default_floating_border normal
 hide_edge_borders none
 
+output "*" bg ~/Pictures/wallpapers_etc/factorio_megabase.jpg fill
 
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+bindsym $mod+Return exec alacritty
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+d exec krunner
+bindsym Print exec grim
+bindsym Shift+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g -
+
+input type:touchpad {
+    tap enabled
+    natural_scroll disabled
+}
+
+input * {
+    xkb_layout "pl"
+    xkb_options "grp:win_space_toggle"
+}
+
+input <identifier> xkb_model "pc101"
+
+include /etc/sway/config.d/*
+exec_always systemctl --user start sway-session.target
+# GTK
+exec {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita Dark'
+}
+
+set $nag exec swaynagmode
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag --exit
+    q         $nag --exit
+    Escape    $nag --exit
+
+    Return    $nag --confirm
+
+    Tab       $nag --select prev
+    Shift+Tab $nag --select next
+
+    Left      $nag --select next
+    Right     $nag --select prev
+
+    Up        $nag --select next
+    Down      $nag --select prev
+  }
+}
+swaynag_command swaynagmode
