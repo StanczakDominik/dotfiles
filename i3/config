@@ -231,12 +231,12 @@ no_focus [class="[zoom]*" window_type="notification"]
 
 
 # for_window [class="^.*"] border pixel 5
-gaps vertical 10
-gaps horizontal 10
+gaps vertical 1
+gaps horizontal 1
 # smart_borders no_gaps
 smart_gaps inverse_outer
-gaps inner 10
-gaps outer 10
+gaps inner 1
+gaps outer 1
 
 title_align center
 
