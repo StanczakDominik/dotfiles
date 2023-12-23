@@ -199,6 +199,9 @@ bar swaybar_command waybar
 #    tray_output none
 #}
 
+output HDMI-A-1 pos 0 0
+output DP-1 pos 1920 0
+
 # exec_always "setxkbmap -layout pl(intl),de -option grp:alt_shift_toggle"
 exec_always "setxkbmap pl"
 
@@ -365,11 +368,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+d exec krunner
 bindsym Print exec grim
 bindsym Shift+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g -
-
-input type:touchpad {
-    tap enabled
-    natural_scroll disabled
-}
 
 input * {
     xkb_layout "pl"

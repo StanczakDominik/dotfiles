@@ -1,0 +1,9 @@
+[Unit]
+Description=Uair
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/uair -q
+
+[Install]
+WantedBy=default.target

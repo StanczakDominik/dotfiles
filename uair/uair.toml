@@ -1,0 +1,22 @@
+[defaults]
+format = "{state}{name}: {time} / {total}\n"
+time_format = "%H:%M:%S"
+
+[[sessions]]
+id = "work"
+name = "Work"
+duration = "30m"
+command = "notify-send 'Work Done!'"
+
+[[sessions]]
+id = "rest"
+name = "Rest"
+duration = "5m"
+command = "notify-send 'Rest Done!'"
+
+
+[[sessions]]
+id = "hardwork"
+name = "Work, but harder"
+duration = "1h 30m"
+command = "notify-send 'Hard Work Done!'"

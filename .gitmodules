@@ -4,3 +4,6 @@
 [submodule "alacritty/base16-alacritty"]
 	path = alacritty/base16-alacritty
 	url = git@github.com:aarowill/base16-alacritty.git
+[submodule "polybar/toggl_polybar"]
+	path = polybar/toggl_polybar
+	url = https://github.com/mmskv/toggl_polybar
