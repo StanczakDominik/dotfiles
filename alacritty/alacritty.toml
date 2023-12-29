@@ -1,0 +1,73 @@
+import = ["/home/dominik/.config/alacritty/color.toml"]
+live_config_reload = true
+
+[[colors.indexed_colors]]
+color = "0xcb4b16"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xd33682"
+index = 17
+
+[[colors.indexed_colors]]
+color = "0xeee8d5"
+index = 18
+
+[[colors.indexed_colors]]
+color = "0x93a1a1"
+index = 19
+
+[[colors.indexed_colors]]
+color = "0x657b83"
+index = 20
+
+[[colors.indexed_colors]]
+color = "0x073642"
+index = 21
+
+[colors.bright]
+black = "0x657b83"
+blue = "0x839496"
+cyan = "0xd33682"
+green = "0x073642"
+magenta = "0xeee8d5"
+red = "0xcb4b16"
+white = "0xfdf6e3"
+yellow = "0x586e75"
+
+[colors.cursor]
+cursor = "0x93a1a1"
+text = "0x002b36"
+
+[colors.normal]
+black = "0x002b36"
+blue = "0x268bd2"
+cyan = "0x2aa198"
+green = "0x859900"
+magenta = "0x6c71c4"
+red = "0xdc322f"
+white = "0x93a1a1"
+yellow = "0xb58900"
+
+[colors.primary]
+background = "0x002b36"
+foreground = "0x93a1a1"
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[font]
+size = 12.0
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+dynamic_title = true
+opacity = 0.95
