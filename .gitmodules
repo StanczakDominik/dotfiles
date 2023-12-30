@@ -7,3 +7,6 @@
 [submodule "polybar/toggl_polybar"]
 	path = polybar/toggl_polybar
 	url = https://github.com/mmskv/toggl_polybar
+[submodule "polybar/polybar-scripts"]
+	path = polybar/polybar-scripts
+	url = https://github.com/polybar/polybar-scripts.git
