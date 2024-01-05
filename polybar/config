@@ -111,6 +111,49 @@ enable-ipc = true
 
 ; override-redirect = true
 
+[bar/laptop]
+inherit = section/base
+
+width = 100%
+height = 24pt
+radius = 6
+
+; dpi = 96
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+border-size = 0pt
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin = 1
+
+separator = |
+separator-foreground = ${colors.disabled}
+
+font-0 = "monospace:size=9;2"
+font-1 = Font Awesome 6 Free:pixelsize=12;2
+font-2 = Noto Sans Symbols 2:pixelsize=12;2
+
+modules-left = xworkspaces xwindow
+modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan date toggl uair tray
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+; wm-restack = generic
+; wm-restack = bspwm
+; wm-restack = i3
+
+; override-redirect = true
+;
 
 [module/systray]
 type = internal/tray
@@ -206,10 +249,6 @@ interface-type = wireless
 label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 ; TODO add local ip on click
 
-[module/temperature]
-type = internal/temperature
-
-
 [module/eth]
 inherit = network-base
 interface-type = wired
@@ -242,7 +281,7 @@ format = <label>
 format-foreground =  ${colors.fg}
 format-padding = 1
 ; Add this line if you have xdg-utils
-click-left = "xdg-open https://toggl.com/app/timer" 
+click-left = "xdg-open https://toggl.com/app/timer"
 
 [module/uair]
 type = custom/script
@@ -251,10 +290,15 @@ exec = uairctl listen
 ; click-middle = uairctl finish
 tail = true
 
+[module/temperature]
+type = internal/temperature
+
+thermal-zone = 1
+
+
 [settings]
 screenchange-reload = true
 pseudo-transparency = true
 
 ; vim:ft=dosini
 ;
-
