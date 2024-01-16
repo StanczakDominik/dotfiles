@@ -3,20 +3,49 @@ format = "{state}{name}: {time} / {total}\n"
 time_format = "%H:%M:%S"
 
 [[sessions]]
-id = "work"
+id = "work1"
 name = "Work"
-duration = "30m"
+duration = "25m"
 command = "notify-send 'Work Done!'"
 
 [[sessions]]
-id = "rest"
+id = "rest1"
 name = "Rest"
 duration = "5m"
 command = "notify-send 'Rest Done!'"
 
+[[sessions]]
+id = "work2"
+name = "Work"
+duration = "25m"
+command = "notify-send 'Work Done!'"
 
 [[sessions]]
-id = "hardwork"
-name = "Work, but harder"
-duration = "1h 30m"
-command = "notify-send 'Hard Work Done!'"
+id = "rest2"
+name = "Rest"
+duration = "5m"
+command = "notify-send 'Rest Done!'"
+
+[[sessions]]
+id = "work3"
+name = "Work"
+duration = "25m"
+command = "notify-send 'Work Done!'"
+
+[[sessions]]
+id = "rest3"
+name = "Rest"
+duration = "5m"
+command = "notify-send 'Rest Done!'"
+
+[[sessions]]
+id = "work4"
+name = "Work"
+duration = "25m"
+command = "notify-send 'Work Done, time for a long rest!'"
+
+[[sessions]]
+id = "long-rest"
+name = "Long Rest"
+duration = "45m"
+command = "notify-send 'Rest Done!'"

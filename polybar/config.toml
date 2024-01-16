@@ -58,7 +58,8 @@ font-1 = Font Awesome 6 Free:pixelsize=12;2
 font-2 = Noto Sans Symbols 2:pixelsize=12;2
 
 modules-left = xworkspaces xwindow
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date toggl uair uairctl
+;modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date toggl uair
+modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date uair
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -117,7 +118,6 @@ tail = true
 click-left = ~/polybar-scripts/player-mpris-tail.py previous &
 click-right = ~/polybar-scripts/player-mpris-tail.py next &
 click-middle = ~/polybar-scripts/player-mpris-tail.py play-pause &
-
 [bar/laptop]
 inherit = section/base
 
@@ -148,7 +148,8 @@ font-1 = Font Awesome 6 Free:pixelsize=12;2
 font-2 = Noto Sans Symbols 2:pixelsize=12;2
 
 modules-left = xworkspaces xwindow
-modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan date toggl uair uairctl systray
+;modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan date toggl uair systray
+modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan date uair systray
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -292,18 +293,10 @@ click-left = "xdg-open https://toggl.com/app/timer"
 
 [module/uair]
 type = custom/script
-exec = uairctl listen
-;click-left = echo "boo\n
-;click-middle = uairctl finish
+exec = "uairctl listen"
+; click-left = "uairctl toggle"
+; click-middle = "uairctl finish"
 tail = true
-
-label-maxlen = 1000
-
-[module/uairctl]
-type = custom/script
-exec = echo 'pomo'
-click-left = uairctl toggle
-click-middle = uairctl finish
 
 [module/temperature]
 type = internal/temperature
