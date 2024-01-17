@@ -171,9 +171,6 @@ fi
 
 export WORKON_HOME=~/.envs
 source /usr/bin/virtualenvwrapper.sh
-if [ -f /opt/asdf-vm/asdf.sh ]; then
-  . /opt/asdf-vm/asdf.sh
-fi
 export TEXMF=/usr/share/texmf-dist/
 
 eval "$(fasd --init auto)"
@@ -184,3 +181,6 @@ PERL5LIB="/home/dominik/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5L
 PERL_LOCAL_LIB_ROOT="/home/dominik/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/dominik/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/dominik/perl5"; export PERL_MM_OPT;
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+  . /opt/asdf-vm/asdf.sh
+fi
