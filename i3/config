@@ -259,6 +259,7 @@ bindsym $mod+Shift+equal move scratchpad
 bindsym $mod+equal  scratchpad show
 
 bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+bindsym $mod+Ctrl+Shift+n exec i3-input -F 'move container to workspace "%s"' -P 'Move current window to workspace: '
 # exec --no-startup-id redshift-gtk
 bindsym $mod+Shift+t exec i3-msg title_format `zenity --title="i3-msg title_format" --text "Enter a title" --entry`
 

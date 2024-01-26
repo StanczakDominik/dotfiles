@@ -12,5 +12,7 @@ MONITOR=eDP-1 polybar laptop 2>&1 | tee -a /tmp/polybar1.log &
 disown
 MONITOR=eDP-1-1 polybar laptop 2>&1 | tee -a /tmp/polybar1.log &
 disown
+MONITOR=HDMI-0 polybar laptop 2>&1 | tee -a /tmp/polybar-hdmi.log &
+disown
 
 echo "Bars launched..."

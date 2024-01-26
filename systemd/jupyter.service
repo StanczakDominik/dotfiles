@@ -1,14 +1,18 @@
 # /etc/systemd/user/jupyter-notebook.service
 [Unit]
-Description=Jupyter Notebook Service
+Description=Jupyter Notebook
 After=network.target
 After=ssh-agent.service
 
 [Service]
-ExecStart=/home/users/stanczd1/.local/bin/jupyter-lab --config=%h/.jupyter/jupyter_notebook_config.py --no-browser --collaborative
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=
+ExecStart=/usr/bin/jupyter-lab --config=%h/.jupyter/jupyter_notebook_config.py --no-browser --collaborative
+WorkingDirectory=/home/dominik/Notes/Notebooks
 RemainAfterExit=no
 Restart=on-failure
 RestartSec=5s
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
